@@ -2,39 +2,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Palette: Pure slate light workspace */
-  --base: #F8FAFC;          /* Slate-50 background */
-  --base-elevated: #F1F5F9; /* Slate-100 secondary */
+  /* Palette: Warm sand retro-modern workspace */
+  --base: #FAF7F2;          /* Warm sand cream background */
+  --base-elevated: #F1EBE1; /* Warm secondary */
   --panel: #FFFFFF;         /* White cards and panels */
-  --panel-hover: #F8FAFC;
-  --panel-border: rgba(148, 163, 184, 0.18); /* Light border */
-  --accent: #4F46E5;         /* Indigo primary */
-  --accent-strong: #4338CA;
-  --accent-muted: rgba(79, 70, 229, 0.08);
+  --panel-hover: #FAF7F2;
+  --panel-border: #1C2331;   /* Crisp dark border */
+  --accent: #8B5CF6;         /* Violet primary */
+  --accent-strong: #7C3AED;
+  --accent-muted: rgba(139, 92, 246, 0.1);
   
-  --signal: #F59E0B;         /* Amber warning */
-  --signal-strong: #D97706;
-  --signal-muted: rgba(245, 158, 11, 0.08);
+  --signal: #F4A261;         /* Warm amber */
+  --signal-strong: #E76F51;
+  --signal-muted: rgba(244, 162, 97, 0.1);
   
   --success: #10B981;        /* Emerald success */
   --success-strong: #059669;
-  --success-muted: rgba(16, 185, 129, 0.08);
+  --success-muted: rgba(16, 185, 129, 0.1);
   
-  --error: #EF4444;          /* Red error */
-  --error-strong: #DC2626;
-  --error-muted: rgba(239, 68, 68, 0.08);
+  --error: #F43F5E;          /* Hot rose error */
+  --error-strong: #E11D48;
+  --error-muted: rgba(244, 63, 94, 0.1);
 
-  --ink: #0F172A;            /* Slate-900 headings */
-  --ink-muted: #475569;      /* Slate-600 body */
-  --ink-subtle: #94A3B8;     /* Slate-400 caption */
+  --ink: #1C2331;            /* Deep ink headings */
+  --ink-muted: #334155;      /* Body text */
+  --ink-subtle: #64748B;     /* Subtitle text */
   
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 2px 2px 0px #1C2331;
+  --shadow-md: 3px 3px 0px #1C2331;
+  --shadow-lg: 5px 5px 0px #1C2331;
   
   --transition-fast: 120ms ease;
   --transition-base: 200ms ease;

@@ -420,61 +420,61 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#f4f6f9] text-[#0f172a] font-sans">
+    <div className="flex h-screen w-screen overflow-hidden bg-[#faf7f2] text-[#1c2331] font-sans">
       
       {/* ─── 1. LEFTMOST VERTICAL ICON STRIP ─── */}
-      <div className="flex flex-col items-center justify-between w-14 bg-white border-r border-slate-200 py-4 shrink-0 z-30 shadow-xs">
+      <div className="flex flex-col items-center justify-between w-14 bg-white border-r-1.5 border-[#1c2331] py-4 shrink-0 z-30 shadow-[2px_0px_0px_#1c2331]">
         <div className="flex flex-col items-center gap-4 w-full">
           {/* App Logo */}
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-0.5 flex items-center justify-center shadow-sm cursor-pointer">
-            <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center text-white font-bold text-sm">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 via-coral-500 to-amber-500 p-0.5 flex items-center justify-center shadow-[2px_2px_0px_#1c2331] border border-[#1c2331] cursor-pointer">
+            <div className="w-full h-full bg-[#1c2331] rounded-[10px] flex items-center justify-center text-white font-bold text-sm">
               🌐
             </div>
           </div>
           
-          <div className="w-6 border-b border-slate-100 my-1" />
+          <div className="w-6 border-b border-slate-200 my-1" />
 
           {/* Navigation Icons matching Template */}
-          <button onClick={() => setActiveTab("agents")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "agents" ? "bg-slate-100 text-slate-900 font-bold shadow-xs" : "text-slate-400 hover:text-slate-700 hover:bg-slate-50"}`} title="Home">
+          <button onClick={() => setActiveTab("agents")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "agents" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#8b5cf6]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Home">
             <HomeIcon size={18} />
           </button>
           
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 relative" title="Notifications">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 relative" title="Notifications">
             <Bell size={18} />
-            <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500 border border-[#1c2331]" />
           </button>
 
-          <button onClick={() => setActiveTab("workspace")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "workspace" ? "bg-slate-900 text-white shadow-md" : "text-slate-400 hover:text-slate-700 hover:bg-slate-50"}`} title="Projects & Workspace">
+          <button onClick={() => setActiveTab("workspace")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "workspace" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f43f5e]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Projects & Workspace">
             <Database size={18} />
           </button>
 
-          <button onClick={() => setActiveTab("teams")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "teams" ? "bg-slate-100 text-slate-900 font-bold shadow-xs" : "text-slate-400 hover:text-slate-700 hover:bg-slate-50"}`} title="AI Teams Workflow">
+          <button onClick={() => setActiveTab("teams")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "teams" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f4a261]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="AI Teams Workflow">
             <BarChart2 size={18} />
           </button>
 
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50" title="Calendar">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Calendar">
             <Calendar size={18} />
           </button>
 
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50" title="Documents">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Documents">
             <FileText size={18} />
           </button>
 
-          <button onClick={() => setActiveTab("settings")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "settings" ? "bg-slate-100 text-slate-900 font-bold shadow-xs" : "text-slate-400 hover:text-slate-700 hover:bg-slate-50"}`} title="Settings">
+          <button onClick={() => setActiveTab("settings")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "settings" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#10b981]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Settings">
             <Settings size={18} />
           </button>
         </div>
 
-        <button className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-slate-600 flex items-center justify-center text-xs font-semibold" title="User Profile">
+        <button className="w-8 h-8 rounded-full bg-white border-1.5 border-[#1c2331] text-slate-700 flex items-center justify-center text-xs font-bold shadow-[1.5px_1.5px_0px_#1c2331]" title="User Profile">
           <User size={16} />
         </button>
       </div>
 
 
       {/* ─── 2. SECOND COLUMN: MY WORKSPACE TREE SIDEBAR ─── */}
-      <div className="flex flex-col w-60 bg-white border-r border-slate-200 py-5 shrink-0 z-20">
+      <div className="flex flex-col w-60 bg-white border-r-1.5 border-[#1c2331] py-5 shrink-0 z-20">
         <div className="px-5 mb-4">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">MY WORKSPACE</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">MY WORKSPACE</span>
         </div>
 
         <div className="flex-1 overflow-y-auto px-3 space-y-4">
@@ -487,14 +487,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Section 2: Main Workspace Tree (Matching Template) */}
+          {/* Section 2: Main Workspace Tree */}
           <div>
             <div className="flex items-center gap-2 px-2 py-1 text-xs font-bold text-slate-900 cursor-pointer">
               <span className="text-emerald-500 text-sm">🌳</span>
               <span>Main Workspace</span>
             </div>
             
-            <div className="pl-6 pt-1 space-y-0.5 border-l border-slate-200 ml-4">
+            <div className="pl-6 pt-1 space-y-0.5 border-l-1.5 border-slate-300 ml-4">
               {[
                 { name: "UX Project", icon: "💡" },
                 { name: "Landing Design", icon: "🔥" },
@@ -509,8 +509,8 @@ export default function Home() {
                   }}
                   className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-2 transition-all ${
                     activeProject === item.name
-                      ? "bg-slate-100 font-semibold text-slate-900"
-                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-800"
+                      ? "bg-[#faf7f2] font-bold text-[#1c2331] border-1.5 border-[#1c2331] shadow-[1.5px_1.5px_0px_#1c2331]"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
                   <span className="text-xs">{item.icon}</span>
@@ -537,7 +537,7 @@ export default function Home() {
 
           {/* Add New Button */}
           <div className="pt-2">
-            <button className="w-full border border-dashed border-slate-300 hover:border-slate-400 rounded-xl py-2 text-xs font-medium text-slate-600 flex items-center justify-center gap-1.5 transition-all">
+            <button className="w-full border-1.5 border-dashed border-[#1c2331] hover:bg-[#faf7f2] rounded-xl py-2 text-xs font-bold text-[#1c2331] flex items-center justify-center gap-1.5 transition-all cursor-pointer">
               <span>Add New</span>
               <Plus size={14} />
             </button>
@@ -547,29 +547,29 @@ export default function Home() {
 
 
       {/* ─── 3. MAIN DASHBOARD CONTENT AREA ─── */}
-      <div className="flex flex-col flex-1 min-w-0 relative bg-[#f4f6f9] overflow-hidden">
+      <div className="flex flex-col flex-1 min-w-0 relative bg-[#faf7f2] overflow-hidden">
         
         {/* Floating Notification Toast */}
         {alert && (
-          <div className="absolute top-4 right-6 flex items-center gap-2.5 bg-slate-900 text-white text-xs px-4 py-2.5 rounded-xl shadow-xl z-50 animate-slide-in">
-            {alert.type === "info" && <Loader2 size={15} className="animate-spin text-indigo-400" />}
+          <div className="absolute top-4 right-6 flex items-center gap-2.5 bg-[#1c2331] text-white text-xs px-4 py-2.5 rounded-xl border-1.5 border-[#1c2331] shadow-[3px_3px_0px_#f43f5e] z-50 animate-slide-in font-display font-semibold">
+            {alert.type === "info" && <Loader2 size={15} className="animate-spin text-purple-400" />}
             {alert.type === "success" && <CheckCircle size={15} className="text-emerald-400" />}
             {alert.type === "error" && <AlertCircle size={15} className="text-rose-400" />}
-            <span className="font-medium">{alert.msg}</span>
+            <span>{alert.msg}</span>
           </div>
         )}
 
-        {/* Dashboard Top Header Bar (Breadcrumbs & Actions matching Template) */}
-        <header className="flex items-center justify-between px-8 py-4 bg-white border-b border-slate-200 shrink-0">
+        {/* Dashboard Top Header Bar */}
+        <header className="flex items-center justify-between px-8 py-4 bg-white border-b-1.5 border-[#1c2331] shrink-0">
           <div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+            <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
               <span>Home</span>
               <ChevronRight size={12} />
               <span>Main Workspace</span>
               <ChevronRight size={12} />
-              <span className="text-slate-700 font-semibold">{activeTab.toUpperCase()}</span>
+              <span className="text-[#1c2331] font-bold font-mono">{activeTab.toUpperCase()}</span>
             </div>
-            <h1 className="text-xl font-bold font-display text-slate-900 mt-0.5">
+            <h1 className="text-xl font-bold font-display text-[#1c2331] mt-0.5">
               {activeTab === "agents" && "Workspace Overview"}
               {activeTab === "teams" && "AI Team Configuration"}
               {activeTab === "workspace" && (pipelineQuery || activeProject)}
@@ -578,15 +578,15 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50" title="Favorite">
+            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Favorite">
               <Star size={16} />
             </button>
-            <button className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50" title="Settings">
+            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Settings">
               <Settings size={16} />
             </button>
             <button
               onClick={handleNewProject}
-              className="bg-[#111827] hover:bg-slate-800 text-white font-semibold font-display text-xs px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-1.5"
+              className="btn-neo-primary text-xs px-4 py-2 flex items-center gap-1.5 cursor-pointer"
             >
               <span>New Project</span>
               <Plus size={14} />
@@ -594,8 +594,8 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Horizontal Navigation Cards (Matching Image 1) */}
-        <div className="px-8 py-4 bg-white border-b border-slate-200 flex items-center gap-3 shrink-0">
+        {/* Horizontal Navigation Cards */}
+        <div className="px-8 py-3.5 bg-white border-b-1.5 border-[#1c2331] flex items-center gap-3 shrink-0">
           {[
             { id: "agents", label: "My Agents", icon: "🤖" },
             { id: "teams", label: "AI Teams", icon: "🤝" },
@@ -605,10 +605,10 @@ export default function Home() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all border ${
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-display font-bold transition-all border-1.5 ${
                 activeTab === tab.id
-                  ? "bg-white border-slate-300 text-slate-900 shadow-xs"
-                  : "bg-slate-50 border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300"
+                  ? "bg-[#faf7f2] border-[#1c2331] text-[#1c2331] shadow-[2.5px_2.5px_0px_#1c2331]"
+                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-[#1c2331]"
               }`}
             >
               <span>{tab.icon}</span>
@@ -967,7 +967,7 @@ export default function Home() {
                   <button
                     onClick={triggerResearch}
                     disabled={isRunning || !queryInput.trim()}
-                    className="bg-[#111827] hover:bg-slate-800 disabled:opacity-50 text-white font-semibold font-display text-xs px-4 py-2 rounded-xl shadow-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer"
+                    className="btn-neo-primary disabled:opacity-50 text-xs px-5 py-2 flex items-center gap-1.5 shrink-0 cursor-pointer"
                   >
                     {isRunning ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
                     <span>Run</span>

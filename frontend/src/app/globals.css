@@ -1,27 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
-  --bg-app: #f4f6f9;
+  --bg-app: #faf7f2;
   --bg-card: #ffffff;
-  --border-light: #e2e8f0;
-  --border-subtle: #f1f5f9;
+  --border-dark: #1c2331;
+  --border-subtle: #e2e8f0;
   
-  --text-dark: #0f172a;
-  --text-body: #475569;
-  --text-muted: #94a3b8;
+  --text-dark: #1c2331;
+  --text-body: #334155;
+  --text-muted: #64748b;
   
-  --accent-dark: #111827;
-  --accent-purple: #6366f1;
+  --accent-coral: #ff6b5b;
   --accent-mint: #10b981;
-  --accent-amber: #f59e0b;
+  --accent-amber: #f4a261;
+  --accent-purple: #8b5cf6;
+  --accent-rose: #f43f5e;
 }
 
 @theme inline {
   --color-background: var(--bg-app);
   --color-foreground: var(--text-dark);
   --font-sans: 'Inter', 'Geist', sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
+  --font-display: 'Syne', 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -33,12 +34,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Template Soft Shadow Card */
+/* Neo-Pop Card with Offset Drop Shadow */
 .template-card {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  border: 1.5px solid #1c2331;
+  border-radius: 1.25rem;
+  box-shadow: 3px 3px 0px #1c2331;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .template-card-hover {
@@ -46,52 +48,91 @@ body {
 }
 
 .template-card-hover:hover {
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  border-color: #cbd5e1;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #1c2331;
+}
+
+/* Primary Neo Action Buttons */
+.btn-neo-primary {
+  background-color: #1c2331;
+  color: #ffffff;
+  border: 1.5px solid #1c2331;
+  border-radius: 0.875rem;
+  box-shadow: 2.5px 2.5px 0px #f43f5e;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-neo-primary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #f43f5e;
+}
+
+.btn-neo-secondary {
+  background-color: #ffffff;
+  color: #1c2331;
+  border: 1.5px solid #1c2331;
+  border-radius: 0.875rem;
+  box-shadow: 2px 2px 0px #1c2331;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-neo-secondary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0px #1c2331;
+  background-color: #faf7f2;
 }
 
 /* Custom Soft Scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #faf7f2;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
+  border: 1px solid #1c2331;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
-/* Status Badges */
+/* Status Badges & Color Themes for Agents */
 .badge-purple {
-  background-color: #eeeffe;
-  color: #4f46e5;
-  border: 1px solid #c7d2fe;
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
 .badge-mint {
-  background-color: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
 .badge-amber {
-  background-color: #fffbeb;
-  color: #d97706;
-  border: 1px solid #fde68a;
+  background-color: #ffedd5;
+  color: #9a3412;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
 .badge-rose {
-  background-color: #fff1f2;
-  color: #e11d48;
-  border: 1px solid #fecdd3;
+  background-color: #ffe4e6;
+  color: #9f1239;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
 /* Pulse animation for active agent status */
@@ -108,4 +149,5 @@ body {
 .progress-fill {
   transition: width 0.4s ease-in-out;
 }
+
 
