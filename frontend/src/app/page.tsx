@@ -438,11 +438,6 @@ export default function Home() {
           <button onClick={() => setActiveTab("agents")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "agents" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#8b5cf6]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Home">
             <HomeIcon size={18} />
           </button>
-          
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 relative" title="Notifications">
-            <Bell size={18} />
-            <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500 border border-[#1c2331]" />
-          </button>
 
           <button onClick={() => setActiveTab("workspace")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "workspace" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f43f5e]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Projects & Workspace">
             <Database size={18} />
@@ -450,14 +445,6 @@ export default function Home() {
 
           <button onClick={() => setActiveTab("teams")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "teams" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f4a261]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="AI Teams Workflow">
             <BarChart2 size={18} />
-          </button>
-
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Calendar">
-            <Calendar size={18} />
-          </button>
-
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Documents">
-            <FileText size={18} />
           </button>
 
           <button onClick={() => setActiveTab("settings")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "settings" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#10b981]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Settings">
