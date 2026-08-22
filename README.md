@@ -10,9 +10,11 @@ scores, and writes a structured markdown report with inline citations — all on
 ## ✨ Features
 
 - **4-Agent Sequential Chain** (CrewAI): Researcher → Web Searcher → Analyst → Summarizer
+- **AAS Core Skill Control Plane**: Integrated 2,005+ agentic skill catalog discovery (`tools/aas_tools.py`) and `.agents/skills` control plane
 - **Per-Agent LLM Configuration**: Each agent can use Groq, Gemini, OpenAI, or Ollama independently
 - **Citation Tracking**: Automatic source attribution with relevance scores and export
 - **Semantic Memory** (ChromaDB): Recalls prior findings to avoid redundant research
+- **Local MCP Config** (`mcp_config.json`): Declarative Model Context Protocol server configuration
 - **Live UI Updates**: Real-time timeline, activity feed, and progress indicators
 - **Structured Reports**: Executive summary, key findings, detailed sections, confidence assessment
 - **Export**: Download as Markdown or PDF
