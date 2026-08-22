@@ -1388,6 +1388,64 @@ export default function Home() {
                   </button>
                 </div>
               </div>
+
+              {/* AAS Core & Agent Skills Control Plane Card */}
+              <div className="template-card p-6 space-y-4 bg-white border-indigo-100">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="text-base font-bold font-display text-slate-900 flex items-center gap-2">
+                      <Sparkles size={18} className="text-indigo-600" />
+                      AAS Skill Control Plane & Catalog (2,005+ Skills)
+                    </h3>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Local agent-first control plane for skill discovery, stack validation, and MCP tools.
+                    </p>
+                  </div>
+                  <span className="badge-purple text-xs px-3 py-1 rounded-full font-semibold">
+                    100% Validated
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                      <span>⚡</span>
+                      <span>agentic-awesome-skills</span>
+                    </span>
+                    <p className="text-[10px] text-slate-500 leading-tight">Catalog discovery, stack validator, and local MCP server</p>
+                    <span className="text-[9px] font-mono text-emerald-600 font-bold block pt-1">Active (.agents/skills)</span>
+                  </div>
+
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                      <span>🌐</span>
+                      <span>agent-browser</span>
+                    </span>
+                    <p className="text-[10px] text-slate-500 leading-tight">CLI browser automation & accessibility tree ref navigation</p>
+                    <span className="text-[9px] font-mono text-emerald-600 font-bold block pt-1">Active (.agents/skills)</span>
+                  </div>
+
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                      <span>🧠</span>
+                      <span>ChromaDB Vector Store</span>
+                    </span>
+                    <p className="text-[10px] text-slate-500 leading-tight">Semantic research memory cache & similarity search</p>
+                    <span className="text-[9px] font-mono text-emerald-600 font-bold block pt-1">Active (memory/)</span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 bg-indigo-50/60 border border-indigo-200 rounded-xl flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle size={16} className="text-indigo-600" />
+                    <span className="font-semibold text-indigo-900">mcp_config.json declared for AAS Core & Agent Browser</span>
+                  </div>
+                  <span className="font-mono text-[10px] text-indigo-700 bg-white px-2 py-0.5 rounded border border-indigo-200">
+                    Status: Connected
+                  </span>
+                </div>
+              </div>
+
             </div>
           )}
 
