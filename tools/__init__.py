@@ -29,6 +29,13 @@ from .crew_tools import (
     make_register_claim_tool,
 )
 
+from .aas_tools import (
+    AASCatalogTool,
+    AASStackValidatorTool,
+    get_aas_catalog_tool,
+    get_aas_stack_tool,
+)
+
 __all__ = [
     "DuckDuckGoSearchTool",
     "PageFetchTool",
@@ -50,4 +57,8 @@ __all__ = [
     "make_citation_aware_search_tool",
     "make_citation_aware_fetch_tool",
     "make_register_claim_tool",
+    "AASCatalogTool",
+    "AASStackValidatorTool",
+    "get_aas_catalog_tool",
+    "get_aas_stack_tool",
 ]

@@ -20,16 +20,21 @@ from tools.crew_tools import (
 from tools.citations import CitationTracker
 
 
+from tools.aas_tools import get_aas_catalog_tool
+
+
 def _create_researcher_tools(tracker: Optional[CitationTracker] = None):
     """Create tools for the Researcher agent."""
     if tracker:
         return [
             make_citation_aware_search_tool(tracker),
             get_recall_tool(),
+            get_aas_catalog_tool(),
         ]
     return [
         get_search_tool(),
         get_recall_tool(),
+        get_aas_catalog_tool(),
     ]
 
 
