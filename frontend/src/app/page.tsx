@@ -33,7 +33,9 @@ import {
   CheckCircle,
   AlertCircle,
   Download,
-  BookOpen
+  BookOpen,
+  Sun,
+  Moon
 } from "lucide-react";
 
 // Backend API interface types
@@ -85,6 +87,26 @@ interface HistoryItem {
 }
 
 export default function Home() {
+  // Theme Dark / Light State
+  const [themeMode, setThemeMode] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("synapse_theme") as "light" | "dark";
+      if (saved) {
+        setThemeMode(saved);
+      }
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = themeMode === "light" ? "dark" : "light";
+    setThemeMode(nextTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("synapse_theme", nextTheme);
+    }
+  };
+
   // Main Top Navigation Tab State: 'agents' | 'teams' | 'workspace' | 'settings'
   const [activeTab, setActiveTab] = useState<"agents" | "teams" | "workspace" | "settings">("agents");
   
@@ -420,10 +442,10 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#faf7f2] text-[#1c2331] font-sans">
+    <div className={`flex h-screen w-screen overflow-hidden bg-[#faf7f2] text-[#1c2331] font-sans ${themeMode === "dark" ? "dark" : ""}`}>
       
       {/* ─── 1. LEFTMOST VERTICAL ICON STRIP ─── */}
-      <div className="flex flex-col items-center justify-between w-14 bg-white border-r-1.5 border-[#1c2331] py-4 shrink-0 z-30 shadow-[2px_0px_0px_#1c2331]">
+      <div className="flex flex-col items-center justify-between w-14 bg-white dark:bg-slate-900 border-r-1.5 border-[#1c2331] dark:border-slate-700 py-4 shrink-0 z-30 shadow-[2px_0px_0px_#1c2331]">
         <div className="flex flex-col items-center gap-4 w-full">
           {/* App Logo */}
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 via-coral-500 to-amber-500 p-0.5 flex items-center justify-center shadow-[2px_2px_0px_#1c2331] border border-[#1c2331] cursor-pointer">
@@ -432,47 +454,47 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="w-6 border-b border-slate-200 my-1" />
+          <div className="w-6 border-b border-slate-200 dark:border-slate-700 my-1" />
 
           {/* Navigation Icons matching Template */}
-          <button onClick={() => setActiveTab("agents")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "agents" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#8b5cf6]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Home">
+          <button onClick={() => setActiveTab("agents")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "agents" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#8b5cf6]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"}`} title="Home">
             <HomeIcon size={18} />
           </button>
           
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 relative" title="Notifications">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 relative" title="Notifications">
             <Bell size={18} />
             <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500 border border-[#1c2331]" />
           </button>
 
-          <button onClick={() => setActiveTab("workspace")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "workspace" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f43f5e]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Projects & Workspace">
+          <button onClick={() => setActiveTab("workspace")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "workspace" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f43f5e]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"}`} title="Projects & Workspace">
             <Database size={18} />
           </button>
 
-          <button onClick={() => setActiveTab("teams")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "teams" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f4a261]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="AI Teams Workflow">
+          <button onClick={() => setActiveTab("teams")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "teams" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#f4a261]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"}`} title="AI Teams Workflow">
             <BarChart2 size={18} />
           </button>
 
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Calendar">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" title="Calendar">
             <Calendar size={18} />
           </button>
 
-          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100" title="Documents">
+          <button className="w-9 h-9 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" title="Documents">
             <FileText size={18} />
           </button>
 
-          <button onClick={() => setActiveTab("settings")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "settings" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#10b981]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}`} title="Settings">
+          <button onClick={() => setActiveTab("settings")} className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${activeTab === "settings" ? "bg-[#1c2331] text-white font-bold shadow-[2px_2px_0px_#10b981]" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"}`} title="Settings">
             <Settings size={18} />
           </button>
         </div>
 
-        <button className="w-8 h-8 rounded-full bg-white border-1.5 border-[#1c2331] text-slate-700 flex items-center justify-center text-xs font-bold shadow-[1.5px_1.5px_0px_#1c2331]" title="User Profile">
+        <button className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border-1.5 border-[#1c2331] dark:border-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center text-xs font-bold shadow-[1.5px_1.5px_0px_#1c2331]" title="User Profile">
           <User size={16} />
         </button>
       </div>
 
 
       {/* ─── 2. SECOND COLUMN: MY WORKSPACE TREE SIDEBAR ─── */}
-      <div className="flex flex-col w-60 bg-white border-r-1.5 border-[#1c2331] py-5 shrink-0 z-20">
+      <div className="flex flex-col w-60 bg-white dark:bg-[#151c2c] border-r-1.5 border-[#1c2331] dark:border-slate-700 py-5 shrink-0 z-20">
         <div className="px-5 mb-4">
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">MY WORKSPACE</span>
         </div>
@@ -481,7 +503,7 @@ export default function Home() {
           
           {/* Section 1: Personal Projects */}
           <div>
-            <div className="flex items-center gap-2 px-2 py-1 text-xs font-semibold text-slate-700 cursor-pointer">
+            <div className="flex items-center gap-2 px-2 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
               <span className="text-amber-500 text-sm">🔥</span>
               <span>Personal Projects</span>
             </div>
@@ -489,12 +511,12 @@ export default function Home() {
 
           {/* Section 2: Main Workspace Tree */}
           <div>
-            <div className="flex items-center gap-2 px-2 py-1 text-xs font-bold text-slate-900 cursor-pointer">
+            <div className="flex items-center gap-2 px-2 py-1 text-xs font-bold text-slate-900 dark:text-slate-100 cursor-pointer">
               <span className="text-emerald-500 text-sm">🌳</span>
               <span>Main Workspace</span>
             </div>
             
-            <div className="pl-6 pt-1 space-y-0.5 border-l-1.5 border-slate-300 ml-4">
+            <div className="pl-6 pt-1 space-y-0.5 border-l-1.5 border-slate-300 dark:border-slate-700 ml-4">
               {[
                 { name: "UX Project", icon: "💡" },
                 { name: "Landing Design", icon: "🔥" },
@@ -509,8 +531,8 @@ export default function Home() {
                   }}
                   className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-2 transition-all ${
                     activeProject === item.name
-                      ? "bg-[#faf7f2] font-bold text-[#1c2331] border-1.5 border-[#1c2331] shadow-[1.5px_1.5px_0px_#1c2331]"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      ? "bg-[#faf7f2] dark:bg-slate-800 font-bold text-[#1c2331] dark:text-white border-1.5 border-[#1c2331] dark:border-slate-600 shadow-[1.5px_1.5px_0px_#1c2331]"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900"
                   }`}
                 >
                   <span className="text-xs">{item.icon}</span>
@@ -528,7 +550,7 @@ export default function Home() {
               { label: "AI Agents Description", icon: "🔥" },
               { label: "Product Management", icon: "💎" }
             ].map((cat, i) => (
-              <div key={i} className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50 cursor-pointer transition-all">
+              <div key={i} className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-all">
                 <span>{cat.icon}</span>
                 <span className="truncate">{cat.label}</span>
               </div>
@@ -537,7 +559,7 @@ export default function Home() {
 
           {/* Add New Button */}
           <div className="pt-2">
-            <button className="w-full border-1.5 border-dashed border-[#1c2331] hover:bg-[#faf7f2] rounded-xl py-2 text-xs font-bold text-[#1c2331] flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+            <button className="w-full border-1.5 border-dashed border-[#1c2331] dark:border-slate-600 hover:bg-[#faf7f2] dark:hover:bg-slate-800 rounded-xl py-2 text-xs font-bold text-[#1c2331] dark:text-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer">
               <span>Add New</span>
               <Plus size={14} />
             </button>
@@ -547,11 +569,11 @@ export default function Home() {
 
 
       {/* ─── 3. MAIN DASHBOARD CONTENT AREA ─── */}
-      <div className="flex flex-col flex-1 min-w-0 relative bg-[#faf7f2] overflow-hidden">
+      <div className="flex flex-col flex-1 min-w-0 relative bg-[#faf7f2] dark:bg-[#090d16] overflow-hidden">
         
         {/* Floating Notification Toast */}
         {alert && (
-          <div className="absolute top-4 right-6 flex items-center gap-2.5 bg-[#1c2331] text-white text-xs px-4 py-2.5 rounded-xl border-1.5 border-[#1c2331] shadow-[3px_3px_0px_#f43f5e] z-50 animate-slide-in font-display font-semibold">
+          <div className="absolute top-4 right-6 flex items-center gap-2.5 bg-[#1c2331] dark:bg-slate-800 text-white text-xs px-4 py-2.5 rounded-xl border-1.5 border-[#1c2331] dark:border-slate-700 shadow-[3px_3px_0px_#f43f5e] z-50 animate-slide-in font-display font-semibold">
             {alert.type === "info" && <Loader2 size={15} className="animate-spin text-purple-400" />}
             {alert.type === "success" && <CheckCircle size={15} className="text-emerald-400" />}
             {alert.type === "error" && <AlertCircle size={15} className="text-rose-400" />}
@@ -560,16 +582,16 @@ export default function Home() {
         )}
 
         {/* Dashboard Top Header Bar */}
-        <header className="flex items-center justify-between px-8 py-4 bg-white border-b-1.5 border-[#1c2331] shrink-0">
+        <header className="flex items-center justify-between px-8 py-4 bg-white dark:bg-[#151c2c] border-b-1.5 border-[#1c2331] dark:border-slate-700 shrink-0">
           <div>
             <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
               <span>Home</span>
               <ChevronRight size={12} />
               <span>Main Workspace</span>
               <ChevronRight size={12} />
-              <span className="text-[#1c2331] font-bold font-mono">{activeTab.toUpperCase()}</span>
+              <span className="text-[#1c2331] dark:text-slate-200 font-bold font-mono">{activeTab.toUpperCase()}</span>
             </div>
-            <h1 className="text-xl font-bold font-display text-[#1c2331] mt-0.5">
+            <h1 className="text-xl font-bold font-display text-[#1c2331] dark:text-white mt-0.5">
               {activeTab === "agents" && "Workspace Overview"}
               {activeTab === "teams" && "AI Team Configuration"}
               {activeTab === "workspace" && (pipelineQuery || activeProject)}
@@ -578,10 +600,18 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Favorite">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] dark:border-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-[#faf7f2] dark:hover:bg-slate-800 shadow-[1.5px_1.5px_0px_#1c2331] dark:shadow-[1.5px_1.5px_0px_#8b5cf6] cursor-pointer transition-all"
+              title={themeMode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+            >
+              {themeMode === "light" ? <Moon size={16} className="text-indigo-600" /> : <Sun size={16} className="text-amber-400" />}
+            </button>
+            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] dark:border-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-[#faf7f2] dark:hover:bg-slate-800 shadow-[1.5px_1.5px_0px_#1c2331]" title="Favorite">
               <Star size={16} />
             </button>
-            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Settings">
+            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] dark:border-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-[#faf7f2] dark:hover:bg-slate-800 shadow-[1.5px_1.5px_0px_#1c2331]" title="Settings">
               <Settings size={16} />
             </button>
             <button
@@ -595,7 +625,7 @@ export default function Home() {
         </header>
 
         {/* Horizontal Navigation Cards */}
-        <div className="px-8 py-3.5 bg-white border-b-1.5 border-[#1c2331] flex items-center gap-3 shrink-0">
+        <div className="px-8 py-3.5 bg-white dark:bg-[#151c2c] border-b-1.5 border-[#1c2331] dark:border-slate-700 flex items-center gap-3 shrink-0">
           {[
             { id: "agents", label: "My Agents", icon: "🤖" },
             { id: "teams", label: "AI Teams", icon: "🤝" },
@@ -607,8 +637,8 @@ export default function Home() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-display font-bold transition-all border-1.5 ${
                 activeTab === tab.id
-                  ? "bg-[#faf7f2] border-[#1c2331] text-[#1c2331] shadow-[2.5px_2.5px_0px_#1c2331]"
-                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-[#1c2331]"
+                  ? "bg-[#faf7f2] dark:bg-slate-800 border-[#1c2331] dark:border-slate-600 text-[#1c2331] dark:text-white shadow-[2.5px_2.5px_0px_#1c2331] dark:shadow-[2.5px_2.5px_0px_#8b5cf6]"
+                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-[#1c2331]"
               }`}
             >
               <span>{tab.icon}</span>
