@@ -599,15 +599,23 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Theme Toggle Button */}
-            <button
+          <div className="flex items-center gap-3">
+            {/* Pill Theme Switcher Toggle */}
+            <div
               onClick={toggleTheme}
-              className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] dark:border-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-[#faf7f2] dark:hover:bg-slate-800 shadow-[1.5px_1.5px_0px_#1c2331] dark:shadow-[1.5px_1.5px_0px_#8b5cf6] cursor-pointer transition-all"
-              title={themeMode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+              className="theme-switch-pill relative"
+              title="Toggle Light / Dark Mode"
             >
-              {themeMode === "light" ? <Moon size={16} className="text-indigo-600" /> : <Sun size={16} className="text-amber-400" />}
-            </button>
+              <div className={`theme-switch-option ${themeMode === "light" ? "active-light" : ""}`}>
+                <Sun size={13} className={themeMode === "light" ? "text-amber-500" : "text-slate-400"} />
+                <span>Light</span>
+              </div>
+              <div className={`theme-switch-option ${themeMode === "dark" ? "active-dark" : ""}`}>
+                <Moon size={13} className={themeMode === "dark" ? "text-purple-300" : "text-slate-400"} />
+                <span>Dark</span>
+              </div>
+            </div>
+
             <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] dark:border-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-[#faf7f2] dark:hover:bg-slate-800 shadow-[1.5px_1.5px_0px_#1c2331]" title="Favorite">
               <Star size={16} />
             </button>

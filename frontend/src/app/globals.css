@@ -4,6 +4,7 @@
 :root {
   --bg-app: #faf7f2;
   --bg-card: #ffffff;
+  --bg-subtle: #f4f0e8;
   --border-dark: #1c2331;
   --border-subtle: #e2e8f0;
   
@@ -16,6 +17,24 @@
   --accent-amber: #f4a261;
   --accent-purple: #8b5cf6;
   --accent-rose: #f43f5e;
+}
+
+.dark {
+  --bg-app: #0d1117;
+  --bg-card: #161b22;
+  --bg-subtle: #21262d;
+  --border-dark: #30363d;
+  --border-subtle: #21262d;
+  
+  --text-dark: #f0f6fc;
+  --text-body: #c9d1d9;
+  --text-muted: #8b949e;
+  
+  --accent-coral: #ff6b5b;
+  --accent-mint: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-purple: #a78bfa;
+  --accent-rose: #fb7185;
 }
 
 @theme inline {
@@ -32,14 +51,15 @@ body {
   color: var(--text-dark);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Neo-Pop Card with Offset Drop Shadow */
 .template-card {
-  background-color: #ffffff;
-  border: 1.5px solid #1c2331;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-dark);
   border-radius: 1.25rem;
-  box-shadow: 3px 3px 0px #1c2331;
+  box-shadow: 3px 3px 0px var(--border-dark);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -49,7 +69,15 @@ body {
 
 .template-card-hover:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px #1c2331;
+  box-shadow: 5px 5px 0px var(--border-dark);
+}
+
+.dark .template-card {
+  box-shadow: 3px 3px 0px #30363d;
+}
+
+.dark .template-card-hover:hover {
+  box-shadow: 5px 5px 0px #8b5cf6;
 }
 
 /* Primary Neo Action Buttons */
@@ -64,17 +92,24 @@ body {
   transition: all 0.15s ease-in-out;
 }
 
+.dark .btn-neo-primary {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border-color: #a78bfa;
+  box-shadow: 2.5px 2.5px 0px #f43f5e;
+}
+
 .btn-neo-primary:hover {
   transform: translate(-1px, -1px);
   box-shadow: 4px 4px 0px #f43f5e;
 }
 
 .btn-neo-secondary {
-  background-color: #ffffff;
-  color: #1c2331;
-  border: 1.5px solid #1c2331;
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+  border: 1.5px solid var(--border-dark);
   border-radius: 0.875rem;
-  box-shadow: 2px 2px 0px #1c2331;
+  box-shadow: 2px 2px 0px var(--border-dark);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   transition: all 0.15s ease-in-out;
@@ -82,8 +117,8 @@ body {
 
 .btn-neo-secondary:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3.5px 3.5px 0px #1c2331;
-  background-color: #faf7f2;
+  box-shadow: 3.5px 3.5px 0px var(--border-dark);
+  background-color: var(--bg-subtle);
 }
 
 /* Custom Soft Scrollbars */
@@ -93,13 +128,18 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #faf7f2;
+  background: var(--bg-app);
 }
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
-  border: 1px solid #1c2331;
+  border: 1px solid var(--border-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-color: #30363d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -135,65 +175,7 @@ body {
   box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
-/* Pulse animation for active agent status */
-@keyframes status-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.15); }
-}
-
-.animate-pulse-fast {
-  animation: status-pulse 1.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-/* Smooth Progress Bar Fill */
-.progress-fill {
-  transition: width 0.4s ease-in-out;
-}
-
-/* Dark Mode Theme Overrides */
-.dark {
-  --bg-app: #090d16;
-  --bg-card: #151c2c;
-  --border-dark: #334155;
-  --border-subtle: #1e293b;
-  
-  --text-dark: #f8fafc;
-  --text-body: #cbd5e1;
-  --text-muted: #94a3b8;
-  
-  --accent-coral: #ff6b5b;
-  --accent-mint: #34d399;
-  --accent-amber: #fbbf24;
-  --accent-purple: #a78bfa;
-  --accent-rose: #fb7185;
-}
-
-.dark body {
-  background-color: #090d16;
-  color: #f8fafc;
-}
-
-.dark .template-card {
-  background-color: #151c2c;
-  border-color: #334155;
-  box-shadow: 3px 3px 0px #334155;
-}
-
-.dark .template-card-hover:hover {
-  box-shadow: 5px 5px 0px #8b5cf6;
-}
-
-.dark .btn-neo-secondary {
-  background-color: #151c2c;
-  color: #f8fafc;
-  border-color: #334155;
-  box-shadow: 2px 2px 0px #334155;
-}
-
-.dark .btn-neo-secondary:hover {
-  background-color: #1e293b;
-}
-
+/* Dark Mode Badges */
 .dark .badge-purple {
   background-color: #2e1065;
   color: #ddd6fe;
@@ -221,5 +203,67 @@ body {
   border-color: #e11d48;
   box-shadow: 1.5px 1.5px 0px #e11d48;
 }
+
+/* Premium Pill Theme Switcher Toggle */
+.theme-switch-pill {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-subtle);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 9999px;
+  padding: 2px;
+  box-shadow: 2px 2px 0px var(--border-dark);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.theme-switch-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--border-dark);
+}
+
+.theme-switch-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-switch-option.active-light {
+  background-color: #ffffff;
+  color: #1c2331;
+  border: 1px solid #1c2331;
+  box-shadow: 1px 1px 0px #1c2331;
+}
+
+.theme-switch-option.active-dark {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: 1px solid #a78bfa;
+  box-shadow: 1px 1px 0px #f43f5e;
+}
+
+/* Pulse animation for active agent status */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.animate-pulse-fast {
+  animation: status-pulse 1.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Smooth Progress Bar Fill */
+.progress-fill {
+  transition: width 0.4s ease-in-out;
+}
+
 
 
