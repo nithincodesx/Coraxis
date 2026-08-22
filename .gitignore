@@ -1,0 +1,55 @@
+# Kimi — ignore patterns
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+streamlit_secrets.toml
+secrets.toml
+
+# ChromaDB local storage
+chroma_db/
+chromadb/
+*.chroma
+
+# Logs
+*.log
+streamlit.log
+__pycache__/
+
+# Test artifacts
+test_export.md
+test_export.pdf
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Agent & local IDE caches
+.agents/
+.claude/
+.mimocode/
+node_modules/
+.next/
