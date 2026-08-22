@@ -425,12 +425,12 @@ export default function Home() {
       {/* ─── 1. LEFTMOST VERTICAL ICON STRIP ─── */}
       <div className="flex flex-col items-center justify-between w-14 bg-white border-r-1.5 border-[#1c2331] py-4 shrink-0 z-30 shadow-[2px_0px_0px_#1c2331]">
         <div className="flex flex-col items-center gap-4 w-full">
-          {/* Goth Baddie App Logo (Circular, White Frame) */}
-          <div className="w-10 h-10 rounded-full bg-white p-0.5 flex items-center justify-center shadow-[2.5px_2.5px_0px_#1c2331] border-1.5 border-[#1c2331] cursor-pointer transition-all hover:scale-105 overflow-hidden">
+          {/* Brand Sigil App Logo (Frameless, Blends directly into page) */}
+          <div className="w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:scale-115 p-0.5">
             <img
-              src="/goth_baddie.jpg"
-              alt="Goth Baddie Avatar"
-              className="w-full h-full object-cover rounded-full"
+              src="/brand_sigil.jpg"
+              alt="Brand Sigil Logo"
+              className="w-full h-full object-contain mix-blend-multiply"
             />
           </div>
           
