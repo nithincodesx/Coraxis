@@ -235,6 +235,22 @@ def health_check():
     }
 
 
+@app.get("/api/metrics")
+def get_metrics():
+    """Get system execution metrics and pipeline statistics."""
+    session = mock_st.session_state
+    history = session.get("research_history", [])
+    total_sources = sum(item.get("report_stats", {}).get("total_sources", 0) for item in history)
+    total_claims = sum(item.get("report_stats", {}).get("total_claims", 0) for item in history)
+    return {
+        "total_runs": len(history),
+        "total_sources_analyzed": total_sources,
+        "total_claims_synthesized": total_claims,
+        "is_pipeline_active": state.is_running,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+
 @app.get("/api/config")
 def get_config():
     """Get the current model and provider configuration."""
