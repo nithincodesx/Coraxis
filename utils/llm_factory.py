@@ -1,16 +1,12 @@
 """
 LLM Factory — creates provider-specific crewai.LLM instances for each agent.
 Supports: Groq, Gemini, OpenAI, Ollama (local).
-Keys read from st.session_state.llm_config with .env fallback.
+Keys read from session_state (Streamlit or mocked) with .env fallback.
 """
 
+import sys
 import os
 from typing import Optional, Literal
-
-try:
-    import streamlit as st
-except ImportError:
-    st = None  # type: ignore
 
 from pydantic import BaseModel
 from crewai import LLM
@@ -42,9 +38,14 @@ DEFAULT_MODELS: dict[ProviderName, str] = {
 
 
 def _get_session_config() -> dict[str, AgentLLMConfig]:
-    """Get per-agent config from session state."""
-    if st and hasattr(st, "session_state"):
-        return st.session_state.get("llm_config", {})
+    """Get per-agent config dynamically from session state."""
+    st_mod = sys.modules.get("streamlit")
+    if st_mod and hasattr(st_mod, "session_state"):
+        sess = st_mod.session_state
+        if isinstance(sess, dict):
+            return sess.get("llm_config", {})
+        elif hasattr(sess, "get"):
+            return sess.get("llm_config", {})
     return {}
 
 
@@ -114,15 +115,25 @@ def create_llm(
     configs = _get_session_config()
     config = configs.get(agent_name, AgentLLMConfig())
 
-    if st and hasattr(st, "session_state"):
-        sess = st.session_state
-        if sess.get("use_global_key") or use_global_key:
-            use_global_key = True
-            if not global_key and sess.get("global_key"):
-                global_key = sess["global_key"]
-            provider = sess.get("global_provider", config.provider)
-        else:
-            provider = config.provider
+    st_mod = sys.modules.get("streamlit")
+    if st_mod and hasattr(st_mod, "session_state"):
+        sess = st_mod.session_state
+        if isinstance(sess, dict):
+            if sess.get("use_global_key") or use_global_key:
+                use_global_key = True
+                if not global_key and sess.get("global_key"):
+                    global_key = sess["global_key"]
+                provider = sess.get("global_provider", config.provider)
+            else:
+                provider = config.provider
+        elif hasattr(sess, "get"):
+            if sess.get("use_global_key") or use_global_key:
+                use_global_key = True
+                if not global_key and sess.get("global_key"):
+                    global_key = sess.get("global_key", "")
+                provider = sess.get("global_provider", config.provider)
+            else:
+                provider = config.provider
     else:
         provider = config.provider
 
