@@ -1,51 +1,19 @@
 """
-LLM Factory — creates provider-specific LLM instances for each agent.
+LLM Factory — creates provider-specific crewai.LLM instances for each agent.
 Supports: Groq, Gemini, OpenAI, Ollama (local).
 Keys read from st.session_state.llm_config with .env fallback.
 """
 
 import os
 from typing import Optional, Literal
-from functools import lru_cache
 
 try:
     import streamlit as st
 except ImportError:
     st = None  # type: ignore
 
-from langchain_core.language_models.chat_models import BaseChatModel
-from pydantic import BaseModel, Field
-
-# Provider imports (lazy to avoid hard deps)
-_GROQ_AVAILABLE = False
-_GEMINI_AVAILABLE = False
-_OPENAI_AVAILABLE = False
-_OLLAMA_AVAILABLE = False
-
-try:
-    from langchain_groq import ChatGroq
-    _GROQ_AVAILABLE = True
-except ImportError:
-    pass
-
-try:
-    from langchain_google_genai import ChatGoogleGenerativeAI
-    _GEMINI_AVAILABLE = True
-except ImportError:
-    pass
-
-try:
-    from langchain_openai import ChatOpenAI
-    _OPENAI_AVAILABLE = True
-except ImportError:
-    pass
-
-try:
-    from langchain_community.chat_models import ChatOllama
-    _OLLAMA_AVAILABLE = True
-except ImportError:
-    pass
-
+from pydantic import BaseModel
+from crewai import LLM
 
 ProviderName = Literal["groq", "gemini", "openai", "ollama"]
 
@@ -60,14 +28,13 @@ class AgentLLMConfig(BaseModel):
     max_tokens: int = 4096
 
 
-# Default models per provider (tuned for free tier & small keys)
+# Default models per provider (tuned for high stability & free tier)
 DEFAULT_MODELS: dict[ProviderName, str] = {
-    "groq": "llama-3.1-8b-instant",
+    "groq": "llama-3.3-70b-versatile",
     "gemini": "gemini-1.5-flash",
     "openai": "gpt-4o-mini",
     "ollama": "llama3.1",
 }
-
 
 
 def _get_session_config() -> dict[str, AgentLLMConfig]:
@@ -103,8 +70,21 @@ def _resolve_model(config: AgentLLMConfig) -> str:
     """Resolve model name with provider default fallback."""
     if config.model:
         return config.model
-    return DEFAULT_MODELS.get(config.provider, "llama-3.1-8b-instant")
+    return DEFAULT_MODELS.get(config.provider, "llama-3.3-70b-versatile")
 
+
+def format_model_string(provider: ProviderName, model: str) -> str:
+    """Ensure model string has proper provider prefix for crewai / litellm."""
+    model = model.strip()
+    if provider == "groq" and not model.startswith("groq/"):
+        return f"groq/{model}"
+    if provider == "gemini" and not model.startswith("gemini/"):
+        return f"gemini/{model}"
+    if provider == "openai" and not model.startswith("openai/"):
+        return f"openai/{model}"
+    if provider == "ollama" and not model.startswith("ollama/"):
+        return f"ollama/{model}"
+    return model
 
 
 def create_llm(
@@ -112,9 +92,9 @@ def create_llm(
     *,
     use_global_key: bool = False,
     global_key: str = "",
-) -> BaseChatModel:
+) -> LLM:
     """
-    Create an LLM instance for the given agent.
+    Create a crewai.LLM instance for the given agent.
 
     Args:
         agent_name: One of "researcher", "web_searcher", "analyst", "summarizer"
@@ -122,73 +102,39 @@ def create_llm(
         global_key: The global key if use_global_key is True
 
     Returns:
-        Configured BaseChatModel instance
+        Configured crewai.LLM instance
 
     Raises:
-        ValueError: If provider not available or key missing
+        ValueError: If API key missing for non-Ollama providers
     """
     configs = _get_session_config()
     config = configs.get(agent_name, AgentLLMConfig())
 
     provider = config.provider
-    model = _resolve_model(config)
+    raw_model = _resolve_model(config)
+    model = format_model_string(provider, raw_model)
     api_key = _resolve_key(config, use_global_key, global_key)
     temperature = config.temperature
     max_tokens = config.max_tokens
     base_url = config.base_url or None
 
-    if provider == "groq":
-        if not _GROQ_AVAILABLE:
-            raise ValueError("langchain-groq not installed. Run: pip install langchain-groq")
-        if not api_key:
-            raise ValueError("Groq API key required. Set in Settings or .env (GROQ_API_KEY)")
-        return ChatGroq(
-            model=model,
-            api_key=api_key,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            max_retries=2,
-            timeout=60,
-        )
-
-    if provider == "gemini":
-        if not _GEMINI_AVAILABLE:
-            raise ValueError("langchain-google-genai not installed. Run: pip install langchain-google-genai")
-        if not api_key:
-            raise ValueError("Google API key required. Set in Settings or .env (GOOGLE_API_KEY)")
-        return ChatGoogleGenerativeAI(
-            model=model,
-            google_api_key=api_key,
-            temperature=temperature,
-            max_output_tokens=max_tokens,
-            convert_system_message_to_human=True,
-        )
-
-    if provider == "openai":
-        if not _OPENAI_AVAILABLE:
-            raise ValueError("langchain-openai not installed. Run: pip install langchain-openai")
-        if not api_key:
-            raise ValueError("OpenAI API key required. Set in Settings or .env (OPENAI_API_KEY)")
-        return ChatOpenAI(
-            model=model,
-            api_key=api_key,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            timeout=60,
-            max_retries=2,
-        )
+    if provider != "ollama" and not api_key:
+        env_var_name = {"groq": "GROQ_API_KEY", "gemini": "GOOGLE_API_KEY", "openai": "OPENAI_API_KEY"}.get(provider, "")
+        raise ValueError(f"{provider.capitalize()} API key required for agent '{agent_name}'. Set in Settings or .env ({env_var_name})")
 
     if provider == "ollama":
-        if not _OLLAMA_AVAILABLE:
-            raise ValueError("langchain-community not installed. Run: pip install langchain-community")
-        return ChatOllama(
+        return LLM(
             model=model,
             base_url=base_url or "http://localhost:11434",
             temperature=temperature,
-            num_predict=max_tokens,
         )
 
-    raise ValueError(f"Unknown provider: {provider}")
+    return LLM(
+        model=model,
+        api_key=api_key,
+        temperature=temperature,
+        max_tokens=max_tokens,
+    )
 
 
 def validate_key(provider: ProviderName, api_key: str, model: str = "") -> tuple[bool, str]:
@@ -200,36 +146,22 @@ def validate_key(provider: ProviderName, api_key: str, model: str = "") -> tuple
         return False, "API key is empty"
 
     try:
-        if provider == "groq" and _GROQ_AVAILABLE:
-            llm = ChatGroq(model=model or DEFAULT_MODELS["groq"], api_key=api_key, max_tokens=10, timeout=10)
-            llm.invoke("ping")
-            return True, ""
-        elif provider == "gemini" and _GEMINI_AVAILABLE:
-            llm = ChatGoogleGenerativeAI(model=model or DEFAULT_MODELS["gemini"], google_api_key=api_key, max_output_tokens=10)
-            llm.invoke("ping")
-            return True, ""
-        elif provider == "openai" and _OPENAI_AVAILABLE:
-            llm = ChatOpenAI(model=model or DEFAULT_MODELS["openai"], api_key=api_key, max_tokens=10, timeout=10)
-            llm.invoke("ping")
-            return True, ""
-        elif provider == "ollama" and _OLLAMA_AVAILABLE:
-            llm = ChatOllama(model=model or DEFAULT_MODELS["ollama"], num_predict=10)
-            llm.invoke("ping")
-            return True, ""
-        else:
-            return False, f"Provider {provider} not available (missing package)"
+        raw_model = model or DEFAULT_MODELS.get(provider, "")
+        formatted_model = format_model_string(provider, raw_model)
+        llm = LLM(
+            model=formatted_model,
+            api_key=api_key if provider != "ollama" else None,
+            max_tokens=10,
+        )
+        llm.call(messages=[{"role": "user", "content": "ping"}])
+        return True, ""
     except Exception as e:
         return False, str(e)[:120]
 
 
 def get_available_providers() -> list[ProviderName]:
-    """Return list of providers with installed packages."""
-    providers = []
-    if _GROQ_AVAILABLE: providers.append("groq")
-    if _GEMINI_AVAILABLE: providers.append("gemini")
-    if _OPENAI_AVAILABLE: providers.append("openai")
-    if _OLLAMA_AVAILABLE: providers.append("ollama")
-    return providers
+    """Return list of supported providers."""
+    return ["groq", "gemini", "openai", "ollama"]
 
 
 def get_default_model(provider: ProviderName) -> str:
