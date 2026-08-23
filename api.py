@@ -208,6 +208,27 @@ class ResearchDTO(BaseModel):
 
 # ─── Endpoint Handlers ───
 
+@app.get("/api/health")
+def health_check():
+    """System health & readiness check endpoint."""
+    session = mock_st.session_state
+    providers_status = {}
+    from utils.llm_factory import _get_env_fallback
+    for prov in ["groq", "gemini", "openai", "ollama"]:
+        key = _get_env_fallback(prov)
+        providers_status[prov] = {
+            "available": True,
+            "has_key": bool(key or session.get("global_key") if session.get("use_global_key") else False)
+        }
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "is_running": state.is_running,
+        "providers": providers_status,
+        "history_count": len(session.get("research_history", []))
+    }
+
+
 @app.get("/api/config")
 def get_config():
     """Get the current model and provider configuration."""
