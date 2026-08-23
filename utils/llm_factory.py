@@ -31,18 +31,49 @@ def _clean_messages(messages):
             cleaned.append(msg)
     return cleaned
 
+GROQ_FALLBACK_MODELS = [
+    "groq/llama-3.1-8b-instant",
+    "groq/llama-3.3-70b-versatile",
+    "groq/mixtral-8x7b-32768",
+    "groq/gemma2-9b-it"
+]
+
 if _orig_completion:
     def _sanitized_completion(*args, **kwargs):
         if "messages" in kwargs:
             kwargs["messages"] = _clean_messages(kwargs["messages"])
-        return _orig_completion(*args, **kwargs)
+        current_model = kwargs.get("model", "")
+        try:
+            return _orig_completion(*args, **kwargs)
+        except litellm.NotFoundError as e:
+            if "groq" in str(current_model).lower() or "model_not_found" in str(e).lower():
+                for fallback in GROQ_FALLBACK_MODELS:
+                    if fallback != current_model:
+                        try:
+                            kwargs["model"] = fallback
+                            return _orig_completion(*args, **kwargs)
+                        except Exception:
+                            continue
+            raise e
     litellm.completion = _sanitized_completion
 
 if _orig_acompletion:
     async def _sanitized_acompletion(*args, **kwargs):
         if "messages" in kwargs:
             kwargs["messages"] = _clean_messages(kwargs["messages"])
-        return await _orig_acompletion(*args, **kwargs)
+        current_model = kwargs.get("model", "")
+        try:
+            return await _orig_acompletion(*args, **kwargs)
+        except litellm.NotFoundError as e:
+            if "groq" in str(current_model).lower() or "model_not_found" in str(e).lower():
+                for fallback in GROQ_FALLBACK_MODELS:
+                    if fallback != current_model:
+                        try:
+                            kwargs["model"] = fallback
+                            return await _orig_acompletion(*args, **kwargs)
+                        except Exception:
+                            continue
+            raise e
     litellm.acompletion = _sanitized_acompletion
 
 ProviderName = Literal["groq", "gemini", "openai", "ollama"]
@@ -60,7 +91,7 @@ class AgentLLMConfig(BaseModel):
 
 # Default models per provider (tuned for high stability & free tier)
 DEFAULT_MODELS: dict[ProviderName, str] = {
-    "groq": "llama-3.3-70b-versatile",
+    "groq": "llama-3.1-8b-instant",
     "gemini": "gemini-1.5-flash",
     "openai": "gpt-4o-mini",
     "ollama": "llama3.1",
