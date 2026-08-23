@@ -101,7 +101,15 @@ class ReportStats(BaseModel):
 # ─── Task Creation ───
 
 def create_tasks(factory: AgentFactory) -> list[Task]:
-    """Create the four sequential tasks bound to their agents."""
+    """
+    Create the four sequential tasks bound to their respective agents.
+    
+    Args:
+        factory: Configured AgentFactory instance.
+        
+    Returns:
+        List of 4 sequential CrewAI Tasks.
+    """
 
     # Task 1: Decompose query into sub-questions
     decompose_task = Task(
