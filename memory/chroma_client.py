@@ -140,7 +140,7 @@ class ChromaMemory:
     ) -> list[MemoryEntry]:
         """
         Semantic search for similar prior findings.
-        Returns MemoryEntry objects sorted by relevance.
+        Returns MemoryEntry objects sorted by relevance score.
         """
         collection = self.get_collection(topic)
 
