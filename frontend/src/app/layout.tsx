@@ -13,8 +13,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Main Workspace — AI Multi-Agent Research Laboratory",
-  description: "Collaborative Multi-Agent Synthesis Platform",
+  title: "Coraxis — Autonomous Multi-Agent Research Laboratory",
+  description: "Watch four specialized AI agents research topics live: search, cross-check sources, reason through findings, and generate structured cited reports.",
+  keywords: ["AI agents", "CrewAI", "Multi-Agent Research", "Groq", "Deep Research", "Coraxis"],
 };
 
 export default function RootLayout({
