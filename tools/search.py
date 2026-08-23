@@ -70,7 +70,10 @@ class DuckDuckGoSearchTool:
         return asyncio.run(self.arun(query, max_results))
 
     async def arun(self, query: str, max_results: Optional[int] = None) -> list[SearchResult]:
-        """Async search with retry logic."""
+        """Async search with query validation and retry logic."""
+        query = query.strip()
+        if not query:
+            return []
         max_r = max_results or self.max_results
         results: list[SearchResult] = []
 
