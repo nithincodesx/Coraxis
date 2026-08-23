@@ -14,6 +14,10 @@ except ImportError:
 
 from pydantic import BaseModel
 from crewai import LLM
+import litellm
+
+# Ensure litellm drops unsupported provider params (such as cache_breakpoint on Groq)
+litellm.drop_params = True
 
 ProviderName = Literal["groq", "gemini", "openai", "ollama"]
 
@@ -127,6 +131,7 @@ def create_llm(
             model=model,
             base_url=base_url or "http://localhost:11434",
             temperature=temperature,
+            drop_params=True,
         )
 
     return LLM(
@@ -134,6 +139,7 @@ def create_llm(
         api_key=api_key,
         temperature=temperature,
         max_tokens=max_tokens,
+        drop_params=True,
     )
 
 
@@ -152,6 +158,7 @@ def validate_key(provider: ProviderName, api_key: str, model: str = "") -> tuple
             model=formatted_model,
             api_key=api_key if provider != "ollama" else None,
             max_tokens=10,
+            drop_params=True,
         )
         llm.call(messages=[{"role": "user", "content": "ping"}])
         return True, ""
