@@ -62,11 +62,11 @@ def _get_env_fallback(provider: ProviderName) -> str:
 
 
 def _resolve_key(config: AgentLLMConfig, use_global: bool, global_key: str) -> str:
-    """Resolve API key: agent-specific > global > env."""
-    if config.api_key:
-        return config.api_key
+    """Resolve API key: global (if use_global) > agent-specific > env."""
     if use_global and global_key:
-        return global_key
+        return global_key.strip()
+    if config.api_key:
+        return config.api_key.strip()
     return _get_env_fallback(config.provider)
 
 
@@ -114,7 +114,18 @@ def create_llm(
     configs = _get_session_config()
     config = configs.get(agent_name, AgentLLMConfig())
 
-    provider = config.provider
+    if st and hasattr(st, "session_state"):
+        sess = st.session_state
+        if sess.get("use_global_key") or use_global_key:
+            use_global_key = True
+            if not global_key and sess.get("global_key"):
+                global_key = sess["global_key"]
+            provider = sess.get("global_provider", config.provider)
+        else:
+            provider = config.provider
+    else:
+        provider = config.provider
+
     raw_model = _resolve_model(config)
     model = format_model_string(provider, raw_model)
     api_key = _resolve_key(config, use_global_key, global_key)

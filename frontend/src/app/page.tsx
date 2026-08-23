@@ -213,7 +213,6 @@ export default function Home() {
       const data = await res.json();
       if (data.status === "success") {
         showAlert("success", "API configuration saved successfully!");
-        setGlobalKey("");
         fetchConfig();
       } else {
         showAlert("error", `Save failed: ${data.message}`);

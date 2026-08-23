@@ -259,15 +259,19 @@ def save_config(dto: ConfigDTO):
     session = mock_st.session_state
     session["use_global_key"] = dto.use_global_key
     session["global_provider"] = dto.global_provider
-    if dto.global_key:
-        session["global_key"] = dto.global_key
+    if dto.global_key and dto.global_key.strip():
+        session["global_key"] = dto.global_key.strip()
 
     for k, v in dto.agents.items():
         if k in session["llm_config"]:
-            session["llm_config"][k].provider = v.provider
-            session["llm_config"][k].model = v.model
-            if v.api_key:
-                session["llm_config"][k].api_key = v.api_key
+            if dto.use_global_key:
+                session["llm_config"][k].provider = dto.global_provider
+            else:
+                session["llm_config"][k].provider = v.provider
+            if v.model:
+                session["llm_config"][k].model = v.model
+            if v.api_key and v.api_key.strip():
+                session["llm_config"][k].api_key = v.api_key.strip()
     return {"status": "success", "message": "Configuration saved"}
 
 
