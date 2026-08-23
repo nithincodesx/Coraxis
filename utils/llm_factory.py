@@ -15,6 +15,36 @@ import litellm
 # Ensure litellm drops unsupported provider params (such as cache_breakpoint on Groq)
 litellm.drop_params = True
 
+# Patch litellm.completion & litellm.acompletion to strip unsupported keys inside message dicts (e.g. cache_breakpoint on Groq)
+_orig_completion = getattr(litellm, "completion", None)
+_orig_acompletion = getattr(litellm, "acompletion", None)
+
+def _clean_messages(messages):
+    if not isinstance(messages, list):
+        return messages
+    cleaned = []
+    for msg in messages:
+        if isinstance(msg, dict):
+            clean_msg = {k: v for k, v in msg.items() if k not in ("cache_breakpoint", "cache_control")}
+            cleaned.append(clean_msg)
+        else:
+            cleaned.append(msg)
+    return cleaned
+
+if _orig_completion:
+    def _sanitized_completion(*args, **kwargs):
+        if "messages" in kwargs:
+            kwargs["messages"] = _clean_messages(kwargs["messages"])
+        return _orig_completion(*args, **kwargs)
+    litellm.completion = _sanitized_completion
+
+if _orig_acompletion:
+    async def _sanitized_acompletion(*args, **kwargs):
+        if "messages" in kwargs:
+            kwargs["messages"] = _clean_messages(kwargs["messages"])
+        return await _orig_acompletion(*args, **kwargs)
+    litellm.acompletion = _sanitized_acompletion
+
 ProviderName = Literal["groq", "gemini", "openai", "ollama"]
 
 
