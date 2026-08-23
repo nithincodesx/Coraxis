@@ -175,6 +175,18 @@ body {
   box-shadow: 1.5px 1.5px 0px #1c2331;
 }
 
+.badge-blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+::selection {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
 /* Pulse animation for active agent status */
 @keyframes status-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
