@@ -3,11 +3,9 @@ Agent Definitions — Four CrewAI agents with distinct roles, each bound to its 
 Researcher → Web Searcher → Analyst → Summarizer (sequential chain).
 """
 
-from typing import Optional
+from typing import Optional, List, Dict, Any
 from crewai import Agent
 from pydantic import BaseModel, Field
-
-from typing import Optional
 
 from utils.llm_factory import create_llm, get_available_providers
 from tools.crew_tools import (
@@ -18,13 +16,11 @@ from tools.crew_tools import (
     make_citation_aware_fetch_tool,
 )
 from tools.citations import CitationTracker
-
-
 from tools.aas_tools import get_aas_catalog_tool
 
 
-def _create_researcher_tools(tracker: Optional[CitationTracker] = None):
-    """Create tools for the Researcher agent."""
+def _create_researcher_tools(tracker: Optional[CitationTracker] = None) -> List[Any]:
+    """Create tools for the Researcher agent with optional citation tracking."""
     if tracker:
         return [
             make_citation_aware_search_tool(tracker),
