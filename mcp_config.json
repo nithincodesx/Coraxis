@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "aas-core": {
+      "command": "node",
+      "args": ["./.agents/skills/agentic-awesome-skills/mcp-server.js"],
+      "description": "AAS Core local control plane for catalog discovery & agent stack validation"
+    },
+    "agent-browser": {
+      "command": "agent-browser",
+      "args": ["mcp-server"],
+      "description": "Browser automation CLI for AI agents"
+    }
+  }
+}
