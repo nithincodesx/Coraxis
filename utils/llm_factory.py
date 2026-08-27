@@ -9,15 +9,27 @@ import os
 from typing import Optional, Literal
 
 from pydantic import BaseModel
-from crewai import LLM
-import litellm
 
-# Ensure litellm drops unsupported provider params (such as cache_breakpoint on Groq)
-litellm.drop_params = True
+try:
+    from crewai import LLM
+except ImportError:
+    class LLM:
+        def __init__(self, model="", api_key="", temperature=0.7, max_tokens=None, **kwargs):
+            self.model = model
+            self.api_key = api_key
+            self.temperature = temperature
+            self.max_tokens = max_tokens
 
-# Patch litellm.completion & litellm.acompletion to strip unsupported keys inside message dicts (e.g. cache_breakpoint on Groq)
-_orig_completion = getattr(litellm, "completion", None)
-_orig_acompletion = getattr(litellm, "acompletion", None)
+try:
+    import litellm
+    # Ensure litellm drops unsupported provider params (such as cache_breakpoint on Groq)
+    litellm.drop_params = True
+    _orig_completion = getattr(litellm, "completion", None)
+    _orig_acompletion = getattr(litellm, "acompletion", None)
+except ImportError:
+    litellm = None
+    _orig_completion = None
+    _orig_acompletion = None
 
 def _clean_messages(messages):
     if not isinstance(messages, list):

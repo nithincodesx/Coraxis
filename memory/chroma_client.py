@@ -3,6 +3,8 @@ ChromaDB Embedded Client — semantic memory for research topics.
 Persists to ./chroma_db/ and uses sentence-transformers for embeddings.
 """
 
+from __future__ import annotations
+
 import os
 import uuid
 import time
@@ -10,8 +12,12 @@ from typing import Any, Optional
 from pathlib import Path
 from dataclasses import dataclass, asdict
 
-import chromadb
-from chromadb.utils import embedding_functions
+try:
+    import chromadb
+    from chromadb.utils import embedding_functions
+except ImportError:
+    chromadb = None
+    embedding_functions = None
 
 
 CHROMA_DIR = Path(__file__).parent.parent / "chroma_db"

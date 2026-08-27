@@ -3,9 +3,14 @@ Word Cloud Component — Topic word cloud using Altair with custom theme.
 """
 
 import streamlit as st
-import altair as alt
-import pandas as pd
-import numpy as np
+try:
+    import altair as alt
+    import pandas as pd
+    import numpy as np
+except ImportError:
+    alt = None
+    pd = None
+    np = None
 from typing import Optional, List, Dict
 from collections import Counter
 import re
@@ -24,8 +29,9 @@ def _kimi_theme():
         }
     }
 
-alt.themes.register("kimi", _kimi_theme)
-alt.themes.enable("kimi")
+if alt is not None:
+    alt.themes.register("kimi", _kimi_theme)
+    alt.themes.enable("kimi")
 
 
 STOPWORDS = {

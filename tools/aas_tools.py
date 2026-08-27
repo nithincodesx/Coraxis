@@ -9,7 +9,15 @@ import json
 import subprocess
 from typing import Optional, Type, List, Dict, Any
 from pydantic import BaseModel, Field
-from crewai.tools import BaseTool
+try:
+    from crewai.tools import BaseTool
+except ImportError:
+    class BaseTool:
+        name: str = ""
+        description: str = ""
+        args_schema: Optional[Type[BaseModel]] = None
+        def __init__(self, *args, **kwargs): pass
+        def _run(self, *args, **kwargs): return ""
 
 
 class AASCatalogSearchInput(BaseModel):

@@ -2,7 +2,10 @@
 Export Utilities — Markdown and PDF export for reports.
 """
 
-import markdown
+try:
+    import markdown
+except ImportError:
+    markdown = None
 from typing import Optional
 from tools.citations import CitationTracker
 

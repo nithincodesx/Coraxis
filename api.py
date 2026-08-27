@@ -7,6 +7,10 @@ Exposes endpoints for the Next.js frontend and implements custom mocks to captur
 import sys
 import os
 
+root_dir = os.path.dirname(os.path.abspath(__file__))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 if hasattr(sys.stderr, "reconfigure"):
@@ -21,6 +25,7 @@ from pydantic import BaseModel, Field
 
 # ─── Mock Streamlit for CrewAI & Langchain Imports ───
 mock_st = ModuleType("streamlit")
+sys.modules["streamlit"] = mock_st
 mock_st.set_page_config = lambda *args, **kwargs: None
 mock_st.markdown = lambda *args, **kwargs: None
 mock_st.sidebar = mock_st
@@ -68,8 +73,6 @@ mock_st.session_state = {
     "global_provider": "groq",
     "research_history": [],
 }
-
-sys.modules["streamlit"] = mock_st
 
 
 # ─── Mock timeline & activity feed components to capture updates ───

@@ -4,7 +4,10 @@ Styled to match the Deep Slate Command design system.
 """
 
 import streamlit as st
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 from typing import Optional
 from tools.citations import CitationTracker, CitationEntry
 

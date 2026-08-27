@@ -6,8 +6,15 @@ Updates timeline, activity feed, and progress in real-time.
 import time
 import streamlit as st
 from typing import Optional, Any
-from langchain_core.callbacks import BaseCallbackHandler
-from langchain_core.outputs import LLMResult
+
+try:
+    from langchain_core.callbacks import BaseCallbackHandler
+    from langchain_core.outputs import LLMResult
+except ImportError:
+    class BaseCallbackHandler:
+        pass
+    class LLMResult:
+        pass
 
 from components.timeline import (
     start_agent,

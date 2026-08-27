@@ -3,7 +3,10 @@ Report View Component — Report preview with inline citations and export.
 """
 
 import streamlit as st
-import markdown
+try:
+    import markdown
+except ImportError:
+    markdown = None
 import re
 from typing import Optional
 from tools.citations import CitationTracker

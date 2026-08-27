@@ -4,7 +4,13 @@ Researcher → Web Searcher → Analyst → Summarizer (sequential chain).
 """
 
 from typing import Optional, List, Dict, Any
-from crewai import Agent
+try:
+    from crewai import Agent
+except ImportError:
+    class Agent:
+        def __init__(self, *args, **kwargs):
+            self.role = kwargs.get("role", "")
+            self.goal = kwargs.get("goal", "")
 from pydantic import BaseModel, Field
 
 from utils.llm_factory import create_llm, get_available_providers

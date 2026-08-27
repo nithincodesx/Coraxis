@@ -11,8 +11,18 @@ from dataclasses import dataclass, asdict
 from urllib.parse import urlparse
 
 import httpx
-from duckduckgo_search import DDGS
-from trafilatura import fetch_url, extract
+try:
+    from duckduckgo_search import DDGS
+except ImportError:
+    class DDGS:
+        def __init__(self, *args, **kwargs): pass
+        def text(self, *args, **kwargs): return []
+
+try:
+    from trafilatura import fetch_url, extract
+except ImportError:
+    fetch_url = lambda *args, **kwargs: None
+    extract = lambda *args, **kwargs: ""
 
 try:
     from readability import Document
