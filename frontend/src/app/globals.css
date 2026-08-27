@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-app: #faf7f2;
+  --bg-card: #ffffff;
+  --bg-subtle: #f4f0e8;
+  --border-dark: #1c2331;
+  --border-subtle: #e2e8f0;
+  
+  --text-dark: #1c2331;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  
+  --accent-coral: #ff6b5b;
+  --accent-mint: #10b981;
+  --accent-amber: #f4a261;
+  --accent-purple: #8b5cf6;
+  --accent-rose: #f43f5e;
+}
+
+.dark {
+  --bg-app: #0d1117;
+  --bg-card: #161b22;
+  --bg-subtle: #21262d;
+  --border-dark: #30363d;
+  --border-subtle: #21262d;
+  
+  --text-dark: #f0f6fc;
+  --text-body: #c9d1d9;
+  --text-muted: #8b949e;
+  
+  --accent-coral: #ff6b5b;
+  --accent-mint: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-purple: #a78bfa;
+  --accent-rose: #fb7185;
+}
+
+@theme inline {
+  --color-background: var(--bg-app);
+  --color-foreground: var(--text-dark);
+  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-display: 'Syne', 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Neo-Pop Card with Offset Drop Shadow */
+.template-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 1.25rem;
+  box-shadow: 3px 3px 0px var(--border-dark);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.template-card-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.template-card-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--border-dark);
+}
+
+.dark .template-card {
+  box-shadow: 3px 3px 0px #30363d;
+}
+
+.dark .template-card-hover:hover {
+  box-shadow: 5px 5px 0px #8b5cf6;
+}
+
+/* Primary Neo Action Buttons */
+.btn-neo-primary {
+  background-color: #1c2331;
+  color: #ffffff;
+  border: 1.5px solid #1c2331;
+  border-radius: 0.875rem;
+  box-shadow: 2.5px 2.5px 0px #f43f5e;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+}
+
+.dark .btn-neo-primary {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border-color: #a78bfa;
+  box-shadow: 2.5px 2.5px 0px #f43f5e;
+}
+
+.btn-neo-primary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #f43f5e;
+}
+
+.btn-neo-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 0.875rem;
+  box-shadow: 2px 2px 0px var(--border-dark);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-neo-secondary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0px var(--border-dark);
+  background-color: var(--bg-subtle);
+}
+
+/* Custom Soft Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 1px solid var(--border-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-color: #30363d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Status Badges & Color Themes for Agents */
+.badge-purple {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+.badge-mint {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+.badge-amber {
+  background-color: #ffedd5;
+  color: #9a3412;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+.badge-rose {
+  background-color: #ffe4e6;
+  color: #9f1239;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+.badge-blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1.5px solid #1c2331;
+  box-shadow: 1.5px 1.5px 0px #1c2331;
+}
+
+::selection {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+/* Pulse animation for active agent status */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.animate-pulse-fast {
+  animation: status-pulse 1.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Smooth Progress Bar Fill */
+.progress-fill {
+  transition: width 0.4s ease-in-out;
+}
+
+
+
