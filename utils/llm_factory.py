@@ -99,28 +99,41 @@ DEFAULT_MODELS: dict[ProviderName, str] = {
 
 
 def _get_session_config() -> dict[str, AgentLLMConfig]:
-    """Get per-agent config dynamically from session state."""
-    st_mod = sys.modules.get("streamlit")
-    if st_mod and hasattr(st_mod, "session_state"):
-        sess = st_mod.session_state
-        if isinstance(sess, dict):
-            return sess.get("llm_config", {})
-        elif hasattr(sess, "get"):
-            return sess.get("llm_config", {})
-    return {}
+    """Get per-agent config from the persistent config store."""
+    try:
+        from utils import config_store
+        configs: dict[str, AgentLLMConfig] = {}
+        for name, cfg in config_store.get_config()["agents"].items():
+            configs[name] = AgentLLMConfig(**cfg)
+        for ca in config_store.list_custom_agents():
+            configs[ca["name"]] = AgentLLMConfig(
+                provider=ca.get("provider", "groq"),
+                api_key=ca.get("api_key", ""),
+                model=ca.get("model", ""),
+                base_url=ca.get("base_url", ""),
+                temperature=float(ca.get("temperature", 0.2)),
+                max_tokens=int(ca.get("max_tokens", 4096)),
+            )
+        return configs
+    except Exception:
+        return {}
 
 
 def _get_env_fallback(provider: ProviderName) -> str:
     """Get API key from environment variables."""
-    env_map = {
-        "groq": "GROQ_API_KEY",
-        "gemini": "GOOGLE_API_KEY",
-        "openai": "OPENAI_API_KEY",
-    }
-    env_var = env_map.get(provider)
-    if env_var:
-        return os.getenv(env_var, "")
-    return ""
+    try:
+        from utils import config_store
+        return config_store._get_env_fallback(provider)
+    except Exception:
+        env_map = {
+            "groq": "GROQ_API_KEY",
+            "gemini": "GOOGLE_API_KEY",
+            "openai": "OPENAI_API_KEY",
+        }
+        env_var = env_map.get(provider)
+        if env_var:
+            return os.getenv(env_var, "")
+        return ""
 
 
 def _resolve_key(config: AgentLLMConfig, use_global: bool, global_key: str) -> str:
@@ -176,25 +189,17 @@ def create_llm(
     configs = _get_session_config()
     config = configs.get(agent_name, AgentLLMConfig())
 
-    st_mod = sys.modules.get("streamlit")
-    if st_mod and hasattr(st_mod, "session_state"):
-        sess = st_mod.session_state
-        if isinstance(sess, dict):
-            if sess.get("use_global_key") or use_global_key:
-                use_global_key = True
-                if not global_key and sess.get("global_key"):
-                    global_key = sess["global_key"]
-                provider = sess.get("global_provider", config.provider)
-            else:
-                provider = config.provider
-        elif hasattr(sess, "get"):
-            if sess.get("use_global_key") or use_global_key:
-                use_global_key = True
-                if not global_key and sess.get("global_key"):
-                    global_key = sess.get("global_key", "")
-                provider = sess.get("global_provider", config.provider)
-            else:
-                provider = config.provider
+    try:
+        from utils import config_store
+        gs = config_store.get_global_settings()
+    except Exception:
+        gs = {"use_global_key": False, "global_provider": "groq", "global_key": ""}
+
+    if gs.get("use_global_key") or use_global_key:
+        use_global_key = True
+        if not global_key and gs.get("global_key"):
+            global_key = gs["global_key"]
+        provider = gs.get("global_provider", config.provider)
     else:
         provider = config.provider
 

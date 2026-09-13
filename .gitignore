@@ -25,6 +25,9 @@ chroma_db/
 chromadb/
 *.chroma
 
+# Local runtime data (config, comms bus, blackboard)
+data/
+
 # Logs
 *.log
 streamlit.log

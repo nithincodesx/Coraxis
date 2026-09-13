@@ -14,6 +14,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import time
 import threading
+import uuid
 from datetime import datetime
 from types import ModuleType
 from typing import Dict, Any, List, Optional
@@ -43,6 +44,7 @@ mock_st.error = lambda *args, **kwargs: None
 mock_st.warning = lambda *args, **kwargs: None
 mock_st.info = lambda *args, **kwargs: None
 mock_st.rerun = lambda *args, **kwargs: None
+mock_st.session_state = {}
 
 class StubContext:
     def __enter__(self): return self
@@ -54,20 +56,27 @@ mock_st.spinner = lambda *args, **kwargs: StubContext()
 mock_st.container = lambda *args, **kwargs: StubContext()
 
 # Initialize stub configurations
+from utils import config_store
 from utils.llm_factory import AgentLLMConfig
 
-mock_st.session_state = {
-    "llm_config": {
-        "researcher": AgentLLMConfig(provider="groq", api_key="", model=""),
-        "web_searcher": AgentLLMConfig(provider="groq", api_key="", model=""),
-        "analyst": AgentLLMConfig(provider="groq", api_key="", model=""),
-        "summarizer": AgentLLMConfig(provider="groq", api_key="", model=""),
-    },
-    "use_global_key": False,
-    "global_key": "",
-    "global_provider": "groq",
-    "research_history": [],
-}
+cs = config_store.get_config()
+
+def _rebuild_session():
+    """Rebuild the mock session_state dict from the persistent config store."""
+    global cs
+    cs = config_store.get_config()
+    mock_st.session_state.clear()
+    mock_st.session_state.update({
+        "llm_config": {
+            name: AgentLLMConfig(**cfg) for name, cfg in cs["agents"].items()
+        },
+        "use_global_key": cs["use_global_key"],
+        "global_key": cs["global_key"],
+        "global_provider": cs["global_provider"],
+        "research_history": mock_st.session_state.get("research_history", []),
+    })
+
+_rebuild_session()
 
 sys.modules["streamlit"] = mock_st
 
@@ -78,6 +87,7 @@ class GlobalState:
         self.is_running = False
         self.run_query = ""
         self.run_timestamp = ""
+        self.run_id = ""
         self.final_report = ""
         self.report_stats = {}
         self.citation_tracker = None
@@ -92,9 +102,16 @@ class GlobalState:
 
 state = GlobalState()
 
+
+def _current_run_id() -> str:
+    return getattr(state, "run_id", "")
+
 # Mocking modules in sys.modules before imports occur
 mock_timeline = ModuleType("components.timeline")
 mock_activity = ModuleType("components.activity_feed")
+
+# Import comms AFTER app-path is set up but before mocks are used
+from utils import comms
 
 def mock_start_agent(agent_key: str):
     state.agent_states[agent_key]["status"] = "running"
@@ -102,6 +119,7 @@ def mock_start_agent(agent_key: str):
     state.agent_states[agent_key]["start_time"] = time.time()
     state.agent_states[agent_key]["end_time"] = 0.0
     state.agent_states[agent_key]["error_msg"] = ""
+    comms.publish("agent_started", agent_key, {"agent": agent_key}, run_id=_current_run_id())
 
 def mock_update_agent_progress(agent_key: str, progress: int):
     state.agent_states[agent_key]["progress"] = max(0, min(100, progress))
@@ -111,6 +129,12 @@ def mock_complete_agent(agent_key: str, success: bool = True, error: str = ""):
     state.agent_states[agent_key]["progress"] = 100 if success else state.agent_states[agent_key]["progress"]
     state.agent_states[agent_key]["end_time"] = time.time()
     state.agent_states[agent_key]["error_msg"] = error
+    comms.publish(
+        "agent_completed" if success else "agent_failed",
+        agent_key,
+        {"agent": agent_key, "error": error},
+        run_id=_current_run_id(),
+    )
 
 class MockAgentState:
     def __init__(self, key):
@@ -162,6 +186,13 @@ def mock_add_activity(agent: str, message: str, level: str = "info"):
     })
     if len(state.activity_feed) > 100:
         state.activity_feed = state.activity_feed[-100:]
+    # Mirror activity into the comms bus so the UI feed sees pipeline events
+    comms.publish(
+        "activity",
+        agent,
+        {"message": message, "level": level},
+        run_id=_current_run_id(),
+    )
 
 mock_activity.add_activity = mock_add_activity
 mock_activity.clear_activity_feed = lambda: state.activity_feed.clear()
@@ -180,7 +211,12 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from utils.streaming import reset_streaming_handler, get_streaming_handler
 from tasks import create_crew
+from tasks import FinalReport
 from tools.citations import CitationTracker
+import asyncio
+import json as _json
+from fastapi.responses import StreamingResponse
+from teams import resolve_agent, run_team as teams_run_team
 
 app = FastAPI(title="Kimi Multi-Agent Research API")
 
@@ -204,6 +240,35 @@ class ConfigDTO(BaseModel):
     global_provider: str
     global_key: str = ""
     agents: Dict[str, AgentConfigDTO]
+
+class AgentDefDTO(BaseModel):
+    name: str
+    role: str = ""
+    goal: str = ""
+    backstory: str = ""
+    provider: str = "groq"
+    model: str = ""
+    api_key: str = ""
+    temperature: float = 0.2
+    max_tokens: int = 4096
+    base_url: str = ""
+    tools: List[str] = Field(default_factory=list)
+
+class TeamDTO(BaseModel):
+    id: Optional[int] = None
+    name: str
+    agent_names: List[str] = Field(default_factory=list)
+    coordinator: Optional[str] = None
+    coordinator_instructions: str = ""
+    workflow: List[Dict[str, Any]] = Field(default_factory=list)
+
+class TeamRunDTO(BaseModel):
+    query: str
+
+class KeyTestDTO(BaseModel):
+    provider: str
+    api_key: str = ""
+    model: str = ""
 
 class ResearchDTO(BaseModel):
     query: str
@@ -271,24 +336,32 @@ def get_config():
 
 @app.post("/api/config")
 def save_config(dto: ConfigDTO):
-    """Save the credentials and configurations."""
-    session = mock_st.session_state
-    session["use_global_key"] = dto.use_global_key
-    session["global_provider"] = dto.global_provider
-    if dto.global_key and dto.global_key.strip():
-        session["global_key"] = dto.global_key.strip()
-
+    """Save the credentials and configurations persistently."""
+    config_store.set_global_settings(dto.use_global_key, dto.global_provider, dto.global_key)
     for k, v in dto.agents.items():
-        if k in session["llm_config"]:
-            if dto.use_global_key:
-                session["llm_config"][k].provider = dto.global_provider
-            else:
-                session["llm_config"][k].provider = v.provider
-            if v.model:
-                session["llm_config"][k].model = v.model
-            if v.api_key and v.api_key.strip():
-                session["llm_config"][k].api_key = v.api_key.strip()
+        existing = config_store.get_agent_config(k)
+        if existing is None:
+            continue
+        patch = dict(existing)
+        if dto.use_global_key:
+            patch["provider"] = dto.global_provider
+        else:
+            patch["provider"] = v.provider
+        if v.model:
+            patch["model"] = v.model
+        if v.api_key and v.api_key.strip():
+            patch["api_key"] = v.api_key.strip()
+        config_store.set_agent_config(k, patch)
+    _rebuild_session()
     return {"status": "success", "message": "Configuration saved"}
+
+
+@app.post("/api/config/test")
+def test_api_key(dto: KeyTestDTO):
+    """Lightweight validation ping for an API key + model combination."""
+    from utils.llm_factory import validate_key
+    ok, err = validate_key(dto.provider, dto.api_key, dto.model)
+    return {"valid": ok, "error": err}
 
 
 @app.get("/api/history")
@@ -424,6 +497,8 @@ def _add_to_history_api(query: str, stats: dict):
 def run_research_in_background(dto: ResearchDTO):
     """Execution wrapper running CrewAI sequences in a separate worker thread."""
     try:
+        run_id = f"research-{uuid.uuid4().hex[:8]}"
+        state.run_id = run_id
         mock_reset_timeline()
         state.activity_feed.clear()
         
@@ -441,12 +516,13 @@ def run_research_in_background(dto: ResearchDTO):
         
         mock_add_activity("system", f"Research pipeline started: '{dto.query}'", "info")
         
-        # Build the Crew chain
+        # Build the Crew chain (llm_factory reads the persistent config store)
         crew = create_crew(
-            use_global_key=mock_st.session_state["use_global_key"],
-            global_key=mock_st.session_state["global_key"],
+            use_global_key=config_store.get_global_settings()["use_global_key"],
+            global_key=config_store.get_global_settings()["global_key"],
             tracker=tracker,
             callbacks=[handler],
+            run_id=run_id,
         )
         
         result = crew.kickoff(inputs={"query": dto.query})
@@ -507,6 +583,147 @@ def trigger_research(dto: ResearchDTO):
     thread.start()
     
     return {"status": "success", "message": "Research started in background"}
+
+
+# ─── Custom Agents CRUD ───
+
+@app.get("/api/agents")
+def list_agents():
+    """List built-in and custom agents with their configs."""
+    cfg = config_store.get_config()
+    agents = []
+    for name, ac in cfg["agents"].items():
+        agents.append({"name": name, "builtin": True, **ac, "api_key_set": bool(ac.get("api_key"))})
+    for ca in cfg["custom_agents"]:
+        agents.append({**ca, "builtin": False, "api_key_set": bool(ca.get("api_key"))})
+    return {"agents": agents, "tool_registry": config_store.TOOL_REGISTRY}
+
+
+@app.post("/api/agents")
+def create_agent(dto: AgentDefDTO):
+    """Create or update a custom agent."""
+    if dto.name in config_store.BUILTIN_AGENTS:
+        raise HTTPException(status_code=400, detail="Cannot use a built-in agent name")
+    config_store.set_agent_config(dto.name, dto.model_dump())
+    return {"status": "success", "agent": config_store.get_agent_config(dto.name)}
+
+
+@app.delete("/api/agents/{name}")
+def delete_agent(name: str):
+    if not config_store.delete_custom_agent(name):
+        raise HTTPException(status_code=400, detail="Agent not found or is built-in")
+    return {"status": "success"}
+
+
+# ─── Teams CRUD ───
+
+@app.get("/api/teams")
+def list_teams():
+    return {"teams": config_store.list_teams()}
+
+
+@app.post("/api/teams")
+def save_team(dto: TeamDTO):
+    team = config_store.upsert_team(dto.model_dump())
+    return {"status": "success", "team": team}
+
+
+@app.delete("/api/teams/{team_id}")
+def delete_team(team_id: int):
+    if not config_store.delete_team(team_id):
+        raise HTTPException(status_code=404, detail="Team not found")
+    return {"status": "success"}
+
+
+@app.post("/api/teams/{team_id}/run")
+def run_team(team_id: int, dto: TeamRunDTO):
+    """Run a team workflow in a background thread."""
+    if state.is_running:
+        raise HTTPException(status_code=400, detail="A pipeline is already in progress.")
+    team = config_store.get_team(team_id)
+    if not team:
+        raise HTTPException(status_code=404, detail="Team not found")
+
+    def _runner():
+        try:
+            state.run_id = f"team-{uuid.uuid4().hex[:8]}"
+            state.is_running = True
+            state.run_query = dto.query
+            state.run_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            state.final_report = ""
+            state.report_stats = {}
+            state.citation_tracker = CitationTracker()
+            mock_reset_timeline()
+            reset_streaming_handler()
+            handler = get_streaming_handler()
+            result = teams_run_team(
+                team,
+                dto.query,
+                tracker=state.citation_tracker,
+                callbacks=[handler],
+            )
+            state.final_report = result["raw_output"]
+            state.report_stats = {
+                "runtime_seconds": result["runtime_seconds"],
+                "agents_used": result["agents_used"],
+            }
+            _add_to_history_api(dto.query, state.report_stats)
+            mock_add_activity("system", f"Team '{team.get('name')}' workflow complete", "success")
+        except Exception as e:
+            mock_add_activity("system", f"Team run failed: {e}", "error")
+        finally:
+            state.is_running = False
+
+    thread = threading.Thread(target=_runner, daemon=True)
+    thread.start()
+    return {"status": "success", "message": "Team run started"}
+
+
+# ─── Agent Communication (event bus / blackboard) ───
+
+@app.get("/api/comms/log")
+def comms_log(run_id: str = "", limit: int = 100):
+    """Recent inter-agent messages."""
+    return {"messages": comms.get_message_log(run_id=run_id, limit=limit)}
+
+
+@app.get("/api/comms/events")
+def comms_events(limit: int = 100, since_ts: float = 0.0, run_id: str = ""):
+    """Recent bus events (polling fallback for SSE)."""
+    return {"events": comms.get_events(limit=limit, since_ts=since_ts, run_id=run_id)}
+
+
+@app.get("/api/comms/stream")
+async def comms_stream():
+    """Server-Sent Events stream of the agent communication bus."""
+    queue: asyncio.Queue = asyncio.Queue(maxsize=500)
+
+    def _on_event(event):
+        try:
+            queue.put_nowait(event)
+        except asyncio.QueueFull:
+            pass
+
+    comms.subscribe(_on_event)
+
+    async def _gen():
+        try:
+            yield f"data: {_json.dumps({'type': 'connected'})}\n\n"
+            while True:
+                try:
+                    event = await asyncio.wait_for(queue.get(), timeout=15.0)
+                    yield f"data: {_json.dumps(event, ensure_ascii=False)}\n\n"
+                except asyncio.TimeoutError:
+                    yield ": keepalive\n\n"
+        finally:
+            comms.unsubscribe(_on_event)
+
+    return StreamingResponse(_gen(), media_type="text/event-stream")
+
+
+@app.get("/api/comms/blackboard")
+def blackboard(prefix: str = "", run_id: str = ""):
+    return {"entries": comms.bb_list(prefix=prefix, run_id=run_id)}
 
 
 if __name__ == "__main__":

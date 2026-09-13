@@ -17,7 +17,6 @@ import {
   Search,
   Zap,
   Check,
-  MoreHorizontal,
   Send,
   Paperclip,
   Maximize2,
@@ -35,6 +34,7 @@ import {
   Download,
   BookOpen
 } from "lucide-react";
+import HeroLanding from "./hero";
 
 // Backend API interface types
 interface AgentState {
@@ -84,15 +84,54 @@ interface HistoryItem {
   stats: Record<string, any>;
 }
 
+interface AgentDef {
+  name: string;
+  builtin: boolean;
+  role?: string;
+  goal?: string;
+  backstory?: string;
+  provider: string;
+  model: string;
+  api_key_set?: boolean;
+  temperature?: number;
+  max_tokens?: number;
+  base_url?: string;
+  tools?: string[];
+}
+
+interface WorkflowStep {
+  description: string;
+  agent_name?: string;
+}
+
+interface TeamDef {
+  id?: number;
+  name: string;
+  agent_names: string[];
+  coordinator?: string | null;
+  coordinator_instructions: string;
+  workflow: WorkflowStep[];
+}
+
+interface ToolDef {
+  id: string;
+  label: string;
+  needs_tracker: boolean;
+}
+
+interface CommsMessage {
+  from_agent: string;
+  to_agent: string;
+  payload: { message: string };
+  time_str: string;
+  run_id: string;
+}
+
 export default function Home() {
   // Main Top Navigation Tab State: 'agents' | 'teams' | 'workspace' | 'settings'
   const [activeTab, setActiveTab] = useState<"agents" | "teams" | "workspace" | "settings">("agents");
-  
-  // Selected Sidebar Project State
-  const [activeProject, setActiveProject] = useState("Landing Design");
 
   // Middle Form State for AI Teams Tab
-  const [middleFormTab, setMiddleFormTab] = useState<"basic" | "tools" | "schedules" | "advanced">("basic");
   const [selectedModel, setSelectedModel] = useState("Groq (Llama 3.3 70B)");
   const [teamTaskPrompt, setTeamTaskPrompt] = useState(
     "Your task is to conduct multi-agent research from scratch, crawl web resources, extract claims, calculate confidence scores, and synthesize a structured markdown publication."
@@ -139,12 +178,45 @@ export default function Home() {
   const [alert, setAlert] = useState<{ type: "success" | "error" | "info"; msg: string } | null>(null);
   const [isConfigSaving, setIsConfigSaving] = useState(false);
 
+  // Custom Agents & Teams State
+  const [allAgents, setAllAgents] = useState<AgentDef[]>([]);
+  const [toolRegistry, setToolRegistry] = useState<ToolDef[]>([]);
+  const [teams, setTeams] = useState<TeamDef[]>([]);
+  const [selectedTeamId, setSelectedTeamId] = useState<number | null>(null);
+  const [teamName, setTeamName] = useState("");
+  const [teamAgents, setTeamAgents] = useState<string[]>(["researcher", "web_searcher", "analyst", "summarizer"]);
+  const [coordinator, setCoordinator] = useState<string>("");
+  const [coordinatorInstructions, setCoordinatorInstructions] = useState(
+    "The coordinator must regulate the sequence and clarity of work execution based on the list of necessary tasks. Main points must be approved only with consent."
+  );
+  const [teamWorkflow, setTeamWorkflow] = useState<WorkflowStep[]>([]);
+  const [showAgentModal, setShowAgentModal] = useState(false);
+  const [editingAgent, setEditingAgent] = useState<AgentDef | null>(null);
+  const [commsMessages, setCommsMessages] = useState<CommsMessage[]>([]);
+  const [testingKeyFor, setTestingKeyFor] = useState<string>("");
+  const [showHero, setShowHero] = useState(true);
+
   const API_URL = ""; // Relative proxy path
+
+  const selectedTeam = teams.find((t) => t.id === selectedTeamId) || null;
+
+  // Default workflow steps for a new team
+  useEffect(() => {
+    setTeamWorkflow([
+      { description: "Define the research topic, target sources, and key claims.", agent_name: "researcher" },
+      { description: "Execute web search queries across DuckDuckGo.", agent_name: "web_searcher" },
+      { description: "Extract raw page text and filter snippets for relevance.", agent_name: "web_searcher" },
+      { description: "Calculate confidence scores (0-100%) and validate evidence.", agent_name: "analyst" },
+      { description: "Synthesize findings into executive markdown report.", agent_name: "summarizer" }
+    ]);
+  }, []);
 
   // Initial load
   useEffect(() => {
     fetchConfig();
     fetchHistory();
+    fetchAgents();
+    fetchTeams();
     pollStatus();
   }, []);
 
@@ -198,7 +270,7 @@ export default function Home() {
         agents: Object.keys(agentsConfig).reduce((acc: any, key) => {
           acc[key] = {
             provider: agentsConfig[key].provider,
-            model: agentsConfig[key].model,
+            model: agentsConfig[key].model || (document.getElementById(`model-${key}`) as HTMLInputElement)?.value || "",
             api_key: (document.getElementById(`api-key-${key}`) as HTMLInputElement)?.value || ""
           };
           return acc;
@@ -314,6 +386,203 @@ export default function Home() {
     }
   };
 
+  // ─── Custom Agents & Teams API ───
+
+  const fetchAgents = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/agents`);
+      if (!res.ok) return;
+      const data = await res.json();
+      setAllAgents(data.agents || []);
+      setToolRegistry(data.tool_registry || []);
+    } catch (e) {
+      console.error("Agents fetch error", e);
+    }
+  };
+
+  const fetchTeams = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/teams`);
+      if (!res.ok) return;
+      const data = await res.json();
+      setTeams(data.teams || []);
+    } catch (e) {
+      console.error("Teams fetch error", e);
+    }
+  };
+
+  const saveTeam = async () => {
+    if (!teamName.trim()) {
+      showAlert("error", "Give your team a name first.");
+      return;
+    }
+    if (teamAgents.length === 0) {
+      showAlert("error", "Add at least one agent to the team.");
+      return;
+    }
+    try {
+      const res = await fetch(`${API_URL}/api/teams`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: selectedTeam?.id,
+          name: teamName,
+          agent_names: teamAgents,
+          coordinator: coordinator || null,
+          coordinator_instructions: coordinatorInstructions,
+          workflow: teamWorkflow
+        })
+      });
+      const data = await res.json();
+      if (data.status === "success") {
+        showAlert("success", `Team "${teamName}" saved!`);
+        setSelectedTeamId(data.team.id);
+        fetchTeams();
+      } else {
+        showAlert("error", data.detail || "Failed to save team");
+      }
+    } catch (e) {
+      showAlert("error", "Could not reach the backend to save the team.");
+    }
+  };
+
+  const deleteTeamById = async (id: number) => {
+    try {
+      await fetch(`${API_URL}/api/teams/${id}`, { method: "DELETE" });
+      if (selectedTeamId === id) {
+        setSelectedTeamId(null);
+        setTeamName("");
+      }
+      fetchTeams();
+      showAlert("success", "Team deleted.");
+    } catch (e) {
+      showAlert("error", "Failed to delete team.");
+    }
+  };
+
+  const loadTeamIntoEditor = (team: TeamDef) => {
+    setSelectedTeamId(team.id || null);
+    setTeamName(team.name);
+    setTeamAgents(team.agent_names);
+    setCoordinator(team.coordinator || "");
+    setCoordinatorInstructions(team.coordinator_instructions || "");
+    setTeamWorkflow(team.workflow.length > 0 ? team.workflow : teamWorkflow);
+  };
+
+  const runTeamWorkflow = async () => {
+    if (!selectedTeam?.id) {
+      showAlert("error", "Save the team first, then run it.");
+      return;
+    }
+    if (!teamTaskPrompt.trim()) {
+      showAlert("error", "Describe what the team should do first.");
+      return;
+    }
+    try {
+      const res = await fetch(`${API_URL}/api/teams/${selectedTeam.id}/run`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: teamTaskPrompt })
+      });
+      const data = await res.json();
+      if (data.status === "success") {
+        setIsRunning(true);
+        setCommsMessages([]);
+        setActiveTab("workspace");
+        showAlert("info", `Team "${selectedTeam.name}" workflow started!`);
+        fetchHistory();
+      } else {
+        showAlert("error", data.detail || "Failed to start team run");
+      }
+    } catch (e) {
+      showAlert("error", "Ensure backend server is running on port 8000.");
+    }
+  };
+
+  const deleteAgentByName = async (name: string) => {
+    try {
+      const res = await fetch(`${API_URL}/api/agents/${name}`, { method: "DELETE" });
+      const data = await res.json();
+      if (data.status === "success") {
+        showAlert("success", `Agent "${name}" deleted.`);
+        fetchAgents();
+      } else {
+        showAlert("error", data.detail || "Failed to delete agent");
+      }
+    } catch (e) {
+      showAlert("error", "Failed to delete agent.");
+    }
+  };
+
+  const saveAgentDef = async (agent: AgentDef) => {
+    try {
+      const res = await fetch(`${API_URL}/api/agents`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(agent)
+      });
+      const data = await res.json();
+      if (data.status === "success") {
+        showAlert("success", `Agent "${agent.name}" saved!`);
+        setShowAgentModal(false);
+        setEditingAgent(null);
+        fetchAgents();
+      } else {
+        showAlert("error", data.detail || "Failed to save agent");
+      }
+    } catch (e) {
+      showAlert("error", "Could not reach the backend to save the agent.");
+    }
+  };
+
+  const testAgentKey = async (agentName: string, provider: string, model: string) => {
+    const key = (document.getElementById(`api-key-${agentName}`) as HTMLInputElement)?.value || "";
+    setTestingKeyFor(agentName);
+    try {
+      const res = await fetch(`${API_URL}/api/config/test`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ provider, api_key: key, model })
+      });
+      const data = await res.json();
+      if (data.valid) {
+        showAlert("success", `${agentName}: key works!`);
+      } else {
+        showAlert("error", `${agentName}: ${data.error || "key invalid"}`);
+      }
+    } catch (e) {
+      showAlert("error", "Key test failed — backend unreachable.");
+    } finally {
+      setTestingKeyFor("");
+    }
+  };
+
+  // ─── SSE: live agent communication feed ───
+  useEffect(() => {
+    const es = new EventSource(`${API_URL}/api/comms/stream`);
+    es.onmessage = (ev) => {
+      try {
+        const event = JSON.parse(ev.data);
+        if (event.type === "agent_message") {
+          setCommsMessages((prev) => [
+            ...prev.slice(-99),
+            {
+              from_agent: event.from_agent,
+              to_agent: event.to_agent,
+              payload: event.payload,
+              time_str: event.time_str,
+              run_id: event.run_id
+            }
+          ]);
+        }
+      } catch {}
+    };
+    es.onerror = () => {
+      // Browser auto-reconnects
+    };
+    return () => es.close();
+  }, []);
+
   // Helper inline style parser
   const renderInlineStyles = (text: string) => {
     const regex = /(\*\*.*?\*\*|`.*?`|\[\^\d+\])/g;
@@ -418,20 +687,35 @@ export default function Home() {
     return elements;
   };
 
+  if (showHero) {
+    return (
+      <HeroLanding
+        onEnter={(tab) => {
+          if (tab) setActiveTab(tab);
+          setShowHero(false);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-[#faf7f2] text-[#1c2331] font-sans">
       
       {/* ─── 1. LEFTMOST VERTICAL ICON STRIP ─── */}
       <div className="flex flex-col items-center justify-between w-14 bg-white border-r-1.5 border-[#1c2331] py-4 shrink-0 z-30 shadow-[2px_0px_0px_#1c2331]">
         <div className="flex flex-col items-center gap-4 w-full">
-          {/* Brand Sigil App Logo (Frameless, Blends directly into page) */}
-          <div className="w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:scale-115 p-0.5">
+          {/* Brand Sigil App Logo — click opens the hero landing */}
+          <button
+            onClick={() => setShowHero(true)}
+            className="w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:scale-115 p-0.5"
+            title="About Coraxis"
+          >
             <img
               src="/brand_sigil.jpg"
               alt="Brand Sigil Logo"
               className="w-full h-full object-contain mix-blend-multiply"
             />
-          </div>
+          </button>
           
           <div className="w-6 border-b border-slate-200 my-1" />
 
@@ -453,88 +737,17 @@ export default function Home() {
           </button>
         </div>
 
-        <button className="w-8 h-8 rounded-full bg-white border-1.5 border-[#1c2331] text-slate-700 flex items-center justify-center text-xs font-bold shadow-[1.5px_1.5px_0px_#1c2331]" title="User Profile">
+        <button
+          onClick={() => setActiveTab("settings")}
+          className="w-8 h-8 rounded-full bg-white border-1.5 border-[#1c2331] text-slate-700 flex items-center justify-center text-xs font-bold shadow-[1.5px_1.5px_0px_#1c2331]"
+          title="Settings"
+        >
           <User size={16} />
         </button>
       </div>
 
 
-      {/* ─── 2. SECOND COLUMN: MY WORKSPACE TREE SIDEBAR ─── */}
-      <div className="flex flex-col w-60 bg-white border-r-1.5 border-[#1c2331] py-5 shrink-0 z-20">
-        <div className="px-5 mb-4">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">MY WORKSPACE</span>
-        </div>
-
-        <div className="flex-1 overflow-y-auto px-3 space-y-4">
-          
-          {/* Section 1: Personal Projects */}
-          <div>
-            <div className="flex items-center gap-2 px-2 py-1 text-xs font-semibold text-slate-700 cursor-pointer">
-              <span className="text-amber-500 text-sm">🔥</span>
-              <span>Personal Projects</span>
-            </div>
-          </div>
-
-          {/* Section 2: Main Workspace Tree */}
-          <div>
-            <div className="flex items-center gap-2 px-2 py-1 text-xs font-bold text-slate-900 cursor-pointer">
-              <span className="text-emerald-500 text-sm">🌳</span>
-              <span>Main Workspace</span>
-            </div>
-            
-            <div className="pl-6 pt-1 space-y-0.5 border-l-1.5 border-slate-300 ml-4">
-              {[
-                { name: "UX Project", icon: "💡" },
-                { name: "Landing Design", icon: "🔥" },
-                { name: "SEO", icon: "📝" },
-                { name: "Brainstorm", icon: "🧠" }
-              ].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    setActiveProject(item.name);
-                    setActiveTab("workspace");
-                  }}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-2 transition-all ${
-                    activeProject === item.name
-                      ? "bg-[#faf7f2] font-bold text-[#1c2331] border-1.5 border-[#1c2331] shadow-[1.5px_1.5px_0px_#1c2331]"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                  }`}
-                >
-                  <span className="text-xs">{item.icon}</span>
-                  <span className="truncate">{item.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Section 3: Additional Workspace Categories */}
-          <div className="space-y-1 pt-1">
-            {[
-              { label: "Work Team Org", icon: "📝" },
-              { label: "Study", icon: "🧠" },
-              { label: "AI Agents Description", icon: "🔥" },
-              { label: "Product Management", icon: "💎" }
-            ].map((cat, i) => (
-              <div key={i} className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50 cursor-pointer transition-all">
-                <span>{cat.icon}</span>
-                <span className="truncate">{cat.label}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Add New Button */}
-          <div className="pt-2">
-            <button className="w-full border-1.5 border-dashed border-[#1c2331] hover:bg-[#faf7f2] rounded-xl py-2 text-xs font-bold text-[#1c2331] flex items-center justify-center gap-1.5 transition-all cursor-pointer">
-              <span>Add New</span>
-              <Plus size={14} />
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-      {/* ─── 3. MAIN DASHBOARD CONTENT AREA ─── */}
+      {/* ─── 2. MAIN DASHBOARD CONTENT AREA (sidebar removed — single-surface layout) ─── */}
       <div className="flex flex-col flex-1 min-w-0 relative bg-[#faf7f2] overflow-hidden">
         
         {/* Floating Notification Toast */}
@@ -547,63 +760,64 @@ export default function Home() {
           </div>
         )}
 
-        {/* Dashboard Top Header Bar */}
-        <header className="flex items-center justify-between px-8 py-4 bg-white border-b-1.5 border-[#1c2331] shrink-0">
-          <div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-              <span>Home</span>
-              <ChevronRight size={12} />
-              <span>Main Workspace</span>
-              <ChevronRight size={12} />
-              <span className="text-[#1c2331] font-bold font-mono">{activeTab.toUpperCase()}</span>
-            </div>
-            <h1 className="text-xl font-bold font-display text-[#1c2331] mt-0.5">
-              {activeTab === "agents" && "Workspace Overview"}
-              {activeTab === "teams" && "AI Team Configuration"}
-              {activeTab === "workspace" && (pipelineQuery || activeProject)}
-              {activeTab === "settings" && "Automations & Settings"}
-            </h1>
+        {/* Top Bar — reference-style: brand · centered pill nav · actions */}
+        <header className="flex items-center justify-between px-6 py-3 bg-white border-b-1.5 border-[#1c2331] shrink-0">
+          <div className="flex items-center gap-2.5 w-56">
+            <button
+              onClick={() => setShowHero(true)}
+              className="w-8 h-8 rounded-xl border-1.5 border-[#1c2331] bg-white flex items-center justify-center shadow-[1.5px_1.5px_0px_#1c2331] hover:scale-105 transition-all cursor-pointer"
+              title="About Coraxis"
+            >
+              <img src="/brand_sigil.jpg" alt="Coraxis" className="w-5 h-5 object-contain mix-blend-multiply" />
+            </button>
+            <span className="font-display font-bold text-sm tracking-[0.14em] text-[#1c2331]">CORAXIS</span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Favorite">
-              <Star size={16} />
-            </button>
-            <button className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]" title="Settings">
-              <Settings size={16} />
+          {/* Centered pill navigation */}
+          <nav className="flex items-center gap-0.5 bg-[#f4f0e8] border-1.5 border-[#1c2331] rounded-full px-1.5 py-1 shadow-[2px_2px_0px_#1c2331]">
+            {[
+              { id: "agents", label: "Overview" },
+              { id: "workspace", label: "Research" },
+              { id: "teams", label: "AI Teams" },
+              { id: "settings", label: "Settings" }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`px-4 py-1.5 rounded-full text-xs font-display font-bold transition-all ${
+                  activeTab === tab.id
+                    ? "bg-[#1c2331] text-white shadow-[1.5px_1.5px_0px_#8b5cf6]"
+                    : "text-slate-600 hover:text-[#1c2331]"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 justify-end w-56">
+            {isRunning && (
+              <span className="badge-purple text-[10px] px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-ping" />
+                Running
+              </span>
+            )}
+            <button
+              onClick={() => setActiveTab("settings")}
+              className="w-8 h-8 rounded-lg border-1.5 border-[#1c2331] flex items-center justify-center text-slate-700 hover:bg-[#faf7f2] shadow-[1.5px_1.5px_0px_#1c2331]"
+              title="Settings"
+            >
+              <Settings size={15} />
             </button>
             <button
               onClick={handleNewProject}
               className="btn-neo-primary text-xs px-4 py-2 flex items-center gap-1.5 cursor-pointer"
             >
-              <span>New Project</span>
-              <Plus size={14} />
+              <span>New Run</span>
+              <Plus size={13} />
             </button>
           </div>
         </header>
-
-        {/* Horizontal Navigation Cards */}
-        <div className="px-8 py-3.5 bg-white border-b-1.5 border-[#1c2331] flex items-center gap-3 shrink-0">
-          {[
-            { id: "agents", label: "My Agents", icon: "🤖" },
-            { id: "teams", label: "AI Teams", icon: "🤝" },
-            { id: "workspace", label: "Automations & Research", icon: "📝" },
-            { id: "settings", label: "Import & Settings", icon: "🔥" }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-display font-bold transition-all border-1.5 ${
-                activeTab === tab.id
-                  ? "bg-[#faf7f2] border-[#1c2331] text-[#1c2331] shadow-[2.5px_2.5px_0px_#1c2331]"
-                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-[#1c2331]"
-              }`}
-            >
-              <span>{tab.icon}</span>
-              <span>{tab.label}</span>
-            </button>
-          ))}
-        </div>
 
 
         {/* ─── TAB ROUTING CONTENT ─── */}
@@ -613,100 +827,108 @@ export default function Home() {
           {/* TAB 1: MY AGENTS & PROJECTS OVERVIEW (IMAGE 1) */}
           {/* ════════════════════════════════════════════════════════════ */}
           {activeTab === "agents" && (
-            <div className="max-w-6xl mx-auto space-y-6 animate-fade-in">
-              
-              {/* Projects List Card Table (Matching Image 1) */}
+            <div className="max-w-6xl mx-auto space-y-6 animate-fade-in">              {/* Recent Research Runs (real data) */}
               <div>
-                <span className="text-xs font-bold text-slate-700 block mb-3 font-display">Projects</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-slate-700 block font-display">Recent Research Runs</span>
+                  <button onClick={handleNewProject} className="text-[10px] font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                    <Plus size={12} /> New Run
+                  </button>
+                </div>
                 <div className="space-y-2.5">
-                  {[
-                    { name: "UX Project", icon: "💡", date: "12.12.2023", badges: [{ text: "Personal", type: "purple" }, { text: "Work", type: "purple" }] },
-                    { name: "Landing Design", icon: "🔥", date: "05.08.2023", badges: [{ text: "Urgent", type: "mint" }] },
-                    { name: "SEO", icon: "📝", date: "14.09.2023", badges: [{ text: "Urgent", type: "mint" }] },
-                    { name: "Brainstorm", icon: "🧠", date: "12.12.2023", badges: [{ text: "Personal", type: "purple" }, { text: "Work", type: "purple" }] }
-                  ].map((proj, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => {
-                        setActiveProject(proj.name);
-                        setActiveTab("workspace");
-                      }}
-                      className="template-card p-4 flex items-center justify-between hover:border-slate-300 transition-all cursor-pointer bg-white"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className="text-base">{proj.icon}</span>
-                        <span className="text-sm font-semibold text-slate-800 font-display">{proj.name}</span>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-slate-400 font-mono flex items-center gap-1">
-                          📅 {proj.date}
-                        </span>
-                        
-                        {proj.badges.map((b, i) => (
-                          <span
-                            key={i}
-                            className={`text-[10px] font-medium px-2.5 py-0.5 rounded-full ${
-                              b.type === "purple" ? "badge-purple" : "badge-mint"
-                            }`}
-                          >
-                            {b.text}
-                          </span>
-                        ))}
-
-                        <button className="text-slate-400 hover:text-slate-600 p-1">
-                          <MoreHorizontal size={16} />
-                        </button>
-                      </div>
+                  {history.length === 0 ? (
+                    <div className="template-card p-6 text-center bg-white">
+                      <span className="text-2xl block mb-1">🔬</span>
+                      <p className="text-xs font-semibold text-slate-800">No research runs yet</p>
+                      <p className="text-[11px] text-slate-500 mt-1">
+                        Start your first multi-agent research from the workspace input bar, or run a saved team from the AI Teams tab.
+                      </p>
+                      <button onClick={handleNewProject} className="btn-neo-primary text-xs px-4 py-2 mt-3 inline-flex items-center gap-1.5 cursor-pointer">
+                        <span>Start a Run</span>
+                        <ChevronRight size={13} />
+                      </button>
                     </div>
-                  ))}
+                  ) : (
+                    history.slice().reverse().map((run, revIdx) => {
+                      const realIdx = history.length - 1 - revIdx;
+                      const stats = run.stats || {};
+                      return (
+                        <div
+                          key={realIdx}
+                          onClick={() => selectHistoryProject(realIdx)}
+                          className="template-card p-4 flex items-center justify-between hover:border-slate-300 transition-all cursor-pointer bg-white"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <span className="text-base">🔬</span>
+                            <div className="min-w-0">
+                              <span className="text-sm font-semibold text-slate-800 font-display truncate block">{run.query}</span>
+                              <span className="text-[10px] text-slate-400 font-mono">{run.timestamp}</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-3 shrink-0">
+                            {stats.total_sources != null && (
+                              <span className="text-[10px] font-medium px-2.5 py-0.5 rounded-full badge-purple">{stats.total_sources} sources</span>
+                            )}
+                            {stats.total_claims != null && (
+                              <span className="text-[10px] font-medium px-2.5 py-0.5 rounded-full badge-mint">{stats.total_claims} claims</span>
+                            )}
+                            <ChevronRight size={16} className="text-slate-400" />
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
                 </div>
               </div>
 
-              {/* Bottom Promo Cards (Matching Image 1) */}
+              {/* Bottom Quick-Action Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                 
-                {/* Banner 1: Combine AI Agents in Team */}
-                <div className="template-card p-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-white relative overflow-hidden flex flex-col justify-between h-[210px]">
+                {/* Banner 1: Build an AI Team (wired to Teams tab) */}
+                <button
+                  onClick={() => setActiveTab("teams")}
+                  className="template-card p-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-white relative overflow-hidden flex flex-col justify-between h-[210px] text-left cursor-pointer hover:border-emerald-300 transition-all"
+                >
                   <div className="z-10">
                     <div className="flex gap-2 mb-3">
                       <span className="text-[10px] font-semibold bg-white border border-slate-200 px-2.5 py-0.5 rounded-full text-slate-600 shadow-xs">
-                        AI Team ⚡
+                        {teams.length} team{teams.length === 1 ? "" : "s"} saved
                       </span>
                       <span className="text-[10px] font-semibold bg-white border border-slate-200 px-2.5 py-0.5 rounded-full text-slate-600 shadow-xs">
-                        AI Agent 🤖
+                        {allAgents.length} agents
                       </span>
                     </div>
                     <h3 className="text-xl font-bold font-display text-slate-900 max-w-xs">
-                      Combine AI Agents in Team
+                      Combine AI Agents in a Team
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1">Get Full Team in a Couple Clicks</p>
+                    <p className="text-xs text-slate-500 mt-1">Build crews, arrange workflows, run them live →</p>
                   </div>
                   
                   {/* Decorative mesh vector background */}
                   <div className="absolute right-[-20px] bottom-[-20px] w-48 h-48 opacity-25 pointer-events-none">
                     <div className="w-full h-full rounded-full border-4 border-emerald-400/40 animate-spin" style={{ animationDuration: "20s" }} />
                   </div>
-                </div>
+                </button>
 
-                {/* Banner 2: Create New Project with AI */}
+                {/* Banner 2: Quick Research (wired to workspace) */}
                 <div className="template-card p-6 bg-[#eeeffe] border-indigo-100 flex items-center justify-between h-[210px]">
                   <div className="flex gap-5 items-center">
                     <div className="w-24 h-24 rounded-2xl bg-slate-900 flex items-center justify-center text-4xl shadow-md shrink-0">
-                      🤖
+                      🔬
                     </div>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold font-display text-slate-900">
-                        Create New Project with AI
+                        Start a Research Run
                       </h3>
                       <p className="text-xs text-slate-600 max-w-xs leading-relaxed">
-                        Use ready-made templates to create new projects. Configured agents for tasks are already trained.
+                        Four agents decompose your question, crawl the web, score confidence, and return a cited markdown report.
                       </p>
                       <button
                         onClick={handleNewProject}
                         className="bg-[#111827] hover:bg-slate-800 text-white font-semibold font-display text-xs px-4 py-2 rounded-lg shadow-xs transition-all mt-2"
                       >
-                        New Project
+                        New Run
                       </button>
                     </div>
                   </div>
@@ -741,30 +963,92 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Agents List */}
+                {/* Team Selector */}
+                <div className="template-card p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-bold font-display text-slate-800">AI Teams</span>
+                    <span className="text-[10px] font-mono text-slate-400">{teams.length} saved</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    {teams.length === 0 ? (
+                      <p className="text-[11px] text-slate-400 italic">No teams yet — build one below.</p>
+                    ) : (
+                      teams.map((team) => (
+                        <div key={team.id} className={`flex items-center justify-between p-2 rounded-xl border text-xs transition-all ${selectedTeamId === team.id ? "bg-indigo-50 border-indigo-300" : "bg-slate-50 border-slate-200/60 hover:bg-white"}`}>
+                          <button onClick={() => loadTeamIntoEditor(team)} className="flex items-center gap-2 flex-1 text-left">
+                            <span>🤝</span>
+                            <span className="font-semibold text-slate-800 truncate">{team.name}</span>
+                            <span className="text-[9px] text-slate-400 font-mono">({team.agent_names.length})</span>
+                          </button>
+                          <button onClick={() => deleteTeamById(team.id!)} className="text-slate-400 hover:text-rose-500 px-1" title="Delete team">
+                            🗑
+                          </button>
+                        </div>
+                      ))
+                    )}
+                    <button
+                      onClick={() => {
+                        setSelectedTeamId(null);
+                        setTeamName("");
+                        setCoordinator("");
+                        showAlert("info", "New team — configure and save.");
+                      }}
+                      className="w-full border border-dashed border-slate-300 rounded-xl py-2 text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center justify-center gap-1 mt-2"
+                    >
+                      <span>New Team</span>
+                      <Plus size={14} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Agents List (live from backend) */}
                 <div className="template-card p-4">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-bold font-display text-slate-800">Agents</span>
-                    <Settings size={14} className="text-slate-400 cursor-pointer" />
+                    <span className="text-[10px] font-mono text-slate-400">{allAgents.length} total</span>
                   </div>
                   <div className="space-y-1.5">
-                    {[
-                      { name: "Senior Researcher", icon: "🔬", color: "badge-purple" },
-                      { name: "Search Specialist", icon: "🔍", color: "badge-mint" },
-                      { name: "Synthesis Analyst", icon: "📊", color: "badge-amber" },
-                      { name: "Lead Report Writer", icon: "📝", color: "badge-purple" },
-                      { name: "Brand Strategist", icon: "🌲", color: "badge-mint" }
-                    ].map((agent, i) => (
-                      <div key={i} className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200/60 hover:bg-white transition-all text-xs">
-                        <div className="flex items-center gap-2">
-                          <span>{agent.icon}</span>
-                          <span className="font-semibold text-slate-800">{agent.name}</span>
+                    {allAgents.map((agent) => (
+                      <div key={agent.name} className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200/60 hover:bg-white transition-all text-xs">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <input
+                            type="checkbox"
+                            checked={teamAgents.includes(agent.name)}
+                            onChange={(e) => {
+                              if (e.target.checked) setTeamAgents([...teamAgents, agent.name]);
+                              else setTeamAgents(teamAgents.filter((n) => n !== agent.name));
+                            }}
+                            className="w-3.5 h-3.5 rounded text-indigo-600"
+                          />
+                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${agent.builtin ? "bg-emerald-500" : "bg-purple-500"}`} title={agent.builtin ? "Built-in" : "Custom"} />
+                          <span className="font-semibold text-slate-800 truncate">{agent.name}</span>
+                          <span className="text-[9px] text-slate-400 font-mono shrink-0">{agent.provider}</span>
                         </div>
-                        <span className="text-slate-400">⚙️</span>
+                        <div className="flex items-center gap-1 shrink-0">
+                          {!agent.builtin && (
+                            <button onClick={() => deleteAgentByName(agent.name)} className="text-slate-400 hover:text-rose-500 px-1" title="Delete agent">🗑</button>
+                          )}
+                          <button
+                            onClick={() => {
+                              setEditingAgent(agent);
+                              setShowAgentModal(true);
+                            }}
+                            className="text-slate-400 hover:text-slate-700 px-1"
+                            title={agent.builtin ? "View config" : "Edit agent"}
+                          >
+                            ⚙️
+                          </button>
+                        </div>
                       </div>
                     ))}
-                    <button className="w-full border border-dashed border-slate-300 rounded-xl py-2 text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center justify-center gap-1 mt-2">
-                      <span>Add New</span>
+                    <button
+                      onClick={() => {
+                        setEditingAgent(null);
+                        setShowAgentModal(true);
+                      }}
+                      className="w-full border border-dashed border-slate-300 rounded-xl py-2 text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center justify-center gap-1 mt-2"
+                    >
+                      <span>Add New Agent</span>
                       <Plus size={14} />
                     </button>
                   </div>
@@ -774,25 +1058,45 @@ export default function Home() {
               {/* Middle Form Column (Matching Image 2) */}
               <div className="template-card p-6 space-y-5">
                 
-                {/* Form Tabs */}
-                <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-medium">
-                  {["basic", "tools", "schedules", "advanced"].map((tabKey) => (
+                {/* Team identity header */}
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold font-display text-slate-900">
+                    {selectedTeam ? `Editing: ${selectedTeam.name}` : "New Team"}
+                  </h3>
+                  {selectedTeam && (
                     <button
-                      key={tabKey}
-                      onClick={() => setMiddleFormTab(tabKey as any)}
-                      className={`flex-1 py-1.5 rounded-lg capitalize transition-all ${
-                        middleFormTab === tabKey ? "bg-white text-slate-900 font-semibold shadow-xs" : "text-slate-500 hover:text-slate-800"
-                      }`}
+                      onClick={() => {
+                        setSelectedTeamId(null);
+                        setTeamName("");
+                        setCoordinator("");
+                        showAlert("info", "Creating a new team.");
+                      }}
+                      className="text-[10px] text-slate-500 hover:text-slate-800"
                     >
-                      {tabKey === "basic" ? "Basic Settings" : tabKey}
+                      + New instead
                     </button>
-                  ))}
+                  )}
+                </div>
+
+                {/* Team Name */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-800 block">Team Name</label>
+                  <input
+                    type="text"
+                    value={teamName}
+                    onChange={(e) => setTeamName(e.target.value)}
+                    placeholder={selectedTeam ? selectedTeam.name : "e.g. Deep Research Crew"}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 outline-none font-medium"
+                  />
+                  {selectedTeam && (
+                    <p className="text-[10px] text-emerald-600 font-semibold">✓ Editing saved team #{selectedTeam.id}</p>
+                  )}
                 </div>
 
                 {/* Language Model Selector */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-800 block">Language Model</label>
-                  <p className="text-[11px] text-slate-400">Choose an AI provider engine</p>
+                  <p className="text-[11px] text-slate-400">Applies to all agents without an explicit provider override (see Settings)</p>
                   <select
                     value={selectedModel}
                     onChange={(e) => {
@@ -803,14 +1107,15 @@ export default function Home() {
                       if (val.includes("Gemini")) prov = "gemini";
                       if (val.includes("Ollama")) prov = "ollama";
                       setGlobalProvider(prov);
-                      showAlert("info", `Model provider set to ${prov.toUpperCase()}`);
+                      setUseGlobalKey(true);
+                      showAlert("info", `Global provider set to ${prov.toUpperCase()} — save in Settings to persist.`);
                     }}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 outline-none font-medium"
                   >
-                    <option value="Groq (Llama 3.3 70B)">Groq (Llama 3.3 70B Fast / Free Tier)</option>
-                    <option value="GPT 5 (Open AI)">GPT 5 (Open AI)</option>
-                    <option value="Gemini 2.5 Flash">Gemini 2.5 Flash</option>
-                    <option value="Ollama (Local DeepSeek)">Ollama (Local DeepSeek R1)</option>
+                    <option value="Groq (Llama 3.3 70B)">Groq — Llama 3.3 70B (free tier)</option>
+                    <option value="GPT 5 (Open AI)">OpenAI — GPT-4o Mini</option>
+                    <option value="Gemini 2.5 Flash">Google — Gemini 1.5 Flash</option>
+                    <option value="Ollama (Local DeepSeek)">Ollama — Llama 3.1 (local, no key)</option>
                   </select>
                 </div>
 
@@ -826,23 +1131,36 @@ export default function Home() {
                   />
                 </div>
 
-                <button
-                  onClick={() => {
-                    setQueryInput(teamTaskPrompt);
-                    triggerResearch();
-                  }}
-                  disabled={isRunning}
-                  className="w-full bg-[#111827] hover:bg-slate-800 disabled:opacity-50 text-white font-semibold font-display text-xs py-2.5 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  {isRunning ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
-                  <span>Run Team Workflow Task</span>
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={saveTeam}
+                    className="w-full bg-white hover:bg-slate-50 text-[#1c2331] border-1.5 border-[#1c2331] font-semibold font-display text-xs py-2.5 rounded-xl shadow-[2px_2px_0px_#1c2331] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Check size={14} />
+                    <span>Save Team</span>
+                  </button>
+                  <button
+                    onClick={runTeamWorkflow}
+                    disabled={isRunning}
+                    className="w-full bg-[#111827] hover:bg-slate-800 disabled:opacity-50 text-white font-semibold font-display text-xs py-2.5 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {isRunning ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
+                    <span>Run Team Workflow Task</span>
+                  </button>
+                </div>
 
                 {/* Coordinator Responsibilities */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-800 block">Set Up Team Coordinator</label>
-                  <select className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 outline-none font-medium">
-                    <option>Set Up Team Coordinator</option>
+                  <select
+                    value={coordinator}
+                    onChange={(e) => setCoordinator(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 outline-none font-medium"
+                  >
+                    <option value="">No coordinator (pure sequential)</option>
+                    {teamAgents.map((name) => (
+                      <option key={name} value={name}>{name} (final review & consolidation)</option>
+                    ))}
                   </select>
                 </div>
 
@@ -850,7 +1168,8 @@ export default function Home() {
                   <label className="text-xs font-bold text-slate-800 block">Type main team coordinator responsibility</label>
                   <textarea
                     rows={3}
-                    defaultValue="The coordinator must regulate the sequence and clarity of work execution based on the list of necessary tasks. Main points must be approved only with consent."
+                    value={coordinatorInstructions}
+                    onChange={(e) => setCoordinatorInstructions(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-800 outline-none resize-none"
                   />
                 </div>
@@ -858,39 +1177,79 @@ export default function Home() {
 
               {/* Right Column: Set Up Workflow Sequential Chain (Matching Image 2) */}
               <div className="template-card p-6 space-y-4">
-                <h3 className="text-xs font-bold font-display text-slate-800">Set Up Workflow</h3>
-                <p className="text-[11px] text-slate-400">Arrange tasks and agents according to their use and execution.</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xs font-bold font-display text-slate-800">Set Up Workflow</h3>
+                    <p className="text-[11px] text-slate-400">Arrange tasks and agents according to their use and execution.</p>
+                  </div>
+                  <button
+                    onClick={() => setTeamWorkflow([...teamWorkflow, { description: "New step — describe the task.", agent_name: teamAgents[0] || "researcher" }])}
+                    className="text-[10px] font-semibold text-indigo-600 border border-indigo-200 rounded-lg px-2 py-1 hover:bg-indigo-50 flex items-center gap-1"
+                  >
+                    <Plus size={12} /> Add Step
+                  </button>
+                </div>
 
                 <div className="space-y-3 relative">
-                  {[
-                    "Define the research topic, target sources, and key claims.",
-                    "Execute concurrent web search queries across DuckDuckGo.",
-                    "Extract raw page text and filter snippets for relevance context.",
-                    "Calculate confidence scores (0-100%) and validate evidence.",
-                    "Synthesize findings into executive markdown report.",
-                    "Generate source citation table with verified links.",
-                    "Save structured findings into ChromaDB semantic memory."
-                  ].map((step, idx) => (
+                  {teamWorkflow.map((step, idx) => (
                     <div key={idx} className="relative flex flex-col items-center">
-                      <div 
+                      <div
                         onClick={() => setActiveNodeIdx(idx)}
-                        className={`w-full p-3 rounded-xl border text-xs leading-relaxed relative cursor-pointer transition-all ${
-                          activeNodeIdx === idx 
-                            ? "bg-indigo-50 border-indigo-300 text-indigo-900 shadow-sm" 
+                        className={`w-full p-3 rounded-xl border text-xs leading-relaxed relative transition-all ${
+                          activeNodeIdx === idx
+                            ? "bg-indigo-50 border-indigo-300 text-indigo-900 shadow-sm"
                             : "bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300"
                         }`}
                       >
-                        <span className={`font-bold block mb-1 ${activeNodeIdx === idx ? "text-indigo-900" : "text-slate-900"}`}>Step {idx + 1}</span>
-                        {step}
-                        <button className="absolute right-2 bottom-2 w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">
-                          +
-                        </button>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className={`font-bold ${activeNodeIdx === idx ? "text-indigo-900" : "text-slate-900"}`}>Step {idx + 1}</span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setTeamWorkflow(teamWorkflow.filter((_, i) => i !== idx));
+                            }}
+                            className="text-slate-300 hover:text-rose-500 text-[10px]"
+                            title="Remove step"
+                          >
+                            ✕
+                          </button>
+                        </div>
+                        <textarea
+                          rows={2}
+                          value={step.description}
+                          onClick={(e) => e.stopPropagation()}
+                          onChange={(e) => {
+                            const next = [...teamWorkflow];
+                            next[idx] = { ...next[idx], description: e.target.value };
+                            setTeamWorkflow(next);
+                          }}
+                          className="w-full bg-white/70 border border-slate-200 rounded-lg p-2 text-[11px] text-slate-700 outline-none resize-none"
+                        />
+                        <select
+                          value={step.agent_name || ""}
+                          onClick={(e) => e.stopPropagation()}
+                          onChange={(e) => {
+                            const next = [...teamWorkflow];
+                            next[idx] = { ...next[idx], agent_name: e.target.value };
+                            setTeamWorkflow(next);
+                          }}
+                          className="mt-1.5 w-full bg-white border border-slate-200 rounded-lg px-2 py-1 text-[10px] text-slate-700 outline-none"
+                        >
+                          {teamAgents.map((name) => (
+                            <option key={name} value={name}>{name}</option>
+                          ))}
+                        </select>
                       </div>
-                      {idx < 6 && (
+                      {idx < teamWorkflow.length - 1 && (
                         <div className="w-0.5 h-3 bg-slate-300 my-0.5" />
                       )}
                     </div>
                   ))}
+                  {teamWorkflow.length === 0 && (
+                    <p className="text-[11px] text-slate-400 italic">
+                      No steps — each agent will handle the goal directly in sequence.
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -910,7 +1269,7 @@ export default function Home() {
                   <span className="text-2xl">🔬</span>
                   <div>
                     <h2 className="text-base font-bold font-display text-slate-900">
-                      {pipelineQuery || activeProject || "Multi-Agent Research Workspace"}
+                      {pipelineQuery || "Multi-Agent Research Workspace"}
                     </h2>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="text-[10px] text-slate-400 font-mono">
@@ -1071,6 +1430,25 @@ export default function Home() {
                       </button>
                     </div>
 
+                    {/* Agent-to-Agent Message Bus Feed */}
+                    {commsMessages.length > 0 && (
+                      <div className="border border-indigo-900/60 rounded-xl p-2.5 space-y-1.5 bg-slate-900/60">
+                        <span className="text-[10px] font-bold text-indigo-300 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+                          AGENT MESSAGE BUS ({commsMessages.length})
+                        </span>
+                        <div className="max-h-28 overflow-y-auto space-y-1 pr-1">
+                          {commsMessages.map((msg, idx) => (
+                            <div key={idx} className="text-[10px] leading-relaxed">
+                              <span className="text-slate-500">{msg.time_str}</span>
+                              <span className="text-indigo-400 font-bold"> [{msg.from_agent} → {msg.to_agent}]</span>
+                              <span className="text-slate-300"> {msg.payload.message}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <div className="h-44 overflow-y-auto space-y-1.5 pr-2 text-[11px] leading-relaxed">
                       {logs.length === 0 ? (
                         <p className="text-slate-500 italic">No logs yet. Trigger a research query to start stream.</p>
@@ -1214,8 +1592,8 @@ export default function Home() {
                         🤖
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold font-display text-slate-900">Synapse AI Crew</h4>
-                        <p className="text-[10px] text-slate-500">Autonomous 4-Agent Research Team</p>
+                        <h4 className="text-xs font-bold font-display text-slate-900">Coraxis Research Crew</h4>
+                        <p className="text-[10px] text-slate-500">Autonomous 4-Agent Pipeline</p>
                       </div>
                     </div>
                     <p className="text-[11px] text-slate-600 leading-relaxed mt-2">
@@ -1337,9 +1715,14 @@ export default function Home() {
 
                 <div className="pt-2 space-y-3">
                   <h4 className="text-xs font-bold text-slate-800">Per-Agent Provider Keys</h4>
-                  {["researcher", "web_searcher", "analyst", "summarizer"].map((agentKey) => (
+                  {Object.keys(agentsConfig).map((agentKey) => (
                     <div key={agentKey} className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
-                      <span className="text-xs font-semibold text-slate-800 capitalize w-28">{agentKey}</span>
+                      <span className="text-xs font-semibold text-slate-800 capitalize w-28 flex items-center gap-1">
+                        {agentKey}
+                        {agentsConfig[agentKey]?.key_set && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" title="Key saved" />
+                        )}
+                      </span>
                       <select
                         value={agentsConfig[agentKey]?.provider || "groq"}
                         onChange={(e) =>
@@ -1361,6 +1744,27 @@ export default function Home() {
                         placeholder="Agent API Key (optional)"
                         className="flex-1 bg-white border border-slate-200 text-xs text-slate-800 rounded-lg p-2 outline-none"
                       />
+                      <input
+                        id={`model-${agentKey}`}
+                        type="text"
+                        value={agentsConfig[agentKey]?.model || ""}
+                        onChange={(e) =>
+                          setAgentsConfig({
+                            ...agentsConfig,
+                            [agentKey]: { ...agentsConfig[agentKey], model: e.target.value }
+                          })
+                        }
+                        placeholder="Model (default)"
+                        className="w-32 bg-white border border-slate-200 text-xs text-slate-800 rounded-lg p-2 outline-none"
+                      />
+                      <button
+                        onClick={() => testAgentKey(agentKey, agentsConfig[agentKey]?.provider || "groq", agentsConfig[agentKey]?.model || "")}
+                        disabled={testingKeyFor === agentKey}
+                        className="text-[10px] font-semibold text-indigo-600 border border-indigo-200 rounded-lg px-2 py-1.5 hover:bg-indigo-50 flex items-center gap-1 shrink-0"
+                      >
+                        {testingKeyFor === agentKey ? <Loader2 size={11} className="animate-spin" /> : <Zap size={11} />}
+                        Test
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -1390,7 +1794,7 @@ export default function Home() {
                     </p>
                   </div>
                   <span className="badge-purple text-xs px-3 py-1 rounded-full font-semibold">
-                    100% Validated
+                    Skills Plane
                   </span>
                 </div>
 
@@ -1429,7 +1833,7 @@ export default function Home() {
                     <span className="font-semibold text-indigo-900">mcp_config.json declared for AAS Core & Agent Browser</span>
                   </div>
                   <span className="font-mono text-[10px] text-indigo-700 bg-white px-2 py-0.5 rounded border border-indigo-200">
-                    Status: Connected
+                    Declared
                   </span>
                 </div>
               </div>
@@ -1437,6 +1841,207 @@ export default function Home() {
             </div>
           )}
 
+        </div>
+      </div>
+
+      {/* ─── AGENT EDITOR MODAL ─── */}
+      {showAgentModal && (
+        <AgentEditorModal
+          agent={editingAgent}
+          toolRegistry={toolRegistry}
+          onClose={() => {
+            setShowAgentModal(false);
+            setEditingAgent(null);
+          }}
+          onSave={saveAgentDef}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─── Agent Editor Modal Component ───
+
+function AgentEditorModal({
+  agent,
+  toolRegistry,
+  onClose,
+  onSave,
+}: {
+  agent: AgentDef | null;
+  toolRegistry: ToolDef[];
+  onClose: () => void;
+  onSave: (agent: AgentDef) => void;
+}) {
+  const isNew = !agent;
+  const [draft, setDraft] = useState<AgentDef>(
+    agent || {
+      name: "",
+      builtin: false,
+      role: "",
+      goal: "",
+      backstory: "",
+      provider: "groq",
+      model: "",
+      temperature: 0.2,
+      max_tokens: 4096,
+      base_url: "",
+      tools: ["duckduckgo_search"]
+    }
+  );
+
+  const disabled = !isNew; // built-ins are read-only here
+
+  return (
+    <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-2xl border-1.5 border-[#1c2331] shadow-[4px_4px_0px_#1c2331] w-full max-w-lg max-h-[85vh] overflow-y-auto p-6 space-y-4"
+      >
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold font-display text-slate-900">
+            {isNew ? "Create New Agent" : `Agent: ${agent!.name}`}
+          </h3>
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-700 text-sm">✕</button>
+        </div>
+
+        {disabled && (
+          <p className="text-[10px] text-amber-600 bg-amber-50 border border-amber-200 rounded-lg p-2">
+            Built-in agent — identity is fixed. Configure its provider/model/key in Settings.
+          </p>
+        )}
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-[10px] font-bold text-slate-700 block mb-1">Name (lowercase, no spaces)</label>
+            <input
+              type="text"
+              value={draft.name}
+              disabled={disabled}
+              onChange={(e) => setDraft({ ...draft, name: e.target.value.toLowerCase().replace(/\s+/g, "_") })}
+              placeholder="e.g. brand_strategist"
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none disabled:opacity-60"
+            />
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-700 block mb-1">Provider</label>
+            <select
+              value={draft.provider}
+              disabled={disabled}
+              onChange={(e) => setDraft({ ...draft, provider: e.target.value })}
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none"
+            >
+              <option value="groq">Groq</option>
+              <option value="gemini">Gemini</option>
+              <option value="openai">OpenAI</option>
+              <option value="ollama">Ollama</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-[10px] font-bold text-slate-700 block mb-1">Model (optional)</label>
+            <input
+              type="text"
+              value={draft.model}
+              disabled={disabled}
+              onChange={(e) => setDraft({ ...draft, model: e.target.value })}
+              placeholder="provider default"
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none disabled:opacity-60"
+            />
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-700 block mb-1">API Key (optional)</label>
+            <input
+              type="password"
+              value={draft.api_key_set ? "" : ""}
+              disabled={disabled}
+              onChange={(e) => setDraft({ ...draft, api_key_set: undefined })}
+              placeholder={draft.api_key_set ? "Key saved — leave blank to keep" : "sk-... / gsk_..."}
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none disabled:opacity-60"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="text-[10px] font-bold text-slate-700 block mb-1">Role</label>
+          <input
+            type="text"
+            value={draft.role || ""}
+            disabled={disabled}
+            onChange={(e) => setDraft({ ...draft, role: e.target.value })}
+            placeholder="e.g. Brand Strategy Analyst"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none disabled:opacity-60"
+          />
+        </div>
+
+        <div>
+          <label className="text-[10px] font-bold text-slate-700 block mb-1">Goal</label>
+          <textarea
+            rows={2}
+            value={draft.goal || ""}
+            disabled={disabled}
+            onChange={(e) => setDraft({ ...draft, goal: e.target.value })}
+            placeholder="What this agent is trying to achieve"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none resize-none disabled:opacity-60"
+          />
+        </div>
+
+        <div>
+          <label className="text-[10px] font-bold text-slate-700 block mb-1">Backstory</label>
+          <textarea
+            rows={2}
+            value={draft.backstory || ""}
+            disabled={disabled}
+            onChange={(e) => setDraft({ ...draft, backstory: e.target.value })}
+            placeholder="Persona and expertise background"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs outline-none resize-none disabled:opacity-60"
+          />
+        </div>
+
+        <div>
+          <label className="text-[10px] font-bold text-slate-700 block mb-2">Tools</label>
+          <div className="grid grid-cols-1 gap-1.5">
+            {toolRegistry.map((tool) => (
+              <label key={tool.id} className="flex items-center gap-2 text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded-lg p-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  disabled={disabled}
+                  checked={(draft.tools || []).includes(tool.id)}
+                  onChange={(e) => {
+                    const tools = e.target.checked
+                      ? [...(draft.tools || []), tool.id]
+                      : (draft.tools || []).filter((t) => t !== tool.id);
+                    setDraft({ ...draft, tools });
+                  }}
+                  className="w-3.5 h-3.5 rounded text-indigo-600"
+                />
+                <span className="font-medium">{tool.label}</span>
+              </label>
+            ))}
+          </div>
+          <p className="text-[9px] text-slate-400 mt-1">
+            Every agent also gets messaging tools (send_message, read_inbox) and blackboard access automatically.
+          </p>
+        </div>
+
+        <div className="flex justify-end gap-2 pt-2">
+          <button onClick={onClose} className="text-xs px-4 py-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">
+            Cancel
+          </button>
+          {!disabled && (
+            <button
+              onClick={() => {
+                if (!draft.name.trim()) return;
+                onSave(draft);
+              }}
+              className="text-xs px-4 py-2 rounded-xl bg-[#111827] text-white font-semibold hover:bg-slate-800 flex items-center gap-1.5"
+            >
+              <Check size={13} />
+              Save Agent
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,0 +1,51 @@
+{
+  "use_global_key": false,
+  "global_provider": "groq",
+  "global_key": "",
+  "agents": {
+    "researcher": {
+      "provider": "groq",
+      "model": "",
+      "api_key": "",
+      "temperature": 0.2,
+      "max_tokens": 4096,
+      "base_url": ""
+    },
+    "web_searcher": {
+      "provider": "groq",
+      "model": "",
+      "api_key": "",
+      "temperature": 0.2,
+      "max_tokens": 4096,
+      "base_url": ""
+    },
+    "analyst": {
+      "provider": "groq",
+      "model": "",
+      "api_key": "",
+      "temperature": 0.2,
+      "max_tokens": 4096,
+      "base_url": ""
+    },
+    "summarizer": {
+      "provider": "groq",
+      "model": "",
+      "api_key": "",
+      "temperature": 0.2,
+      "max_tokens": 4096,
+      "base_url": ""
+    }
+  },
+  "custom_agents": [],
+  "teams": [
+    {
+      "name": "T2",
+      "agent_names": [
+        "analyst"
+      ],
+      "workflow": [],
+      "id": 2
+    }
+  ],
+  "workflow_templates": []
+}

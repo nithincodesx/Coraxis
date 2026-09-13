@@ -8,6 +8,7 @@ from crewai import Agent
 from pydantic import BaseModel, Field
 
 from utils.llm_factory import create_llm, get_available_providers
+from tools.comms_tools import make_comms_tools
 from tools.crew_tools import (
     get_search_tool,
     get_fetch_tool,
@@ -130,10 +131,12 @@ class AgentFactory:
         use_global_key: bool = False,
         global_key: str = "",
         tracker: Optional[CitationTracker] = None,
+        run_id: str = "",
     ):
         self.use_global_key = use_global_key
         self.global_key = global_key
         self.tracker = tracker
+        self.run_id = run_id
         self._agents: dict[str, Agent] = {}
 
     def create_all(self) -> dict[str, Agent]:
@@ -150,8 +153,9 @@ class AgentFactory:
         config = AGENT_CONFIGS[name]
         llm = create_llm(name, use_global_key=self.use_global_key, global_key=self.global_key)
 
-        # Get tools for this agent
+        # Get tools for this agent + inter-agent comms tools
         tools = self._get_tools_for_agent(name)
+        tools = list(tools) + make_comms_tools(name, self.run_id)
 
         agent = Agent(
             role=config["role"],
@@ -204,8 +208,9 @@ class AgentFactory:
 def create_agents(
     use_global_key: bool = False,
     global_key: str = "",
+    run_id: str = "",
 ) -> AgentFactory:
     """Convenience function to create all agents."""
-    factory = AgentFactory(use_global_key=use_global_key, global_key=global_key)
+    factory = AgentFactory(use_global_key=use_global_key, global_key=global_key, run_id=run_id)
     factory.create_all()
     return factory

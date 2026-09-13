@@ -214,10 +214,11 @@ def create_crew(
     global_key: str = "",
     tracker=None,
     callbacks=None,
+    run_id: str = "",
 ) -> Crew:
     """Create the full CrewAI crew with sequential process."""
     from agents import AgentFactory
-    factory = AgentFactory(use_global_key=use_global_key, global_key=global_key, tracker=tracker)
+    factory = AgentFactory(use_global_key=use_global_key, global_key=global_key, tracker=tracker, run_id=run_id)
     factory.create_all()
     tasks = create_tasks(factory)
 
