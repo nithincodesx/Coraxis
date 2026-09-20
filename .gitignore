@@ -1,7 +1,4 @@
-# Kimi — ignore patterns
-.venv/
-venv/
-env/
+# ── Python ───────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
@@ -10,49 +7,77 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-.installed.cfg
-*.egg
+.eggs/
+pip-wheel-metadata/
 
-# Environment & secrets
+# ── Virtual environments ─────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Secrets ──────────────────────────────────────────────────────────
 .env
 .env.*
 !.env.example
-streamlit_secrets.toml
-secrets.toml
+*.pem
+*.key
 
-# ChromaDB local storage
+# ── Local runtime state ──────────────────────────────────────────────
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
 chroma_db/
 chromadb/
 *.chroma
 
-# Local runtime data (config, comms bus, blackboard)
-data/
-
-# Logs
+# ── Logs & artifacts ─────────────────────────────────────────────────
 *.log
-streamlit.log
-__pycache__/
+logs/
+coverage.xml
+.coverage
+.coverage.*
+htmlcov/
+junit.xml
 
-# Test artifacts
-test_export.md
-test_export.pdf
+# ── Tooling caches ───────────────────────────────────────────────────
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.cache/
+.tox/
+.nox/
 
-# IDE
+# ── Node / frontend ──────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+.turbo/
+frontend/.next/
+frontend/node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Editors ──────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
-.DS_Store
+*.swo
+*~
 
-# OS
+# ── OS ───────────────────────────────────────────────────────────────
+.DS_Store
 Thumbs.db
 desktop.ini
 
-# Agent & local IDE caches
+# ── Local agent tooling (machine-specific, not portable) ─────────────
 .agents/
 .claude/
 .mimocode/
-node_modules/
-.next/
+.freebuff/
+.workbuddy-ai/
