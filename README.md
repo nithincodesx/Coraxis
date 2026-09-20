@@ -1,103 +1,164 @@
-# 🔬 Coraxis — Autonomous Multi-Agent Research Platform
+# Coraxis — Autonomous Multi-Agent Research Platform
 
-> Watch four AI agents research a topic live: search, cross-check sources, reason through findings, and hand you back a cited report. Built solo on an entirely free stack, no paid keys required.
+> Four specialised agents research a topic end to end: decompose the question, search, fetch and cross-check sources, score claims, and hand back a cited report. Watch it happen live. Runs on a free stack — Groq, Gemini or a local Ollama model.
 
----
-
-## ✨ Key Features
-
-- **4-Agent Sequential Pipeline** (CrewAI): Senior Researcher → Web Searcher → Synthesis Analyst → Lead Report Writer
-- **LangGraph Session & Connection Studio**: Manage persistent LangGraph thread sessions, checkpoint state trees, and local Studio / Cloud connectivity
-- **AAS Core Skill Control Plane**: Integrated 2,005+ agentic skill catalog discovery (`tools/aas_tools.py`) and `.agents/skills` control plane
-- **Decoupled Modern Architecture**: Next.js 16 (Turbopack) frontend + FastAPI backend with async streaming
-- **Per-Agent & Global Key Configuration**: Supports Groq (Llama 3.1 8B Instant / 3.3 70B), Gemini, OpenAI, and Ollama (local)
-- **LiteLLM Compatibility & Resilient Model Fallback**: Automatic message sanitization for Groq compatibility (`cache_breakpoint` filtering)
-- **Citation Tracking & Verification**: Automatic source attribution with relevance scores and markdown reference generation
-- **Semantic Memory Engine** (ChromaDB): Vector storage for query caching and cross-session knowledge retrieval
-- **CLI & REST Health Monitoring**: GET `/api/health`, GET `/api/metrics`, GET `/api/langgraph/sessions`, and `scripts/health_check.py` CLI utility
+Coraxis 2.0 is a ground-up rebuild. The previous version was a Streamlit app that
+had grown a FastAPI shim, a global singleton that allowed exactly one run per
+server, no authentication, and an endpoint that returned stored API keys in
+plaintext. The audit that drove this rewrite is in [`AUDIT.md`](./AUDIT.md); the
+design decisions are in [`ARCHITECTURE_DOCUMENTATION.md`](./ARCHITECTURE_DOCUMENTATION.md).
 
 ---
 
-## 🏗️ Production Architecture
+## What it does
+
+- **Four-agent sequential pipeline** — Researcher → Web Searcher → Synthesis Analyst → Report Writer, each with its own prompt, tools and model.
+- **Live progress you can actually resume** — every event is persisted with a monotonic sequence number before it is broadcast, so a dropped connection replays exactly what was missed instead of starting over.
+- **Citations that don't drift** — reference numbers are assigned once, at first sight, and never recomputed. A saved report keeps the same `[^n]` numbering it had when it was written.
+- **Multi-user by default** — accounts, Argon2id password hashing, short-lived access tokens with rotating refresh tokens, and per-user quotas.
+- **Credentials encrypted at rest** — provider keys are Fernet-encrypted with a key derived from the server secret. The API returns only the last four characters, and no response schema has a field capable of carrying a key.
+- **Semantic memory** — findings are embedded into a per-user ChromaDB collection so later runs can recall earlier work, with a relational mirror so the index can be rebuilt.
+- **Custom agents and teams** — define your own agents, compose them into teams, and run either the default pipeline or a saved team.
+
+---
+
+## Architecture
 
 ```
-Coraxis/
-├── start.py                # Dual-process launcher (FastAPI backend + Next.js frontend)
-├── api.py                  # FastAPI REST backend endpoints & LangGraph session controller
-├── agents.py               # CrewAI 4-Agent definitions & LLM bindings
-├── tasks.py                # Sequential Pydantic task definitions
-├── frontend/               # Next.js 16 frontend application
-│   ├── src/app/page.tsx    # Interactive dashboard with real-time pipeline feed & LangGraph manager
-│   ├── src/app/layout.tsx  # Coraxis metadata and global layout
-│   └── src/app/globals.css # Neo-brutalist Warm Sand design system
-├── tools/                  # Search, fetch, citation, and AAS tools
-│   ├── search.py           # DuckDuckGo search & page fetching
-│   ├── citations.py        # CitationTracker
-│   └── aas_tools.py        # AAS Core skill catalog discovery
-├── memory/
-│   └── chroma_client.py    # ChromaDB vector store
-├── utils/
-│   ├── llm_factory.py      # Dynamic LLM creation & litellm completion sanitizer
-│   └── langgraph_client.py # LangGraph session, thread & checkpoint manager
-├── scripts/
-│   └── health_check.py     # CLI system health verification
-└── tests/
-    └── test_llm_factory.py # Automated unit tests
+src/coraxis/
+├── core/            config · structured logging · RFC 7807 errors · crypto · JWT · rate limiting
+├── db/              SQLAlchemy 2.0 models · async session · Alembic migrations
+├── repositories/    the only code that touches the database
+├── schemas/         Pydantic request/response contracts
+├── agents/          framework-free domain: prompts, task schemas, citations, tools
+├── services/        orchestration · auth · runs · LLM factory · event bus · vector store
+├── workers/         asyncio run runner
+├── api/v1/          versioned routers, one module per resource
+└── cli/             serve · init · check · dev · create-user
 ```
+
+Imports point one way only: `api → services → repositories → db`, with `agents/`
+sitting beside `services/` as a pure domain layer that imports neither the web
+framework nor the database. That is what lets the pipeline be unit-tested
+without an HTTP client, and what made it possible to delete Streamlit entirely
+instead of mocking it.
+
+The frontend is a Next.js app whose data layer is a single typed client
+(`frontend/src/lib/api.ts`) over `/api/v1`. It holds no business logic.
 
 ---
 
-## 🚀 Quick Start
+## Quick start
 
-### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- A free Groq API key: [https://console.groq.com](https://console.groq.com)
-
-### Installation & Execution
+Requires Python 3.11+ and Node 18+.
 
 ```bash
-# 1. Clone repository
 git clone https://github.com/nithincodesx/Coraxis.git
 cd Coraxis
 
-# 2. Set up Python virtual environment
+# Backend
 python -m venv .venv
-.\\.venv\\Scripts\\activate
+source .venv/Scripts/activate     # Windows; use .venv/bin/activate on Unix
+pip install -e ".[dev]"
 
-# 3. Install Python dependencies
-pip install -r requirements.txt
+cp .env.example .env
+# Set CORAXIS_SECRET_KEY to a long random string:
+#   python -c "import secrets; print(secrets.token_urlsafe(48))"
 
-# 4. Install Frontend dependencies
-cd frontend
-npm install
-cd ..
+coraxis init                      # apply database migrations
+coraxis serve                     # http://127.0.0.1:8000
 
-# 5. Launch both servers with a single command
-python start.py
+# Frontend (separate terminal)
+cd frontend && npm install && npm run dev   # http://localhost:3000
 ```
 
-- **Frontend**: [http://localhost:3000](http://localhost:3000)
-- **FastAPI Backend**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Then open the frontend, create the first account (it becomes the instance
+administrator), and add a provider key under **Settings**. Provider keys can
+also come from the environment — see `.env.example`.
+
+`coraxis dev` runs both processes together and waits for the API to report
+healthy before starting the frontend, rather than sleeping for a fixed interval
+and hoping.
 
 ---
 
-## 🧪 System Health Verification
+## Configuration
 
-To verify that the system servers, health endpoints, and config interfaces are functioning:
+Every setting is a `CORAXIS_*` environment variable with a sensible default. The
+ones that matter:
 
-```bash
-python scripts/health_check.py
-```
+| Variable | Default | Notes |
+|---|---|---|
+| `CORAXIS_SECRET_KEY` | — | **Required.** Signs JWTs and derives the credential-encryption key. |
+| `CORAXIS_ENCRYPTION_KEY` | derived | Set this to decouple encryption from `SECRET_KEY`, so rotating the signing key does not orphan stored credentials. |
+| `CORAXIS_DATABASE_URL` | `sqlite+aiosqlite:///./data/coraxis.db` | Swap to `postgresql+asyncpg://…` for Postgres. |
+| `CORAXIS_CORS_ORIGINS` | `http://localhost:3000` | Comma-separated allowlist. `*` is rejected in production. |
+| `CORAXIS_ALLOW_REGISTRATION` | `true` | Rejected in production; set `false` after creating your accounts. |
 
-To run unit tests:
+In production the app refuses to boot on a weak `SECRET_KEY`, a wildcard CORS
+origin, open registration, or `CORAXIS_DEBUG=true`. Failing at startup is
+preferable to running insecurely and looking healthy.
 
-```bash
-python -m unittest discover tests
-```
+`coraxis check` prints the resolved configuration and verifies every dependency
+imports.
 
 ---
 
-## 📝 License
+## API
 
-MIT — Created by [nithincodesx](https://github.com/nithincodesx).
+All routes are under `/api/v1` and require a bearer token except `/health`,
+`/ready`, `/version` and the auth endpoints.
+
+| Group | Routes |
+|---|---|
+| Auth | `POST /auth/register` · `/login` · `/refresh` · `/logout` · `GET /auth/me` · `/sessions` |
+| Credentials | `GET /credentials` · `/credentials/providers` · `PUT /credentials` · `POST /credentials/test` |
+| Agents | `GET /agents` · `POST /agents` · `PATCH /agents/{slug}` · `PUT /agents/{slug}/llm` |
+| Teams | `GET /teams` · `POST /teams` · `PATCH /teams/{id}` · `DELETE /teams/{id}` |
+| Runs | `POST /runs` · `GET /runs` · `GET /runs/{id}` · `GET /runs/{id}/events` · `GET /runs/{id}/stream` · `POST /runs/{id}/cancel` · `/retry` · `GET /runs/{id}/report.md` |
+| Memory | `GET /memory/topics` · `/memory/records` · `DELETE /memory/topics/{topic}` |
+
+Errors are [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) problem documents
+served as `application/problem+json`, with a stable `code` to branch on and a
+`detail` written for a human:
+
+```json
+{
+  "type": "https://github.com/nithincodesx/Coraxis/blob/main/docs/errors.md#unauthenticated",
+  "title": "Authentication Required",
+  "status": 401,
+  "detail": "Provide a bearer access token in the Authorization header.",
+  "code": "unauthenticated",
+  "instance": "/api/v1/runs",
+  "request_id": "38f069b5234c4d8d",
+  "hint": "POST /api/v1/auth/login to obtain one."
+}
+```
+
+Interactive docs are served at `/docs` when the app is running.
+
+---
+
+## Development
+
+```bash
+make install     # editable install with dev extras
+make migrate     # apply migrations
+make lint        # ruff check
+make format      # ruff format
+make typecheck   # mypy
+make test        # pytest
+make check       # lint + format check + typecheck + test
+```
+
+The test suite is split into fast unit tests and integration tests that drive the
+real HTTP stack against a real (temporary) database. Integration coverage
+includes the auth lifecycle, run lifecycle and quotas, cross-account isolation,
+and a sweep of every documented `GET` route asserting a stored credential is
+never returned.
+
+---
+
+## License
+
+MIT — see [LICENSE](./LICENSE). Built by [nithincodesx](https://github.com/nithincodesx).
