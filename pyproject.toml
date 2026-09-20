@@ -1,33 +1,159 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
 [project]
-name = "kimi-research-assistant"
-version = "0.1.0"
-description = "Multi-agent AI research assistant with CrewAI, Streamlit, and free-tier LLMs"
+name = "coraxis"
+version = "2.0.0"
+description = "Autonomous multi-agent research platform that returns cited, verifiable reports"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+license = { file = "LICENSE" }
+authors = [{ name = "Nithin", email = "codesnithin@gmail.com" }]
+keywords = ["multi-agent", "agents", "research", "crewai", "rag", "fastapi", "llm"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Framework :: FastAPI",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
+dependencies = [
+  # --- web layer ---
+  "fastapi>=0.115,<1.0",
+  "uvicorn[standard]>=0.30,<1.0",
+  "python-multipart>=0.0.9",
+  # --- configuration & validation ---
+  "pydantic>=2.9,<3.0",
+  "pydantic-settings>=2.5,<3.0",
+  "email-validator>=2.1",
+  # --- persistence ---
+  "sqlalchemy[asyncio]>=2.0.35,<3.0",
+  "aiosqlite>=0.20",
+  "alembic>=1.13,<2.0",
+  # --- auth & secrets ---
+  "pyjwt>=2.9,<3.0",
+  "argon2-cffi>=23.1",
+  "cryptography>=43.0",
+  # --- http ---
+  "httpx>=0.27,<1.0",
+  # --- agent framework ---
+  "crewai>=0.80",
+  "litellm>=1.40",
+  "langchain-core>=0.3",
+  "langchain-groq>=0.2",
+  "langchain-google-genai>=2.0",
+  "langchain-openai>=0.2",
+  # --- semantic memory ---
+  "chromadb>=0.5",
+  "sentence-transformers>=3.0",
+  # --- retrieval ---
+  "duckduckgo-search>=7.0",
+  "trafilatura>=1.6",
+  "readability-lxml>=0.8",
+]
 
+[project.optional-dependencies]
+postgres = ["asyncpg>=0.30"]
+dev = [
+  "pytest>=8.2",
+  "pytest-asyncio>=0.24",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+  "mypy>=1.11",
+]
+
+[project.scripts]
+coraxis = "coraxis.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/nithincodesx/Coraxis"
+Issues = "https://github.com/nithincodesx/Coraxis/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/coraxis"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "alembic.ini", "README.md", "LICENSE"]
+
+# ─── Lint ────────────────────────────────────────────────────────────
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-select = ["E", "F", "I", "UP", "W"]
-ignore = ["E501", "UP007"]
+src = ["src", "tests"]
+# Alembic revisions are machine-generated and rewritten on every `make revision`,
+# so formatting them just creates churn. mypy excludes the same path.
+extend-exclude = ["legacy", "frontend", "src/coraxis/db/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "W", "B", "C4", "SIM", "RUF", "BLE"]
+ignore = [
+  "E501",   # long lines are handled by the formatter
+  "B008",   # FastAPI Depends() in defaults is the documented pattern
+  "RUF012", # mutable class attrs are fine on Pydantic models
+]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 
+# ─── Types ───────────────────────────────────────────────────────────
 [tool.mypy]
-python_version = "3.11"
+# Checked at 3.12 even though the package runs on 3.11: numpy ships stubs that
+# use 3.12-only `type` statements, which aborts the run before our own code is
+# examined. ruff's `target-version = "py311"` plus the `UP` ruleset is what
+# keeps 3.11 compatibility honest.
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
-disallow_untyped_defs = false
+warn_redundant_casts = true
+no_implicit_optional = true
+ignore_missing_imports = true
+# Without this, mypy follows crewai/chromadb/numpy into their dependencies and
+# takes over twelve minutes. Silent mode still checks every file under
+# `src/coraxis` (they are passed explicitly); it only stops reporting errors
+# inside third-party code, which is not ours to fix.
+follow_imports = "silent"
+plugins = ["pydantic.mypy"]
+exclude = ["legacy/", "frontend/", "src/coraxis/db/migrations/"]
+
+[[tool.mypy.overrides]]
+module = ["crewai.*", "litellm.*", "chromadb.*", "trafilatura.*", "readability.*", "duckduckgo_search.*"]
 ignore_missing_imports = true
 
+# ─── Tests ───────────────────────────────────────────────────────────
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-q --strict-markers"
+markers = [
+  "integration: exercises the real database and HTTP stack",
+  "slow: long-running or network-dependent",
+]
+filterwarnings = [
+  "default",
+  # Upstream noise. Turning every warning into an error is tempting, but
+  # CrewAI raises ImportWarning while importing its own RAG subpackage, which
+  # aborts collection before a single test runs. Silencing the known offenders
+  # keeps the output readable without discarding the signal.
+  "ignore:Cannot set an attribute:ImportWarning",
+  "ignore:function_calling_llm is deprecated:DeprecationWarning",
+  "ignore:^deprecated$:DeprecationWarning:crewai.*",
+  "ignore::ResourceWarning",
+]
+
+[tool.coverage.run]
+source = ["src/coraxis"]
+branch = true
+omit = ["src/coraxis/db/migrations/*", "src/coraxis/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError"]
