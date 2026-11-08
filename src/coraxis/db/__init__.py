@@ -15,6 +15,7 @@ from coraxis.db.enums import (
 from coraxis.db.models import (
     AgentDefinition,
     AgentLLMSettings,
+    CustomProvider,
     MemoryRecord,
     ProviderCredential,
     RefreshToken,
@@ -45,6 +46,7 @@ __all__ = [
     "AgentKind",
     "AgentLLMSettings",
     "Base",
+    "CustomProvider",
     "EventLevel",
     "EventType",
     "MemoryRecord",

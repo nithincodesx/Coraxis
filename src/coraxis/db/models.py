@@ -53,6 +53,9 @@ class User(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     credentials: Mapped[list[ProviderCredential]] = relationship(
         back_populates="user", cascade="all, delete-orphan", lazy="selectin"
     )
+    custom_providers: Mapped[list[CustomProvider]] = relationship(
+        back_populates="user", cascade="all, delete-orphan", lazy="selectin"
+    )
     refresh_tokens: Mapped[list[RefreshToken]] = relationship(
         back_populates="user", cascade="all, delete-orphan"
     )
@@ -121,6 +124,40 @@ class ProviderCredential(Base, UUIDPrimaryKeyMixin, TimestampMixin):
         return f"<ProviderCredential {self.provider} user={self.user_id[:8]}>"
 
 
+class CustomProvider(Base, UUIDPrimaryKeyMixin, TimestampMixin):
+    """One named OpenAI-compatible endpoint belonging to one user.
+
+    Unlike :class:`ProviderCredential` (one row per provider *kind*), this lets
+    a user keep several named endpoints — Inception, Together, OpenRouter, a
+    local vLLM — each with its own base URL, model, and encrypted key. A run or
+    an agent references a provider by nickname, so the same provider kind can
+    power different agents with different models.
+    """
+
+    __tablename__ = "custom_providers"
+    __table_args__ = (
+        UniqueConstraint("user_id", "nickname", name="uq_custom_providers_user_nickname"),
+        Index("ix_custom_providers_user_active", "user_id", "is_active"),
+    )
+
+    user_id: Mapped[str] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    nickname: Mapped[str] = mapped_column(String(80), nullable=False)
+    base_url: Mapped[str] = mapped_column(String(255), nullable=False)
+    model: Mapped[str] = mapped_column(String(160), default="", nullable=False)
+    encrypted_key: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    key_hint: Mapped[str] = mapped_column(String(16), default="", nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    last_validated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    last_validation_error: Mapped[str] = mapped_column(Text, default="", nullable=False)
+
+    user: Mapped[User] = relationship(back_populates="custom_providers")
+
+    def __repr__(self) -> str:  # pragma: no cover - debugging aid
+        return f"<CustomProvider {self.nickname} user={self.user_id[:8]}>"
+
+
 # ─────────────────────────────────────────────────────────────────────
 #  Agent & team definitions
 # ─────────────────────────────────────────────────────────────────────
@@ -177,6 +214,12 @@ class AgentLLMSettings(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     temperature: Mapped[float] = mapped_column(Float, default=0.2, nullable=False)
     max_tokens: Mapped[int] = mapped_column(Integer, default=4096, nullable=False)
     base_url: Mapped[str] = mapped_column(String(255), default="", nullable=False)
+    #: When provider is ``custom``, optionally names a row in custom_providers
+    #: that supplies the base URL, model and key. Empty means this row's own
+    #: base_url / model columns apply.
+    custom_provider_nickname: Mapped[str | None] = mapped_column(
+        String(80), nullable=True, default=None
+    )
 
 
 class Team(Base, UUIDPrimaryKeyMixin, TimestampMixin):
