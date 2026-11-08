@@ -34,6 +34,7 @@ from coraxis.db.enums import EventLevel, EventType, RunStatus
 from coraxis.db.session import session_scope
 from coraxis.repositories import agents as agent_repo
 from coraxis.repositories import credentials as credential_repo
+from coraxis.repositories import custom_providers as custom_provider_repo
 from coraxis.repositories import memory as memory_repo
 from coraxis.repositories import runs as run_repo
 from coraxis.repositories import teams as team_repo
@@ -330,6 +331,8 @@ class ResearchOrchestrator:
         llm_settings = await agent_repo.list_llm_settings(session, user_id)
         stored_credentials = await credential_repo.list_for_user(session, user_id)
         by_provider = {credential.provider: credential for credential in stored_credentials}
+        custom_providers = await custom_provider_repo.list_for_user(session, user_id)
+        by_nickname = {provider.nickname: provider for provider in custom_providers}
 
         # An agent with no provider of its own should use whatever the user
         # actually configured, rather than a hardcoded guess. Otherwise adding
@@ -357,6 +360,7 @@ class ResearchOrchestrator:
                     definition.slug,
                     llm_settings.get(definition.slug),
                     by_provider,
+                    by_nickname,
                     fallback_provider,
                 ),
             )
@@ -412,33 +416,48 @@ class ResearchOrchestrator:
         agent_slug: str,
         settings_row: Any,
         credentials_by_provider: dict[str, Any],
+        custom_providers_by_nickname: dict[str, Any],
         fallback_provider: str = "groq",
     ) -> LLMConfig:
         """Resolve one agent's provider, model, and key.
 
         The model resolves through three levels, most specific first: the
-        agent's own setting, then the model the user pinned for that provider in
-        Settings, then the built-in default. Without the middle level, pinning a
-        model in Settings would silently do nothing for every agent that had
-        never been given an explicit model.
+        agent's own setting, then the named custom provider (when provider is
+        ``custom`` and a nickname is set), then the model the user pinned for
+        that provider in Settings, then the built-in default.
+
+        When an agent points at a named custom provider, that provider's base
+        URL, model and encrypted key win over everything else.
         """
         provider = (settings_row.provider if settings_row else "") or fallback_provider
         credential = credentials_by_provider.get(provider)
 
         model = (settings_row.model if settings_row else "") or ""
-        if not model and credential is not None:
-            model = credential.default_model or ""
-
+        base_url = (settings_row.base_url if settings_row else "") or ""
         temperature = float(settings_row.temperature) if settings_row else 0.2
         max_tokens = int(settings_row.max_tokens) if settings_row else 4096
 
-        # A custom OpenAI-compatible endpoint keeps its base URL on the
-        # credential, so an agent with no explicit URL still resolves.
-        base_url = (settings_row.base_url if settings_row else "") or ""
-        if not base_url and credential is not None:
-            base_url = credential.base_url or ""
-
-        api_key, source = credential_repo.resolve_api_key(credential, provider)
+        # A named custom OpenAI-compatible provider supplies its own base URL,
+        # model and key, which take precedence over every other source.
+        nickname = (
+            settings_row.custom_provider_nickname if settings_row else None
+        ) or ""
+        if provider == "custom" and nickname:
+            custom_provider = custom_providers_by_nickname.get(nickname)
+            if custom_provider is None:
+                raise ConfigurationError(
+                    f"Agent '{agent_slug}' points at custom provider '{nickname}', "
+                    f"but no such provider is stored. Add it in Settings first."
+                )
+            base_url = custom_provider.base_url or base_url
+            model = custom_provider.model or model
+            api_key, source = custom_provider_repo.resolve_api_key(custom_provider)
+        else:
+            if not model and credential is not None:
+                model = credential.default_model or ""
+            if not base_url and credential is not None:
+                base_url = credential.base_url or ""
+            api_key, source = credential_repo.resolve_api_key(credential, provider)
 
         return LLMConfig(
             agent_slug=agent_slug,
