@@ -26,6 +26,7 @@ from coraxis.api.v1 import api_router
 from coraxis.api.v1.endpoints import system
 from coraxis.core.config import Settings, get_settings
 from coraxis.core.errors import ConfigurationError, register_exception_handlers
+from coraxis.core.firebase import initialize_firebase
 from coraxis.core.logging import configure_logging, get_logger
 from coraxis.db.session import dispose_engine, get_session_factory
 from coraxis.services.bootstrap import run_startup_tasks
@@ -93,6 +94,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
     settings.ensure_directories()
     event_bus.bind_loop(asyncio.get_running_loop())
+    initialize_firebase()
 
     await _assert_schema_ready()
     await run_startup_tasks()

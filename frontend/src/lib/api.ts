@@ -144,7 +144,7 @@ async function rawRequest<T>(path: string, options: RequestOptions): Promise<T> 
   const headers: Record<string, string> = { Accept: "application/json" };
   if (body !== undefined) headers["Content-Type"] = "application/json";
 
-  const token = getAccessToken();
+  const token = await getAccessToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
   let response: Response;

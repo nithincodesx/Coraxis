@@ -1,23 +1,29 @@
 "use client";
 
 /**
- * Authentication state.
+ * Authentication state backed by Firebase Auth.
  *
- * The session lives in `localStorage` (see `lib/session.ts`) and this hook is
- * the React view of it. It subscribes to the store rather than duplicating it,
- * so a token cleared by a failed refresh in `lib/api.ts` propagates here and
- * the UI falls back to the sign-in screen on its own.
+ * Firebase owns identity (GitHub OAuth, email/password). After signing in with
+ * Firebase, the frontend calls `GET /api/v1/auth/me` (bearer = Firebase ID
+ * token) to obtain the Coraxis account record — the backend creates it on
+ * first sign-in, mapping the Firebase account to a user by email. That record
+ * (with `display_name`, `is_superuser`, …) is what the shell renders.
  */
 
 import { useCallback, useEffect, useState } from "react";
 
 import { api } from "../lib/api";
 import {
-  clearSession,
+  signInWithEmail,
+  signOut,
+  signUpWithEmail,
+} from "../lib/firebase";
+import {
   getStoredUser,
-  isAuthenticated,
   persistSession,
+  clearSession,
   subscribe,
+  isAuthenticated,
 } from "../lib/session";
 import type { User } from "../lib/types";
 
@@ -32,19 +38,15 @@ export interface UseAuthResult {
 }
 
 export function useAuth(): UseAuthResult {
-  // Seeded lazily from the store rather than assigned in an effect, which
-  // would cause a second render on every mount. `isReady` gates rendering
-  // until the session has been checked, so a server/client mismatch in the
-  // stored value cannot reach the DOM.
   const [user, setUser] = useState<User | null>(() => getStoredUser());
   const [isReady, setIsReady] = useState(false);
 
-  useEffect(() => subscribe(setUser), []);
-
-  // Confirm the stored token is still accepted. A token that looks present but
-  // has been revoked (password change, reuse detection, expiry) must not leave
-  // the app rendering an authenticated shell over 401s.
   useEffect(() => {
+    const unsub = subscribe(setUser);
+
+    // Confirm the stored session is still accepted. A Firebase ID token that
+    // looks present but has been revoked must not leave the app rendering an
+    // authenticated shell over 401s.
     let cancelled = false;
 
     const verify = async () => {
@@ -56,7 +58,6 @@ export function useAuth(): UseAuthResult {
         const me = await api.auth.me();
         if (!cancelled) setUser(me);
       } catch {
-        // The client already cleared the session on an unrecoverable 401.
         if (!cancelled) setUser(getStoredUser());
       } finally {
         if (!cancelled) setIsReady(true);
@@ -66,37 +67,32 @@ export function useAuth(): UseAuthResult {
     void verify();
     return () => {
       cancelled = true;
+      unsub();
     };
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const tokens = await api.auth.login({ email, password });
-    persistSession(tokens);
-    setUser(tokens.user);
+    await signInWithEmail(email.trim(), password);
+    const me = await api.auth.me();
+    persistSession(me);
+    setUser(me);
   }, []);
 
   const register = useCallback(
     async (email: string, password: string, displayName: string) => {
-      const tokens = await api.auth.register({
-        email,
-        password,
-        display_name: displayName,
-      });
-      persistSession(tokens);
-      setUser(tokens.user);
+      await signUpWithEmail(email.trim(), password, displayName.trim());
+      const me = await api.auth.me();
+      persistSession(me);
+      setUser(me);
     },
     [],
   );
 
   const logout = useCallback(async () => {
-    const { getRefreshToken } = await import("../lib/session");
-    const refresh_token = getRefreshToken() ?? undefined;
     try {
-      // Best effort: revoke server-side, but never block signing out locally on
-      // a network failure.
-      await api.auth.logout({ refresh_token });
+      await signOut();
     } catch {
-      // Ignored on purpose.
+      // Ignored: sign out locally regardless of network.
     }
     clearSession();
     setUser(null);

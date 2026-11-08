@@ -3,17 +3,18 @@
 /**
  * Sign-in / registration gate.
  *
- * The rebuilt backend requires a bearer token on every route, so the app needs
- * an entry point that did not exist before. Styled as a quiet editorial page
- * rather than a boxed login card: display title, hairline form, one off-white
- * primary action.
+ * Identity is handled by Firebase: GitHub OAuth and email/password. After a
+ * successful sign-in the Firebase ID token is sent as the bearer token on
+ * every API request, and the backend maps the Firebase account to a Coraxis
+ * user by email.
  */
 
 import { FormEvent, useState } from "react";
-import { AlertCircle, ArrowRight, Loader2 } from "lucide-react";
+import { AlertCircle, ArrowRight, Loader2, Mail } from "lucide-react";
 
 import { Button, Field, Input, Rule } from "./ui";
 import { ApiError } from "../lib/api";
+import { signInWithGitHub } from "../lib/firebase";
 import { useAuth } from "../hooks/useAuth";
 
 type Mode = "login" | "register";
@@ -21,11 +22,6 @@ type Mode = "login" | "register";
 const MIN_PASSWORD_LENGTH = 12;
 
 interface Props {
-  /**
-   * Called after a successful sign-in or registration. The shell uses this to
-   * skip the landing page for someone who has just authenticated, rather than
-   * watching the auth state from an effect.
-   */
   onAuthenticated?: () => void;
 }
 
@@ -40,6 +36,24 @@ export default function AuthGate({ onAuthenticated }: Props) {
   const [busy, setBusy] = useState(false);
 
   const isRegister = mode === "register";
+
+  const handleProviderSignIn = async (provider: "github") => {
+    setError(null);
+    setFieldErrors({});
+    setBusy(true);
+    try {
+      if (provider === "github") await signInWithGitHub();
+      onAuthenticated?.();
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "Could not sign in with GitHub. Try again."
+      );
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
@@ -57,8 +71,6 @@ export default function AuthGate({ onAuthenticated }: Props) {
     } catch (caught) {
       if (caught instanceof ApiError) {
         setError(caught.message);
-        // 422s carry per-field detail; surface it against the right input
-        // instead of dumping it all into one banner.
         if (caught.problem?.errors) {
           const mapped: Record<string, string> = {};
           for (const entry of caught.problem.errors) {
@@ -82,11 +94,8 @@ export default function AuthGate({ onAuthenticated }: Props) {
   };
 
   return (
-    // Fills the shell's content area rather than the viewport — the shared
-    // frame and navigation are already above it.
     <div className="flex min-h-full w-full items-center justify-center px-6 py-16">
       <div className="w-full max-w-[400px] fade-in">
-        {/* Brand */}
         <div className="mb-10 flex flex-col items-center text-center">
           <p className="t-label">Autonomous Research Laboratory</p>
           <h1
@@ -104,7 +113,7 @@ export default function AuthGate({ onAuthenticated }: Props) {
           <p className="t-body mt-2" style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
             {isRegister
               ? "The first account created on an instance becomes its administrator."
-              : "Provider keys stay encrypted on the server and are never returned to the browser."}
+              : "Sign in with GitHub, or with your email and password."}
           </p>
 
           {error && (
@@ -121,6 +130,25 @@ export default function AuthGate({ onAuthenticated }: Props) {
               <span style={{ lineHeight: 1.6 }}>{error}</span>
             </div>
           )}
+
+          {/* ── Social sign-in ── */}
+          <div className="mt-6">
+            <Button
+              onClick={() => handleProviderSignIn("github")}
+              disabled={busy}
+              className="w-full"
+            >
+              {busy ? "Working…" : "Sign in with GitHub"}
+            </Button>
+          </div>
+
+          <div className="mt-5 relative">
+            <Rule className="absolute inset-0 flex-1" />
+            <span className="absolute -top-px left-1/2 -translate-x-1/2 flex items-center gap-2 px-2" style={{ color: "var(--text-faint)", fontSize: "0.75rem" }}>
+              <Mail size={12} />
+              or continue with email
+            </span>
+          </div>
 
           <form onSubmit={submit} className="mt-6 flex flex-col gap-5">
             {isRegister && (

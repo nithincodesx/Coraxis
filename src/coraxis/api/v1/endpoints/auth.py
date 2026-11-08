@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Request, Response, status
 
-from coraxis.api.deps import CurrentUser, DbSession, TokenClaimsDep, client_metadata
+from coraxis.api.deps import CurrentUser, DbSession, FirebaseUserDep, client_metadata
 from coraxis.schemas.auth import (
     LoginRequest,
     LogoutRequest,
@@ -82,12 +82,12 @@ async def me(user: CurrentUser) -> UserOut:
 
 @router.get("/sessions", response_model=list[SessionOut], summary="Active sessions")
 async def sessions(
-    user: CurrentUser, session: DbSession, claims: TokenClaimsDep
+    user: CurrentUser, session: DbSession, firebase_user: FirebaseUserDep
 ) -> list[SessionOut]:
-    return await auth_service.list_sessions(session, user, current_session_id=claims.sid)
+    return await auth_service.list_sessions(session, user, current_session_id="")
 
 
 @router.get("/verify", summary="Verify a token", status_code=status.HTTP_204_NO_CONTENT)
-async def verify(claims: TokenClaimsDep) -> Response:
+async def verify(_firebase_user: FirebaseUserDep) -> Response:
     """Cheap validity probe for the frontend's session check."""
     return Response(status_code=status.HTTP_204_NO_CONTENT)

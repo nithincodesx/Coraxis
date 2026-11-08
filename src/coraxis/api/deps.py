@@ -9,47 +9,43 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from coraxis.core.errors import AuthenticationError, AuthorizationError
+from coraxis.core.firebase import FirebaseUser, get_or_create_user, verify_id_token
 from coraxis.core.logging import user_id_var
-from coraxis.core.security import TokenClaims, TokenType, decode_token
 from coraxis.db.models import User
 from coraxis.db.session import get_db
-from coraxis.repositories import users as user_repo
 
 #: ``auto_error=False`` so a missing header produces our problem+json envelope
 #: rather than Starlette's bare 403.
-bearer_scheme = HTTPBearer(auto_error=False, description="JWT access token")
+bearer_scheme = HTTPBearer(auto_error=False, description="Firebase ID token")
 
 DbSession = Annotated[AsyncSession, Depends(get_db)]
 
 
-async def get_token_claims(
+async def get_firebase_user(
     credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer_scheme)],
-) -> TokenClaims:
-    """Decode and validate the bearer token."""
+) -> FirebaseUser:
+    """Verify the bearer Firebase ID token and return its trusted claims."""
     if credentials is None or not credentials.credentials:
         raise AuthenticationError(
-            "Provide a bearer access token in the Authorization header.",
-            extra={"hint": "POST /api/v1/auth/login to obtain one."},
+            "Provide a bearer Firebase ID token in the Authorization header.",
+            extra={"hint": "Sign in with GitHub or email on the frontend."},
         )
-    return decode_token(credentials.credentials, expected_type=TokenType.ACCESS)
+    return verify_id_token(credentials.credentials)
 
 
-TokenClaimsDep = Annotated[TokenClaims, Depends(get_token_claims)]
+FirebaseUserDep = Annotated[FirebaseUser, Depends(get_firebase_user)]
 
 
-async def get_current_user(session: DbSession, claims: TokenClaimsDep) -> User:
-    """Resolve the authenticated user.
+async def get_current_user(session: DbSession, firebase_user: FirebaseUserDep) -> User:
+    """Resolve the authenticated Coraxis user from a Firebase ID token.
 
-    Re-reads the user on every request so that deactivation, deletion, and
-    token-version bumps take effect immediately rather than at token expiry.
+    Re-reads the user on every request so that deactivation takes effect
+    immediately. Creates a Coraxis account on first sign-in (the first account
+    becomes the instance administrator).
     """
-    user = await user_repo.get_by_id(session, claims.sub)
-    if user is None:
-        raise AuthenticationError("This account no longer exists.")
+    user = await get_or_create_user(session, firebase_user)
     if not user.is_active:
         raise AuthorizationError("This account is disabled.")
-    if claims.ver != user.token_version:
-        raise AuthenticationError("Your session was invalidated. Sign in again.")
 
     user_id_var.set(user.id)
     return user
@@ -102,11 +98,15 @@ __all__ = [
     "AuthenticationError",
     "CurrentUser",
     "DbSession",
+    "FirebaseUser",
+    "FirebaseUserDep",
     "Pagination",
     "PaginationDep",
     "SuperUser",
-    "TokenClaimsDep",
     "bearer_scheme",
     "client_metadata",
+    "get_current_user",
+    "get_firebase_user",
+    "get_superuser",
     "status",
 ]

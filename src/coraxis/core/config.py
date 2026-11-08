@@ -91,6 +91,12 @@ class Settings(BaseSettings):
     jwt_audience: str = "coraxis-api"
     jwt_algorithm: str = "HS256"
 
+    # ── Firebase Authentication ──────────────────────────────────────
+    # Firebase owns identity (GitHub OAuth, email/password). The backend
+    # verifies the Firebase ID token sent as the bearer token.
+    firebase_project_id: str = ""
+    google_application_credentials: str = ""
+
     # ── Quotas ───────────────────────────────────────────────────────
     rate_limit_enabled: bool = True
     rate_limit_runs_per_hour: int = Field(default=20, ge=0)
