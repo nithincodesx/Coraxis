@@ -43,6 +43,10 @@ coverage.xml
 .coverage.*
 htmlcov/
 junit.xml
+server.out
+server.err
+frontend.out
+frontend.err
 
 # ── Tooling caches ───────────────────────────────────────────────────
 .pytest_cache/
