@@ -115,6 +115,17 @@ def build_llm(config: LLMConfig) -> LLM:
 
     model = format_model_string(config.provider, resolve_model(config.provider, config.model))
 
+    # Fail fast with a user-actionable error instead of letting CrewAI/LiteLLM
+    # raise an opaque pydantic ImportError ("Model name is required and cannot
+    # be empty") when no model resolves — e.g. a custom provider with no model
+    # pinned and no built-in default.
+    _, _, model_name = model.partition("/")
+    if not model_name.strip():
+        raise ConfigurationError(
+            f"No model is configured for agent '{config.agent_slug}'. "
+            f"Pick a model for provider '{config.provider}' in Settings."
+        )
+
     if config.provider == "ollama":
         return LLM(
             model=model,
