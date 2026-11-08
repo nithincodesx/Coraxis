@@ -105,3 +105,69 @@ class ProviderStatus(ResponseModel):
     requires_base_url: bool = False
     #: The user's pinned model, if any. Empty means the default above applies.
     selected_model: str = ""
+
+
+# ─────────────────────────────────────────────────────────────────────
+#  Named custom OpenAI-compatible providers
+# ─────────────────────────────────────────────────────────────────────
+
+
+class CustomProviderUpsert(RequestModel):
+    """Create or update a named custom OpenAI-compatible provider."""
+
+    nickname: str = Field(min_length=1, max_length=80)
+    base_url: str = Field(default="", max_length=255)
+    model: str = Field(default="", max_length=160)
+    api_key: str = Field(default="", max_length=1024)
+
+    @field_validator("nickname")
+    @classmethod
+    def _slugify_nickname(cls, value: str) -> str:
+        value = value.strip().lower().replace(" ", "-")
+        if not value:
+            raise ValueError("Nickname must not be empty.")
+        if not value.replace("-", "").replace("_", "").isalnum():
+            raise ValueError("Nickname may only contain letters, digits, hyphens and underscores.")
+        return value
+
+    @field_validator("api_key")
+    @classmethod
+    def _reject_placeholder(cls, value: str) -> str:
+        if value and value.strip() != value:
+            raise ValueError("API key must not contain leading or trailing whitespace.")
+        if value.lower() in {"your-key-here", "sk-...", "changeme", "todo"}:
+            raise ValueError("That looks like a placeholder, not an API key.")
+        return value
+
+
+class CustomProviderOut(ResponseModel):
+    """A named custom provider, described but never disclosing its key."""
+
+    id: str
+    nickname: str
+    base_url: str
+    model: str
+    key_hint: str = ""
+    is_active: bool
+    has_key: bool = False
+    last_validated_at: UTCDatetime | None = None
+    last_validation_error: str = ""
+    created_at: UTCDatetime
+    updated_at: UTCDatetime
+
+
+class CustomProviderTestRequest(RequestModel):
+    """Validate a custom provider key without storing it."""
+
+    nickname: str = Field(min_length=1, max_length=80)
+    base_url: str = Field(default="", max_length=255)
+    model: str = Field(default="", max_length=160)
+    api_key: str = Field(default="", max_length=1024)
+
+
+class CustomProviderTestResult(ResponseModel):
+    valid: bool
+    nickname: str = ""
+    model: str = ""
+    error: str = ""
+    latency_ms: int = 0
