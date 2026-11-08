@@ -8,6 +8,6 @@ scoped to an owner takes ``user_id`` as its first argument.
 
 from __future__ import annotations
 
-from coraxis.repositories import agents, credentials, memory, runs, teams, users
+from coraxis.repositories import agents, credentials, custom_providers, memory, runs, teams, users
 
-__all__ = ["agents", "credentials", "memory", "runs", "teams", "users"]
+__all__ = ["agents", "credentials", "custom_providers", "memory", "runs", "teams", "users"]
