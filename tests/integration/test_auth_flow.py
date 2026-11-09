@@ -226,3 +226,116 @@ async def test_changing_the_password_invalidates_outstanding_tokens(
     await session.commit()
 
     assert (await client.get("/api/v1/auth/me", headers=headers)).status_code == 401
+
+
+async def test_token_version_invalidation_rejects_outstanding_refresh_tokens(
+    client: AsyncClient, registered: dict, session: object
+) -> None:
+    """Bumping token_version invalidates Coraxis-issued refresh tokens.
+
+    Unlike Firebase ID tokens (verified by Firebase), Coraxis refresh tokens are
+    our own JWTs carrying a ``ver`` claim. When token_version is bumped (e.g. on
+    password change or logout-all), existing refresh tokens carry a stale ``ver``
+    and must be rejected on refresh.
+    """
+    from coraxis.core.security import TokenType, decode_token
+    from coraxis.repositories import users as user_repo
+
+    # The registered refresh token is a Coraxis JWT; confirm its ver claim.
+    claims = decode_token(registered["refresh_token"], expected_type=TokenType.REFRESH)
+    user = await user_repo.get_by_id(session, registered["user"]["id"])
+    assert claims.ver == user.token_version
+
+    # Bump the token version (simulating password change / logout-all).
+    await user_repo.bump_token_version(session, user)
+    await session.commit()
+
+    # Refreshing with the old token must now fail.
+    replay = await client.post(
+        "/api/v1/auth/refresh", json={"refresh_token": registered["refresh_token"]}
+    )
+    assert replay.status_code == 401
+    assert replay.json()["code"] == "unauthenticated"
+
+
+# ─── Session identification ──────────────────────────────────────────────
+
+
+async def test_sessions_flags_only_the_active_session_as_current(
+    client: AsyncClient, registered: dict, session: object, firebase_stub
+) -> None:
+    """Only the session whose jti matches the access token's sid is current."""
+
+    headers = {"Authorization": f"Bearer {registered['access_token']}"}
+
+    # The caller's own session must be flagged current.
+    response = await client.get("/api/v1/auth/sessions", headers=headers)
+    assert response.status_code == 200, response.text
+    sessions = response.json()
+    assert len(sessions) == 1
+    assert sessions[0]["is_current"] is True
+
+    # Create a second session for the same user by logging in again.
+    second_token_pair = await client.post(
+        "/api/v1/auth/login",
+        json={"email": REGISTER_PAYLOAD["email"], "password": REGISTER_PAYLOAD["password"]},
+    )
+    assert second_token_pair.status_code == 200, second_token_pair.text
+    firebase_stub.register_token(
+        second_token_pair.json()["access_token"],
+        REGISTER_PAYLOAD["email"],
+        uid=f"firebase-uid-{registered['user']['id']}-second",
+        display_name=REGISTER_PAYLOAD["display_name"],
+    )
+
+    # Both sessions exist; only the one matching the bearer token's sid is current.
+    response = await client.get("/api/v1/auth/sessions", headers=headers)
+    assert response.status_code == 200, response.text
+    sessions = response.json()
+    assert len(sessions) == 2
+    current = [s for s in sessions if s["is_current"]]
+    assert len(current) == 1
+    assert current[0]["id"] == sessions[0]["id"] or current[0]["id"] == sessions[1]["id"]
+
+
+async def test_sessions_rejects_malformed_bearer_token(
+    client: AsyncClient, registered: dict
+) -> None:
+    """A malformed bearer token yields no current session (no crash)."""
+    response = await client.get(
+        "/api/v1/auth/sessions",
+        headers={"Authorization": "Bearer not-a-real-token"},
+    )
+    assert response.status_code == 401
+
+
+async def test_sessions_rejects_expired_token(client: AsyncClient, registered: dict) -> None:
+    """An expired access token cannot identify a current session."""
+    import time
+
+    import jwt
+
+    from coraxis.core.config import get_settings
+
+    settings = get_settings()
+    now = int(time.time())
+    expired = jwt.encode(
+        {
+            "sub": registered["user"]["id"],
+            "type": "access",
+            "jti": "expired-jti",
+            "iat": now - 7200,
+            "exp": now - 3600,
+            "iss": settings.jwt_issuer,
+            "aud": settings.jwt_audience,
+            "ver": 0,
+        },
+        settings.secret_key.get_secret_value(),
+        algorithm=settings.jwt_algorithm,
+    )
+
+    response = await client.get(
+        "/api/v1/auth/sessions",
+        headers={"Authorization": f"Bearer {expired}"},
+    )
+    assert response.status_code == 401
