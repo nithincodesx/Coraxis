@@ -58,13 +58,11 @@ function firebaseConfig() {
   };
 }
 
-export function initFirebase() {
+export function initFirebase(): FirebaseApp | null {
   if (app) return app;
   const config = firebaseConfig();
   if (!config.apiKey || !config.projectId || !config.appId) {
-    throw new Error(
-      "Firebase is not configured. Set the NEXT_PUBLIC_FIREBASE_* environment variables."
-    );
+    return null;
   }
   app = initializeApp(config);
   authInstance = getAuth(app);
@@ -77,21 +75,29 @@ export function isFirebaseConfigured(): boolean {
   return Boolean(config.apiKey && config.projectId && config.appId);
 }
 
-export function getFirebaseAuth(): Auth {
+export function getFirebaseAuth(): Auth | null {
   if (!authInstance) initFirebase();
-  if (!authInstance) throw new Error("Firebase auth is not initialized.");
   return authInstance;
 }
 
-export function getFirebaseStorage(): FirebaseStorage {
+export function getFirebaseStorage(): FirebaseStorage | null {
   if (!storageInstance) initFirebase();
-  if (!storageInstance) throw new Error("Firebase storage is not initialized.");
   return storageInstance;
+}
+
+function requireFirebase(): Auth {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    throw new Error(
+      "Firebase is not configured. Set the NEXT_PUBLIC_FIREBASE_* environment variables."
+    );
+  }
+  return auth;
 }
 
 /** Sign in with GitHub OAuth via a popup. */
 export async function signInWithGitHub(): Promise<FirebaseUser> {
-  const auth = getFirebaseAuth();
+  const auth = requireFirebase();
   const provider = new GithubAuthProvider();
   provider.addScope("read:user");
   const result = await signInWithPopup(auth, provider);
@@ -103,7 +109,7 @@ export async function signInWithEmail(
   email: string,
   password: string
 ): Promise<FirebaseUser> {
-  const auth = getFirebaseAuth();
+  const auth = requireFirebase();
   const result = await signInWithEmailAndPassword(auth, email, password);
   return result.user;
 }
@@ -114,7 +120,7 @@ export async function signUpWithEmail(
   password: string,
   displayName: string
 ): Promise<FirebaseUser> {
-  const auth = getFirebaseAuth();
+  const auth = requireFirebase();
   const result = await createUserWithEmailAndPassword(auth, email, password);
   await updateProfile(result.user, { displayName: displayName || "" });
   return result.user;
@@ -122,13 +128,14 @@ export async function signUpWithEmail(
 
 /** Sign out of Firebase. */
 export async function signOut(): Promise<void> {
-  const auth = getFirebaseAuth();
+  const auth = requireFirebase();
   await firebaseSignOut(auth);
 }
 
 /** The currently signed-in Firebase user, or null. */
 export function getCurrentFirebaseUser(): FirebaseUser | null {
   const auth = getFirebaseAuth();
+  if (!auth) return null;
   return auth.currentUser;
 }
 
@@ -144,6 +151,7 @@ export function onAuthStateChange(
   callback: (user: FirebaseUser | null) => void
 ): () => void {
   const auth = getFirebaseAuth();
+  if (!auth) return () => {};
   return onAuthStateChanged(auth, callback);
 }
 
@@ -157,6 +165,11 @@ export async function uploadFile(
   file: File
 ): Promise<string> {
   const storage = getFirebaseStorage();
+  if (!storage) {
+    throw new Error(
+      "Firebase is not configured. Set the NEXT_PUBLIC_FIREBASE_* environment variables."
+    );
+  }
   const fullPath = `users/${userId}/${path}`;
   const snapshot = await uploadBytes(storageRef(storage, fullPath), file);
   return getDownloadURL(snapshot.ref);

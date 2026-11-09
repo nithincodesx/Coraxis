@@ -14,7 +14,6 @@ import { AlertCircle, ArrowRight, Loader2, Mail } from "lucide-react";
 
 import { Button, Field, Input, Rule } from "./ui";
 import { ApiError } from "../lib/api";
-import { signInWithGitHub } from "../lib/firebase";
 import { useAuth } from "../hooks/useAuth";
 
 type Mode = "login" | "register";
@@ -26,7 +25,7 @@ interface Props {
 }
 
 export default function AuthGate({ onAuthenticated }: Props) {
-  const { login, register } = useAuth();
+  const { login, loginWithGitHub, register } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,12 +36,12 @@ export default function AuthGate({ onAuthenticated }: Props) {
 
   const isRegister = mode === "register";
 
-  const handleProviderSignIn = async (provider: "github") => {
+  const handleProviderSignIn = async () => {
     setError(null);
     setFieldErrors({});
     setBusy(true);
     try {
-      if (provider === "github") await signInWithGitHub();
+      await loginWithGitHub();
       onAuthenticated?.();
     } catch (caught) {
       setError(
@@ -134,7 +133,7 @@ export default function AuthGate({ onAuthenticated }: Props) {
           {/* ── Social sign-in ── */}
           <div className="mt-6">
             <Button
-              onClick={() => handleProviderSignIn("github")}
+              onClick={handleProviderSignIn}
               disabled={busy}
               className="w-full"
             >

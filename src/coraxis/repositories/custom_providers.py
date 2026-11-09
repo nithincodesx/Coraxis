@@ -89,9 +89,7 @@ async def delete(session: AsyncSession, user_id: str, nickname: str) -> bool:
     return True
 
 
-async def mark_validated(
-    session: AsyncSession, provider: CustomProvider, error: str = ""
-) -> None:
+async def mark_validated(session: AsyncSession, provider: CustomProvider, error: str = "") -> None:
     provider.last_validated_at = utcnow()
     provider.last_validation_error = error[:500]
     await session.flush()

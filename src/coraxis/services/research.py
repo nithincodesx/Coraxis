@@ -439,9 +439,7 @@ class ResearchOrchestrator:
 
         # A named custom OpenAI-compatible provider supplies its own base URL,
         # model and key, which take precedence over every other source.
-        nickname = (
-            settings_row.custom_provider_nickname if settings_row else None
-        ) or ""
+        nickname = (settings_row.custom_provider_nickname if settings_row else None) or ""
         if provider == "custom" and nickname:
             custom_provider = custom_providers_by_nickname.get(nickname)
             if custom_provider is None:

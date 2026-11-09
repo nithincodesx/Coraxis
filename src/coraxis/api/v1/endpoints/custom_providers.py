@@ -45,9 +45,7 @@ def _to_out(provider) -> CustomProviderOut:
     response_model=list[CustomProviderOut],
     summary="List stored custom providers",
 )
-async def list_custom_providers(
-    user: CurrentUser, session: DbSession
-) -> list[CustomProviderOut]:
+async def list_custom_providers(user: CurrentUser, session: DbSession) -> list[CustomProviderOut]:
     rows = await provider_repo.list_for_user(session, user.id)
     return [_to_out(row) for row in rows]
 
@@ -65,21 +63,20 @@ async def upsert_custom_provider(
     Omit ``api_key`` to change the URL or model without re-sending the secret.
     """
     existing = await provider_repo.get(session, user.id, payload.nickname)
-    if existing is None:
+    if existing is None and not payload.base_url.strip():
         # Creating: require a base URL.
-        if not payload.base_url.strip():
-            raise ValidationError(
-                "A custom provider needs a base URL, for example https://api.inceptionlabs.ai/v1"
-            )
-    else:
-        # Updating: base_url may be omitted to leave it unchanged.
-        pass
+        raise ValidationError(
+            "A custom provider needs a base URL, for example https://api.inceptionlabs.ai/v1"
+        )
+
+    # On update, an omitted base URL leaves the stored value untouched.
+    base_url = payload.base_url or None
 
     provider = await provider_repo.upsert(
         session,
         user.id,
         payload.nickname,
-        base_url=payload.base_url,
+        base_url=base_url,
         model=payload.model,
         api_key=payload.api_key if payload.api_key else None,
     )
@@ -159,8 +156,6 @@ async def validate_stored_custom_provider(
         provider.model,
         base_url=provider.base_url,
     )
-    await provider_repo.mark_validated(
-        session, provider, "" if result.valid else result.error
-    )
+    await provider_repo.mark_validated(session, provider, "" if result.valid else result.error)
     await session.commit()
     return _to_out(provider)

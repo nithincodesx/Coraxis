@@ -15,6 +15,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "../lib/api";
 import {
   signInWithEmail,
+  signInWithGitHub,
   signOut,
   signUpWithEmail,
 } from "../lib/firebase";
@@ -33,6 +34,7 @@ export interface UseAuthResult {
   isReady: boolean;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
+  loginWithGitHub: () => Promise<void>;
   register: (email: string, password: string, displayName: string) => Promise<void>;
   logout: () => Promise<void>;
 }
@@ -78,6 +80,13 @@ export function useAuth(): UseAuthResult {
     setUser(me);
   }, []);
 
+  const loginWithGitHub = useCallback(async () => {
+    await signInWithGitHub();
+    const me = await api.auth.me();
+    persistSession(me);
+    setUser(me);
+  }, []);
+
   const register = useCallback(
     async (email: string, password: string, displayName: string) => {
       await signUpWithEmail(email.trim(), password, displayName.trim());
@@ -103,6 +112,7 @@ export function useAuth(): UseAuthResult {
     isReady,
     isAuthenticated: Boolean(user),
     login,
+    loginWithGitHub,
     register,
     logout,
   };
