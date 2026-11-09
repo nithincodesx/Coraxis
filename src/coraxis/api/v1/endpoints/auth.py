@@ -5,6 +5,8 @@ from __future__ import annotations
 from fastapi import APIRouter, Request, Response, status
 
 from coraxis.api.deps import CurrentUser, DbSession, FirebaseUserDep, client_metadata
+from coraxis.core.errors import AuthenticationError
+from coraxis.core.security import TokenType, decode_token
 from coraxis.schemas.auth import (
     LoginRequest,
     LogoutRequest,
@@ -82,9 +84,28 @@ async def me(user: CurrentUser) -> UserOut:
 
 @router.get("/sessions", response_model=list[SessionOut], summary="Active sessions")
 async def sessions(
-    user: CurrentUser, session: DbSession, firebase_user: FirebaseUserDep
+    request: Request,
+    user: CurrentUser,
+    session: DbSession,
+    firebase_user: FirebaseUserDep,
 ) -> list[SessionOut]:
-    return await auth_service.list_sessions(session, user, current_session_id="")
+    """List the caller's active sessions, flagging the one this request uses.
+
+    The caller's own session is identified by the ``sid`` claim in the access
+    token, which equals the ``jti`` of the refresh token issued with it.
+    """
+    current_session_id = ""
+    authorization = request.headers.get("authorization", "")
+    if authorization.startswith("Bearer "):
+        token = authorization[len("Bearer ") :]
+        try:
+            claims = decode_token(token, expected_type=TokenType.ACCESS)
+            current_session_id = claims.sid
+        except AuthenticationError:
+            # Not a valid access token (e.g. a Firebase ID token); no session
+            # can be flagged as current.
+            pass
+    return await auth_service.list_sessions(session, user, current_session_id=current_session_id)
 
 
 @router.get("/verify", summary="Verify a token", status_code=status.HTTP_204_NO_CONTENT)

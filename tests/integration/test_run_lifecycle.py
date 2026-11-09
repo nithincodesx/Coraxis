@@ -350,7 +350,7 @@ async def test_concurrent_runs_are_capped_per_user(
 
 
 async def test_one_account_cannot_read_another_accounts_run(
-    client: AsyncClient, auth_client: AsyncClient, runner: _RecordingRunner
+    client: AsyncClient, auth_client: AsyncClient, runner: _RecordingRunner, firebase_stub
 ) -> None:
     submitted = await _submit(auth_client)
 
@@ -363,6 +363,12 @@ async def test_one_account_cannot_read_another_accounts_run(
         },
     )
     assert second.status_code == 201, second.text
+    firebase_stub.register_token(
+        second.json()["access_token"],
+        "intruder@example.com",
+        uid="firebase-uid-intruder",
+        display_name="Intruder",
+    )
     headers = {"Authorization": f"Bearer {second.json()['access_token']}"}
     run_id = submitted["run_id"]
 
@@ -374,3 +380,20 @@ async def test_one_account_cannot_read_another_accounts_run(
 
     # And the run is untouched.
     assert (await auth_client.get(f"/api/v1/runs/{run_id}")).status_code == 200
+
+
+# ─── Validation ────────────────────────────────────────────────────────
+
+
+async def test_invalid_pagination_parameters_are_rejected(
+    auth_client: AsyncClient,
+) -> None:
+    """limit must be 1-100 and offset must be >= 0."""
+    response = await auth_client.get("/api/v1/runs", params={"limit": 0})
+    assert response.status_code == 422
+
+    response = await auth_client.get("/api/v1/runs", params={"limit": 1001})
+    assert response.status_code == 422
+
+    response = await auth_client.get("/api/v1/runs", params={"offset": -1})
+    assert response.status_code == 422

@@ -56,13 +56,11 @@ def _fernet() -> Fernet:
 
     secret = settings.secret_key.get_secret_value().strip()
     if not secret:
-        # Development convenience: a stable per-installation key so credentials
-        # survive a restart. Production startup already rejects an empty secret.
-        logger.warning(
-            "CORAXIS_SECRET_KEY is unset; deriving an insecure development key. "
-            "Stored credentials will not be portable between machines."
+        raise ConfigurationError(
+            "CORAXIS_SECRET_KEY is not set. "
+            "Generate one with: "
+            'python -c "import secrets; print(secrets.token_urlsafe(64))"'
         )
-        secret = "coraxis-insecure-development-key"
     return Fernet(_derive_key(secret))
 
 

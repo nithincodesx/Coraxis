@@ -125,7 +125,7 @@ def _encode(claims: dict[str, Any], expires: timedelta) -> tuple[str, datetime]:
 
     token = jwt.encode(
         payload,
-        settings.secret_key.get_secret_value() or "coraxis-insecure-development-key",
+        settings.secret_key.get_secret_value(),
         algorithm=settings.jwt_algorithm,
     )
     return token, expiry
@@ -184,7 +184,7 @@ def decode_token(token: str, *, expected_type: TokenType) -> TokenClaims:
     try:
         raw = jwt.decode(
             token,
-            settings.secret_key.get_secret_value() or "coraxis-insecure-development-key",
+            settings.secret_key.get_secret_value(),
             algorithms=[settings.jwt_algorithm],
             audience=settings.jwt_audience,
             issuer=settings.jwt_issuer,

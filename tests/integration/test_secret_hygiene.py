@@ -167,7 +167,7 @@ async def test_updating_the_base_url_does_not_require_resending_the_key(
 
 
 async def test_one_users_key_is_invisible_to_another(
-    client: AsyncClient, auth_client: AsyncClient, registered: dict
+    client: AsyncClient, auth_client: AsyncClient, registered: dict, firebase_stub
 ) -> None:
     """Credentials are per-user; a second account sees an empty list."""
     await _store_credential(auth_client)
@@ -181,6 +181,12 @@ async def test_one_users_key_is_invisible_to_another(
         },
     )
     assert second.status_code == 201, second.text
+    firebase_stub.register_token(
+        second.json()["access_token"],
+        "other@example.com",
+        uid="firebase-uid-other",
+        display_name="Other",
+    )
 
     response = await client.get(
         "/api/v1/credentials",

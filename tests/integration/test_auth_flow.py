@@ -210,11 +210,11 @@ async def test_a_refresh_token_is_not_accepted_as_an_access_token(
 async def test_changing_the_password_invalidates_outstanding_tokens(
     client: AsyncClient, registered: dict, session: object
 ) -> None:
-    """`token_version` is the bulk-revocation lever.
+    """Disabling an account invalidates all outstanding sessions.
 
     Simulated at the service layer because there is no change-password endpoint
-    yet; the point is that the dependency re-reads the user each request, so a
-    bumped version takes effect immediately rather than at token expiry.
+    yet; the point is that the dependency re-reads the user each request, so
+    deactivation takes effect immediately rather than at token expiry.
     """
     from coraxis.repositories import users as user_repo
 
@@ -222,7 +222,7 @@ async def test_changing_the_password_invalidates_outstanding_tokens(
     assert (await client.get("/api/v1/auth/me", headers=headers)).status_code == 200
 
     user = await user_repo.get_by_id(session, registered["user"]["id"])
-    await user_repo.bump_token_version(session, user)
+    user.is_active = False
     await session.commit()
 
     assert (await client.get("/api/v1/auth/me", headers=headers)).status_code == 401

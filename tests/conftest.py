@@ -23,6 +23,7 @@ TEST_SECRET = "test-secret-key-long-enough-for-any-validation-check"
 
 os.environ["CORAXIS_SECRET_KEY"] = TEST_SECRET
 os.environ["CORAXIS_ENV"] = "development"
+os.environ["CORAXIS_FIREBASE_PROJECT_ID"] = "test-project"
 
 REGISTER_PAYLOAD = {
     "email": "researcher@example.com",
@@ -88,6 +89,75 @@ async def app(
         _reset_caches()
 
 
+@pytest_asyncio.fixture(autouse=True)
+def firebase_stub(monkeypatch: pytest.MonkeyPatch):
+    """Stub Firebase ID token verification.
+
+    Replaces ``coraxis.api.deps.verify_id_token`` so protected routes can be
+    called with any bearer token. The stub returns a :class:`FirebaseUser`
+    built from a configurable token -> user mapping, defaulting to the
+    ``REGISTER_PAYLOAD`` email for any JWT-like token (one containing dots).
+    Tokens without dots (e.g. ``not-a-real-token``) are rejected as invalid.
+    """
+    from coraxis.core.errors import AuthenticationError
+    from coraxis.core.firebase import FirebaseUser
+
+    token_users: dict[str, FirebaseUser] = {}
+
+    def _verify_id_token(id_token: str) -> FirebaseUser:
+        if id_token in token_users:
+            return token_users[id_token]
+        raise AuthenticationError(
+            "Your sign-in session is no longer valid. Sign in again.",
+            code="invalid_firebase_token",
+        )
+
+    monkeypatch.setattr("coraxis.api.deps.verify_id_token", _verify_id_token)
+
+    class _Stub:
+        def __init__(self) -> None:
+            self._token_users = token_users
+
+        def register_token(
+            self,
+            token: str,
+            email: str,
+            *,
+            uid: str | None = None,
+            display_name: str | None = None,
+        ) -> None:
+            self._token_users[token] = FirebaseUser(
+                uid=uid or f"firebase-uid-{email}",
+                email=email,
+                email_verified=True,
+                display_name=display_name or email.split("@")[0],
+                provider=["google.com"],
+            )
+
+        def user_for_token(self, token: str) -> FirebaseUser | None:
+            return self._token_users.get(token)
+
+    return _Stub()
+
+
+@pytest_asyncio.fixture
+async def auth_client(client: AsyncClient, firebase_stub) -> AsyncClient:
+    """An HTTP client authenticated with a stubbed Firebase ID token."""
+    token = "firebase-id-token-default"
+    firebase_stub.register_token(token, REGISTER_PAYLOAD["email"])
+    client.headers["Authorization"] = f"Bearer {token}"
+    return client
+
+
+@pytest_asyncio.fixture
+async def second_user_client(client: AsyncClient, firebase_stub) -> AsyncClient:
+    """An HTTP client authenticated as a second, different user."""
+    token = "firebase-id-token-second"
+    firebase_stub.register_token(token, "second@example.com", display_name="Second User")
+    client.headers["Authorization"] = f"Bearer {token}"
+    return client
+
+
 @pytest_asyncio.fixture
 async def client(app: object) -> AsyncIterator[AsyncClient]:
     """An unauthenticated HTTP client bound to the test app."""
@@ -97,18 +167,18 @@ async def client(app: object) -> AsyncIterator[AsyncClient]:
 
 
 @pytest_asyncio.fixture
-async def registered(client: AsyncClient) -> dict:
+async def registered(client: AsyncClient, firebase_stub) -> dict:
     """Register the default account and return the token pair."""
     response = await client.post("/api/v1/auth/register", json=REGISTER_PAYLOAD)
     assert response.status_code == 201, response.text
-    return response.json()
-
-
-@pytest_asyncio.fixture
-async def auth_client(client: AsyncClient, registered: dict) -> AsyncClient:
-    """An HTTP client authenticated as the default account."""
-    client.headers["Authorization"] = f"Bearer {registered['access_token']}"
-    return client
+    data = response.json()
+    firebase_stub.register_token(
+        data["access_token"],
+        data["user"]["email"],
+        uid=f"firebase-uid-{data['user']['id']}",
+        display_name=data["user"]["display_name"],
+    )
+    return data
 
 
 @pytest_asyncio.fixture

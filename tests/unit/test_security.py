@@ -123,3 +123,55 @@ def test_garbage_token_is_rejected() -> None:
 
 def test_jti_values_are_unique() -> None:
     assert len({new_jti() for _ in range(500)}) == 500
+
+
+# ─── Secret key configuration ──────────────────────────────────────────
+
+
+def test_missing_secret_key_raises(monkeypatch: pytest.MonkeyPatch) -> None:
+    """An empty CORAXIS_SECRET_KEY must prevent settings from loading."""
+    from coraxis.core.config import get_settings, reset_settings_cache
+
+    monkeypatch.setenv("CORAXIS_SECRET_KEY", "")
+    reset_settings_cache()
+
+    with pytest.raises(ValueError, match="CORAXIS_SECRET_KEY must be set"):
+        get_settings()
+
+
+def test_whitespace_secret_key_raises(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A whitespace-only secret is treated as missing."""
+    from coraxis.core.config import get_settings, reset_settings_cache
+
+    monkeypatch.setenv("CORAXIS_SECRET_KEY", "   ")
+    reset_settings_cache()
+
+    with pytest.raises(ValueError, match="CORAXIS_SECRET_KEY must be set"):
+        get_settings()
+
+
+def test_valid_secret_key_allows_jwt_round_trip(monkeypatch: pytest.MonkeyPatch) -> None:
+    """An explicitly configured secret allows JWT encode and decode."""
+    from coraxis.core.config import get_settings, reset_settings_cache
+
+    monkeypatch.setenv("CORAXIS_SECRET_KEY", "a-valid-secret-key-for-testing-12345678")
+    reset_settings_cache()
+
+    settings = get_settings()
+    assert settings.secret_key.get_secret_value() == "a-valid-secret-key-for-testing-12345678"
+
+    token, _expiry = create_access_token("user-123")
+    claims = decode_token(token, expected_type=TokenType.ACCESS)
+    assert claims.sub == "user-123"
+
+
+def test_production_rejects_weak_secret(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Production mode must reject short or well-known weak secrets."""
+    from coraxis.core.config import get_settings, reset_settings_cache
+
+    monkeypatch.setenv("CORAXIS_ENV", "production")
+    monkeypatch.setenv("CORAXIS_SECRET_KEY", "test")
+    reset_settings_cache()
+
+    with pytest.raises(ValueError, match="CORAXIS_SECRET_KEY"):
+        get_settings()

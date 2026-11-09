@@ -44,6 +44,69 @@ jobs:
       - name: Mypy
         run: mypy src
 
+      - name: Production config smoke test
+        run: |
+          python - <<'EOF'
+          import os
+          from coraxis.core.config import get_settings, reset_settings_cache
+
+          # 1. Valid production config must boot.
+          os.environ["CORAXIS_ENV"] = "production"
+          os.environ["CORAXIS_SECRET_KEY"] = "prod-secret-key-at-least-32-chars-long"
+          os.environ["CORAXIS_CORS_ORIGINS"] = "https://example.com"
+          os.environ["CORAXIS_ALLOW_REGISTRATION"] = "false"
+          os.environ["CORAXIS_DEBUG"] = "false"
+          reset_settings_cache()
+          settings = get_settings()
+          assert settings.is_production
+          assert settings.secret_key.get_secret_value() == "prod-secret-key-at-least-32-chars-long"
+
+          # 2. Weak secret must be rejected in production.
+          reset_settings_cache()
+          os.environ["CORAXIS_SECRET_KEY"] = "weak"
+          try:
+              get_settings()
+          except ValueError as exc:
+              assert "CORAXIS_SECRET_KEY" in str(exc)
+          else:
+              raise AssertionError("weak secret was accepted in production")
+
+          # 3. Wildcard CORS must be rejected in production.
+          reset_settings_cache()
+          os.environ["CORAXIS_SECRET_KEY"] = "prod-secret-key-at-least-32-chars-long"
+          os.environ["CORAXIS_CORS_ORIGINS"] = "*"
+          try:
+              get_settings()
+          except ValueError as exc:
+              assert "CORS_ORIGINS" in str(exc)
+          else:
+              raise AssertionError("wildcard CORS was accepted in production")
+
+          # 4. Open registration must be rejected in production.
+          reset_settings_cache()
+          os.environ["CORAXIS_CORS_ORIGINS"] = "https://example.com"
+          os.environ["CORAXIS_ALLOW_REGISTRATION"] = "true"
+          try:
+              get_settings()
+          except ValueError as exc:
+              assert "ALLOW_REGISTRATION" in str(exc)
+          else:
+              raise AssertionError("open registration was accepted in production")
+
+          # 5. Debug must be rejected in production.
+          reset_settings_cache()
+          os.environ["CORAXIS_ALLOW_REGISTRATION"] = "false"
+          os.environ["CORAXIS_DEBUG"] = "true"
+          try:
+              get_settings()
+          except ValueError as exc:
+              assert "DEBUG" in str(exc)
+          else:
+              raise AssertionError("debug mode was accepted in production")
+
+          print("Production config smoke test passed.")
+          EOF
+
   test:
     name: Tests (SQLite, py${{ matrix.python }})
     runs-on: ubuntu-latest
@@ -114,3 +177,27 @@ jobs:
 
       - name: Run tests
         run: pytest -m "not slow"
+
+  frontend:
+    name: Frontend (Node 20)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: frontend
+
+      - name: Type check
+        run: npx tsc --noEmit
+        working-directory: frontend
+
+      - name: Production build
+        run: npm run build
+        working-directory: frontend

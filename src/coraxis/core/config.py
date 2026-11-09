@@ -162,6 +162,23 @@ class Settings(BaseSettings):
     # ── Validation ───────────────────────────────────────────────────
 
     @model_validator(mode="after")
+    def _validate_secret_key(self) -> Settings:
+        """The signing/encryption key must always be configured.
+
+        No insecure development fallback is provided: a missing or empty
+        ``CORAXIS_SECRET_KEY`` prevents the application from starting, in
+        development as well as production.
+        """
+        secret = self.secret_key.get_secret_value()
+        if not secret or not secret.strip():
+            raise ValueError(
+                "CORAXIS_SECRET_KEY must be set to a non-empty value. "
+                "Generate one with: "
+                'python -c "import secrets; print(secrets.token_urlsafe(64))"'
+            )
+        return self
+
+    @model_validator(mode="after")
     def _validate_security_posture(self) -> Settings:
         secret = self.secret_key.get_secret_value()
 
