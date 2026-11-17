@@ -14,8 +14,15 @@ from __future__ import annotations
 
 import threading
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from typing import Any
 from urllib.parse import urlparse
+
+from coraxis.agents.tools.source_utils import normalize_url
+
+
+def _now_iso() -> str:
+    return datetime.now(UTC).isoformat()
 
 
 @dataclass
@@ -31,6 +38,17 @@ class Citation:
     word_count: int = 0
     fetch_success: bool = False
     claim_refs: list[str] = field(default_factory=list)
+    #: Heuristic source category (primary / academic / news / official_documentation / general).
+    #: Labelled heuristic throughout — never presented as verified authority.
+    source_category: str = "general"
+    #: Publication date if discoverable, ISO-8601 where possible. Empty when unknown.
+    publication_date: str = ""
+    #: Retrieval timestamp, ISO-8601.
+    retrieval_date: str = ""
+    #: Search query that discovered this source.
+    discovery_query: str = ""
+    #: Citation id of the canonical source when this URL is a duplicate.
+    duplicate_of: str = ""
 
     @property
     def relevance_pct(self) -> int:
@@ -51,6 +69,11 @@ class Citation:
             "snippet": self.snippet,
             "word_count": self.word_count,
             "fetch_success": self.fetch_success,
+            "source_category": self.source_category,
+            "publication_date": self.publication_date,
+            "retrieval_date": self.retrieval_date,
+            "discovery_query": self.discovery_query,
+            "duplicate_of": self.duplicate_of,
         }
 
 
@@ -63,6 +86,12 @@ class Claim:
     citation_ids: list[str] = field(default_factory=list)
     confidence: float = 0.0
     agent: str = ""
+    #: Evidence strength category: high / moderate / low / insufficient / conflicted.
+    evidence_strength: str = "insufficient"
+    #: Limitations or caveats about the evidence supporting this claim.
+    limitations: str = ""
+    #: Claim identifiers this claim contradicts.
+    contradicts: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -70,6 +99,9 @@ class Claim:
             "text": self.text,
             "confidence": self.confidence,
             "agent": self.agent,
+            "evidence_strength": self.evidence_strength,
+            "limitations": self.limitations,
+            "contradicts": self.contradicts,
         }
 
 
@@ -84,7 +116,11 @@ class CitationTracker:
         self._lock = threading.RLock()
         self._citations: dict[str, Citation] = {}
         self._claims: list[Claim] = []
-        self._by_url: dict[str, str] = {}
+        self._by_url: dict[str, str] = {}  # raw url -> citation_id
+        self._by_normalized: dict[str, str] = {}  # normalized url -> citation_id (dedup key)
+        self._raw_to_canonical: dict[str, str] = {}  # raw duplicate url -> canonical citation_id
+        self._discovered_count = 0
+        self._duplicate_count = 0
         self._next_number = 1
 
     # ── Sources ──────────────────────────────────────────────────────
@@ -98,21 +134,34 @@ class CitationTracker:
         *,
         word_count: int = 0,
         fetch_success: bool = False,
+        source_category: str = "general",
+        publication_date: str = "",
+        retrieval_date: str = "",
+        discovery_query: str = "",
     ) -> str:
         """Register a source and return its citation id.
 
-        Re-registering the same URL keeps the original reference number and
-        raises relevance to the highest value seen, so a later, better-scored
-        fetch of the same page improves the report without disturbing
-        references already written.
+        Sources are de-duplicated by normalized URL (see
+        :func:`coraxis.agents.tools.source_utils.normalize_url`), so tracking
+        parameters, trailing slashes, and scheme differences collapse onto one
+        citation. Re-registering the same document keeps the original reference
+        number and raises relevance to the highest value seen.
         """
         url = (url or "").strip()
         if not url:
             return ""
 
+        normalized = normalize_url(url)
+        retrieval_date = retrieval_date or _now_iso()
+
         with self._lock:
-            existing_id = self._by_url.get(url)
+            self._discovered_count += 1
+
+            existing_id = self._by_normalized.get(normalized)
             if existing_id is not None:
+                self._duplicate_count += 1
+                self._raw_to_canonical[url] = existing_id
+                self._by_url[url] = existing_id
                 citation = self._citations[existing_id]
                 citation.relevance = max(citation.relevance, relevance)
                 if title and not citation.title:
@@ -122,6 +171,10 @@ class CitationTracker:
                 if word_count:
                     citation.word_count = max(citation.word_count, word_count)
                 citation.fetch_success = citation.fetch_success or fetch_success
+                if discovery_query and not citation.discovery_query:
+                    citation.discovery_query = discovery_query
+                if publication_date and not citation.publication_date:
+                    citation.publication_date = publication_date
                 return existing_id
 
             citation_id = f"cite_{self._next_number}"
@@ -134,8 +187,14 @@ class CitationTracker:
                 snippet=snippet[:600],
                 word_count=word_count,
                 fetch_success=fetch_success,
+                source_category=source_category,
+                publication_date=publication_date,
+                retrieval_date=retrieval_date,
+                discovery_query=discovery_query,
             )
             self._by_url[url] = citation_id
+            self._by_normalized[normalized] = citation_id
+            self._raw_to_canonical[url] = citation_id
             self._next_number += 1
             return citation_id
 
@@ -149,6 +208,9 @@ class CitationTracker:
         confidence: float = 0.7,
         agent: str = "",
         relevance_scores: list[float] | None = None,
+        evidence_strength: str = "insufficient",
+        limitations: str = "",
+        contradicts: list[str] | None = None,
     ) -> str:
         """Register a claim against its supporting sources."""
         text = (text or "").strip()
@@ -175,6 +237,11 @@ class CitationTracker:
                 if claim_id not in self._citations[citation_id].claim_refs:
                     self._citations[citation_id].claim_refs.append(claim_id)
 
+            # A claim with no supporting sources cannot claim any evidence
+            # strength. Absence of evidence is not evidence of strength.
+            if not citation_ids:
+                evidence_strength = "insufficient"
+
             self._claims.append(
                 Claim(
                     id=claim_id,
@@ -182,6 +249,9 @@ class CitationTracker:
                     citation_ids=citation_ids,
                     confidence=max(0.0, min(1.0, confidence)),
                     agent=agent,
+                    evidence_strength=evidence_strength,
+                    limitations=limitations,
+                    contradicts=contradicts or [],
                 )
             )
             return claim_id
@@ -202,6 +272,16 @@ class CitationTracker:
         with self._lock:
             citation_id = self._by_url.get(url)
             return self._citations.get(citation_id) if citation_id else None
+
+    def validate_citation_ids(self, citation_ids: list[str]) -> list[str]:
+        """Return the subset of citation_ids that exist in this tracker.
+
+        Used to validate that a claim's supporting_sources only reference
+        sources that were actually registered. Fabricated or unknown IDs are
+        excluded rather than silently accepted.
+        """
+        with self._lock:
+            return [cid for cid in citation_ids if cid in self._citations]
 
     def inline_markers(self, claim_id: str) -> str:
         """Render the ``[^n][^m]`` markers for one claim."""
@@ -254,9 +334,8 @@ class CitationTracker:
         with self._lock:
             payload = []
             for claim in self._claims:
-                urls = [
-                    self._citations[cid].url for cid in claim.citation_ids if cid in self._citations
-                ]
+                citation_ids = self.validate_citation_ids(claim.citation_ids)
+                urls = [self._citations[cid].url for cid in citation_ids]
                 relevance = (
                     sum(
                         self._citations[cid].relevance
@@ -275,6 +354,7 @@ class CitationTracker:
                     }
                 )
             return payload
+            return payload
 
     def stats(self) -> dict[str, Any]:
         with self._lock:
@@ -292,6 +372,8 @@ class CitationTracker:
                 "avg_relevance": round(avg_relevance, 4),
                 "avg_confidence": round(avg_confidence, 4),
                 "fetched_sources": sum(1 for c in citations if c.fetch_success),
+                "discovered_sources": self._discovered_count,
+                "duplicate_sources": self._duplicate_count,
             }
 
     def reset(self) -> None:
@@ -299,6 +381,10 @@ class CitationTracker:
             self._citations.clear()
             self._claims.clear()
             self._by_url.clear()
+            self._by_normalized.clear()
+            self._raw_to_canonical.clear()
+            self._discovered_count = 0
+            self._duplicate_count = 0
             self._next_number = 1
 
     def __len__(self) -> int:

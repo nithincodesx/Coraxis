@@ -15,6 +15,7 @@ from typing import Any
 from crewai import Agent, Crew, Process
 
 from coraxis.agents.context import ToolContext
+from coraxis.agents.context_injector import session_context
 from coraxis.agents.tasks import build_pipeline_tasks, build_team_tasks
 from coraxis.agents.tool_registry import ALWAYS_AVAILABLE, TOOL_REGISTRY
 from coraxis.core.errors import ConfigurationError
@@ -68,11 +69,19 @@ def build_tools(tool_ids: Iterable[str], context: ToolContext) -> list[Any]:
 
 
 def build_agent(spec: AgentSpec, context: ToolContext, *, verbose: bool = False) -> Agent:
-    """Construct one CrewAI agent."""
+    """Construct one CrewAI agent.
+
+    Every agent is prepended with the live session context from CONTEXT.md
+    (or a git-log fallback) so it never starts a session blind.
+    """
+    injection = session_context()
+    backstory = spec.backstory or f"You are {spec.name}, a capable research agent."
+    if injection:
+        backstory = f"{injection}\n\n{backstory}"
     return Agent(
         role=spec.display_role,
         goal=spec.goal or "Complete the assigned task thoroughly and accurately.",
-        backstory=spec.backstory or f"You are {spec.name}, a capable research agent.",
+        backstory=backstory,
         llm=build_llm(spec.llm),
         tools=build_tools(spec.tools, context),
         verbose=verbose,

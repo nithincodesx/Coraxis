@@ -305,6 +305,9 @@ async def replace_claims(
             relevance=float(claim.get("relevance", 0.0)),
             agent=str(claim.get("agent", "")),
             source_urls=list(claim.get("source_urls", [])),
+            evidence_strength=str(claim.get("evidence_strength", "insufficient")),
+            limitations=str(claim.get("limitations", "")),
+            contradicts=list(claim.get("contradicts", [])),
         )
         for claim in claims
         if claim.get("text")

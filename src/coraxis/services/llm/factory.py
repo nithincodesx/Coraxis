@@ -15,7 +15,7 @@ from crewai import LLM
 from coraxis.core.errors import ConfigurationError, UpstreamError
 from coraxis.core.logging import get_logger
 from coraxis.db.enums import DEFAULT_MODELS, KEYLESS_PROVIDERS, ProviderName
-from coraxis.services.llm.sanitizer import apply_litellm_patches
+from coraxis.services.llm.groq_compat import GroqCompatibleLLM
 
 logger = get_logger("llm")
 
@@ -51,6 +51,10 @@ class LLMConfig:
     temperature: float = 0.2
     max_tokens: int = 4096
     key_source: str = "none"
+    #: Forwarded to the underlying LLM client. Some OpenAI-compatible providers
+    #: (e.g. Inception/Mercury) reject unknown kwargs such as ``drop_params``,
+    #: so consumers targeting those providers should set this to ``False``.
+    drop_params: bool = True
 
     @property
     def requires_key(self) -> bool:
@@ -104,8 +108,6 @@ def build_llm(config: LLMConfig) -> LLM:
     which is a user-fixable problem, so it is reported as a 400 rather than a
     500 with a stack trace.
     """
-    apply_litellm_patches()
-
     if config.requires_key and not config.api_key:
         raise ConfigurationError(
             f"{config.provider} requires an API key, but none is configured for "
@@ -127,13 +129,15 @@ def build_llm(config: LLMConfig) -> LLM:
         )
 
     if config.provider == "ollama":
-        return LLM(
-            model=model,
-            base_url=config.base_url or _DEFAULT_OLLAMA_URL,
-            temperature=config.temperature,
-            max_tokens=config.max_tokens,
-            drop_params=True,
-        )
+        kwargs = {
+            "model": model,
+            "base_url": config.base_url or _DEFAULT_OLLAMA_URL,
+            "temperature": config.temperature,
+            "max_tokens": config.max_tokens,
+        }
+        if config.drop_params:
+            kwargs["drop_params"] = True
+        return LLM(**kwargs)  # type: ignore[arg-type]
 
     if config.provider == "custom":
         if not config.base_url.strip():
@@ -141,22 +145,26 @@ def build_llm(config: LLMConfig) -> LLM:
                 "A custom OpenAI-compatible provider needs a base URL. Set one in "
                 "Settings — for example https://api.inceptionlabs.ai/v1"
             )
-        return LLM(
-            model=model,
-            api_key=config.api_key,
-            base_url=config.base_url.strip(),
-            temperature=config.temperature,
-            max_tokens=config.max_tokens,
-            drop_params=True,
-        )
+        kwargs = {
+            "model": model,
+            "api_key": config.api_key,
+            "base_url": config.base_url.strip(),
+            "temperature": config.temperature,
+            "max_tokens": config.max_tokens,
+        }
+        if config.drop_params:
+            kwargs["drop_params"] = True
+        return LLM(**kwargs)  # type: ignore[arg-type]
 
-    return LLM(
-        model=model,
-        api_key=config.api_key,
-        temperature=config.temperature,
-        max_tokens=config.max_tokens,
-        drop_params=True,
-    )
+    kwargs = {
+        "model": model,
+        "api_key": config.api_key,
+        "temperature": config.temperature,
+        "max_tokens": config.max_tokens,
+    }
+    if config.drop_params:
+        kwargs["drop_params"] = True
+    return GroqCompatibleLLM(**kwargs) if config.provider == "groq" else LLM(**kwargs)  # type: ignore[arg-type]
 
 
 async def validate_provider_key(
@@ -171,8 +179,6 @@ async def validate_provider_key(
     A single token is requested: enough to prove authentication and model
     access, cheap enough to be safe on a free tier.
     """
-    apply_litellm_patches()
-
     if provider not in KEYLESS_PROVIDERS and not api_key.strip():
         return ValidationResult(False, provider, model, "No API key was provided.")
 

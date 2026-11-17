@@ -419,6 +419,14 @@ class RunClaim(Base, UUIDPrimaryKeyMixin):
     relevance: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
     agent: Mapped[str] = mapped_column(String(64), default="", nullable=False)
     source_urls: Mapped[list[str]] = mapped_column(JSON, default=list, nullable=False)
+    #: Evidence strength category: high / moderate / low / insufficient / conflicted.
+    evidence_strength: Mapped[str] = mapped_column(
+        String(20), default="insufficient", nullable=False
+    )
+    #: Limitations or caveats about the evidence supporting this claim.
+    limitations: Mapped[str] = mapped_column(Text, default="", nullable=False)
+    #: Claim identifiers this claim materially disagrees with.
+    contradicts: Mapped[list[str]] = mapped_column(JSON, default=list, nullable=False)
 
     run: Mapped[Run] = relationship(back_populates="claims")
 

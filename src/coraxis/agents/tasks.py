@@ -11,13 +11,40 @@ from __future__ import annotations
 from typing import Any
 
 from crewai import Agent, Task
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 MAX_SUB_QUESTIONS = 7
 MIN_SUB_QUESTIONS = 3
 
 
 # ─── Output schemas ──────────────────────────────────────────────────
+
+
+class PlannedSubQuestion(BaseModel):
+    """One planned sub-question with execution metadata.
+
+    The Researcher assigns a priority and an expected evidence type so the Web
+    Searcher can diversify its queries and the Analyst can weigh source quality.
+    """
+
+    text: str = Field(description="The specific, searchable sub-question.")
+    priority: int = Field(
+        default=3,
+        description="Importance rank, 1 = optional, 5 = must answer. Clamped to 1-5.",
+    )
+    expected_evidence_type: str = Field(
+        default="",
+        description="Kind of source that would best answer this (e.g. official docs, peer-reviewed, news).",
+    )
+    query_variants: list[str] = Field(
+        default_factory=list,
+        description="Alternative search phrasings to improve coverage.",
+    )
+
+    @field_validator("priority")
+    @classmethod
+    def _clamp_priority(cls, value: int) -> int:
+        return max(1, min(5, value))
 
 
 class SubQuestions(BaseModel):
@@ -33,6 +60,18 @@ class SubQuestions(BaseModel):
     )
     search_strategy: str = Field(
         default="", description="One or two sentences on why this decomposition was chosen."
+    )
+    question_type: str = Field(
+        default="",
+        description="Classification of the research need (factual, comparative, technical, multipart, conflicting, time-sensitive, primary-source, insufficient-evidence).",
+    )
+    complexity: str = Field(
+        default="moderate",
+        description="Estimated difficulty: simple, moderate, or complex. Drives how many sub-questions to plan.",
+    )
+    subquestion_plans: list[PlannedSubQuestion] = Field(
+        default_factory=list,
+        description="Rich per-sub-question plan with priority, expected evidence type, and query variants.",
     )
 
     @field_validator("sub_questions")
@@ -56,9 +95,52 @@ class SubQuestions(BaseModel):
                 cleaned.append(text)
         return cleaned[:MAX_SUB_QUESTIONS]
 
+    @field_validator("subquestion_plans")
+    @classmethod
+    def _normalise_plans(cls, value: list[PlannedSubQuestion]) -> list[PlannedSubQuestion]:
+        """Trim and de-duplicate plans by sub-question text."""
+        seen: set[str] = set()
+        cleaned: list[PlannedSubQuestion] = []
+        for plan in value:
+            text = plan.text.strip()
+            if not text:
+                continue
+            if not text.endswith("?"):
+                text = f"{text.rstrip('.')}?"
+            key = text.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            cleaned.append(PlannedSubQuestion(text=text, **plan.model_dump(exclude={"text"})))
+        return cleaned[:MAX_SUB_QUESTIONS]
+
+    @field_validator("complexity")
+    @classmethod
+    def _normalise_complexity(cls, value: str) -> str:
+        value = (value or "moderate").strip().lower()
+        return value if value in ("simple", "moderate", "complex") else "moderate"
+
+    @model_validator(mode="after")
+    def _sync_sub_questions_from_plans(self) -> SubQuestions:
+        """Populate sub_questions from subquestion_plans when sub_questions is empty.
+
+        Keeps the legacy flat list in sync with the rich plans so downstream
+        agents (Web Searcher) that consume sub_questions continue to work.
+        """
+        if not self.sub_questions and self.subquestion_plans:
+            self.sub_questions = [plan.text for plan in self.subquestion_plans]
+        return self
+
     @property
     def is_usable(self) -> bool:
         return len(self.sub_questions) >= MIN_SUB_QUESTIONS
+
+    @property
+    def planned_questions(self) -> list[str]:
+        """Sub-question texts, preferring plans when available."""
+        if self.subquestion_plans:
+            return [plan.text for plan in self.subquestion_plans]
+        return list(self.sub_questions)
 
 
 class FindingItem(BaseModel):
@@ -71,6 +153,18 @@ class FindingItem(BaseModel):
     full_text: str = Field(default="", description="Extracted page text.")
     word_count: int = 0
     fetch_success: bool = False
+    #: Heuristic source category (primary / academic / news / official_documentation / general).
+    source_category: str = Field(default="general", description="Heuristic source category.")
+    #: Publication date if discoverable, ISO-8601 where possible.
+    publication_date: str = Field(default="", description="Source publication date.")
+    #: Retrieval timestamp, ISO-8601.
+    retrieval_date: str = Field(default="", description="When the source was retrieved.")
+    #: Search query that discovered this source.
+    discovery_query: str = Field(default="", description="Query that surfaced this source.")
+    #: Citation id of the canonical source when this URL is a duplicate.
+    duplicate_of: str = Field(default="", description="Canonical source id if duplicated.")
+    #: Extraction status: success / failed / blocked / empty.
+    extraction_status: str = Field(default="", description="Content extraction outcome.")
 
 
 class RawFindings(BaseModel):
@@ -82,6 +176,11 @@ class RawFindings(BaseModel):
     failures: list[str] = Field(
         default_factory=list, description="Queries or URLs that did not work."
     )
+    #: Per-query observability: query, category, result count, accepted count, errors.
+    search_observability: list[dict[str, Any]] = Field(
+        default_factory=list,
+        description="Observability record for each search query executed.",
+    )
 
 
 class SourceRef(BaseModel):
@@ -91,10 +190,15 @@ class SourceRef(BaseModel):
     title: str = ""
     relevance: float = Field(default=0.7, ge=0.0, le=1.0)
     snippet: str = ""
+    #: Stable citation identifier (``cite_N``) assigned by the citation tracker.
+    #: Empty when the source was not registered in the tracker.
+    citation_id: str = Field(
+        default="", description="Stable citation identifier (cite_N) for this source."
+    )
 
 
 class Claim(BaseModel):
-    """A synthesised claim."""
+    """A synthesised claim with evidence traceability."""
 
     claim_id: str = Field(default="", description="Identifier, if one was assigned.")
     text: str = Field(description="The claim, stated as one factual sentence.")
@@ -102,6 +206,50 @@ class Claim(BaseModel):
     confidence: float = Field(default=0.5, ge=0.0, le=1.0)
     relevance: float = Field(default=0.5, ge=0.0, le=1.0)
     agent: str = "analyst"
+    #: Evidence strength category: high / moderate / low / insufficient / conflicted.
+    evidence_strength: str = Field(
+        default="insufficient",
+        description="Evidence strength category: high / moderate / low / insufficient / conflicted.",
+    )
+    #: Limitations or caveats about the evidence supporting this claim.
+    limitations: str = Field(
+        default="", description="Limitations or caveats about the supporting evidence."
+    )
+    #: Claim identifiers this claim contradicts.
+    contradicts: list[str] = Field(
+        default_factory=list,
+        description="Identifiers of claims this claim materially disagrees with.",
+    )
+
+    @field_validator("evidence_strength")
+    @classmethod
+    def _normalise_evidence_strength(cls, value: str) -> str:
+        value = (value or "insufficient").strip().lower()
+        allowed = {"high", "moderate", "low", "insufficient", "conflicted"}
+        return value if value in allowed else "insufficient"
+
+    @model_validator(mode="after")
+    def _enforce_evidence_strength_from_sources(self: Claim) -> Claim:
+        """A claim with no supporting sources cannot claim high/moderate/conflicted strength.
+
+        If no sources are registered, downgrade to 'insufficient'. This is a
+        conservative default: absence of evidence is not evidence of strength.
+        """
+        if not self.supporting_sources and self.evidence_strength not in {
+            "insufficient",
+        }:
+            self.evidence_strength = "insufficient"
+        return self
+
+
+class ConflictPair(BaseModel):
+    """A pair of claims that materially disagree."""
+
+    claim_a: str = Field(description="Identifier of the first conflicting claim.")
+    claim_b: str = Field(description="Identifier of the second conflicting claim.")
+    description: str = Field(
+        default="", description="Description of the nature of the disagreement."
+    )
 
 
 class AnalyzedFindings(BaseModel):
@@ -111,6 +259,11 @@ class AnalyzedFindings(BaseModel):
     conflicts: list[str] = Field(default_factory=list, description="Where sources disagree.")
     gaps: list[str] = Field(default_factory=list, description="What could not be established.")
     overall_confidence: float = Field(default=0.5, ge=0.0, le=1.0)
+    #: Structured claim pairs that materially disagree, with descriptions.
+    conflict_pairs: list[ConflictPair] = Field(
+        default_factory=list,
+        description="Structured pairs of claims that materially disagree.",
+    )
 
 
 class ReportStats(BaseModel):
@@ -148,14 +301,25 @@ def build_pipeline_tasks(
     decompose = Task(
         description=(
             "Analyse the research query: '{query}'.\n\n"
-            "1. Break it into 4-7 specific, searchable sub-questions covering every key angle.\n"
-            "2. List the key entities (people, organisations, concepts, products) to search for.\n"
-            "3. Call `recall_memory` first to check for prior findings on this topic.\n\n"
-            "Each sub-question must be answerable by a single web search. Be precise."
+            "1. Classify the question type: factual, comparative, technical, multipart, "
+            "conflicting, time-sensitive, primary-source, or insufficient-evidence.\n"
+            "2. Estimate complexity: simple (one direct answer), moderate (several angles), "
+            "or complex (many interdependent parts).\n"
+            "3. Break it into searchable sub-questions covering every key angle. Use "
+            "3-4 sub-questions for simple questions, 4-7 for complex ones.\n"
+            "4. For each sub-question, assign a priority (1-5, 5 = must answer), an "
+            "expected evidence type (official docs, peer-reviewed, news, etc.), and "
+            "1-2 alternative search phrasings (query variants) to improve coverage.\n"
+            "5. List the key entities (people, organisations, concepts, products) to search for.\n"
+            "6. Call `recall_memory` first to check for prior findings on this topic.\n\n"
+            "Each sub-question must be answerable by a single web search. Be precise. "
+            "Avoid redundant sub-questions that ask the same thing differently."
         ),
         expected_output=(
             "JSON matching the SubQuestions schema: "
-            "{sub_questions: [...], key_entities: [...], search_strategy: '...'}"
+            "{question_type: '...', complexity: '...', sub_questions: [...], "
+            "subquestion_plans: [{text: '...', priority: 1-5, expected_evidence_type: '...', "
+            "query_variants: [...]}], key_entities: [...], search_strategy: '...'}"
         ),
         agent=agents["researcher"],
         output_json=SubQuestions,
@@ -164,9 +328,11 @@ def build_pipeline_tasks(
     search = Task(
         description=(
             "For EACH sub-question from the previous step:\n"
-            f"1. Call `web_search` for up to {max_sources} results.\n"
+            f"1. Call `web_search` for up to {max_sources} results, trying the planned "
+            "query variants first when provided.\n"
             f"2. Call `fetch_page` on the best {max_fetch_per_query} results.\n"
-            "3. Return structured findings for everything that fetched successfully.\n\n"
+            "3. Prioritise higher-priority sub-questions (priority 4-5) first.\n"
+            "4. Return structured findings for everything that fetched successfully.\n\n"
             "Prioritise authoritative sources: academic work, official documentation, "
             "reputable journalism, primary data. Skip paywalls, login walls, and "
             "low-quality aggregators. Record failures rather than inventing content."
@@ -182,21 +348,33 @@ def build_pipeline_tasks(
     analyse = Task(
         description=(
             "Analyse every finding from the previous step.\n\n"
-            "1. Cross-reference across sub-questions. Note consensus and contradiction.\n"
-            "2. Score each source's relevance to each claim from 0 to 100.\n"
-            "3. Assign calibrated confidence per claim, weighing:\n"
+            "1. Cross-reference findings across sub-questions. Note consensus and contradiction.\n"
+            "2. For each claim, assign evidence strength: high / moderate / low / insufficient / conflicted.\n"
+            "   - high: multiple independent, authoritative sources agree\n"
+            "   - moderate: relevant evidence exists, but corroboration is limited\n"
+            "   - low: weak, indirect, or incomplete evidence\n"
+            "   - insufficient: evidence does not support a reliable conclusion\n"
+            "   - conflicted: credible sources materially disagree\n"
+            "3. Score each source's relevance to each claim from 0 to 100.\n"
+            "4. Assign calibrated confidence per claim, weighing:\n"
             "   - how many independent sources support it,\n"
             "   - whether they agree,\n"
             "   - source authority and recency,\n"
             "   - how specific the evidence is.\n"
-            "4. Record conflicts between sources and any gaps in the evidence.\n"
-            "5. Call `register_claim` once per claim so it carries a citation in the report.\n\n"
+            "5. Record conflicts between sources as conflict pairs (claim_a, claim_b, description).\n"
+            "6. Record any gaps in the evidence (what could not be established).\n"
+            "7. Call `register_claim` once per claim so it carries a citation in the report.\n"
+            "   - Every factual claim must cite at least one retrieved source via citation id.\n"
+            "   - Never invent citation identifiers or cite sources that were not retrieved.\n"
+            "   - If evidence is insufficient, mark evidence_strength as 'insufficient' and say so plainly.\n"
+            "   - Do not treat duplicate URLs or copied content as independent corroboration.\n\n"
             "Be rigorous: a claim resting on one blog post earns low confidence; a claim "
             "corroborated by three independent authoritative sources earns high confidence."
         ),
         expected_output=(
-            "JSON matching the AnalyzedFindings schema: claims with supporting_sources, "
-            "confidence, relevance, plus conflicts and gaps arrays"
+            "JSON matching the AnalyzedFindings schema: claims with supporting_sources "
+            "(each including citation_id), confidence, relevance, evidence_strength, "
+            "limitations, contradicts, plus conflicts, conflict_pairs, and gaps arrays"
         ),
         agent=agents["analyst"],
         output_json=AnalyzedFindings,
@@ -204,20 +382,61 @@ def build_pipeline_tasks(
 
     report = Task(
         description=(
-            "Write the final markdown report from the analyst's output.\n\n"
-            "Required structure:\n"
-            "1. **Executive Summary** — two to three paragraphs, decision-maker ready.\n"
-            "2. **Key Findings** — five to eight bullets, each with an inline citation.\n"
-            "3. **Detailed Findings** — one section per major theme, evidence-backed.\n"
-            "4. **Confidence Assessment** — overall, and per claim where variance is notable.\n"
-            "5. **Sources Appendix** — formatted references with relevance scores.\n\n"
-            "Formatting rules:\n"
-            "- Inline citations as [^1], [^2], matching the Sources Appendix.\n"
-            "- `###` for sections, `####` for subsections.\n"
-            "- Bold key terms; blockquote direct quotations.\n"
-            "- Never assert anything the evidence does not support. Where the evidence is "
-            "thin, say so plainly.\n\n"
-            "Write for a technical decision-maker: precise, scannable, actionable."
+            "Write the final markdown report from the analyst's evaluated findings.\n\n"
+            "You receive the analyst's claims as context: each claim has supporting "
+            "sources (citation ids, URLs, titles, relevance), an evidence strength "
+            "category (high / moderate / low / insufficient / conflicted), "
+            "limitations, and any contradictions, plus research gaps and an overall "
+            "confidence.\n\n"
+            "Report structure — include a section only when it is relevant to the "
+            "findings:\n"
+            "1. Title\n"
+            "2. Executive Summary\n"
+            "3. Introduction and Research Scope\n"
+            "4. Key Findings\n"
+            "5. Detailed Analysis\n"
+            "6. Evidence and Supporting Sources\n"
+            "7. Conflicting Findings\n"
+            "8. Limitations and Uncertainties\n"
+            "9. Research Gaps\n"
+            "10. Conclusion\n"
+            "11. References\n\n"
+            "Do not force irrelevant sections into every report. Maintain logical "
+            "progression. Use meaningful headings. Keep paragraphs focused. Avoid "
+            "repeating the executive summary in the introduction.\n\n"
+            "Citation reliability (mandatory):\n"
+            "- Every factual claim requiring external support must carry an inline "
+            "citation [^n] matching a source in the analyst's findings.\n"
+            "- Citation identifiers refer only to sources actually retrieved. Never "
+            "invent a citation id, URL, title, author, or publication date.\n"
+            "- Never cite a source that does not support the associated claim.\n"
+            "- Place citations close to the claims they support; avoid one citation "
+            "covering a paragraph of unrelated claims.\n"
+            "- Preserve the citation numbering [^1], [^2], ... as assigned; do not "
+            "renumber.\n"
+            "- If a claim has insufficient evidence, state that plainly instead of "
+            "manufacturing a citation.\n\n"
+            "Evidence and uncertainty:\n"
+            "- Preserve the analyst's evidence-strength categories. Do not upgrade "
+            "weak evidence into definitive statements.\n"
+            "- Represent conflicting findings fairly; explain when evidence cannot "
+            "resolve a disagreement.\n"
+            "- Distinguish an unanswered research question from a negative finding.\n"
+            "- Preserve claim limitations; do not override the evidence assessment.\n\n"
+            "Executive Summary:\n"
+            "- Directly answer the research question where evidence permits.\n"
+            "- Highlight the most important findings.\n"
+            "- Mention significant uncertainty or disagreement.\n"
+            "- Stay concise: two to three paragraphs. No generic summary.\n\n"
+            "References:\n"
+            "- List every cited source once: title, original URL, publication date "
+            "(if known), source category (heuristic), retrieval date.\n"
+            "- Do not fabricate missing metadata. Do not list uncited sources.\n"
+            "- Do not present heuristic source categories as verified authority.\n\n"
+            "Readability:\n"
+            "- Avoid repetitive paragraphs, generic introductions, citation dumps "
+            "without context, and repeating the same claim in multiple sections.\n"
+            "- Write for a technical decision-maker: precise, scannable, actionable."
         ),
         expected_output=(
             "JSON matching the FinalReport schema: markdown, executive_summary, "

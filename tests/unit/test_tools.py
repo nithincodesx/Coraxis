@@ -125,3 +125,106 @@ def test_a_running_loop_does_not_break_awaiting_the_async_path() -> None:
         return await Echo(context=_context())._arun(value="async")
 
     assert asyncio.run(main()) == "echo:async"
+
+
+# ─── SubQuestions schema (Researcher output) ───────────────────────────
+
+
+def test_planned_sub_question_defaults_and_clamping() -> None:
+    from coraxis.agents.tasks import PlannedSubQuestion
+
+    plan = PlannedSubQuestion(text="What is X?")
+    assert plan.text == "What is X?"
+    assert plan.priority == 3
+    assert plan.expected_evidence_type == ""
+    assert plan.query_variants == []
+
+    high = PlannedSubQuestion(text="What is Y?", priority=10)
+    assert high.priority == 5
+
+    low = PlannedSubQuestion(text="What is Z?", priority=-2)
+    assert low.priority == 1
+
+
+def test_sub_questions_still_works_backward_compatible() -> None:
+    from coraxis.agents.tasks import SubQuestions
+
+    sq = SubQuestions(
+        sub_questions=["What is A?", "What is B?", "What is C?"],
+        key_entities=["X"],
+        search_strategy="strat",
+    )
+    assert sq.sub_questions == ["What is A?", "What is B?", "What is C?"]
+    assert sq.planned_questions == ["What is A?", "What is B?", "What is C?"]
+    assert sq.is_usable
+
+
+def test_sub_questions_below_minimum_is_not_usable() -> None:
+    from coraxis.agents.tasks import SubQuestions
+
+    sq = SubQuestions(sub_questions=["What is A?", "What is B?"])
+    assert not sq.is_usable
+
+
+def test_subquestion_plans_populate_sub_questions() -> None:
+    from coraxis.agents.tasks import PlannedSubQuestion, SubQuestions
+
+    sq = SubQuestions(
+        subquestion_plans=[
+            PlannedSubQuestion(
+                text="What is A?",
+                priority=5,
+                expected_evidence_type="official docs",
+                query_variants=["A definition", "what is A"],
+            ),
+            PlannedSubQuestion(text="What is B?", priority=2),
+        ]
+    )
+    # plans normalise text and deduplicate
+    assert sq.subquestion_plans[0].text == "What is A?"
+    assert sq.subquestion_plans[0].priority == 5
+    assert sq.subquestion_plans[0].expected_evidence_type == "official docs"
+    assert sq.subquestion_plans[0].query_variants == ["A definition", "what is A"]
+    # sub_questions mirrors plan text
+    assert sq.sub_questions == ["What is A?", "What is B?"]
+    assert sq.planned_questions == ["What is A?", "What is B?"]
+
+
+def test_subquestion_plans_deduplicate() -> None:
+    from coraxis.agents.tasks import PlannedSubQuestion, SubQuestions
+
+    sq = SubQuestions(
+        subquestion_plans=[
+            PlannedSubQuestion(text="What is A?"),
+            PlannedSubQuestion(text="what is a?"),  # duplicate, different case
+            PlannedSubQuestion(text="What is B?"),
+        ]
+    )
+    assert len(sq.subquestion_plans) == 2
+    assert len(sq.sub_questions) == 2
+
+
+def test_complexity_normalises_to_valid_values() -> None:
+    from coraxis.agents.tasks import SubQuestions
+
+    sq = SubQuestions(complexity="SIMPLE")
+    assert sq.complexity == "simple"
+
+    sq = SubQuestions(complexity="nonsense")
+    assert sq.complexity == "moderate"
+
+    sq = SubQuestions(complexity="complex")
+    assert sq.complexity == "complex"
+
+
+def test_question_type_is_captured() -> None:
+    from coraxis.agents.tasks import SubQuestions
+
+    sq = SubQuestions(
+        question_type="comparative",
+        complexity="complex",
+        sub_questions=["Q1?", "Q2?", "Q3?"],
+    )
+    assert sq.question_type == "comparative"
+    assert sq.complexity == "complex"
+    assert len(sq.sub_questions) == 3

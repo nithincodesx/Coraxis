@@ -1,0 +1,1413 @@
+{
+  "question_id": "bench-007",
+  "question": "Does the European Union's General Data Protection Regulation (GDPR) apply to a US-based website that has no physical presence in the EU but offers goods to EU customers?",
+  "category": "primary-source",
+  "research_plan": "",
+  "search_queries": [
+    "GDPR Article 3 territorial scope extraterritorial application",
+    "GDPR Article 3(2) offering goods services to data subjects in Union",
+    "GDPR targeting test multilingual website EU customers no establishment",
+    "EDPB guidelines Article 3 territorial scope targeting interpretation",
+    "GDPR Article 3 territorial scope text \"offering of goods or services\"",
+    "EDPB Guidelines 3/2018 territorial scope Article 3",
+    "CJEU GDPR extraterritorial application targeting EU data subjects case",
+    "GDPR Article 3(2) establishment outside Union data subjects in Union",
+    "EDPB Guidelines 3/2018 territorial scope Article 3 GDPR targeting offering goods services",
+    "CJEU C-191/15 Verein für Konsumenteninformation Amazon targeting test GDPR territorial scope"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://www.outlook.com/uach.cl",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.outlook.com/owa/towson.edu",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51037.outlook.com/owa/",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook ... Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://olmoauth.outlook.com/api/googleoauthredir/com.microsoft.office.outlook:/mac/google/oauth2redirect",
+      "title": "Outlook.com",
+      "relevance": 0.5,
+      "snippet": "Outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://na01.safelinks.protection.outlook.com/apple-app-site-association",
+      "title": "na01.safelinks.protection.outlook.com",
+      "relevance": 0.5,
+      "snippet": "{ \"applinks\": { \"apps\": [], \"details\": [ { \"appIDs\": [\"9KBH5RKYEW.com.microsoft.loop-dogfood\", \"SGGM6D27TK.com.microsoft.loop\"], …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ps.outlook.com/Powershell",
+      "title": "ps.outlook.com",
+      "relevance": 0.5,
+      "snippet": "Shërbimi Outlook për menaxhimin e email-eve dhe kalendarit tuaj.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51007.outlook.com/owa/logoff.owa",
+      "title": "pod51007.outlook.com",
+      "relevance": 0.5,
+      "snippet": "pod51007.outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51035.outlook.com/owa/WebReadyView.aspx?t=att&id=RgAAAAABUuydlFnSTLuCfPreL2guBwBYapEA7s3RSYQoeOgmaweKAAAAtVYTAACG11TwpWGXR5sXwFTjFl0FAAC0mWFPAAAJ&attid0=EAAZDj7gTOLdT4GE66ModSEQ&attcnt=1",
+      "title": "pod51035.outlook.com",
+      "relevance": 0.5,
+      "snippet": "pod51035.outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/app?hl=en-GB",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=cs",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Seznamte se s Gemini, AI asistentem od Googlu. Dokáže pomoct s psaním, plánováním, brainstormingem a spoustou dalších aktivit. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=pt-br",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Conheça o Gemini, o assistente de IA do Google. Receba ajuda para escrever, planejar, ter ideias e muito mais. Conheça o poder …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=it",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Ecco Gemini, l'assistente AI di Google. Ricevi aiuto per scrivere, pianificare, fare brainstorming e molto altro. Prova la potenza dell'AI …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=fr",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Voici Gemini, l'assistant IA de Google. Faites-vous aider pour rédiger, planifier, trouver des idées et plus encore. Découvrez la …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=pl",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Poznaj Gemini – asystenta AI od Google. Korzystaj z jej pomocy w pisaniu, planowaniu, prowadzeniu burzy mózgów i innych …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=es",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Descubre Gemini, el asistente de IA de Google. Puedes pedirle que te ayude a escribir, a hacer planes o a explorar ideas, entre …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.cartagenaexplorer.com/cartagena-colombia-complete-guide/",
+      "title": "In-depth but Practical Cartagena, Colombia Travel Guide",
+      "relevance": 0.5,
+      "snippet": "Jul 9, 2025 · In this Cartagena travel guide, I’ve put together all my top Cartagena tips in a step by step guide to planning your own …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://traveltract.com/travel-to-cartagena-colombia/",
+      "title": "Travel to Cartagena Colombia: Guide to Beaches, Culture & Adventure",
+      "relevance": 0.5,
+      "snippet": "Sep 15, 2026 · Travel to Cartagena Colombia with this complete guide to beaches, culture, adventure, top attractions, local food, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://go-to-colombia.com/cartagena-travel-guide/",
+      "title": "The Ultimate Cartagena Travel Guide: Everything You Need to Know …",
+      "relevance": 0.5,
+      "snippet": "Mar 22, 2026 · This Cartagena travel guide gives you everything you need: the best things to do, where to stay, what to eat, how to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://wakaabuja.com/travel-to-cartagena-colombia/",
+      "title": "Cartagena, Colombia Travel Guide: What to Know Before You Go",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Do you need a visa to travel to Cartagena, Colombia? Most Western passport holders do not need a visa for Colombia. US, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.tripadvisor.com/Tourism-g297476-Cartagena_Cartagena_District_Bolivar_Department-Vacations.html",
+      "title": "Cartagena, Colombia: All You Must Know Before You Go (2026 ...",
+      "relevance": 0.5,
+      "snippet": "Cartagena, a gorgeous fishing village on Colombia's Caribbean coast, has excellent beaches, a historic old town (that's entirely …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bucketlistjourney.net/cartagena-travel-guide/",
+      "title": "Cartagena Colombia Travel Guide: Things to Do & Eat",
+      "relevance": 0.5,
+      "snippet": "Plan the perfect Colombia trip with the best Cartagena Travel Guide. Find the best things to do, where to eat and places to stay.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mytriptocolombia.com/colombia/caribbean/cartagena/",
+      "title": "Cartagena practical Guide 2026: All you need to knwo to visit Cartagena …",
+      "relevance": 0.5,
+      "snippet": "Jul 12, 2026 · On this page, you’ll find all the practical information you need to organize your visit to Cartagena in Colombia: things to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.jetsetchristina.com/the-ultimate-guide-to-cartagena-colombia/",
+      "title": "The Ultimate Travel Guide to Cartagena, Colombia",
+      "relevance": 0.5,
+      "snippet": "Oct 31, 2021 · Headed to Cartagena and wondering what you can’t miss? Here is my go-to Jetset travel guide to a perfect vacation …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-36847262-que-faire-en-cas-d-oubli-d-adresse-mail-instagram",
+      "title": "Que faire en cas d'oubli d'adresse mail instagram",
+      "relevance": 0.5,
+      "snippet": "Sep 13, 2020 · Bonjour, j'aimerais me connecter à mon compte instagram sauf que je me souviens plus de l'adresse mail que j'ai …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-38045573-appel-instagram-qui-se-coupe-seul",
+      "title": "Appel instagram qui se coupe seul. - Instagram",
+      "relevance": 0.5,
+      "snippet": "May 14, 2024 · Sur Instagram, par exemple, il y a une limite de temps pour les appels vidéos entre chaque réinitialisation de l'appel, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/1977435041496864481",
+      "title": "Instagram密码正确但就是登录不了? - 知乎",
+      "relevance": 0.5,
+      "snippet": "Instagram密码正确但就是登录不了? 账号前几天被黑客盗用 后面找回来了 有天自己修改了两次密码后 突然被ins登出 显示密码错误  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/317352292",
+      "title": "俄罗斯人的主要社交软件是什么？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "社交软件最常用应该是这个啦，基本覆盖全年龄段。 VKontakte （俄语：ВКонтакте，简：VK），为俄罗斯知名在线社交网络服务网 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.ccm.net/forum/affich-121760-codice-sicurezza-instagram-non-arriva-che-fare",
+      "title": "Codice sicurezza Instagram non arriva, che fare? - CCM",
+      "relevance": 0.5,
+      "snippet": "Ho cambiato telefono, scarico instagram metto i dati, mi chiede codice di sicurezza tramite numero di telefono (tramite mail non si …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.ccm.net/faq/27293-come-riattivare-un-account-instagram-disabilitato",
+      "title": "Come riattivare un account Instagram disabilitato - CCM",
+      "relevance": 0.5,
+      "snippet": "Jun 22, 2021 · Cosa fare se l’account Instagram è stato temporaneamente disabilitato? Se non riesci ad accedere al tuo account …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-37923178-instagram-prend-trop-d-espace",
+      "title": "Instagram prend trop d'espace - Forum Instagram - CommentCaMarche",
+      "relevance": 0.5,
+      "snippet": "Oct 7, 2023 · L'application instagram avait 28go de données, j'ai supprimé ces données (à vrai dire, je ne sais même pas ce qu'elles …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/28515433",
+      "title": "台湾人用什么社交软件呢？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "台湾不像大陆有网络管制的， 他们是和世界无障碍联通的，社交工具和西方世界同步的， 我们大陆用微信——他们用 Line；大陆 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Jailer_2",
+      "title": "Jailer 2 - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Jailer 2 was released worldwide on 15 October 2026 in standard and IMAX formats. The film received generally positive reviews …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.bookmyshow.com/movies/jailer-2/ET00518674",
+      "title": "Jailer 2 (2026) - Movie | Reviews, Cast & Release Date - BookMyShow",
+      "relevance": 0.5,
+      "snippet": "Jailer 2 (2026), Action Thriller released in Tamil Telugu Kannada language in theatre near you. Know about Film reviews, lead cast & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sacnilk.com/news/Jailer_2_2026_Box_Office_Collection_Day_Wise_Worldwide",
+      "title": "Jailer 2 Box Office Collection | All Language | Day Wise | Worldwide",
+      "relevance": 0.5,
+      "snippet": "Oct 10, 2026 · Chennai, November 9, 2026: Rajinikanth's Jailer 2 has already rewritten several chapters of Tamil cinema's box office …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.district.in/movies/jailer-2-movie-tickets-MV187766",
+      "title": "Jailer 2",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · Jailer 2 stars Rajinikanth, Mohanlal, Shiva Rajkumar, Suraj Venjaramoodu, Mithun Chakraborthy. From premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://m.imdb.com/title/tt33318732/",
+      "title": "Jailer 2 (2026) - IMDb",
+      "relevance": 0.5,
+      "snippet": "Jailer 2: Directed by Nelson Dilipkumar. With Rajinikanth, Mohanlal, Shivarajkumar, Jackie Shroff. A retired officer's peaceful life is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.bollywoodhungama.com/movie/jailer-2/",
+      "title": "Jailer 2 Movie - Bollywood Hungama",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · RAJINI: THE JAILER 2 is the story of a man facing new enemies. After the events of the first part, Tiger Muthuvel …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://m.youtube.com/watch?v=FW_PPcr1sPE",
+      "title": "JAILER 2 - Official Trailer | Superstar Rajinikanth | Sun Pictures ...",
+      "relevance": 0.5,
+      "snippet": "Oct 5, 2026 · Presenting the official trailer from Superstar Rajinikanth’s \"JAILER 2\". Directed by Nelson, Music by Anirudh & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.bookmyshow.com/movies/BANG/jailer-2/ET00518674",
+      "title": "Jailer 2 (2026) - Movie | Reviews, Cast & Release Date - BookMyShow",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · Jailer 2 follows retired jailer Tiger Muthuvel Pandian (Rajinikanth) as a new threat from the criminal underworld …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.org/",
+      "title": "Oracle VirtualBox",
+      "relevance": 0.5,
+      "snippet": "VirtualBox is a general-purpose full virtualization software for x86_64 hardware (with version 7.1 additionally for macOS/Arm and with …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.org/wiki/Downloads",
+      "title": "Downloads - Oracle VM VirtualBox",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · VirtualBox is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.For a …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html",
+      "title": "Oracle VM VirtualBox - Downloads | Oracle Technology Network | Oracle",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · Oracle VirtualBox: Base package source code and Extension Pack Oracle VirtualBox Base package source code and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://virtualbox.en.softonic.com/",
+      "title": "VirtualBox - Download",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · Overall, VirtualBox delivers exceptional value for users seeking a reliable and flexible virtualization solution. Its wide …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.oracle.com/virtualization/virtualbox/",
+      "title": "VirtualBox | Virtualization | Oracle",
+      "relevance": 0.5,
+      "snippet": "Oracle VirtualBox, the world’s most popular open source, cross-platform, virtualization software, enables developers to deliver code …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.techspot.com/downloads/4481-virtualbox.html",
+      "title": "VirtualBox Download Free - 7.2.22 | TechSpot",
+      "relevance": 0.5,
+      "snippet": "Oct 20, 2026 · Download VirtualBox - Run any OS, anytime, anywhere. VirtualBox makes powerful virtualization free and easy.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.com/downloads",
+      "title": "www.virtualbox.com",
+      "relevance": 0.5,
+      "snippet": "Download VirtualBox for free to run multiple operating systems on your computer.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/VirtualBox",
+      "title": "VirtualBox - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Oracle VirtualBox (formerly Oracle VM VirtualBox, Sun VirtualBox, Sun xVM VirtualBox and InnoTek VirtualBox) is a hosted hypervisor for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mail.google.com/mail/",
+      "title": "Gmail - Email from Google",
+      "relevance": 0.5,
+      "snippet": "Gmail is email that's intuitive, efficient, and useful. 15 GB of storage, less spam, and mobile access.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/?hl=en-GB",
+      "title": "Gmail Help",
+      "relevance": 0.5,
+      "snippet": "Official Gmail Help Center where you can find tips and tutorials on using Gmail and other answers to frequently asked questions.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/176347?hl=pt-br&co=GENIE.Platform=Desktop",
+      "title": "Fazer login na sua Conta do Google com outro endereço de e-mail",
+      "relevance": 0.5,
+      "snippet": "Ao criar uma Conta do Google, você recebe automaticamente um endereço do Gmail. Mas se preferir usar outro endereço de e-mail para …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=pt-BR&co=GENIE.Platform=Desktop",
+      "title": "Fazer login no Gmail",
+      "relevance": 0.5,
+      "snippet": "Fazer login no Gmail Para abrir o Gmail, faça login em um computador ou adicione sua conta ao app Gmail no smartphone ou tablet. Depois …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=id&co=GENIE.Platform=Desktop",
+      "title": "Login ke Gmail",
+      "relevance": 0.5,
+      "snippet": "Login ke Gmail Untuk membuka Gmail, Anda dapat login dari komputer atau menambahkan akun Anda ke aplikasi Gmail di ponsel atau …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=it&co=GENIE.Platform=Desktop",
+      "title": "Accedere a Gmail - Computer - Guida di Gmail - Google Help",
+      "relevance": 0.5,
+      "snippet": "Apri Gmail sul computer. Inserisci l'indirizzo email o il numero di telefono e la password del tuo Account Google. Se le informazioni sono …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=en-GB&co=GENIE.Platform=Desktop",
+      "title": "Sign in to Gmail",
+      "relevance": 0.5,
+      "snippet": "To open Gmail, you can log in from a computer, or add your account to the Gmail app on your phone or tablet. Once you've signed in, check …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/1721977?hl=en&co=GENIE.Platform=Desktop",
+      "title": "Sign in to multiple accounts at once - Google Help",
+      "relevance": 0.5,
+      "snippet": "Accounts have separate settings You can control your settings separately for each of your accounts. When you sign in to multiple …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, Tamil, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while browsing the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/20498862",
+      "title": "「rule by law」 和「rule of law」有哪些区别？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Sep 25, 2012 · 这个问题在《元照英美法》和《Black’s Law Dictionary》其实有权威答案，笔者这里再对rule of law增补几句。 rule of law与rule by …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://zhidao.baidu.com/question/1948412748914454668.html",
+      "title": "a bit，a little bit和a bit of的区别 - 百度知道",
+      "relevance": 0.5,
+      "snippet": "a bit 、a little bit、a bit of都表示“一点点，有点儿”的意思，但是用法不同，具体区别如下： 1、a bit表示稍微、有点儿。作副词，表达“程度”时，修饰动词、 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/23071872",
+      "title": "英国埃塞克斯大学 (University of Essex)怎么样? - 知乎",
+      "relevance": 0.5,
+      "snippet": "苦等了这么多年，终于我们学校也上了一回“xx大学怎么样系列”了。 可惜却是我不太了解的商科。提起商学院，我印象最深的就是去年刚盖好的那号称环保和装逼 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gdpr-info.eu/recitals/no-23/",
+      "title": "Recital 23 - Applicable to Controllers/Processors Not Established in the Union if Data Subjects Within the Union are Targeted - General Data Protection Regulation (GDPR)",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 239,
+      "fetch_success": true
+    },
+    {
+      "url": "https://gdpr-info.eu/art-3-gdpr/",
+      "title": "Art. 3 GDPR – Territorial scope - General Data Protection Regulation (GDPR)",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 145,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2018)620229",
+      "title": "Towards a binding international treaty on business and human rights | Think Tank | European Parliament",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 300,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.xvideos.com/tags/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free CUCKOLD XXX - Wicked Luna Bunny anal porn story 16 min Cuckold Xxx - 212.2k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/d:10-20min/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free HOMEMADE XXX - Lustful Olivia Sparkle mind-blowing xxx video 16 min HomeMade Xxx - 418.8k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.xvideos.com/tags/xxx",
+      "title": "Video xxx - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Video xxx, gratis xxx La mia calda figliastra è ancora vergine con una figa stretta, morbida e dolce xxx (Over 18) 14 min. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.xvideos.com/tags/xxx/1/",
+      "title": "Video xxx, Pagina 1 - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Video xxx, Pagina 1, gratis PROMO GRATUITA La MILF dalle tette enormi RYAN CONNER drena tutto lo sperma dal grosso …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/d:1-3min/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free Estrella Slut Training 02# Hard Sex, Face Fucking and Golden Shower 25 sec Shady Sluts - 38.6k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/-xxx",
+      "title": "-xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS -xxx videos, free xxx My hot stepdaughter is still a virgin with a tight soft sweet pussy xxx (Over 18) 14 min …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/xxx-videos",
+      "title": "xxx-videos videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx-videos videos, free SlaveSex4K - Freeuse step Daughter Is Eager to Lend Her Body to Fulfill All of 's Naughty Fantasies - London …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Google Maps",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/how-to-get-help-in-windows-711b6492-0435-0038-8706-7c6b0feb200a",
+      "title": "How to get help in Windows - Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-gb/windows/experience/how-to-get-help-in-windows",
+      "title": "How to get help in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.wikihow.com/Get-Help-in-Windows-11",
+      "title": "How to Get Help in Windows 11: 3 Quick & Easy Ways",
+      "relevance": 0.5,
+      "snippet": "Mar 21, 2026 · Learn how to troubleshoot errors and get assistance from MicrosoftDo you need help with Windows 11? If something …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://techbaked.com/how-get-help-windows-11/",
+      "title": "How to Get Help in Windows 11 (15 Ways) - techbaked.com",
+      "relevance": 0.5,
+      "snippet": "Sep 12, 2026 · Learn how to get help in Windows 11 using the Get Help app, troubleshooters, Microsoft Support, Copilot, recovery …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://helpdeskgeek.com/how-to-get-help-in-windows/",
+      "title": "How to Get Help in Windows 11 and 10 (Get Help App, Microsoft …",
+      "relevance": 0.5,
+      "snippet": "Sep 27, 2022 · How to Get Help in Windows The fastest way to get help in Windows 10 and 11 is the built-in Get Help app. It …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/windows/help-and-support?msockid=063dae3b125e6d9520bdb63613796c07",
+      "title": "Windows help and supportWindows help and support",
+      "relevance": 0.5,
+      "snippet": "Find the Windows help and support you need. From account setup to device support, search for quick answers and helpful resources …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [
+    "RuntimeError: Event loop is closed"
+  ],
+  "intermediate_outputs": {
+    "search_completed": [
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "6 results"
+    ],
+    "fetch_completed": [
+      "239 words",
+      "145 words",
+      "HTTP 404",
+      "300 words",
+      "HTTP 403",
+      "HTTP 404",
+      "HTTP 429",
+      "239 words",
+      "RuntimeError: Event loop is closed"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "Under GDPR Article 3(2), a controller or processor not established in the Union is subject to the GDPR where its processing relates to offering goods or service"
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "GDPR Article 3(1) provides that the Regulation applies to the processing of personal data in the context of the activities of an establishment of a controller o"
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "Recital 23 clarifies that mere accessibility of a controller's website, an email address, other contact details, or the use of a language generally used in the "
+      }
+    ]
+  },
+  "final_report": "### GDPR Territorial Scope & Extraterritorial Application: Evidence Report\n\n### Executive Summary\n\nThis report addresses whether, and on what legal basis, the EU General Data Protection Regulation (GDPR) applies to a controller established outside the Union — for example, a US-based website — when it processes personal data of data subjects located in the EU. The analysis anchors on the primary legal source, **GDPR Article 3**, read together with **Recital 23**, and is structured around three claims that reproduce the black-letter text of the Regulation.\n\nThe core statutory rule is twofold. **Article 3(1)** establishes a territorial (establishment-based) limb: the GDPR applies to processing carried out in the context of the activities of an establishment of a controller or processor in the Union, regardless of where the processing itself occurs. **Article 3(2)** establishes an extraterritorial limb: a controller or processor not established in the Union is nonetheless subject to the GDPR where its processing relates to offering goods or services to data subjects in the Union (irrespective of whether a payment is required), or to monitoring their behaviour within the Union [^1]. **Recital 23** operationalizes the targeting test, clarifying which factors are sufficient and insufficient to show an intention to offer goods or services to EU data subjects [^2].\n\n**Confidence and evidence caveats.** The three supported claims derive from a single domain (gdpr-info.eu). The authoritative interpretive and enforcement layer — **EDPB Guidelines 3/2018**, UK ICO territorial-scope guidance, and **CJEU case law** (e.g., Case C-191/15 Amazon) — could not be retrieved (HTTP 404/403/429, rate-limited, and loop errors). Consequently, sub-question 4 (enforcement examples against US-based websites) is unanswered, and overall confidence is capped at **0.7**. The legal text in Article 3 and Recital 23 is internally consistent, but the report should be treated as primary-source text retrieval, not a validated regulatory interpretation.\n\n### Key Findings\n\n- **Territorial limb (Article 3(1)):** The GDPR applies to processing in the context of the activities of an establishment of a controller or processor in the Union, regardless of whether the processing takes place in or outside the Union. *Confidence: 0.8 (moderate).* [^1]\n- **Extraterritorial limb (Article 3(2)):** A controller or processor **not established in the Union** is subject to the GDPR where processing relates to offering goods or services to data subjects in the Union, or to monitoring their behaviour within the Union. *Confidence: 0.85 (moderate-high).* [^1]\n- **No payment required:** The \"offering of goods or services\" test applies \"irrespective of whether a payment of the data subject is required\" — so free services fall within scope. *Confidence: 0.85 (inferred from text).* [^1]\n- **No physical presence required:** The extraterritorial limb explicitly covers controllers \"not established in the Union,\" so absence of an EU establishment does not exclude application. *Confidence: 0.85 (inferred from text).* [^1]\n- **Targeting test (Recital 23):** Mere accessibility of a website in the Union, an email address, other contact details, or the use of the third-country's language is **insufficient** to show intent; factors such as using a Member State language or currency with the possibility of ordering in that language, or mentioning customers/users in the Union, may make it apparent the controller envisages offering goods/services to EU data subjects. *Confidence: 0.8 (moderate).* [^2]\n- **Evidence-base limitation:** All source material comes from a single domain (gdpr-info.eu). No independent regulatory guidance (EDPB, ICO) or CJEU case law was successfully retrieved, so enforcement-level conclusions cannot be drawn. *Confidence: n/a (gaps known).* [^1][^2]\n\n### Detailed Findings\n\n#### 1. Article 3(1): Establishment-based territorial scope\n\nThe GDPR applies to processing of personal data in the context of the activities of an establishment of a controller or processor in the Union, \"regardless of whether the processing takes place in the Union or not\" [^1]. This is the **establishment-centric** limb: it catches processors with any EU branch whose processing is linked to that branch's activities, even where the servers or processing operations sit outside EU territory.\n\n#### 2. Article 3(2): Extraterritorial application to non-EU controllers\n\nArticle 3(2) extends the GDPR to controllers/processors without an EU establishment in two scenarios: (1) offering goods or services to data subjects in the Union, \"irrespective of whether a payment of the data subject is required\"; or (2) monitoring data subjects' behaviour \"as far as their behaviour takes place within the Union\" [^1]. The text therefore imposes no payment precondition and no physical-presence requirement, consistent with the extraterritorial design of the Regulation.\n\n#### 3. Recital 23: The \"offering goods or services\" targeting test\n\nRecital 23 clarifies how to ascertain whether a non-EU controller \"envisages\" offering goods/services to EU data subjects. It states:\n\n> \"The mere accessibility of the controller's website in the Union, of an email address or of other contact details, or the use of a language generally used in the third country where the controller is established, is insufficient to ascertain intention, whereas factors such as the use of a language or currency generally used in one or more Member States with the possibility of ordering goods and services in that other language, or the mentioning of customers or users who are in the Union, may make it apparent the controller envisages offering goods or services to data subjects in the Union.\" [^2]\n\nThis establishes a **qualitative targeting assessment** — not a bright-line rule — where factors like a Member State language/currency with ordering capability, or referencing EU customers, weigh toward a finding of intent. It explicitly rejects mere accessibility as sufficient.\n\n#### 4. Unverifiable layer: EDPB guidance, CJEU case law, enforcement examples\n\nSub-question 4 (EDPB interpretation, CJEU case law, and enforcement examples against US-based websites) could not be answered. Retrieval attempts for **EDPB Guidelines 3/2018** returned HTTP 404 (HTML and PDF) and HTTP 429 (archive.org rate-limited); **UK ICO** territorial guidance returned HTTP 403; a **privacy-regulation.eu** fetch failed with an event-loop runtime error; and **CJEU case law** searches returned only irrelevant results (Outlook, Gmail, travel guides, Microsoft help pages). This is a material gap: the legal test's practical application to a specific US website cannot be asserted on the current evidence. This limitation is stated plainly rather than concealed.\n\n### Confidence Assessment\n\n**Overall confidence: 0.7 (moderate).** The primary statutory text is faithfully reproduced and internally consistent, but the single-domain evidence base and the complete absence of secondary regulatory/case-law sources cap confidence below what a decision-maker would want for a dispositive legal determination.\n\nPer-claim confidence:\n- **Claim 1 (Article 3(2) extraterritorial reach):** 0.85 — direct statutory text; highest confidence.\n- **Claim 2 (Article 3(1) establishment limb):** 0.80 — direct statutory text; slightly lower due to lesser use in the scenario.\n- **Claim 3 (Recital 23 targeting test):** 0.80 — direct recital text; interpretive caveat that it is a non-exhaustive factor list.\n- **Variance source:** The gap between claim confidence (0.80–0.85) and overall confidence (0.7) reflects the missing independent corroboration (EDPB, ICO, CJEU) and lack of enforcement examples.\n\n### Sources Appendix\n\n[^1]: **Art. 3 GDPR — Territorial scope.** General Data Protection Regulation (GDPR). gdpr-info.eu. URL: https://gdpr-info.eu/art-3-gdpr/ — **Relevance: 0.90–0.95** (primary statutory text; directly supports claims on both limbs).\n\n[^2]: **Recital 23 — Applicable to Controllers/Processors Not Established in the Union if Data Subjects Within the Union are Targeted.** gdpr-info.eu. URL: https://gdpr-info.eu/recitals/no-23/ — **Relevance: 0.95** (directly supplies the targeting test).\n\n**Note on unavailable sources:** EDPB Guidelines 3/2018 (territorial scope), UK ICO territorial-scope guidance, and CJEU case law (e.g., Case C-191/15) could not be retrieved due to HTTP 404/403/429 and runtime errors; they are therefore not cited as sources, and any claim resting on them is explicitly withheld.",
+  "citations": [
+    {
+      "url": "https://www.outlook.com/uach.cl",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.outlook.com/owa/towson.edu",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51037.outlook.com/owa/",
+      "title": "Outlook",
+      "relevance": 0.5,
+      "snippet": "Outlook ... Outlook",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://olmoauth.outlook.com/api/googleoauthredir/com.microsoft.office.outlook:/mac/google/oauth2redirect",
+      "title": "Outlook.com",
+      "relevance": 0.5,
+      "snippet": "Outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://na01.safelinks.protection.outlook.com/apple-app-site-association",
+      "title": "na01.safelinks.protection.outlook.com",
+      "relevance": 0.5,
+      "snippet": "{ \"applinks\": { \"apps\": [], \"details\": [ { \"appIDs\": [\"9KBH5RKYEW.com.microsoft.loop-dogfood\", \"SGGM6D27TK.com.microsoft.loop\"], …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ps.outlook.com/Powershell",
+      "title": "ps.outlook.com",
+      "relevance": 0.5,
+      "snippet": "Shërbimi Outlook për menaxhimin e email-eve dhe kalendarit tuaj.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51007.outlook.com/owa/logoff.owa",
+      "title": "pod51007.outlook.com",
+      "relevance": 0.5,
+      "snippet": "pod51007.outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pod51035.outlook.com/owa/WebReadyView.aspx?t=att&id=RgAAAAABUuydlFnSTLuCfPreL2guBwBYapEA7s3RSYQoeOgmaweKAAAAtVYTAACG11TwpWGXR5sXwFTjFl0FAAC0mWFPAAAJ&attid0=EAAZDj7gTOLdT4GE66ModSEQ&attcnt=1",
+      "title": "pod51035.outlook.com",
+      "relevance": 0.5,
+      "snippet": "pod51035.outlook.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/app?hl=en-GB",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=cs",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Seznamte se s Gemini, AI asistentem od Googlu. Dokáže pomoct s psaním, plánováním, brainstormingem a spoustou dalších aktivit. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=pt-br",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Conheça o Gemini, o assistente de IA do Google. Receba ajuda para escrever, planejar, ter ideias e muito mais. Conheça o poder …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=it",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Ecco Gemini, l'assistente AI di Google. Ricevi aiuto per scrivere, pianificare, fare brainstorming e molto altro. Prova la potenza dell'AI …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=fr",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Voici Gemini, l'assistant IA de Google. Faites-vous aider pour rédiger, planifier, trouver des idées et plus encore. Découvrez la …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=pl",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Poznaj Gemini – asystenta AI od Google. Korzystaj z jej pomocy w pisaniu, planowaniu, prowadzeniu burzy mózgów i innych …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gemini.google.com/?hl=es",
+      "title": "‎Google Gemini",
+      "relevance": 0.5,
+      "snippet": "Descubre Gemini, el asistente de IA de Google. Puedes pedirle que te ayude a escribir, a hacer planes o a explorar ideas, entre …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.cartagenaexplorer.com/cartagena-colombia-complete-guide/",
+      "title": "In-depth but Practical Cartagena, Colombia Travel Guide",
+      "relevance": 0.5,
+      "snippet": "Jul 9, 2025 · In this Cartagena travel guide, I’ve put together all my top Cartagena tips in a step by step guide to planning your own …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://traveltract.com/travel-to-cartagena-colombia/",
+      "title": "Travel to Cartagena Colombia: Guide to Beaches, Culture & Adventure",
+      "relevance": 0.5,
+      "snippet": "Sep 15, 2026 · Travel to Cartagena Colombia with this complete guide to beaches, culture, adventure, top attractions, local food, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://go-to-colombia.com/cartagena-travel-guide/",
+      "title": "The Ultimate Cartagena Travel Guide: Everything You Need to Know …",
+      "relevance": 0.5,
+      "snippet": "Mar 22, 2026 · This Cartagena travel guide gives you everything you need: the best things to do, where to stay, what to eat, how to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://wakaabuja.com/travel-to-cartagena-colombia/",
+      "title": "Cartagena, Colombia Travel Guide: What to Know Before You Go",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Do you need a visa to travel to Cartagena, Colombia? Most Western passport holders do not need a visa for Colombia. US, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.tripadvisor.com/Tourism-g297476-Cartagena_Cartagena_District_Bolivar_Department-Vacations.html",
+      "title": "Cartagena, Colombia: All You Must Know Before You Go (2026 ...",
+      "relevance": 0.5,
+      "snippet": "Cartagena, a gorgeous fishing village on Colombia's Caribbean coast, has excellent beaches, a historic old town (that's entirely …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bucketlistjourney.net/cartagena-travel-guide/",
+      "title": "Cartagena Colombia Travel Guide: Things to Do & Eat",
+      "relevance": 0.5,
+      "snippet": "Plan the perfect Colombia trip with the best Cartagena Travel Guide. Find the best things to do, where to eat and places to stay.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mytriptocolombia.com/colombia/caribbean/cartagena/",
+      "title": "Cartagena practical Guide 2026: All you need to knwo to visit Cartagena …",
+      "relevance": 0.5,
+      "snippet": "Jul 12, 2026 · On this page, you’ll find all the practical information you need to organize your visit to Cartagena in Colombia: things to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.jetsetchristina.com/the-ultimate-guide-to-cartagena-colombia/",
+      "title": "The Ultimate Travel Guide to Cartagena, Colombia",
+      "relevance": 0.5,
+      "snippet": "Oct 31, 2021 · Headed to Cartagena and wondering what you can’t miss? Here is my go-to Jetset travel guide to a perfect vacation …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-36847262-que-faire-en-cas-d-oubli-d-adresse-mail-instagram",
+      "title": "Que faire en cas d'oubli d'adresse mail instagram",
+      "relevance": 0.5,
+      "snippet": "Sep 13, 2020 · Bonjour, j'aimerais me connecter à mon compte instagram sauf que je me souviens plus de l'adresse mail que j'ai …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-38045573-appel-instagram-qui-se-coupe-seul",
+      "title": "Appel instagram qui se coupe seul. - Instagram",
+      "relevance": 0.5,
+      "snippet": "May 14, 2024 · Sur Instagram, par exemple, il y a une limite de temps pour les appels vidéos entre chaque réinitialisation de l'appel, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/1977435041496864481",
+      "title": "Instagram密码正确但就是登录不了? - 知乎",
+      "relevance": 0.5,
+      "snippet": "Instagram密码正确但就是登录不了? 账号前几天被黑客盗用 后面找回来了 有天自己修改了两次密码后 突然被ins登出 显示密码错误  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/317352292",
+      "title": "俄罗斯人的主要社交软件是什么？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "社交软件最常用应该是这个啦，基本覆盖全年龄段。 VKontakte （俄语：ВКонтакте，简：VK），为俄罗斯知名在线社交网络服务网 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.ccm.net/forum/affich-121760-codice-sicurezza-instagram-non-arriva-che-fare",
+      "title": "Codice sicurezza Instagram non arriva, che fare? - CCM",
+      "relevance": 0.5,
+      "snippet": "Ho cambiato telefono, scarico instagram metto i dati, mi chiede codice di sicurezza tramite numero di telefono (tramite mail non si …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.ccm.net/faq/27293-come-riattivare-un-account-instagram-disabilitato",
+      "title": "Come riattivare un account Instagram disabilitato - CCM",
+      "relevance": 0.5,
+      "snippet": "Jun 22, 2021 · Cosa fare se l’account Instagram è stato temporaneamente disabilitato? Se non riesci ad accedere al tuo account …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.commentcamarche.net/forum/affich-37923178-instagram-prend-trop-d-espace",
+      "title": "Instagram prend trop d'espace - Forum Instagram - CommentCaMarche",
+      "relevance": 0.5,
+      "snippet": "Oct 7, 2023 · L'application instagram avait 28go de données, j'ai supprimé ces données (à vrai dire, je ne sais même pas ce qu'elles …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/28515433",
+      "title": "台湾人用什么社交软件呢？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "台湾不像大陆有网络管制的， 他们是和世界无障碍联通的，社交工具和西方世界同步的， 我们大陆用微信——他们用 Line；大陆 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Jailer_2",
+      "title": "Jailer 2 - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Jailer 2 was released worldwide on 15 October 2026 in standard and IMAX formats. The film received generally positive reviews …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.bookmyshow.com/movies/jailer-2/ET00518674",
+      "title": "Jailer 2 (2026) - Movie | Reviews, Cast & Release Date - BookMyShow",
+      "relevance": 0.5,
+      "snippet": "Jailer 2 (2026), Action Thriller released in Tamil Telugu Kannada language in theatre near you. Know about Film reviews, lead cast & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sacnilk.com/news/Jailer_2_2026_Box_Office_Collection_Day_Wise_Worldwide",
+      "title": "Jailer 2 Box Office Collection | All Language | Day Wise | Worldwide",
+      "relevance": 0.5,
+      "snippet": "Oct 10, 2026 · Chennai, November 9, 2026: Rajinikanth's Jailer 2 has already rewritten several chapters of Tamil cinema's box office …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.district.in/movies/jailer-2-movie-tickets-MV187766",
+      "title": "Jailer 2",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · Jailer 2 stars Rajinikanth, Mohanlal, Shiva Rajkumar, Suraj Venjaramoodu, Mithun Chakraborthy. From premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://m.imdb.com/title/tt33318732/",
+      "title": "Jailer 2 (2026) - IMDb",
+      "relevance": 0.5,
+      "snippet": "Jailer 2: Directed by Nelson Dilipkumar. With Rajinikanth, Mohanlal, Shivarajkumar, Jackie Shroff. A retired officer's peaceful life is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.bollywoodhungama.com/movie/jailer-2/",
+      "title": "Jailer 2 Movie - Bollywood Hungama",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · RAJINI: THE JAILER 2 is the story of a man facing new enemies. After the events of the first part, Tiger Muthuvel …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://m.youtube.com/watch?v=FW_PPcr1sPE",
+      "title": "JAILER 2 - Official Trailer | Superstar Rajinikanth | Sun Pictures ...",
+      "relevance": 0.5,
+      "snippet": "Oct 5, 2026 · Presenting the official trailer from Superstar Rajinikanth’s \"JAILER 2\". Directed by Nelson, Music by Anirudh & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.bookmyshow.com/movies/BANG/jailer-2/ET00518674",
+      "title": "Jailer 2 (2026) - Movie | Reviews, Cast & Release Date - BookMyShow",
+      "relevance": 0.5,
+      "snippet": "Oct 15, 2026 · Jailer 2 follows retired jailer Tiger Muthuvel Pandian (Rajinikanth) as a new threat from the criminal underworld …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.org/",
+      "title": "Oracle VirtualBox",
+      "relevance": 0.5,
+      "snippet": "VirtualBox is a general-purpose full virtualization software for x86_64 hardware (with version 7.1 additionally for macOS/Arm and with …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.org/wiki/Downloads",
+      "title": "Downloads - Oracle VM VirtualBox",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · VirtualBox is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.For a …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html",
+      "title": "Oracle VM VirtualBox - Downloads | Oracle Technology Network | Oracle",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · Oracle VirtualBox: Base package source code and Extension Pack Oracle VirtualBox Base package source code and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://virtualbox.en.softonic.com/",
+      "title": "VirtualBox - Download",
+      "relevance": 0.5,
+      "snippet": "Jul 2, 2022 · Overall, VirtualBox delivers exceptional value for users seeking a reliable and flexible virtualization solution. Its wide …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.oracle.com/virtualization/virtualbox/",
+      "title": "VirtualBox | Virtualization | Oracle",
+      "relevance": 0.5,
+      "snippet": "Oracle VirtualBox, the world’s most popular open source, cross-platform, virtualization software, enables developers to deliver code …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.techspot.com/downloads/4481-virtualbox.html",
+      "title": "VirtualBox Download Free - 7.2.22 | TechSpot",
+      "relevance": 0.5,
+      "snippet": "Oct 20, 2026 · Download VirtualBox - Run any OS, anytime, anywhere. VirtualBox makes powerful virtualization free and easy.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.virtualbox.com/downloads",
+      "title": "www.virtualbox.com",
+      "relevance": 0.5,
+      "snippet": "Download VirtualBox for free to run multiple operating systems on your computer.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/VirtualBox",
+      "title": "VirtualBox - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Oracle VirtualBox (formerly Oracle VM VirtualBox, Sun VirtualBox, Sun xVM VirtualBox and InnoTek VirtualBox) is a hosted hypervisor for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mail.google.com/mail/",
+      "title": "Gmail - Email from Google",
+      "relevance": 0.5,
+      "snippet": "Gmail is email that's intuitive, efficient, and useful. 15 GB of storage, less spam, and mobile access.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/?hl=en-GB",
+      "title": "Gmail Help",
+      "relevance": 0.5,
+      "snippet": "Official Gmail Help Center where you can find tips and tutorials on using Gmail and other answers to frequently asked questions.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/176347?hl=pt-br&co=GENIE.Platform=Desktop",
+      "title": "Fazer login na sua Conta do Google com outro endereço de e-mail",
+      "relevance": 0.5,
+      "snippet": "Ao criar uma Conta do Google, você recebe automaticamente um endereço do Gmail. Mas se preferir usar outro endereço de e-mail para …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=pt-BR&co=GENIE.Platform=Desktop",
+      "title": "Fazer login no Gmail",
+      "relevance": 0.5,
+      "snippet": "Fazer login no Gmail Para abrir o Gmail, faça login em um computador ou adicione sua conta ao app Gmail no smartphone ou tablet. Depois …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=id&co=GENIE.Platform=Desktop",
+      "title": "Login ke Gmail",
+      "relevance": 0.5,
+      "snippet": "Login ke Gmail Untuk membuka Gmail, Anda dapat login dari komputer atau menambahkan akun Anda ke aplikasi Gmail di ponsel atau …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=it&co=GENIE.Platform=Desktop",
+      "title": "Accedere a Gmail - Computer - Guida di Gmail - Google Help",
+      "relevance": 0.5,
+      "snippet": "Apri Gmail sul computer. Inserisci l'indirizzo email o il numero di telefono e la password del tuo Account Google. Se le informazioni sono …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8494?hl=en-GB&co=GENIE.Platform=Desktop",
+      "title": "Sign in to Gmail",
+      "relevance": 0.5,
+      "snippet": "To open Gmail, you can log in from a computer, or add your account to the Gmail app on your phone or tablet. Once you've signed in, check …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/1721977?hl=en&co=GENIE.Platform=Desktop",
+      "title": "Sign in to multiple accounts at once - Google Help",
+      "relevance": 0.5,
+      "snippet": "Accounts have separate settings You can control your settings separately for each of your accounts. When you sign in to multiple …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, Tamil, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while browsing the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/20498862",
+      "title": "「rule by law」 和「rule of law」有哪些区别？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Sep 25, 2012 · 这个问题在《元照英美法》和《Black’s Law Dictionary》其实有权威答案，笔者这里再对rule of law增补几句。 rule of law与rule by …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://zhidao.baidu.com/question/1948412748914454668.html",
+      "title": "a bit，a little bit和a bit of的区别 - 百度知道",
+      "relevance": 0.5,
+      "snippet": "a bit 、a little bit、a bit of都表示“一点点，有点儿”的意思，但是用法不同，具体区别如下： 1、a bit表示稍微、有点儿。作副词，表达“程度”时，修饰动词、 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/23071872",
+      "title": "英国埃塞克斯大学 (University of Essex)怎么样? - 知乎",
+      "relevance": 0.5,
+      "snippet": "苦等了这么多年，终于我们学校也上了一回“xx大学怎么样系列”了。 可惜却是我不太了解的商科。提起商学院，我印象最深的就是去年刚盖好的那号称环保和装逼 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://gdpr-info.eu/recitals/no-23/",
+      "title": "Recital 23 - Applicable to Controllers/Processors Not Established in the Union if Data Subjects Within the Union are Targeted - General Data Protection Regulation (GDPR)",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 239,
+      "fetch_success": true
+    },
+    {
+      "url": "https://gdpr-info.eu/art-3-gdpr/",
+      "title": "Art. 3 GDPR – Territorial scope - General Data Protection Regulation (GDPR)",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 145,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2018)620229",
+      "title": "Towards a binding international treaty on business and human rights | Think Tank | European Parliament",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 300,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.xvideos.com/tags/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free CUCKOLD XXX - Wicked Luna Bunny anal porn story 16 min Cuckold Xxx - 212.2k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/d:10-20min/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free HOMEMADE XXX - Lustful Olivia Sparkle mind-blowing xxx video 16 min HomeMade Xxx - 418.8k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.xvideos.com/tags/xxx",
+      "title": "Video xxx - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Video xxx, gratis xxx La mia calda figliastra è ancora vergine con una figa stretta, morbida e dolce xxx (Over 18) 14 min. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://it.xvideos.com/tags/xxx/1/",
+      "title": "Video xxx, Pagina 1 - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Video xxx, Pagina 1, gratis PROMO GRATUITA La MILF dalle tette enormi RYAN CONNER drena tutto lo sperma dal grosso …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/d:1-3min/xxx",
+      "title": "xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx videos, free Estrella Slut Training 02# Hard Sex, Face Fucking and Golden Shower 25 sec Shady Sluts - 38.6k Views -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/-xxx",
+      "title": "-xxx videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS -xxx videos, free xxx My hot stepdaughter is still a virgin with a tight soft sweet pussy xxx (Over 18) 14 min …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.xvideos.com/tags/xxx-videos",
+      "title": "xxx-videos videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS xxx-videos videos, free SlaveSex4K - Freeuse step Daughter Is Eager to Lend Her Body to Fulfill All of 's Naughty Fantasies - London …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Google Maps",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/how-to-get-help-in-windows-711b6492-0435-0038-8706-7c6b0feb200a",
+      "title": "How to get help in Windows - Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-gb/windows/experience/how-to-get-help-in-windows",
+      "title": "How to get help in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.wikihow.com/Get-Help-in-Windows-11",
+      "title": "How to Get Help in Windows 11: 3 Quick & Easy Ways",
+      "relevance": 0.5,
+      "snippet": "Mar 21, 2026 · Learn how to troubleshoot errors and get assistance from MicrosoftDo you need help with Windows 11? If something …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://techbaked.com/how-get-help-windows-11/",
+      "title": "How to Get Help in Windows 11 (15 Ways) - techbaked.com",
+      "relevance": 0.5,
+      "snippet": "Sep 12, 2026 · Learn how to get help in Windows 11 using the Get Help app, troubleshooters, Microsoft Support, Copilot, recovery …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://helpdeskgeek.com/how-to-get-help-in-windows/",
+      "title": "How to Get Help in Windows 11 and 10 (Get Help App, Microsoft …",
+      "relevance": 0.5,
+      "snippet": "Sep 27, 2022 · How to Get Help in Windows The fastest way to get help in Windows 10 and 11 is the built-in Get Help app. It …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/windows/help-and-support?msockid=063dae3b125e6d9520bdb63613796c07",
+      "title": "Windows help and supportWindows help and support",
+      "relevance": 0.5,
+      "snippet": "Find the Windows help and support you need. From account setup to device support, search for quick answers and helpful resources …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "Under GDPR Article 3(2), a controller or processor not established in the Union is subject to the GDPR where its processing relates to offering goods or services to data subjects in the Union, irrespective of whether a payment of the data subject is required, or to monitoring their behaviour within the Union.",
+      "confidence": 0.85,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://gdpr-info.eu/art-3-gdpr/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "GDPR Article 3(1) provides that the Regulation applies to the processing of personal data in the context of the activities of an establishment of a controller or processor in the Union, regardless of whether the processing itself takes place in the Union.",
+      "confidence": 0.8,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://gdpr-info.eu/art-3-gdpr/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "Recital 23 clarifies that mere accessibility of a controller's website, an email address, other contact details, or the use of a language generally used in the third country where the controller is established is insufficient to ascertain an intention to offer goods or services to EU data subjects, whereas factors such as using a Member State language or currency with the possibility of ordering in that language, or mentioning customers or users in the Union, may make it apparent the controller envisages offering goods or services to data subjects in the Union.",
+      "confidence": 0.8,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://gdpr-info.eu/recitals/no-23/"
+      ]
+    }
+  ],
+  "execution_seconds": 129.196,
+  "automatic_metrics": {
+    "total_sources": 81,
+    "fetched_sources": 3,
+    "fetch_success_rate": 0.037,
+    "unique_domains": 47,
+    "domain_concentration": 0.0988,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 0.9506,
+    "citation_marker_count": 14,
+    "resolved_citations": 14,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 3,
+    "total_claims": 3,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 1,
+    "search_query_count": 10
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

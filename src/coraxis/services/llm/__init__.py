@@ -11,10 +11,12 @@ from coraxis.services.llm.factory import (
     resolve_model,
     validate_provider_key,
 )
+from coraxis.services.llm.groq_compat import GroqCompatibleLLM
 from coraxis.services.llm.sanitizer import GROQ_FALLBACK_MODELS, apply_litellm_patches
 
 __all__ = [
     "GROQ_FALLBACK_MODELS",
+    "GroqCompatibleLLM",
     "LLMConfig",
     "ValidationResult",
     "apply_litellm_patches",

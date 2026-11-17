@@ -1,0 +1,1342 @@
+{
+  "question_id": "bench-004",
+  "question": "Compare the carbon footprint of electric vehicles versus internal combustion engine vehicles over their full lifecycle, including manufacturing.",
+  "category": "comparative",
+  "research_plan": "",
+  "search_queries": [
+    "electric vehicle vs gasoline car full lifecycle carbon footprint cradle to grave",
+    "meta-analysis lifecycle assessment electric vehicles vs internal combustion vehicle emissions",
+    "electric vehicle manufacturing emissions battery production share of lifecycle footprint",
+    "electric vehicle use phase emissions electricity grid carbon intensity charging vs gasoline",
+    "battery manufacturing carbon footprint EV lithium ion production emissions",
+    "ICCT Bieker electric vehicle lifecycle emissions compared gasoline",
+    "electric car manufacturing emissions vs driving use phase lifecycle assessment",
+    "IEA Global EV Outlook lifecycle emissions electric vehicle vs internal combustion",
+    "battery production carbon footprint EV lifecycle assessment CO2 per kWh",
+    "electric vehicle vs gasoline car total emissions comparison ICCT 2021",
+    "Union of Concerned Scientists electric car emissions vs gasoline lifecycle",
+    "\"electric vehicle\" \"lifecycle\" \"carbon\" battery production share of total emissions",
+    "ICCT Bieker global lifecycle assessment electric passenger vehicles 2021 emissions",
+    "Argonne GREET model electric vehicle lifecycle emissions comparison gasoline",
+    "battery manufacturing share of EV lifecycle carbon emissions percentage",
+    "electric car emissions vs gasoline car lifecycle Union of Concerned Scientists",
+    "\"life cycle\" greenhouse gas emissions \"battery\" electric car manufacturing share \"cradle to grave\"",
+    "IEA electric car lifetime emissions battery production manufacturing use phase 2024"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://support.microsoft.com/en-us/support/get-help/about-get-help",
+      "title": "About Get Help | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "The Windows Get Help app is a centralized hub for accessing a wide range of resources, including tutorials, FAQs, community …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/how-to-get-help-in-windows",
+      "title": "How to get help in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/",
+      "title": "Windows help and learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find help and how-to articles for Windows operating systems. Get support for Windows and learn about installation, updates, privacy, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/ja-jp/support/get-help/about-get-help",
+      "title": "ヘルプについて | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Get Helpで問題を検索する方法 Windows 問い合わせアプリは、チュートリアル、FAQ、コミュニティ フォーラム、Microsoft サ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "File Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find and open File Explorer in Windows, and customize Quick access by pinning and removing files and folders.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Electricity",
+      "title": "Electricity - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Electricity is invisible, but it can yield visually observable phenomena, shown here with the flash of lightning and various forms of electric …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Electric_current",
+      "title": "Electric current - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "An electric current is a flow of charged particles, such as electrons or ions, through an electrical conductor or space. It is defined as the net …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.electrical4u.com/electricity/",
+      "title": "What is Electricity and How Electricity is Generated and Used",
+      "relevance": 0.5,
+      "snippet": "Oct 22, 2018 · The page is about electricity. The page answers what is electricity and how to generate electricity and it also explains …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/physics/electric-circuit/",
+      "title": "Electric Circuit - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Apr 9, 2026 · An electric circuit is a closed loop through which electric current flows in a definite direction. It consists of various electrical …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/science/electricity",
+      "title": "Electricity | Definition, Facts, & Types | Britannica",
+      "relevance": 0.5,
+      "snippet": "Oct 18, 2026 · Electricity, phenomenon associated with stationary or moving electric charges. Electric charge is a fundamental …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.com/about/",
+      "title": "About Meta | Our Company, Mission, Apps & Products",
+      "relevance": 0.5,
+      "snippet": "Learn about Meta: our mission, principles, leadership, who owns the company, apps (Instagram, Facebook, WhatsApp, Threads) and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://business.facebook.com/",
+      "title": "Meta for Business (formerly Facebook for Business)",
+      "relevance": 0.5,
+      "snippet": "By logging in, you can navigate to all business tools like Meta Business Suite, Ads Manager and more to help you connect with your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.ai/",
+      "title": "Meta AI - Your AI Assistant for Images, Shopping and More",
+      "relevance": 0.5,
+      "snippet": "Use Meta AI to get things done. Create AI-generated images for free, edit photos, shop, find places to go, and get answers to any …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://auth.meta.com/",
+      "title": "Meta",
+      "relevance": 0.5,
+      "snippet": "Access your Meta account or create a new one for seamless login.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.com/account/",
+      "title": "Meta Account: Single Login for All Meta Apps and Devices",
+      "relevance": 0.5,
+      "snippet": "No need to juggle multiple logins – with a Meta Account, you can securely sign in and manage whichever profiles you choose. With your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/",
+      "title": "Free Online Games at Poki - Play Now!",
+      "relevance": 0.5,
+      "snippet": "Play free online games at Poki, the #1 website for instant web games. Explore exclusive titles, popular favorites, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/g/subway-surfers",
+      "title": "Subway Surfers - Play Online for Free! | Poki",
+      "relevance": 0.5,
+      "snippet": "Subway Surfers is an endless runner that challenges you to escape security. Dash between trains, dodge obstacles, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://about.poki.com/�",
+      "title": "Poki - Let the world play",
+      "relevance": 0.5,
+      "snippet": "At Poki, play is how we learn. That's why we're on a mission to become the ultimate online playground for players and game …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/action",
+      "title": "Action Games - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Experience online action games on Poki! Test your reflexes in platformers, fighting arenas & more. Every click counts! Play …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/shooting",
+      "title": "Shooting Games - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Sharpen your aim in online shooting games on Poki! From zombie hordes to multiplayer battles, play free and master a variety of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/stickman",
+      "title": "Stickman Games ‍♂️ - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Enjoy stickman games online on Poki! Experience action, adventure, puzzles, and 2-player fun with simple stick figures. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.repsol.com/en/energy-move-forward/energy/electricity/index.cshtml",
+      "title": "Electricity: what it is, types, characteristics, and examples",
+      "relevance": 0.5,
+      "snippet": "Electricity is an essential resource in modern life, powering everything from everyday activities at home to industrial processes and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theicct.org/",
+      "title": "Home - International Council on Clean Transportation",
+      "relevance": 0.5,
+      "snippet": "Oct 28, 2026 · The ICCT is an independent, nonprofit research organization founded to provide exceptional, objective, timely research …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theicct.org/region/india/",
+      "title": "India - International Council on Clean Transportation",
+      "relevance": 0.5,
+      "snippet": "India’s vision of Viksit Bharat 2047 calls for clean, sustainable, and efficient transportation. As the country advances toward its Net Zero …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/International_Council_on_Clean_Transportation",
+      "title": "International Council on Clean Transportation - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The International Council on Clean Transportation (ICCT) is an international nonprofit public policy think tank and research institute that provides …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.icct.nl/",
+      "title": "Home | International Centre for Counter-Terrorism - ICCT",
+      "relevance": 0.5,
+      "snippet": "The International Centre for Counter-Terrorism (ICCT) is an independent think-and-do tank dedicated to shaping effective and evidence …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://icctindia.in/",
+      "title": "Indian Council Of Computer Techonology",
+      "relevance": 0.5,
+      "snippet": "Indian Council of Computer Technology provides you with basic as well as higher level computer education at an easy grip expenditure.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ixigo.com/trains?msockid=0a3bbad8da3167272c6ca2d5dba5668f",
+      "title": "Train Ticket Booking Online, Use IRCTC Login | ixigo",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Book IRCTC train tickets online at ixigo. Use IRCTC login on ixigo, the official IRCTC partner. Complete Indian …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://revenue.kerala.gov.in/",
+      "title": "Revenue eservices",
+      "relevance": 0.5,
+      "snippet": "Revenue Land Information System ReLIS is a web application devised by Revenue department for enabling online integration with …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pwa/?#!/?ver=1.0",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Enter Your Mobile Number to Proceed +91 -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/master.php/1000",
+      "title": "Revenue Department | Govt of Kerala",
+      "relevance": 0.5,
+      "snippet": "Revenue Department Citizen can avail the department services via online and there is no need to visit the department for availing the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pages/home.php",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Land Revenue is a department having a great reach in the routine life of citizen - be it payment of statutory taxes …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pwa/?ver=1.0#!/",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Data Owned and Maintained By Land Revenue Department,Kerala",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/downloads/sms_receipt.php",
+      "title": "Revenue eServices | Receipt Download",
+      "relevance": 0.5,
+      "snippet": "Government of Kerala Invalid Access",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.bank.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "Register for Mobile Banking Download the Vyom App from Google Playstore/ iOS App store and proceed for registration through …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/",
+      "title": "Union Bank of India - Personal, Corporate & NRI Banking Online",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India makes buying your dream home quicker and more convenient with easy finance at your fingertips. With Union …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/en/listing/internet-banking",
+      "title": "Union Bank Internet Banking | Net Banking Services",
+      "relevance": 0.5,
+      "snippet": "Access Union Bank of India's internet banking for secure transactions, account management, and online services anytime, anywhere …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mylang.unionbankonline.co.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "सबसे नया ग्राहकों से अनुरोध है कि वे नोट करें कि पुरानी चेक बुक को चरणबद्ध तरीके 01.07.2021. तारीख से बंद किया जा रहा है और नई चेक …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.co.in/ContactUs.html",
+      "title": "Contact Us - Union Bank of India",
+      "relevance": 0.5,
+      "snippet": "1800 8333 / 1800 2333 (In India-Toll Free) 1800 8331 / 1800 8332 (In India-Toll Free) 1800 8331 (Dedicated Helpline for Premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.co.in/",
+      "title": "www.unionbankofindia.co.in",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India provides secure online banking, loans, insurance, and personalized financial services to meet diverse customer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.iea.org/reports/global-ev-outlook-2024",
+      "title": "Global EV Outlook 2024 - IEA",
+      "relevance": 0.7,
+      "snippet": "",
+      "word_count": 188,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.quizz.biz/quizz-1045831.html",
+      "title": "Test de personnalité Quel footballeur es-tu - Quizz.biz",
+      "relevance": 0.5,
+      "snippet": "Test de personnalité Quel footballeur es-tu ? : Découvrez quelle star du football vous êtes - Q1: Si tu devais jouer dans un …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.quizz.biz/quizz-1041176.html",
+      "title": "Test de personnalité Quel métier est fait pour toi - Quizz.biz",
+      "relevance": 0.5,
+      "snippet": "Avec ce test tu vas découvrir le métier qui te correspond le plus. - Q1: Quelle est ta matière préférée à l'école ? Le français, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://speedtest.mybroadband.co.za/",
+      "title": "Speed Test by MyBroadband",
+      "relevance": 0.5,
+      "snippet": "Test your Internet connection quickly and accurately. Lightweight, easy-to-use, reliable and completely free.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.minhaconexao.com.br/teste-de-velocidade/velocimetro",
+      "title": "Velocímetro Minha Conexão | Faça seu Teste de Velocidade!",
+      "relevance": 0.5,
+      "snippet": "Saiba Como Funciona O Velocímetro do Minha Conexão! 🌐 Veja Como Fazer o Teste de Velocidade e Como Avaliar o Resultado!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.minhaconexao.com.br/copel",
+      "title": "Speedtest Copel - Teste de Velocidade da Internet",
+      "relevance": 0.5,
+      "snippet": "O Teste de internet - Internet Speed Test Minha Conexão - é um teste de velocidade desenvolvido para que você possa medir …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://research.mybroadband.co.za/",
+      "title": "MyBroadband Insights",
+      "relevance": 0.5,
+      "snippet": "Speed Test App The MyBroadband Speed Test app is your go-to tool for testing internet performance with precision and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mybroadband.co.za/forum/tags/speed-test/",
+      "title": "speed test - MyBroadband Forum",
+      "relevance": 0.5,
+      "snippet": "Apr 29, 2026 · MyBroadband has launched its ad-free Speed Test App for iOS, which allows you to test the download speed, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mybroadband.co.za/news/broadband/290988-new-south-african-internet-speed-test-website-launched.html",
+      "title": "New South African Internet speed test website launched",
+      "relevance": 0.5,
+      "snippet": "Sep 1, 2019 · A new South African speed test platform – hosted at Speedtest.co.za – has been launched to give local Internet …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.godaddy.com/?msockid=3a25729d1037699f2d876a9011a368ae",
+      "title": "GoDaddy Official Site: Get a Domain & Launch Your Website.",
+      "relevance": 0.5,
+      "snippet": "Moving to GoDaddy gives you one unified dashboard, one-click connections between your products, and access to award-winning …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jp.godaddy.com/help/contact-us",
+      "title": "GoDaddyヘルプセンター - お問い合わせ",
+      "relevance": 0.5,
+      "snippet": "GoDaddyヘルプセンター - お問い合わせ 弊社がサポートします トレーニングを受けたサポートスタッフが喜んでお手伝いいたしま …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jp.godaddy.com/help/sign-in-to-my-godaddy-account-32033",
+      "title": "GoDaddyアカウントにサインイン | アカウント管理 - GoDaddy Help JP",
+      "relevance": 0.5,
+      "snippet": "GoDaddyアカウントにサインイン GoDaddy ログインページ に直接移動して GoDaddy アカウントにサインインするか、以下の手順 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.godaddy.com/en-in?msockid=3a25729d1037699f2d876a9011a368ae",
+      "title": "Domain Names, Websites, Hosting & Online Marketing Tools - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "Moving to GoDaddy gives you one unified dashboard, one-click connections between your products, and access to award-winning …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://kr.godaddy.com/",
+      "title": "도메인 이름, 웹사이트, 호스팅 및 온라인 마케팅 도구 - GoDaddy KR",
+      "relevance": 0.5,
+      "snippet": "온라인에서 성장하는 데 필요한 모든 지원 수단 및 도구인 웹사이트, 도메인, 디지털 및 소셜 마케팅 외에 GoDaddy 가이드를 통해 모든 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.godaddy.com/en",
+      "title": "GoDaddy Developer Platform",
+      "relevance": 0.5,
+      "snippet": "Start with the CLI Install gddy, authenticate once, and drive GoDaddy platform workflows (like domain registration, DNS management, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://supportcenter.godaddy.com/accountrecovery/domain-access?plid=1",
+      "title": "Change/Update Request - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "It is suggested that you gather the required information so that you are prepared to complete this form. The required items are listed …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://kr.godaddy.com/whois",
+      "title": "WHOIS 도메인 조회 - 웹사이트 소유주 찾기 - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "WHOIS에서는 도메인 이름이 구매 가능한 상태인지 아니면 이미 소유자가 있는지를 검색할 수 있습니다. WHOIS 검색을 통해 원하는 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Life",
+      "title": "Life - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Life exists all over the Earth in air, water, and soil, with many ecosystems forming the biosphere. Some of these are harsh …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jeevanpramaan.gov.in/v2.0/",
+      "title": "Jeevan Pramaan :: Life Certificate for Pensioners ** MeitY ...",
+      "relevance": 0.5,
+      "snippet": "Nov 1, 2026 · Life Certificate Generation Download the PC/ Mobile application or alternatively visit the nearest Jeevan Pramaan …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Meaning_of_life",
+      "title": "Meaning of life - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The meaning of life can be derived from philosophical and religious contemplation of, and scientific inquiries about, existence, social …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.life.com/",
+      "title": "The Most Iconic Photographs of All Time - LIFE",
+      "relevance": 0.5,
+      "snippet": "This special edition of LIFE, with rare family and archival photos, tracks the rise of the man known to fans as JT, a beloved icon, and celebrates …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/science/life",
+      "title": "Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+      "relevance": 0.5,
+      "snippet": "Oct 18, 2026 · Life-forms present on Earth today have evolved from ancient common ancestors through the generation of hereditary variation …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.life.com/?p=0",
+      "title": "LIFE",
+      "relevance": 0.5,
+      "snippet": "4 days ago · As absurd as the premise sounds, in 1953 LIFE covered a turkey festival in Arkansas that included—in addition to a turkey call …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://licindia.in/",
+      "title": "Home | Life Insurance Corporation of India | Official website of Life ...",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Life insurance corporation, popularly known as lic is indian state-owned insurance group and investment company. Buy life …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://simple.wikipedia.org/wiki/Life",
+      "title": "Life - Simple English Wikipedia, the free encyclopedia",
+      "relevance": 0.5,
+      "snippet": "Life is matter that can make more of itself. It is separated by non-living matter. Most life on Earth is powered by solar energy: the only …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在代码 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2091736254425649674",
+      "title": "如何评价ChatGPT更新的由GPT-6驱动的chat模式？与之前5.6-sol版本 …",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2026 · 这个所谓6的chat模式在需要深度思考的问题研究场景下表现是明显不如 5.6sol 的。5.6sol虽然很啰嗦但确实更愿意会给 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/hanfangyuan4396/dify-on-wechat",
+      "title": "GitHub - hanfangyuan4396/dify-on-wechat: 本项目为 chatgpt-on …",
+      "relevance": 0.5,
+      "snippet": "Important 本项目依赖的itchat与gewechat项目均无法使用，已无法接入微信个人号 基本的dify workflow api支持 做本项目的初衷是想 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/zhaozhao010/chatgpt-pluspro-tutorial",
+      "title": "GitHub - zhaozhao010/chatgpt-pluspro-tutorial: 2026 ChatGPT充值 …",
+      "relevance": 0.5,
+      "snippet": "2026 国内 ChatGPT充值与ChatGPT代充指南：微信／支付宝开通 Plus、Pro 实测教程 本文面向国内用户整理 ChatGPT充值 与 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPTPromptGenius/",
+      "title": "ChatGPTPromptGenius - Reddit",
+      "relevance": 0.5,
+      "snippet": "Welcome to r/ChatGPTPromptGenius, the subreddit where you can find and share the best AI prompts! Our community is dedicated to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPT/comments/194cuvy/can_a_text_created_by_chatgpt_be_detected_if_you/",
+      "title": "Can a text created by ChatGPT be detected IF you type each ... - Reddit",
+      "relevance": 0.5,
+      "snippet": "Can a text created by ChatGPT be detected IF you type each word in another document instead of copy-pasting the whole text?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://desktop.github.com/download/",
+      "title": "GitHub Desktop | Simple collaboration from your desktop · GitHub",
+      "relevance": 0.5,
+      "snippet": "GitHub DesktopGitHub Desktop Experience Git without the struggle Whether you're new to Git or a seasoned user, GitHub Desktop …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/chatgpt-helper-tech",
+      "title": "chatgpt-helper-tech (ChatGPT 助手站) · GitHub",
+      "relevance": 0.5,
+      "snippet": "科学上网,机场推荐,评测. chatgpt-helper-tech has 2 repositories available. Follow their code on GitHub.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://afdc.energy.gov/vehicles/electric_emissions.html",
+      "title": "Alternative Fuels Data Center: Emissions from Electric Vehicles",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 457,
+      "fetch_success": true
+    },
+    {
+      "url": "https://afdc.energy.gov/vehicles/electric-emissions",
+      "title": "https://afdc.energy.gov/vehicles/electric-emissions",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [],
+  "intermediate_outputs": {
+    "search_completed": [
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "8 results",
+      "8 results",
+      "5 results",
+      "5 results",
+      "8 results",
+      "8 results"
+    ],
+    "fetch_completed": [
+      "188 words",
+      "HTTP 403",
+      "HTTP 403",
+      "188 words",
+      "457 words",
+      "HTTP 403"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "All-electric vehicles, plug-in hybrids, and hybrids generally produce lower tailpipe emissions than conventional vehicles, with all-electric vehicles producing "
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "A complete cradle-to-grave assessment of vehicle emissions must combine fuel-cycle (well-to-wheels) emissions with vehicle-cycle emissions from material product"
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "The magnitude of the life-cycle emissions advantage of electric vehicles over gasoline vehicles depends heavily on the carbon intensity of the local electricity"
+      },
+      {
+        "ref": "claim_0004",
+        "detail": "The IEA Global EV Outlook 2024 includes analysis of the life-cycle emissions of electric cars and their batteries, reflecting that lifecycle emissions is a cent"
+      }
+    ]
+  },
+  "final_report": "{\n  \"markdown\": \"# EV vs. ICE Lifecycle Carbon Emissions\\n## Analytic report consolidated from analyst output | Prepared for technical decision-makers\\n\\n## Executive Summary\\n\\nThis report consolidates the analyst's lifecycle-assessment (LCA) research comparing electric vehicles (EVs) with internal combustion engine (ICE) vehicles on",
+  "citations": [
+    {
+      "url": "https://support.microsoft.com/en-us/support/get-help/about-get-help",
+      "title": "About Get Help | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "The Windows Get Help app is a centralized hub for accessing a wide range of resources, including tutorials, FAQs, community …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/how-to-get-help-in-windows",
+      "title": "How to get help in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Here are a few different ways to find help for Windows Search for help - Enter a question or keywords in the search box on the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/",
+      "title": "Windows help and learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find help and how-to articles for Windows operating systems. Get support for Windows and learn about installation, updates, privacy, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/ja-jp/support/get-help/about-get-help",
+      "title": "ヘルプについて | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Get Helpで問題を検索する方法 Windows 問い合わせアプリは、チュートリアル、FAQ、コミュニティ フォーラム、Microsoft サ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "File Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find and open File Explorer in Windows, and customize Quick access by pinning and removing files and folders.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Electricity",
+      "title": "Electricity - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Electricity is invisible, but it can yield visually observable phenomena, shown here with the flash of lightning and various forms of electric …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Electric_current",
+      "title": "Electric current - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "An electric current is a flow of charged particles, such as electrons or ions, through an electrical conductor or space. It is defined as the net …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.electrical4u.com/electricity/",
+      "title": "What is Electricity and How Electricity is Generated and Used",
+      "relevance": 0.5,
+      "snippet": "Oct 22, 2018 · The page is about electricity. The page answers what is electricity and how to generate electricity and it also explains …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/physics/electric-circuit/",
+      "title": "Electric Circuit - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Apr 9, 2026 · An electric circuit is a closed loop through which electric current flows in a definite direction. It consists of various electrical …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/science/electricity",
+      "title": "Electricity | Definition, Facts, & Types | Britannica",
+      "relevance": 0.5,
+      "snippet": "Oct 18, 2026 · Electricity, phenomenon associated with stationary or moving electric charges. Electric charge is a fundamental …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.com/about/",
+      "title": "About Meta | Our Company, Mission, Apps & Products",
+      "relevance": 0.5,
+      "snippet": "Learn about Meta: our mission, principles, leadership, who owns the company, apps (Instagram, Facebook, WhatsApp, Threads) and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://business.facebook.com/",
+      "title": "Meta for Business (formerly Facebook for Business)",
+      "relevance": 0.5,
+      "snippet": "By logging in, you can navigate to all business tools like Meta Business Suite, Ads Manager and more to help you connect with your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.ai/",
+      "title": "Meta AI - Your AI Assistant for Images, Shopping and More",
+      "relevance": 0.5,
+      "snippet": "Use Meta AI to get things done. Create AI-generated images for free, edit photos, shop, find places to go, and get answers to any …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://auth.meta.com/",
+      "title": "Meta",
+      "relevance": 0.5,
+      "snippet": "Access your Meta account or create a new one for seamless login.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.meta.com/account/",
+      "title": "Meta Account: Single Login for All Meta Apps and Devices",
+      "relevance": 0.5,
+      "snippet": "No need to juggle multiple logins – with a Meta Account, you can securely sign in and manage whichever profiles you choose. With your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/",
+      "title": "Free Online Games at Poki - Play Now!",
+      "relevance": 0.5,
+      "snippet": "Play free online games at Poki, the #1 website for instant web games. Explore exclusive titles, popular favorites, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/g/subway-surfers",
+      "title": "Subway Surfers - Play Online for Free! | Poki",
+      "relevance": 0.5,
+      "snippet": "Subway Surfers is an endless runner that challenges you to escape security. Dash between trains, dodge obstacles, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://about.poki.com/�",
+      "title": "Poki - Let the world play",
+      "relevance": 0.5,
+      "snippet": "At Poki, play is how we learn. That's why we're on a mission to become the ultimate online playground for players and game …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/action",
+      "title": "Action Games - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Experience online action games on Poki! Test your reflexes in platformers, fighting arenas & more. Every click counts! Play …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/shooting",
+      "title": "Shooting Games - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Sharpen your aim in online shooting games on Poki! From zombie hordes to multiplayer battles, play free and master a variety of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://poki.com/en/stickman",
+      "title": "Stickman Games ‍♂️ - Play Online for Free! - Poki",
+      "relevance": 0.5,
+      "snippet": "Enjoy stickman games online on Poki! Experience action, adventure, puzzles, and 2-player fun with simple stick figures. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.repsol.com/en/energy-move-forward/energy/electricity/index.cshtml",
+      "title": "Electricity: what it is, types, characteristics, and examples",
+      "relevance": 0.5,
+      "snippet": "Electricity is an essential resource in modern life, powering everything from everyday activities at home to industrial processes and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theicct.org/",
+      "title": "Home - International Council on Clean Transportation",
+      "relevance": 0.5,
+      "snippet": "Oct 28, 2026 · The ICCT is an independent, nonprofit research organization founded to provide exceptional, objective, timely research …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theicct.org/region/india/",
+      "title": "India - International Council on Clean Transportation",
+      "relevance": 0.5,
+      "snippet": "India’s vision of Viksit Bharat 2047 calls for clean, sustainable, and efficient transportation. As the country advances toward its Net Zero …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/International_Council_on_Clean_Transportation",
+      "title": "International Council on Clean Transportation - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The International Council on Clean Transportation (ICCT) is an international nonprofit public policy think tank and research institute that provides …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.icct.nl/",
+      "title": "Home | International Centre for Counter-Terrorism - ICCT",
+      "relevance": 0.5,
+      "snippet": "The International Centre for Counter-Terrorism (ICCT) is an independent think-and-do tank dedicated to shaping effective and evidence …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://icctindia.in/",
+      "title": "Indian Council Of Computer Techonology",
+      "relevance": 0.5,
+      "snippet": "Indian Council of Computer Technology provides you with basic as well as higher level computer education at an easy grip expenditure.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ixigo.com/trains?msockid=0a3bbad8da3167272c6ca2d5dba5668f",
+      "title": "Train Ticket Booking Online, Use IRCTC Login | ixigo",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Book IRCTC train tickets online at ixigo. Use IRCTC login on ixigo, the official IRCTC partner. Complete Indian …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://revenue.kerala.gov.in/",
+      "title": "Revenue eservices",
+      "relevance": 0.5,
+      "snippet": "Revenue Land Information System ReLIS is a web application devised by Revenue department for enabling online integration with …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pwa/?#!/?ver=1.0",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Enter Your Mobile Number to Proceed +91 -",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/master.php/1000",
+      "title": "Revenue Department | Govt of Kerala",
+      "relevance": 0.5,
+      "snippet": "Revenue Department Citizen can avail the department services via online and there is no need to visit the department for availing the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pages/home.php",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Land Revenue is a department having a great reach in the routine life of citizen - be it payment of statutory taxes …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/pwa/?ver=1.0#!/",
+      "title": "Revenue eServices",
+      "relevance": 0.5,
+      "snippet": "Revenue eServices Data Owned and Maintained By Land Revenue Department,Kerala",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.revenue.kerala.gov.in/downloads/sms_receipt.php",
+      "title": "Revenue eServices | Receipt Download",
+      "relevance": 0.5,
+      "snippet": "Government of Kerala Invalid Access",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.bank.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "Register for Mobile Banking Download the Vyom App from Google Playstore/ iOS App store and proceed for registration through …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/",
+      "title": "Union Bank of India - Personal, Corporate & NRI Banking Online",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India makes buying your dream home quicker and more convenient with easy finance at your fingertips. With Union …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/en/listing/internet-banking",
+      "title": "Union Bank Internet Banking | Net Banking Services",
+      "relevance": 0.5,
+      "snippet": "Access Union Bank of India's internet banking for secure transactions, account management, and online services anytime, anywhere …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mylang.unionbankonline.co.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "सबसे नया ग्राहकों से अनुरोध है कि वे नोट करें कि पुरानी चेक बुक को चरणबद्ध तरीके 01.07.2021. तारीख से बंद किया जा रहा है और नई चेक …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.co.in/ContactUs.html",
+      "title": "Contact Us - Union Bank of India",
+      "relevance": 0.5,
+      "snippet": "1800 8333 / 1800 2333 (In India-Toll Free) 1800 8331 / 1800 8332 (In India-Toll Free) 1800 8331 (Dedicated Helpline for Premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.co.in/",
+      "title": "www.unionbankofindia.co.in",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India provides secure online banking, loans, insurance, and personalized financial services to meet diverse customer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.iea.org/reports/global-ev-outlook-2024",
+      "title": "Global EV Outlook 2024 - IEA",
+      "relevance": 0.7,
+      "snippet": "",
+      "word_count": 188,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.quizz.biz/quizz-1045831.html",
+      "title": "Test de personnalité Quel footballeur es-tu - Quizz.biz",
+      "relevance": 0.5,
+      "snippet": "Test de personnalité Quel footballeur es-tu ? : Découvrez quelle star du football vous êtes - Q1: Si tu devais jouer dans un …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.quizz.biz/quizz-1041176.html",
+      "title": "Test de personnalité Quel métier est fait pour toi - Quizz.biz",
+      "relevance": 0.5,
+      "snippet": "Avec ce test tu vas découvrir le métier qui te correspond le plus. - Q1: Quelle est ta matière préférée à l'école ? Le français, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://speedtest.mybroadband.co.za/",
+      "title": "Speed Test by MyBroadband",
+      "relevance": 0.5,
+      "snippet": "Test your Internet connection quickly and accurately. Lightweight, easy-to-use, reliable and completely free.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.minhaconexao.com.br/teste-de-velocidade/velocimetro",
+      "title": "Velocímetro Minha Conexão | Faça seu Teste de Velocidade!",
+      "relevance": 0.5,
+      "snippet": "Saiba Como Funciona O Velocímetro do Minha Conexão! 🌐 Veja Como Fazer o Teste de Velocidade e Como Avaliar o Resultado!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.minhaconexao.com.br/copel",
+      "title": "Speedtest Copel - Teste de Velocidade da Internet",
+      "relevance": 0.5,
+      "snippet": "O Teste de internet - Internet Speed Test Minha Conexão - é um teste de velocidade desenvolvido para que você possa medir …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://research.mybroadband.co.za/",
+      "title": "MyBroadband Insights",
+      "relevance": 0.5,
+      "snippet": "Speed Test App The MyBroadband Speed Test app is your go-to tool for testing internet performance with precision and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mybroadband.co.za/forum/tags/speed-test/",
+      "title": "speed test - MyBroadband Forum",
+      "relevance": 0.5,
+      "snippet": "Apr 29, 2026 · MyBroadband has launched its ad-free Speed Test App for iOS, which allows you to test the download speed, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mybroadband.co.za/news/broadband/290988-new-south-african-internet-speed-test-website-launched.html",
+      "title": "New South African Internet speed test website launched",
+      "relevance": 0.5,
+      "snippet": "Sep 1, 2019 · A new South African speed test platform – hosted at Speedtest.co.za – has been launched to give local Internet …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.godaddy.com/?msockid=3a25729d1037699f2d876a9011a368ae",
+      "title": "GoDaddy Official Site: Get a Domain & Launch Your Website.",
+      "relevance": 0.5,
+      "snippet": "Moving to GoDaddy gives you one unified dashboard, one-click connections between your products, and access to award-winning …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jp.godaddy.com/help/contact-us",
+      "title": "GoDaddyヘルプセンター - お問い合わせ",
+      "relevance": 0.5,
+      "snippet": "GoDaddyヘルプセンター - お問い合わせ 弊社がサポートします トレーニングを受けたサポートスタッフが喜んでお手伝いいたしま …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jp.godaddy.com/help/sign-in-to-my-godaddy-account-32033",
+      "title": "GoDaddyアカウントにサインイン | アカウント管理 - GoDaddy Help JP",
+      "relevance": 0.5,
+      "snippet": "GoDaddyアカウントにサインイン GoDaddy ログインページ に直接移動して GoDaddy アカウントにサインインするか、以下の手順 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.godaddy.com/en-in?msockid=3a25729d1037699f2d876a9011a368ae",
+      "title": "Domain Names, Websites, Hosting & Online Marketing Tools - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "Moving to GoDaddy gives you one unified dashboard, one-click connections between your products, and access to award-winning …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://kr.godaddy.com/",
+      "title": "도메인 이름, 웹사이트, 호스팅 및 온라인 마케팅 도구 - GoDaddy KR",
+      "relevance": 0.5,
+      "snippet": "온라인에서 성장하는 데 필요한 모든 지원 수단 및 도구인 웹사이트, 도메인, 디지털 및 소셜 마케팅 외에 GoDaddy 가이드를 통해 모든 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.godaddy.com/en",
+      "title": "GoDaddy Developer Platform",
+      "relevance": 0.5,
+      "snippet": "Start with the CLI Install gddy, authenticate once, and drive GoDaddy platform workflows (like domain registration, DNS management, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://supportcenter.godaddy.com/accountrecovery/domain-access?plid=1",
+      "title": "Change/Update Request - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "It is suggested that you gather the required information so that you are prepared to complete this form. The required items are listed …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://kr.godaddy.com/whois",
+      "title": "WHOIS 도메인 조회 - 웹사이트 소유주 찾기 - GoDaddy",
+      "relevance": 0.5,
+      "snippet": "WHOIS에서는 도메인 이름이 구매 가능한 상태인지 아니면 이미 소유자가 있는지를 검색할 수 있습니다. WHOIS 검색을 통해 원하는 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Life",
+      "title": "Life - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Life exists all over the Earth in air, water, and soil, with many ecosystems forming the biosphere. Some of these are harsh …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jeevanpramaan.gov.in/v2.0/",
+      "title": "Jeevan Pramaan :: Life Certificate for Pensioners ** MeitY ...",
+      "relevance": 0.5,
+      "snippet": "Nov 1, 2026 · Life Certificate Generation Download the PC/ Mobile application or alternatively visit the nearest Jeevan Pramaan …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Meaning_of_life",
+      "title": "Meaning of life - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The meaning of life can be derived from philosophical and religious contemplation of, and scientific inquiries about, existence, social …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.life.com/",
+      "title": "The Most Iconic Photographs of All Time - LIFE",
+      "relevance": 0.5,
+      "snippet": "This special edition of LIFE, with rare family and archival photos, tracks the rise of the man known to fans as JT, a beloved icon, and celebrates …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/science/life",
+      "title": "Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+      "relevance": 0.5,
+      "snippet": "Oct 18, 2026 · Life-forms present on Earth today have evolved from ancient common ancestors through the generation of hereditary variation …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.life.com/?p=0",
+      "title": "LIFE",
+      "relevance": 0.5,
+      "snippet": "4 days ago · As absurd as the premise sounds, in 1953 LIFE covered a turkey festival in Arkansas that included—in addition to a turkey call …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://licindia.in/",
+      "title": "Home | Life Insurance Corporation of India | Official website of Life ...",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Life insurance corporation, popularly known as lic is indian state-owned insurance group and investment company. Buy life …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://simple.wikipedia.org/wiki/Life",
+      "title": "Life - Simple English Wikipedia, the free encyclopedia",
+      "relevance": 0.5,
+      "snippet": "Life is matter that can make more of itself. It is separated by non-living matter. Most life on Earth is powered by solar energy: the only …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在代码 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2091736254425649674",
+      "title": "如何评价ChatGPT更新的由GPT-6驱动的chat模式？与之前5.6-sol版本 …",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2026 · 这个所谓6的chat模式在需要深度思考的问题研究场景下表现是明显不如 5.6sol 的。5.6sol虽然很啰嗦但确实更愿意会给 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/hanfangyuan4396/dify-on-wechat",
+      "title": "GitHub - hanfangyuan4396/dify-on-wechat: 本项目为 chatgpt-on …",
+      "relevance": 0.5,
+      "snippet": "Important 本项目依赖的itchat与gewechat项目均无法使用，已无法接入微信个人号 基本的dify workflow api支持 做本项目的初衷是想 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/zhaozhao010/chatgpt-pluspro-tutorial",
+      "title": "GitHub - zhaozhao010/chatgpt-pluspro-tutorial: 2026 ChatGPT充值 …",
+      "relevance": 0.5,
+      "snippet": "2026 国内 ChatGPT充值与ChatGPT代充指南：微信／支付宝开通 Plus、Pro 实测教程 本文面向国内用户整理 ChatGPT充值 与 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPTPromptGenius/",
+      "title": "ChatGPTPromptGenius - Reddit",
+      "relevance": 0.5,
+      "snippet": "Welcome to r/ChatGPTPromptGenius, the subreddit where you can find and share the best AI prompts! Our community is dedicated to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPT/comments/194cuvy/can_a_text_created_by_chatgpt_be_detected_if_you/",
+      "title": "Can a text created by ChatGPT be detected IF you type each ... - Reddit",
+      "relevance": 0.5,
+      "snippet": "Can a text created by ChatGPT be detected IF you type each word in another document instead of copy-pasting the whole text?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://desktop.github.com/download/",
+      "title": "GitHub Desktop | Simple collaboration from your desktop · GitHub",
+      "relevance": 0.5,
+      "snippet": "GitHub DesktopGitHub Desktop Experience Git without the struggle Whether you're new to Git or a seasoned user, GitHub Desktop …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/chatgpt-helper-tech",
+      "title": "chatgpt-helper-tech (ChatGPT 助手站) · GitHub",
+      "relevance": 0.5,
+      "snippet": "科学上网,机场推荐,评测. chatgpt-helper-tech has 2 repositories available. Follow their code on GitHub.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://afdc.energy.gov/vehicles/electric_emissions.html",
+      "title": "Alternative Fuels Data Center: Emissions from Electric Vehicles",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 457,
+      "fetch_success": true
+    },
+    {
+      "url": "https://afdc.energy.gov/vehicles/electric-emissions",
+      "title": "https://afdc.energy.gov/vehicles/electric-emissions",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "All-electric vehicles, plug-in hybrids, and hybrids generally produce lower tailpipe emissions than conventional vehicles, with all-electric vehicles producing zero tailpipe emissions when operating on electricity.",
+      "confidence": 0.8,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://afdc.energy.gov/vehicles/electric-emissions"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "A complete cradle-to-grave assessment of vehicle emissions must combine fuel-cycle (well-to-wheels) emissions with vehicle-cycle emissions from material production, manufacturing, and end-of-life.",
+      "confidence": 0.85,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://afdc.energy.gov/vehicles/electric-emissions"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "The magnitude of the life-cycle emissions advantage of electric vehicles over gasoline vehicles depends heavily on the carbon intensity of the local electricity grid: low-carbon grids yield a large advantage while higher-emissions electricity generation reduces the benefit.",
+      "confidence": 0.75,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://afdc.energy.gov/vehicles/electric-emissions"
+      ]
+    },
+    {
+      "claim_ref": "claim_0004",
+      "text": "The IEA Global EV Outlook 2024 includes analysis of the life-cycle emissions of electric cars and their batteries, reflecting that lifecycle emissions is a central topic in authoritative global electric mobility assessments.",
+      "confidence": 0.7,
+      "agent": "analyst",
+      "relevance": 0.7,
+      "source_urls": [
+        "https://www.iea.org/reports/global-ev-outlook-2024"
+      ]
+    }
+  ],
+  "execution_seconds": 134.798,
+  "automatic_metrics": {
+    "total_sources": 75,
+    "fetched_sources": 2,
+    "fetch_success_rate": 0.0267,
+    "unique_domains": 43,
+    "domain_concentration": 0.0667,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 0.96,
+    "citation_marker_count": 0,
+    "resolved_citations": 0,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 4,
+    "total_claims": 4,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 0,
+    "search_query_count": 18
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

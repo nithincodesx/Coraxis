@@ -1,0 +1,11 @@
+{
+  "provider": "groq",
+  "model": "groq/openai/gpt-oss-120b",
+  "crewai": "1.15.37",
+  "litellm": "1.105.7",
+  "mcp": "1.30.0",
+  "python": "3.11.9",
+  "max_sources": 3,
+  "max_fetch_per_query": 2,
+  "benchmark_case_count": 10
+}

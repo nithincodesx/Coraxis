@@ -1,0 +1,1853 @@
+{
+  "question_id": "bench-009",
+  "question": "What are the arguments for and against universal basic income, and what evidence exists from pilot programs?",
+  "category": "conflicting",
+  "research_plan": "",
+  "search_queries": [
+    "arguments supporting universal basic income benefits poverty reduction autonomy",
+    "arguments against universal basic income criticism cost work disincentives",
+    "UBI pilot program results Finland Kenya Stockton Mincome",
+    "universal basic income cost estimate annual budget CBO United States",
+    "UBI drawbacks cost work disincentives inflation criticism",
+    "case for universal basic income poverty reduction autonomy dignity arguments for",
+    "UBI labor supply effect evidence work hours pilot study",
+    "universal basic income arguments in favor economic social moral benefits think tank",
+    "criticisms of universal basic income cost and work disincentives debate",
+    "how much would a universal basic income cost in the United States annual",
+    "basic income effect on labor supply evidence Finland negative income tax experiment",
+    "case for universal basic income economic arguments defender poverty freedom Stanford Encyclopedia",
+    "universal basic income criticisms drawbacks cost work disincentives Cato Institute",
+    "Finland basic income experiment 2017 results employment wellbeing Kela"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://www.youtube.com/?gl=IN",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content and share it all with friends, family and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/15968883?hl=vi",
+      "title": "Mua gói thành viên Premium Lite trên YouTube",
+      "relevance": 0.5,
+      "snippet": "Gói Premium Lite không bao gồm YouTube Music Premium hoặc các tính năng bổ sung như xem tiếp, Tua qua, thêm video vào …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtubetv/?hl=en",
+      "title": "YouTube TV Help",
+      "relevance": 0.5,
+      "snippet": "Official YouTube TV Help Center where you can find tips and tutorials on using YouTube TV and other answers to frequently asked …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/1903231775980913051",
+      "title": "如何在中国大陆用「合法」的方式观看到youtube上面的「有价值」的 …",
+      "relevance": 0.5,
+      "snippet": "只要你 配置点击代理。 当你下抖音、B站的素材时，它知道这是国内的，直接走你家正常的宽带大马路，速度拉满，绝不绕远路。 当 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/topic/19550532",
+      "title": "YouTube公司 - 知乎",
+      "relevance": 0.5,
+      "snippet": "YouTube，全球最大的视频分享网站，早期公司总部位于加利福尼亚州的圣布里诺。公司由华裔美籍华人陈士骏等人创立并于2005年2 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/1646861?hl=th",
+      "title": "สร้างช่อง YouTube - YouTube ความช่วยเหลือ",
+      "relevance": 0.5,
+      "snippet": "YouTube Premium สมัคร YouTube Premiumสิทธิประโยชน์ของ YouTube Premiumจัดการการเป็นสมาชิก PremiumManage Premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=ar",
+      "title": "مساعدة YouTube - Google Help",
+      "relevance": 0.5,
+      "snippet": "مركز مساعدة YouTube الرسمي حيث يمكنك العثور على نصائح وبرامج تعليمية حول استخدام المنتج وأجوبة أخرى للأسئلة الشائعة.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/6159254?hl=ru",
+      "title": "Не удается зайти на YouTube",
+      "relevance": 0.5,
+      "snippet": "Если при попытке войти на сайт youtube.com вы видите сообщение об ошибке, скорее всего, проблема связана с одной из …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=th",
+      "title": "YouTube ความช่วยเหลือ",
+      "relevance": 0.5,
+      "snippet": "ขอรับความช่วยเหลือเกี่ยวกับโปรแกรมพาร์ทเนอร์ YouTube ดูข้อมูลอัปเดตล่าสุดบน YouTube รับความช่วยเหลือเกี่ยวกับ YouTube",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=id",
+      "title": "Bantuan YouTube - Google Help",
+      "relevance": 0.5,
+      "snippet": "Pusat Bantuan YouTube resmi tempat Anda dapat menemukan kiat dan tutorial tentang cara menggunakan produk dan jawaban lain …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://web.whatsapp.com/",
+      "title": "WhatsApp Web",
+      "relevance": 0.5,
+      "snippet": "Quickly send and receive WhatsApp messages right from your computer.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5556445",
+      "title": "[found sos] cant login whatsapp browser - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Feb 27, 2026 · Lowyat.NET -> Kopitiam -> Serious Kopitiam Bump Topic Add Reply RSS Feed Bottom Outline · [ Standard ] · Linear+ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/Kopitiam",
+      "title": "Kopitiam - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "While Kopitiam is a place to hang out and chat, annoying threads which make no sense at all will be deleted and offenders warned. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡/023f32f5-479b-465f-ab1f-813cec5f4efd",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5565190",
+      "title": "Whatsapp Desktop dah jadi fb app - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "May 20, 2026 · As usual in the morning I'll launch my whatsapp desktop app. Suddenly the app shows itself as below, unlike the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5519898",
+      "title": "Whatsapps hacked - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Apr 23, 2025 · Hi guys, I realised that my whatsapp account has been logged out from my phone this morning and I feel rather …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5556449",
+      "title": "those use ipon watsapp web browser - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Feb 27, 2026 · those use ipon watsapp web browser Outline · [ Standard ] · Linear+ those use ipon watsapp web browser, whatsapp …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5538738",
+      "title": "Is Whatsapp web down? - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Sep 8, 2025 · Cannot link my device now.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5580378",
+      "title": "Build Apps & Website services - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Oct 16, 2026 · Hi, I’m ericc a freelancer that help people build their own apps or webpage. Feel free to leave a msg to me or ask …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5543382",
+      "title": "Back up all whatsapp chat history with media to PC",
+      "relevance": 0.5,
+      "snippet": "Oct 19, 2025 · My whatsapp chat history with media is over 20GB since 15 years ago until now. I plan to delete the account and re …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.bank.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "Access your bank website only by typing the URL in address bar of browser. Change your Internet Banking password at regular …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.co.in/corp/BANKAWAY?Action.ModifyBlock.Init=Y&AppSignonBankId=026&blockAcid=651402010006151&flg=P&blockReasonCode=012&blockTranNumber=180624000092&blockAmt=500&servName=RLGR&BlockExpiryDate=24/06/2018&blockId=180624000092&msgId=17",
+      "title": "Union Bank of India - Log in to Internet Banking",
+      "relevance": 0.5,
+      "snippet": "Built on industry standard platform J2EE and .NET, the solution provides banks with tremendous flexibility to extend its product …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epay.unionbankofindia.bank.in/kvsfcs/kvlogin.aspx",
+      "title": "KV Login Page - Union Bank Of India",
+      "relevance": 0.5,
+      "snippet": "All KV Teachers are requested to please ensure completion of Students data entry & verifications at all levels before the aforesaid …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://caps.unionbankofindia.bank.in/iportalweb/iportal/jsps/orbilogin.jsp",
+      "title": "Union Bank of India CBX",
+      "relevance": 0.5,
+      "snippet": "Virtual Keyboard For security reasons provide additional credentials to proceed",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://casabranch.unionbankofindia.bank.in/",
+      "title": "Union Bank of India |Online Digital Services | Secure Personal Banking",
+      "relevance": 0.5,
+      "snippet": "Perfios Welcome To E-Platform Choose Account Type",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Universal_basic_income_pilots",
+      "title": "Universal basic income pilots - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Universal basic income pilots are smaller-scale preliminary experiments which are carried out on selected members of the relevant population …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map",
+      "title": "Everywhere basic income has been tried, in one map",
+      "relevance": 0.9,
+      "snippet": "Feb 19, 2020 · With a few exceptions — Kenya, where a big experiment in universal basic income (UBI) is underway; Iran, which has a …",
+      "word_count": 2707,
+      "fetch_success": true
+    },
+    {
+      "url": "https://jopafl.com/uploads/issue33/ECONOMICS_UNIVERSAL_BASIC_INCOME.pdf",
+      "title": "THE ECONOMICS OF UNIVERSAL BASIC INCOME - jopafl.com",
+      "relevance": 0.5,
+      "snippet": "alleviation, and income redistribution. Notable UBI experiments in Finland, Kenya, and Stockton have demonstrated UBI's capacity to enhance …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.npr.org/2024/01/10/1197956397/give-directly-universal-basic-income-poverty-kenya",
+      "title": "The Universal Basic Income experiment in Kenya - NPR",
+      "relevance": 0.9,
+      "snippet": "Jan 10, 2024 · The experiment to give people in poverty cash (Universal Basic Income version) : Planet Money There's this fundamental …",
+      "word_count": 348,
+      "fetch_success": true
+    },
+    {
+      "url": "https://basicincome.org/wp-content/uploads/2023/12/Give-Directly-Kenya-report-2-years.pdf",
+      "title": "Universal Basic Income: Short-Term Results from a Long-Term Experime…",
+      "relevance": 0.5,
+      "snippet": "What would be the consequences of a long-term commitment to provide everyone enough money to meet their basic needs? We examine this …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.co.in/",
+      "title": "www.unionbankofindia.co.in",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India provides secure online banking, loans, insurance, and personalized financial services to meet diverse customer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/en/details/internet-banking",
+      "title": "Union Bank of India Internet Banking - Online Banking Services",
+      "relevance": 0.5,
+      "snippet": "Union e-Banking is available to all the customers of Union Bank of India. Resident Customer holding accounts with a joint operating …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://instaloan.unionbankofindia.bank.in/solarstp/lendperfect/landing",
+      "title": "UBI-Solar Roof Top STP",
+      "relevance": 0.5,
+      "snippet": "Welcome to UBI Solar Roof Top Loan Portal! The applicant should have following documents/details ready, before applying for the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/",
+      "title": "Union Bank of India - Personal, Corporate & NRI Banking Online",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India makes buying your dream home quicker and more convenient with easy finance at your fingertips. With Union …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mylang.unionbankonline.co.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "आपका उपयोगकर्ता आईडी, पासवर्ड, कार्ड सं., खाता संख्या आदि के लिए धोखाधड़ी से पूछे जाने वाले संपर्क से बचें। धोखाधड़ी के ईमेल में …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling theme …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Universal_Pictures",
+      "title": "Universal Pictures - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Universal City Studios LLC (doing business as Universal Pictures), commonly known as Universal Studios or simply Universal, is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalpictures.com/",
+      "title": "Universal Pictures | New Movies In Theaters & Upcoming Releases",
+      "relevance": 0.5,
+      "snippet": "Official website of Universal Pictures. Watch trailers and get details for current and future movies!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The Wizarding …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of Harry Potter™ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalpictures.com/about/",
+      "title": "About | Universal Pictures",
+      "relevance": 0.5,
+      "snippet": "Universal's deep library includes many of the world's most beloved films and franchises. Follow the film studio's …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://universal.edu.in/",
+      "title": "Universal Education | Progressive & Immersive Learning",
+      "relevance": 0.5,
+      "snippet": "Universal Education provides progressive and immersive learning experiences that help students grow academically, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universaladventures.in/",
+      "title": "Universal Adventures - Adventure, Tour & Outdoor Experiences",
+      "relevance": 0.5,
+      "snippet": "Book & explore more than 1000+ destination tour packages with 12000+ outdoor experiences and adventure …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalsompo.com/",
+      "title": "Universal Sompo General Insurance: Best Insurance Company in India.",
+      "relevance": 0.5,
+      "snippet": "Universal Sompo is one of the best insurance companies in India. We offer a range of general insurance policies, including Health, Car, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://universalplus.com/",
+      "title": "UNIVERSAL+ Latinoamérica",
+      "relevance": 0.5,
+      "snippet": "Te damos la bienvenida a la página oficial de UNIVERSAL+, servicio de streaming de NBC Universal para Latam y Brasil, con un …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/",
+      "title": "Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Explore Rockstar Games, the official hub for iconic games like Grand Theft Auto and Red Dead Redemption.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/downloads/",
+      "title": "Downloads - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "The official home of Rockstar Games",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://socialclub.rockstargames.com/rockstar-games-launcher?dve_trk_id=9771d9bf-dd3f-4cce-8e58-e9c0cf931d9a",
+      "title": "Rockstar Games Launcher",
+      "relevance": 0.5,
+      "snippet": "Download, install and play Rockstar games with the Rockstar Games Launcher.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://store.rockstargames.com/game/buy-gta-v",
+      "title": "Grand Theft Auto V and Grand Theft Auto Online | Rockstar Store",
+      "relevance": 0.5,
+      "snippet": "Grand Theft Auto V and GTA Online. Out now for PlayStation 5 and Xbox Series X|S featuring new graphics modes, faster loading, GTA …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://socialclub.rockstargames.com/profile/signin",
+      "title": "Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Sign in to your Rockstar Games Social Club account to access exclusive features and enhance your gaming experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://store.rockstargames.com/",
+      "title": "Rockstar Store - Official Store for GTA, Red Dead Redemption",
+      "relevance": 0.5,
+      "snippet": "The official store of Rockstar Games. Home to Grand Theft Auto, Red Dead Redemption, Midnight Club and Max Payne. Rockstar Games …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Rockstar_Games",
+      "title": "Rockstar Games - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Rockstar Games, Inc. is an American video game publisher based in New York City. The company was established in December 1998 as …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/games/",
+      "title": "All Games - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "All Rockstar titles - from new and forthcoming releases like Red Dead Redemption 2 to Grand Theft Auto V, L.A. Noire and the classics.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/gta-v/",
+      "title": "Grand Theft Auto V - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Grand Theft Auto V and GTA Online — now upgraded for PlayStation 5 and Xbox Series X|S with stunning visuals, faster loading, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/newswire/article/89k8a554534523/Download-The-Rockstar-Games-Launcher",
+      "title": "Download The Rockstar Games Launcher",
+      "relevance": 0.5,
+      "snippet": "Sep 17, 2019 · The Rockstar Games Launcher is a new Windows desktop application that allows you to quickly and easily access your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of Harry …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingquiz.com/bing-homepage-quiz/",
+      "title": "Bing Homepage Quiz – Today's Bing Daily Trivia & Featured Image Quiz",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Play today’s daily Bing homepage quiz questions answer 10 fun triva, discover amazing facts and trends, then test your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingquizzes.com/bing-homepage-quiz-today/",
+      "title": "Bing Homepage Quiz Today – Daily Trivia | Bing Quizzes",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Play today's Bing Homepage Quiz with 10 fun trivia questions on history, science, geography, and more. Beat the 5 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bing.weeklyquiz.net/bing-homepage-quiz-today/",
+      "title": "Bing Homepage Quiz Today - Play 10 Questions Daily | Bing Quizzes",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Play today’s Bing Homepage Quiz: 10 questions on a new topic each day, with answers and explanations, a 5-minute timer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://nbkomputer.com/todays-bing-homepage-quiz-answers-complete-guide/",
+      "title": "Todays Bing Homepage Quiz Answers Complete Guide",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Bing Homepage Quiz: Complete Guide, Answers, Rewards, Fixes … Find today's Bing quiz questions, answers, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://nbkomputer.com/microsoft-bing-homepage-quiz-answers/",
+      "title": "Microsoft Bing Homepage Quiz Answers – NBKomputer",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Get Bing Homepage Quiz answers for Microsoft Rewards, organized by date to help you maintain your quiz streak and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiasikho.com/bing-homepage-quiz-answers-today/",
+      "title": "Bing Homepage Quiz Answers Today (Updated Daily) - 2026",
+      "relevance": 0.5,
+      "snippet": "Oct 27, 2026 · In today’s article, we are going to answer the Microsoft Rewards quiz questions, which can help you earn Microsoft …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingehomepagequiz.net/",
+      "title": "Bing Homepage Quiz: Today's 10-Question Trivia Challenge",
+      "relevance": 0.5,
+      "snippet": "Oct 29, 2026 · Play today's free 10-question Bing Homepage Quiz with a 5-minute deadline and instant answer explanations, plus tips …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mcqstestprep.com/bing-homepage-quiz-trivia-answers/",
+      "title": "Bing Homepage Quiz – Today’s Trivia Answers",
+      "relevance": 0.5,
+      "snippet": "Apr 11, 2026 · Find the latest Bing Homepage Quiz trivia answers for today. Check all correct answers and explanations in one place.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "File Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find and open File Explorer in Windows, and customize Quick access by pinning and removing files and folders.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/fr-fr/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorateur de fichiers dans Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Recherchez et ouvrez l’Explorateur de fichiers dans Windows, puis personnalisez Accès rapide en épinglant et en supprimant des …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.elevenforum.com/t/show-or-hide-details-pane-in-file-explorer-in-windows-11.1774/",
+      "title": "Show or Hide Details Pane in File Explorer in Windows 11",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2021 · This tutorial will show you how to show or hide the details pane in File Explorer for your account in Windows 11. The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.elevenforum.com/t/change-folder-layout-view-in-windows-11-file-explorer.1246/",
+      "title": "Change Folder Layout View in Windows 11 File Explorer",
+      "relevance": 0.5,
+      "snippet": "Sep 8, 2021 · This tutorial will show you how to change the layout view of a folder in File Explorer for your account in Windows 11. In …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/es-es/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorador de archivos en Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Busque y abra el Explorador de archivos en Windows y personalice el Acceso rápido anclando y quitando archivos y carpetas.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/",
+      "title": "Windows help and learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find help and how-to articles for Windows operating systems. Get support for Windows and learn about installation, updates, privacy, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/de-de/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Windows 11 Windows 10 Um Explorer in Windows 11 zu öffnen, wählen Sie ihn in der Taskleiste oder im Startmenü aus, oder …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/fix-file-explorer-if-it-won-t-open-or-start",
+      "title": "Fix File Explorer if it won't open or start | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "If File Explorer won’t open or start in Windows, it makes everyday tasks like finding files, opening folders, or managing storage …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.android.com/studio",
+      "title": "Download Android Studio & App Tools - Android Developers",
+      "relevance": 0.5,
+      "snippet": "Oct 19, 2026 · Android Studio provides app builders with an integrated development environment (IDE) optimized for Android …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.android.com/studio/install",
+      "title": "Install Android Studio",
+      "relevance": 0.5,
+      "snippet": "5 days ago · To install Android Studio on Windows, follow these steps: If you downloaded an EXE file (recommended), …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/android/android-studio-tutorial/",
+      "title": "Android Studio Tutorial - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Aug 21, 2025 · How can I debug an Android app in Android Studio? Android Studio offers robust debugging tools. You can …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.techspot.com/downloads/6831-android-studio.html",
+      "title": "Android Studio Download Free - 2026.2.2 | TechSpot",
+      "relevance": 0.5,
+      "snippet": "Feb 2, 2026 · Android Studio provides the fastest tools for building apps on every type of Android device.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Android_Studio",
+      "title": "Android Studio - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Android Studio is the official [5] IDE for writing Android software. It bundles together a source code editor based on …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cetcell.mahacet.org/cap/",
+      "title": "CAP - State Common Entrance Test Cell",
+      "relevance": 0.5,
+      "snippet": "May 14, 2026 · 8th Floor, New Excelsior Building, A. K. Nayak Marg, Fort, Mumbai- 400 001 www.mahacet.org Helpline …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cetcell.mahacet.org/cap-_2026-27/",
+      "title": "CAP _2026-27 - State Common Entrance Test Cell",
+      "relevance": 0.5,
+      "snippet": "5 days ago · Centralized Admission Process (CAP)-2026-27 Technical Education Post Graduate Courses MBA/MMS",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://fe2026.mahacet.org/",
+      "title": "State Common Entrance Test Cell, Government of Maharashtra",
+      "relevance": 0.5,
+      "snippet": "Check Provisional Allotment Status (CAP Round-III) Provisional Vacancy Position for CAP Round-III Provisional Vacancy …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while browsing …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://translate.google.co.in/details",
+      "title": "Google Translate",
+      "relevance": 0.5,
+      "snippet": "Send feedback Enter text to look up details",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://edu.google.co.in/",
+      "title": "Google for Education - Online Resources for Teachers & Students",
+      "relevance": 0.5,
+      "snippet": "Google Workspace for Education enables seamless collaboration with real-time editing, simple file sharing, and communication tools, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://books.google.co.in/books?uid=105309797397400037873",
+      "title": "My library - Google Books",
+      "relevance": 0.5,
+      "snippet": "After November 18, 2026, you'll no longer be able to manage books in Classic My Library. Visit the new Your Library now to import your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://books.google.co.in/",
+      "title": "Google Books: Find, Preview, and Read Books Online.",
+      "relevance": 0.5,
+      "snippet": "Search the world's most comprehensive index of full-text books. Your library",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://trends.google.co.in/trends/?geo=IN&hl=en-GB",
+      "title": "Google Trends",
+      "relevance": 0.5,
+      "snippet": "What happens when you add data and birds into the equation? The latest Webby Awards-winning visual by Nadieh Bremer is her most …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Finland",
+      "title": "Finland - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Finland is known by two unrelated names: Suomi (Finnish for 'Finland'), used in Finnish and, in corresponding forms, in the other …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.visitfinland.com/en/",
+      "title": "Your Official Finland Travel Guide | Visit Finland",
+      "relevance": 0.5,
+      "snippet": "Use this guide to plan a trip to Finland and immerse yourself in the country's nature, forests, lakes and culture.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://finland.fi/",
+      "title": "thisisFINLAND",
+      "relevance": 0.5,
+      "snippet": "Finland is one of the world’s best places to see and photograph the magical, potentially life-changing Northern Lights (aurora …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.visitfinland.com/en/finland-activity/",
+      "title": "Things to do in Finland | Visit Finland",
+      "relevance": 0.5,
+      "snippet": "Discover the best things to do in Finland from exploring the northern lights and Arctic nature to enjoying world-famous saunas, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://simple.wikipedia.org/wiki/Finland",
+      "title": "Finland - Simple English Wikipedia, the free encyclopedia",
+      "relevance": 0.5,
+      "snippet": "Finland (Finnish: Suomi) is a country in Northern Europe and is a member state of the European Union and NATO. Finland is one of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/place/Finland",
+      "title": "Finland | Geography, History, Maps, & Facts | Britannica",
+      "relevance": 0.5,
+      "snippet": "6 days ago · Finland, country in northern Europe. Finland is one of the world’s most northern and geographically remote countries …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Culture_of_Finland",
+      "title": "Culture of Finland - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Because of its history and geographic location, Finland has been influenced by the adjacent areas, various Finnic and Baltic peoples …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geocountries.com/finland",
+      "title": "Finland – Country Profile: Population, Area, Currency & Key Facts",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Discover comprehensive geographic, demographic and strategic intelligence for Finland, featuring detailed insights into …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [],
+  "intermediate_outputs": {
+    "search_completed": [
+      "10 results",
+      "10 results",
+      "10 results",
+      "10 results",
+      "10 results",
+      "10 results",
+      "10 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "10 results",
+      "8 results",
+      "8 results"
+    ],
+    "fetch_completed": [
+      "2707 words",
+      "HTTP 403",
+      "Unsupported content type: application/pdf",
+      "Unsupported content type: application/pdf",
+      "348 words",
+      "HTTP 404"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "Major universal basic income (UBI) pilot programs and related cash-transfer experiments have been conducted worldwide, including the Alaska Permanent Fund, the "
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "The US negative income tax experiments of 1968–1974 (involving about 7,500 participants) modestly reduced work hours while producing beneficial overall effects."
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "Empirical evidence from UBI pilots to date indicates the programs boost happiness, health, school attendance, and trust in institutions and reduce crime, and do"
+      },
+      {
+        "ref": "claim_0004",
+        "detail": "GiveDirectly's Kenya experiment is the largest UBI trial ever conducted, and its recent study findings indicate that giving cash has positive effects on recipie"
+      },
+      {
+        "ref": "claim_0005",
+        "detail": "Canada's Mincome experiment in Dauphin, Manitoba recorded an 8.5% reduction in hospitalizations and improved high school graduation rates."
+      },
+      {
+        "ref": "claim_0006",
+        "detail": "Stockton's Stockton Economic Empowerment Demonstration (SEED) provided $500 per month for 18 months to 125 residents, and initial data shows the payments were s"
+      },
+      {
+        "ref": "claim_0007",
+        "detail": "Critics contend UBI would create work disincentives and be fiscally unaffordable; Ontario's 2017 pilot was cancelled in 2018 by Premier Doug Ford's Progressive "
+      },
+      {
+        "ref": "claim_0008",
+        "detail": "Finland's 2017–2018 basic income experiment provided 2,000 unemployed recipients with €560 per month; it did not increase employment but improved happiness, red"
+      },
+      {
+        "ref": "claim_0009",
+        "detail": "The COVID-19 pandemic gave UBI renewed momentum, and proponents argue basic income is the most direct way to end poverty by simply giving everyone money."
+      }
+    ]
+  },
+  "final_report": "```json\n{\n  \"markdown\": \"# Universal Basic Income (UBI): Evidence Review for Technical Decision-Makers\\n\\n## Executive Summary\\n\\nThis report reviews the empirical and policy evidence on universal basic income (UBI), synthesizing the analyst's findings from two successfully retrieved sources [^1][^2]. The evidence base spans major pilot programs and cash-transfer experiments worldwide — including the Alaska Permanent Fund, the US negative income tax experiments (1968–1974), Stockton's SEED program, Canada's Mincome experiment, Finland's Kela experiment, and GiveDirectly's Kenya trial [^1]. Across these programs, the retrieved evidence consistently reports positive effects on well-being — happiness, health, school attendance, and trust in institutions — alongside reduced crime, while labor-supply effects have been modest rather than dramatic [^1].\\n\\nFor a decision-maker, the directionally favorable pilot results must be weighed against a thin and partially unresolved evidence base. **No authoritative fiscal cost estimate for a full-scale UBI in a developed economy was retrieved**; all cost-related searches returned irrelevant results, so the report cannot quantify program affordability [^1]. Likewise, no direct peer-reviewed meta-analysis on UBI's labor-supply effect was obtained; labor-supply conclusions rest on the Vox summary of Finland's Kela experiment and the US negative income tax experiments [^1]. An unresolved tension also exists between the finding that pilot evidence does not support severe work-disincentive or unaffordability critiques and the real-world cancellation of Ontario's 2017 pilot by a government citing work-disincentive claims [^1].\\n\\nGiven these gaps, **overall confidence in this report is moderate (0.5)**. The pilot evidence is reliable as to the direction of well-being effects but incomplete as to fiscal cost, work-incentive tradeoffs, and long-term national-scale outcomes. Decision-makers should treat the current evidence as supportive of further piloting and study, not as sufficient to justify full-scale fiscal commitments without additional authoritative cost and labor-supply analysis.\\n\\n## Key Findings\\n\\n- Major UBI pilot programs and related cash-transfer experiments have been conducted worldwide, including the Alaska Permanent Fund, the US negative income tax experiments (1968–1974), Stockton's SEED program, Canada's Mincome experiment, Finland's Kela experiment, and GiveDirectly's Kenya trial [^1].\\n- Finland's 2017–2018 basic income experiment provided 2,000 unemployed recipients with €560 per month; it did not increase employment but improved happiness, reduced stress, and increased trust in institutions [^1].\\n- Stockton's Stockton Economic Empowerment Demonstration (SEED) provided $500 per month for 18 months to 125 residents, and initial data shows the payments were spent on food, clothing, and utility bills [^1].\\n- Canada's Mincome experiment in Dauphin, Manitoba recorded an 8.5% reduction in hospitalizations and improved high school graduation rates [^1].\\n- GiveDirectly's Kenya experiment is the largest UBI trial ever conducted, and its recent study findings indicate that giving cash has positive effects on recipients' economic and psychological well-being [^1][^2].\\n- The US negative income tax experiments of 1968–1974 (involving about 7,500 participants) modestly reduced work hours while producing beneficial overall effects [^1].\\n- Empirical evidence from UBI pilots to date indicates the programs boost happiness, health, school attendance, and trust in institutions and reduce crime, and does not support the common critiques of severe work disincentives or unaffordability; however, Ontario's 2017 pilot was cancelled in 2018 over work-disincentive claims, illustrating a tension between empirical findings and policymakers' expressed concerns [^1].\\n\\n## Detailed Findings\\n\\n### The Global Pilot Landscape\\n\\nUBI has been tested through a wide range of programs, from long-running permanent transfers to short, small-scale experiments [^1]. Retrievable evidence covers: the Alaska Permanent Fund (annual dividend to every resident since 1982, funded by oil revenues, which wiped out extreme poverty in the state with no effect on employment); the US negative income tax experiments of 1968–1974 (about 7,500 participants across multiple states); Stockton's SEED program; Canada's Mincome experiment; Finland's Kela experiment; and GiveDirectly's Kenya trial, described as the largest UBI experiment ever conducted [^1][^2].\\n\\n### Well-being and Social Outcomes\\n\\nThe consistent thread across the retrieved pilot evidence is a positive effect on non-monetary well-being. Finland's experiment improved happiness, reduced stress, and increased trust in institutions, though it did not increase employment [^1]. Mincome in Dauphin, Manitoba recorded an 8.5% reduction in hospitalizations and improved high school graduation rates [^1]. GiveDirectly's Kenya study found giving cash had positive effects on recipients' economic and psychological well-being [^2]. The Vox synthesis concludes that evidence so far shows basic income boosts happiness, health, school attendance, and trust in institutions, and reduces crime [^1].\\n\\n### Labor Supply and Work Incentives\\n\\nLabor-supply effects in the retrieved evidence are modest. The US negative income tax experiments subtly reduced work hours while producing beneficial overall effects [^1]. Finland's experiment did not increase employment but also did not show the severe work disincentive often feared [^1]. It should be noted plainly that **no direct peer-reviewed meta-analysis on UBI's labor-supply effect was retrieved**; this conclusion rests solely on the journalist synthesis of Finland and the US experiments [^1]. Where the evidence is thin, this report says so explicitly.\\n\\n### Criticisms, Costs, and Policy Cancellations\\n\\nCritics contend UBI would create work disincentives and be fiscally unaffordable [^1]. Ontario's 2017 pilot (Hamilton, Lindsay, and Thunder Bay) was cancelled in 2018 by Premier Doug Ford's Progressive Conservative government over work disincentive claims; participants filed a class action lawsuit [^1]. This real-world policy action stands in tension with the Vox synthesis, which states that the evidence does not support the work-disincentive and unaffordability critiques [^1]. The report cannot adjudicate this tension because no authoritative fiscal cost estimate was retrieved [^1].\\n\\n### Fiscal Cost Estimates — Evidence Gap\\n\\n**No authoritative fiscal cost estimate for a full-scale UBI in a developed economy (e.g., US CBO or equivalent budget modeling) was retrieved**; all cost-related searches returned irrelevant results [^1]. The affordability of full-scale UBI therefore remains unquantified in this report. Decision-makers should not infer fiscal feasibility from the pilot evidence, which involves small cohorts and limited budget exposure [^1].\\n\\n## Confidence Assessment\\n\\n**Overall confidence: 0.5 (moderate).** This reflects a credible but narrow and partially unresolved evidence base.\\n\\nPer-claim variance is notable:\\n- **Highest confidence (0.75):** the GiveDirectly Kenya finding, supported by two independent retrieved sources [^1][^2].\\n- **Moderate confidence (0.60–0.72):** the remaining pilot-specific claims (Alaska/US NIT landscape, Finland, Stockton, Mincome, US NIT work-hours, Ontario cancellation, and the general well-being synthesis), all resting on the single Vox source [^1].\\n- **Lowest confidence (0.55):** the claim regarding COVID-19 momentum and the argument that basic income is the most direct way to end poverty, which reflects normative framing rather than measured outcomes [^1].\\n\\nUnresolved conflicts: (1) the tension between pilot evidence that does not support work-disincentive/unaffordability critiques and the real-world Ontario cancellation citing work-disincentive claims [^1]; and (2) proponents' frame versus critics' fiscal-cost concerns could not be adjudicated because no authoritative fiscal cost estimate was retrieved [^1].\\n\\n## Sources Appendix\\n\\n[^1]: **Everywhere basic income has been tried, in one map.** Vox, Future Perfect. Published February 19, 2020. URL: https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map. **Relevance: 0.85.** Primary synthesis source; supports the majority of claims regarding pilot locations, well-being outcomes, labor-supply effects, the Ontario cancellation, and the absence of support for disincentive/unaffordability critiques. Note: the article's fetch was truncated at the Iran section; Kenya details were not fully captured.\\n\\n[^2]: **The experiment to give people in poverty cash (Universal Basic Income version).** NPR, Planet Money. Published January 10, 2024. URL: https://www.npr.org/2024/01/10/1197956397/give-directly-universal-basic-income-poverty-kenya. **Relevance: 0.90.** Independent corroboration of the GiveDirectly Kenya finding that giving cash positively affects recipients' economic and psychological well-being.\\n\\n**Listed gaps (not counted as sources):** no authoritative fiscal cost estimate was retrieved; no peer-reviewed labor-supply meta-analysis was retrieved; the official GiveDirectly report PDF and the Wikipedia 'Universal basic income pilots' page were inaccessible; and dedicated normative sources (e.g., Stanford Encyclopedia of Philosophy, Cato Institute) were not retrieved due to search failures.\",\n  \"executive_summary\": \"This report reviews the empirical and policy evidence on universal basic income (UBI), synthesizing the analyst's findings from two successfully retrieved sources. The evidence base spans major pilot programs and cash-transfer experiments worldwide — including the Alaska Permanent Fund, the US negative income tax experiments (1968–1974), Stockton's SEED program, Canada's Mincome experiment, Finland's Kela experiment, and GiveDirectly's Kenya trial. Across these programs, the retrieved evidence consistently reports positive effects on well-being — happiness, health, school attendance, and trust in institutions — alongside reduced crime, while labor-supply effects have been modest rather than dramatic.\\n\\nFor a decision-maker, the directionally favorable pilot results must be weighed against a thin and partially unresolved evidence base. No authoritative fiscal cost estimate for a full-scale UBI in a developed economy was retrieved; all cost-related searches returned irrelevant results, so the report cannot quantify program affordability. Likewise, no direct peer-reviewed meta-analysis on UBI's labor-supply effect was obtained; labor-supply conclusions rest on the Vox summary of Finland's Kela experiment and the US negative income tax experiments. An unresolved tension also exists between the finding that pilot evidence does not support severe work-disincentive or unaffordability critiques and the real-world cancellation of Ontario's 2017 pilot by a government citing work-disincentive claims.\\n\\nGiven these gaps, overall confidence in this report is moderate (0.5). The pilot evidence is reliable as to the direction of well-being effects but incomplete as to fiscal cost, work-incentive tradeoffs, and long-term national-scale outcomes. Decision-makers should treat the current evidence as supportive of further piloting and study, not as sufficient to justify full-scale fiscal commitments without additional authoritative cost and labor-supply analysis.\",\n  \"key_findings\": [\n    \"Major UBI pilot programs and related cash-transfer experiments have been conducted worldwide, including the Alaska Permanent Fund, the US negative income tax experiments (1968–1974), Stockton's SEED program, Canada's Mincome experiment, Finland's Kela experiment, and GiveDirectly's Kenya trial [^1].\",\n    \"Finland's 2017–2018 basic income experiment provided 2,000 unemployed recipients with €560 per month; it did not increase employment but improved happiness, reduced stress, and increased trust in institutions [^1].\",\n    \"Stockton's Stockton Economic Empowerment Demonstration (SEED) provided $500 per month for 18 months to 125 residents, and initial data shows the payments were spent on food, clothing, and utility bills [^1].\",\n    \"Canada's Mincome experiment in Dauphin, Manitoba recorded an 8.5% reduction in hospitalizations and improved high school graduation rates [^1].\",\n    \"GiveDirectly's Kenya experiment is the largest UBI trial ever conducted, and its recent study findings indicate that giving cash has positive effects on recipients' economic and psychological well-being [^1][^2].\",\n    \"The US negative income tax experiments of 1968–1974 (involving about 7,500 participants) modestly reduced work hours while producing beneficial overall effects [^1].\",\n    \"Empirical evidence from UBI pilots to date indicates the programs boost happiness, health, school attendance, and trust in institutions and reduce crime, and does not support the common critiques of severe work disincentives or unaffordability; however, Ontario's 2017 pilot was cancelled in 2018 over work-disincentive claims, illustrating a tension between empirical findings and policymakers' expressed concerns [^1].\"\n  ],\n  \"citations_markdown\": \"[^1]: **Everywhere basic income has been tried, in one map.** Vox, Future Perfect. Published February 19, 2020. URL: https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map. **Relevance: 0.85.** Primary synthesis source; supports the majority of claims regarding pilot locations, well-being outcomes, labor-supply effects, the Ontario cancellation, and the absence of support for disincentive/unaffordability critiques. Note: the article's fetch was truncated at the Iran section; Kenya details were not fully captured.\\n\\n[^2]: **The experiment to give people in poverty cash (Universal Basic Income version).** NPR, Planet Money. Published January 10, 2024. URL: https://www.npr.org/2024/01/10/1197956397/give-directly-universal-basic-income-poverty-kenya. **Relevance: 0.90.** Independent corroboration of the GiveDirectly Kenya finding that giving cash positively affects recipients' economic and psychological well-being.\\n\\n**Listed gaps (not counted as sources):** no authoritative fiscal cost estimate was retrieved; no peer-reviewed labor-supply meta-analysis was retrieved; the official GiveDirectly report PDF and the Wikipedia 'Universal basic income pilots' page were inaccessible; and dedicated normative sources (e.g., Stanford Encyclopedia of Philosophy, Cato Institute) were not retrieved due to search failures.\",\n  \"stats\": {\n    \"total_sources\": 2,\n    \"total_claims\": 9,\n    \"avg_confidence\": 0.64,\n    \"avg_relevance\": 0.83,\n    \"agents_used\": [\"analyst\", \"report_writer\"],\n    \"models_used\": {},\n    \"runtime_seconds\": 72.4\n  }\n}\n```",
+  "citations": [
+    {
+      "url": "https://www.youtube.com/?gl=IN",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content and share it all with friends, family and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/15968883?hl=vi",
+      "title": "Mua gói thành viên Premium Lite trên YouTube",
+      "relevance": 0.5,
+      "snippet": "Gói Premium Lite không bao gồm YouTube Music Premium hoặc các tính năng bổ sung như xem tiếp, Tua qua, thêm video vào …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtubetv/?hl=en",
+      "title": "YouTube TV Help",
+      "relevance": 0.5,
+      "snippet": "Official YouTube TV Help Center where you can find tips and tutorials on using YouTube TV and other answers to frequently asked …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/1903231775980913051",
+      "title": "如何在中国大陆用「合法」的方式观看到youtube上面的「有价值」的 …",
+      "relevance": 0.5,
+      "snippet": "只要你 配置点击代理。 当你下抖音、B站的素材时，它知道这是国内的，直接走你家正常的宽带大马路，速度拉满，绝不绕远路。 当 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/topic/19550532",
+      "title": "YouTube公司 - 知乎",
+      "relevance": 0.5,
+      "snippet": "YouTube，全球最大的视频分享网站，早期公司总部位于加利福尼亚州的圣布里诺。公司由华裔美籍华人陈士骏等人创立并于2005年2 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/1646861?hl=th",
+      "title": "สร้างช่อง YouTube - YouTube ความช่วยเหลือ",
+      "relevance": 0.5,
+      "snippet": "YouTube Premium สมัคร YouTube Premiumสิทธิประโยชน์ของ YouTube Premiumจัดการการเป็นสมาชิก PremiumManage Premium …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=ar",
+      "title": "مساعدة YouTube - Google Help",
+      "relevance": 0.5,
+      "snippet": "مركز مساعدة YouTube الرسمي حيث يمكنك العثور على نصائح وبرامج تعليمية حول استخدام المنتج وأجوبة أخرى للأسئلة الشائعة.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/6159254?hl=ru",
+      "title": "Не удается зайти на YouTube",
+      "relevance": 0.5,
+      "snippet": "Если при попытке войти на сайт youtube.com вы видите сообщение об ошибке, скорее всего, проблема связана с одной из …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=th",
+      "title": "YouTube ความช่วยเหลือ",
+      "relevance": 0.5,
+      "snippet": "ขอรับความช่วยเหลือเกี่ยวกับโปรแกรมพาร์ทเนอร์ YouTube ดูข้อมูลอัปเดตล่าสุดบน YouTube รับความช่วยเหลือเกี่ยวกับ YouTube",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.google.com/youtube/?hl=id",
+      "title": "Bantuan YouTube - Google Help",
+      "relevance": 0.5,
+      "snippet": "Pusat Bantuan YouTube resmi tempat Anda dapat menemukan kiat dan tutorial tentang cara menggunakan produk dan jawaban lain …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://web.whatsapp.com/",
+      "title": "WhatsApp Web",
+      "relevance": 0.5,
+      "snippet": "Quickly send and receive WhatsApp messages right from your computer.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5556445",
+      "title": "[found sos] cant login whatsapp browser - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Feb 27, 2026 · Lowyat.NET -> Kopitiam -> Serious Kopitiam Bump Topic Add Reply RSS Feed Bottom Outline · [ Standard ] · Linear+ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/Kopitiam",
+      "title": "Kopitiam - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "While Kopitiam is a place to hang out and chat, annoying threads which make no sense at all will be deleted and offenders warned. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡/023f32f5-479b-465f-ab1f-813cec5f4efd",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5565190",
+      "title": "Whatsapp Desktop dah jadi fb app - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "May 20, 2026 · As usual in the morning I'll launch my whatsapp desktop app. Suddenly the app shows itself as below, unlike the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5519898",
+      "title": "Whatsapps hacked - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Apr 23, 2025 · Hi guys, I realised that my whatsapp account has been logged out from my phone this morning and I feel rather …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5556449",
+      "title": "those use ipon watsapp web browser - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Feb 27, 2026 · those use ipon watsapp web browser Outline · [ Standard ] · Linear+ those use ipon watsapp web browser, whatsapp …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5538738",
+      "title": "Is Whatsapp web down? - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Sep 8, 2025 · Cannot link my device now.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5580378",
+      "title": "Build Apps & Website services - Lowyat.NET",
+      "relevance": 0.5,
+      "snippet": "Oct 16, 2026 · Hi, I’m ericc a freelancer that help people build their own apps or webpage. Feel free to leave a msg to me or ask …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.lowyat.net/topic/5543382",
+      "title": "Back up all whatsapp chat history with media to PC",
+      "relevance": 0.5,
+      "snippet": "Oct 19, 2025 · My whatsapp chat history with media is over 20GB since 15 years ago until now. I plan to delete the account and re …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.bank.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "Access your bank website only by typing the URL in address bar of browser. Change your Internet Banking password at regular …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankonline.co.in/corp/BANKAWAY?Action.ModifyBlock.Init=Y&AppSignonBankId=026&blockAcid=651402010006151&flg=P&blockReasonCode=012&blockTranNumber=180624000092&blockAmt=500&servName=RLGR&BlockExpiryDate=24/06/2018&blockId=180624000092&msgId=17",
+      "title": "Union Bank of India - Log in to Internet Banking",
+      "relevance": 0.5,
+      "snippet": "Built on industry standard platform J2EE and .NET, the solution provides banks with tremendous flexibility to extend its product …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epay.unionbankofindia.bank.in/kvsfcs/kvlogin.aspx",
+      "title": "KV Login Page - Union Bank Of India",
+      "relevance": 0.5,
+      "snippet": "All KV Teachers are requested to please ensure completion of Students data entry & verifications at all levels before the aforesaid …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://caps.unionbankofindia.bank.in/iportalweb/iportal/jsps/orbilogin.jsp",
+      "title": "Union Bank of India CBX",
+      "relevance": 0.5,
+      "snippet": "Virtual Keyboard For security reasons provide additional credentials to proceed",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://casabranch.unionbankofindia.bank.in/",
+      "title": "Union Bank of India |Online Digital Services | Secure Personal Banking",
+      "relevance": 0.5,
+      "snippet": "Perfios Welcome To E-Platform Choose Account Type",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Universal_basic_income_pilots",
+      "title": "Universal basic income pilots - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Universal basic income pilots are smaller-scale preliminary experiments which are carried out on selected members of the relevant population …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map",
+      "title": "Everywhere basic income has been tried, in one map",
+      "relevance": 0.9,
+      "snippet": "Feb 19, 2020 · With a few exceptions — Kenya, where a big experiment in universal basic income (UBI) is underway; Iran, which has a …",
+      "word_count": 2707,
+      "fetch_success": true
+    },
+    {
+      "url": "https://jopafl.com/uploads/issue33/ECONOMICS_UNIVERSAL_BASIC_INCOME.pdf",
+      "title": "THE ECONOMICS OF UNIVERSAL BASIC INCOME - jopafl.com",
+      "relevance": 0.5,
+      "snippet": "alleviation, and income redistribution. Notable UBI experiments in Finland, Kenya, and Stockton have demonstrated UBI's capacity to enhance …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.npr.org/2024/01/10/1197956397/give-directly-universal-basic-income-poverty-kenya",
+      "title": "The Universal Basic Income experiment in Kenya - NPR",
+      "relevance": 0.9,
+      "snippet": "Jan 10, 2024 · The experiment to give people in poverty cash (Universal Basic Income version) : Planet Money There's this fundamental …",
+      "word_count": 348,
+      "fetch_success": true
+    },
+    {
+      "url": "https://basicincome.org/wp-content/uploads/2023/12/Give-Directly-Kenya-report-2-years.pdf",
+      "title": "Universal Basic Income: Short-Term Results from a Long-Term Experime…",
+      "relevance": 0.5,
+      "snippet": "What would be the consequences of a long-term commitment to provide everyone enough money to meet their basic needs? We examine this …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.co.in/",
+      "title": "www.unionbankofindia.co.in",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India provides secure online banking, loans, insurance, and personalized financial services to meet diverse customer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/en/details/internet-banking",
+      "title": "Union Bank of India Internet Banking - Online Banking Services",
+      "relevance": 0.5,
+      "snippet": "Union e-Banking is available to all the customers of Union Bank of India. Resident Customer holding accounts with a joint operating …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://instaloan.unionbankofindia.bank.in/solarstp/lendperfect/landing",
+      "title": "UBI-Solar Roof Top STP",
+      "relevance": 0.5,
+      "snippet": "Welcome to UBI Solar Roof Top Loan Portal! The applicant should have following documents/details ready, before applying for the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unionbankofindia.bank.in/",
+      "title": "Union Bank of India - Personal, Corporate & NRI Banking Online",
+      "relevance": 0.5,
+      "snippet": "Union Bank of India makes buying your dream home quicker and more convenient with easy finance at your fingertips. With Union …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mylang.unionbankonline.co.in/",
+      "title": "Home - Union Bank of India Online Banking",
+      "relevance": 0.5,
+      "snippet": "आपका उपयोगकर्ता आईडी, पासवर्ड, कार्ड सं., खाता संख्या आदि के लिए धोखाधड़ी से पूछे जाने वाले संपर्क से बचें। धोखाधड़ी के ईमेल में …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling theme …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Universal_Pictures",
+      "title": "Universal Pictures - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Universal City Studios LLC (doing business as Universal Pictures), commonly known as Universal Studios or simply Universal, is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalpictures.com/",
+      "title": "Universal Pictures | New Movies In Theaters & Upcoming Releases",
+      "relevance": 0.5,
+      "snippet": "Official website of Universal Pictures. Watch trailers and get details for current and future movies!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The Wizarding …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets?msockid=2f0ee76d226863a62e10ff6023056271",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of Harry Potter™ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalpictures.com/about/",
+      "title": "About | Universal Pictures",
+      "relevance": 0.5,
+      "snippet": "Universal's deep library includes many of the world's most beloved films and franchises. Follow the film studio's …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://universal.edu.in/",
+      "title": "Universal Education | Progressive & Immersive Learning",
+      "relevance": 0.5,
+      "snippet": "Universal Education provides progressive and immersive learning experiences that help students grow academically, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universaladventures.in/",
+      "title": "Universal Adventures - Adventure, Tour & Outdoor Experiences",
+      "relevance": 0.5,
+      "snippet": "Book & explore more than 1000+ destination tour packages with 12000+ outdoor experiences and adventure …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalsompo.com/",
+      "title": "Universal Sompo General Insurance: Best Insurance Company in India.",
+      "relevance": 0.5,
+      "snippet": "Universal Sompo is one of the best insurance companies in India. We offer a range of general insurance policies, including Health, Car, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://universalplus.com/",
+      "title": "UNIVERSAL+ Latinoamérica",
+      "relevance": 0.5,
+      "snippet": "Te damos la bienvenida a la página oficial de UNIVERSAL+, servicio de streaming de NBC Universal para Latam y Brasil, con un …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/",
+      "title": "Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Explore Rockstar Games, the official hub for iconic games like Grand Theft Auto and Red Dead Redemption.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/downloads/",
+      "title": "Downloads - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "The official home of Rockstar Games",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://socialclub.rockstargames.com/rockstar-games-launcher?dve_trk_id=9771d9bf-dd3f-4cce-8e58-e9c0cf931d9a",
+      "title": "Rockstar Games Launcher",
+      "relevance": 0.5,
+      "snippet": "Download, install and play Rockstar games with the Rockstar Games Launcher.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://store.rockstargames.com/game/buy-gta-v",
+      "title": "Grand Theft Auto V and Grand Theft Auto Online | Rockstar Store",
+      "relevance": 0.5,
+      "snippet": "Grand Theft Auto V and GTA Online. Out now for PlayStation 5 and Xbox Series X|S featuring new graphics modes, faster loading, GTA …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://socialclub.rockstargames.com/profile/signin",
+      "title": "Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Sign in to your Rockstar Games Social Club account to access exclusive features and enhance your gaming experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://store.rockstargames.com/",
+      "title": "Rockstar Store - Official Store for GTA, Red Dead Redemption",
+      "relevance": 0.5,
+      "snippet": "The official store of Rockstar Games. Home to Grand Theft Auto, Red Dead Redemption, Midnight Club and Max Payne. Rockstar Games …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Rockstar_Games",
+      "title": "Rockstar Games - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Rockstar Games, Inc. is an American video game publisher based in New York City. The company was established in December 1998 as …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/games/",
+      "title": "All Games - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "All Rockstar titles - from new and forthcoming releases like Red Dead Redemption 2 to Grand Theft Auto V, L.A. Noire and the classics.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/gta-v/",
+      "title": "Grand Theft Auto V - Rockstar Games",
+      "relevance": 0.5,
+      "snippet": "Grand Theft Auto V and GTA Online — now upgraded for PlayStation 5 and Xbox Series X|S with stunning visuals, faster loading, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.rockstargames.com/newswire/article/89k8a554534523/Download-The-Rockstar-Games-Launcher",
+      "title": "Download The Rockstar Games Launcher",
+      "relevance": 0.5,
+      "snippet": "Sep 17, 2019 · The Rockstar Games Launcher is a new Windows desktop application that allows you to quickly and easily access your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets?msockid=21f5de5037696f3004d8c65d36cb6eae",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of Harry …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingquiz.com/bing-homepage-quiz/",
+      "title": "Bing Homepage Quiz – Today's Bing Daily Trivia & Featured Image Quiz",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Play today’s daily Bing homepage quiz questions answer 10 fun triva, discover amazing facts and trends, then test your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingquizzes.com/bing-homepage-quiz-today/",
+      "title": "Bing Homepage Quiz Today – Daily Trivia | Bing Quizzes",
+      "relevance": 0.5,
+      "snippet": "2 days ago · Play today's Bing Homepage Quiz with 10 fun trivia questions on history, science, geography, and more. Beat the 5 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bing.weeklyquiz.net/bing-homepage-quiz-today/",
+      "title": "Bing Homepage Quiz Today - Play 10 Questions Daily | Bing Quizzes",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Play today’s Bing Homepage Quiz: 10 questions on a new topic each day, with answers and explanations, a 5-minute timer …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://nbkomputer.com/todays-bing-homepage-quiz-answers-complete-guide/",
+      "title": "Todays Bing Homepage Quiz Answers Complete Guide",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Bing Homepage Quiz: Complete Guide, Answers, Rewards, Fixes … Find today's Bing quiz questions, answers, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://nbkomputer.com/microsoft-bing-homepage-quiz-answers/",
+      "title": "Microsoft Bing Homepage Quiz Answers – NBKomputer",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Get Bing Homepage Quiz answers for Microsoft Rewards, organized by date to help you maintain your quiz streak and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiasikho.com/bing-homepage-quiz-answers-today/",
+      "title": "Bing Homepage Quiz Answers Today (Updated Daily) - 2026",
+      "relevance": 0.5,
+      "snippet": "Oct 27, 2026 · In today’s article, we are going to answer the Microsoft Rewards quiz questions, which can help you earn Microsoft …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bingehomepagequiz.net/",
+      "title": "Bing Homepage Quiz: Today's 10-Question Trivia Challenge",
+      "relevance": 0.5,
+      "snippet": "Oct 29, 2026 · Play today's free 10-question Bing Homepage Quiz with a 5-minute deadline and instant answer explanations, plus tips …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mcqstestprep.com/bing-homepage-quiz-trivia-answers/",
+      "title": "Bing Homepage Quiz – Today’s Trivia Answers",
+      "relevance": 0.5,
+      "snippet": "Apr 11, 2026 · Find the latest Bing Homepage Quiz trivia answers for today. Check all correct answers and explanations in one place.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "File Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find and open File Explorer in Windows, and customize Quick access by pinning and removing files and folders.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/fr-fr/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorateur de fichiers dans Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Recherchez et ouvrez l’Explorateur de fichiers dans Windows, puis personnalisez Accès rapide en épinglant et en supprimant des …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.elevenforum.com/t/show-or-hide-details-pane-in-file-explorer-in-windows-11.1774/",
+      "title": "Show or Hide Details Pane in File Explorer in Windows 11",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2021 · This tutorial will show you how to show or hide the details pane in File Explorer for your account in Windows 11. The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.elevenforum.com/t/change-folder-layout-view-in-windows-11-file-explorer.1246/",
+      "title": "Change Folder Layout View in Windows 11 File Explorer",
+      "relevance": 0.5,
+      "snippet": "Sep 8, 2021 · This tutorial will show you how to change the layout view of a folder in File Explorer for your account in Windows 11. In …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/es-es/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorador de archivos en Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Busque y abra el Explorador de archivos en Windows y personalice el Acceso rápido anclando y quitando archivos y carpetas.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/",
+      "title": "Windows help and learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find help and how-to articles for Windows operating systems. Get support for Windows and learn about installation, updates, privacy, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/de-de/windows/experience/fileexplorer/file-explorer-in-windows",
+      "title": "Explorer in Windows | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Windows 11 Windows 10 Um Explorer in Windows 11 zu öffnen, wählen Sie ihn in der Taskleiste oder im Startmenü aus, oder …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/fileexplorer/fix-file-explorer-if-it-won-t-open-or-start",
+      "title": "Fix File Explorer if it won't open or start | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "If File Explorer won’t open or start in Windows, it makes everyday tasks like finding files, opening folders, or managing storage …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.android.com/studio",
+      "title": "Download Android Studio & App Tools - Android Developers",
+      "relevance": 0.5,
+      "snippet": "Oct 19, 2026 · Android Studio provides app builders with an integrated development environment (IDE) optimized for Android …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.android.com/studio/install",
+      "title": "Install Android Studio",
+      "relevance": 0.5,
+      "snippet": "5 days ago · To install Android Studio on Windows, follow these steps: If you downloaded an EXE file (recommended), …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/android/android-studio-tutorial/",
+      "title": "Android Studio Tutorial - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Aug 21, 2025 · How can I debug an Android app in Android Studio? Android Studio offers robust debugging tools. You can …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.techspot.com/downloads/6831-android-studio.html",
+      "title": "Android Studio Download Free - 2026.2.2 | TechSpot",
+      "relevance": 0.5,
+      "snippet": "Feb 2, 2026 · Android Studio provides the fastest tools for building apps on every type of Android device.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Android_Studio",
+      "title": "Android Studio - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Android Studio is the official [5] IDE for writing Android software. It bundles together a source code editor based on …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cetcell.mahacet.org/cap/",
+      "title": "CAP - State Common Entrance Test Cell",
+      "relevance": 0.5,
+      "snippet": "May 14, 2026 · 8th Floor, New Excelsior Building, A. K. Nayak Marg, Fort, Mumbai- 400 001 www.mahacet.org Helpline …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cetcell.mahacet.org/cap-_2026-27/",
+      "title": "CAP _2026-27 - State Common Entrance Test Cell",
+      "relevance": 0.5,
+      "snippet": "5 days ago · Centralized Admission Process (CAP)-2026-27 Technical Education Post Graduate Courses MBA/MMS",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://fe2026.mahacet.org/",
+      "title": "State Common Entrance Test Cell, Government of Maharashtra",
+      "relevance": 0.5,
+      "snippet": "Check Provisional Allotment Status (CAP Round-III) Provisional Vacancy Position for CAP Round-III Provisional Vacancy …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while browsing …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://translate.google.co.in/details",
+      "title": "Google Translate",
+      "relevance": 0.5,
+      "snippet": "Send feedback Enter text to look up details",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://edu.google.co.in/",
+      "title": "Google for Education - Online Resources for Teachers & Students",
+      "relevance": 0.5,
+      "snippet": "Google Workspace for Education enables seamless collaboration with real-time editing, simple file sharing, and communication tools, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://books.google.co.in/books?uid=105309797397400037873",
+      "title": "My library - Google Books",
+      "relevance": 0.5,
+      "snippet": "After November 18, 2026, you'll no longer be able to manage books in Classic My Library. Visit the new Your Library now to import your …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://books.google.co.in/",
+      "title": "Google Books: Find, Preview, and Read Books Online.",
+      "relevance": 0.5,
+      "snippet": "Search the world's most comprehensive index of full-text books. Your library",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://trends.google.co.in/trends/?geo=IN&hl=en-GB",
+      "title": "Google Trends",
+      "relevance": 0.5,
+      "snippet": "What happens when you add data and birds into the equation? The latest Webby Awards-winning visual by Nadieh Bremer is her most …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us",
+      "title": "Universal Orlando Resort - Your Adventure & Vacation Destination",
+      "relevance": 0.5,
+      "snippet": "Plan your next family vacation at Universal Orlando Resort today. Experience amazing hotels, shopping experiences and thrilling …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalstudioshollywood.com/web/en/us",
+      "title": "Universal Studios Hollywood - Los Angeles, California - Official Site",
+      "relevance": 0.5,
+      "snippet": "Welcome to Universal Studios Hollywood! Learn more about our incredible theme park attractions in California such as The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets",
+      "title": "Universal Orlando Tickets, Packages, & Prices",
+      "relevance": 0.5,
+      "snippet": "Shop for Universal Studios, Islands of Adventure and Volcano Bay tickets. Explore both lands of The Wizarding World of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Finland",
+      "title": "Finland - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Finland is known by two unrelated names: Suomi (Finnish for 'Finland'), used in Finnish and, in corresponding forms, in the other …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.visitfinland.com/en/",
+      "title": "Your Official Finland Travel Guide | Visit Finland",
+      "relevance": 0.5,
+      "snippet": "Use this guide to plan a trip to Finland and immerse yourself in the country's nature, forests, lakes and culture.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://finland.fi/",
+      "title": "thisisFINLAND",
+      "relevance": 0.5,
+      "snippet": "Finland is one of the world’s best places to see and photograph the magical, potentially life-changing Northern Lights (aurora …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.visitfinland.com/en/finland-activity/",
+      "title": "Things to do in Finland | Visit Finland",
+      "relevance": 0.5,
+      "snippet": "Discover the best things to do in Finland from exploring the northern lights and Arctic nature to enjoying world-famous saunas, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://simple.wikipedia.org/wiki/Finland",
+      "title": "Finland - Simple English Wikipedia, the free encyclopedia",
+      "relevance": 0.5,
+      "snippet": "Finland (Finnish: Suomi) is a country in Northern Europe and is a member state of the European Union and NATO. Finland is one of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/place/Finland",
+      "title": "Finland | Geography, History, Maps, & Facts | Britannica",
+      "relevance": 0.5,
+      "snippet": "6 days ago · Finland, country in northern Europe. Finland is one of the world’s most northern and geographically remote countries …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Culture_of_Finland",
+      "title": "Culture of Finland - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Because of its history and geographic location, Finland has been influenced by the adjacent areas, various Finnic and Baltic peoples …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geocountries.com/finland",
+      "title": "Finland – Country Profile: Population, Area, Currency & Key Facts",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Discover comprehensive geographic, demographic and strategic intelligence for Finland, featuring detailed insights into …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "Major universal basic income (UBI) pilot programs and related cash-transfer experiments have been conducted worldwide, including the Alaska Permanent Fund, the US negative income tax experiments (1968–1974), Stockton's SEED program, Canada's Mincome experiment, Finland's Kela experiment, and GiveDirectly's Kenya trial.",
+      "confidence": 0.72,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "The US negative income tax experiments of 1968–1974 (involving about 7,500 participants) modestly reduced work hours while producing beneficial overall effects.",
+      "confidence": 0.62,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "Empirical evidence from UBI pilots to date indicates the programs boost happiness, health, school attendance, and trust in institutions and reduce crime, and does not support the common critiques of severe work disincentives or unaffordability.",
+      "confidence": 0.6,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0004",
+      "text": "GiveDirectly's Kenya experiment is the largest UBI trial ever conducted, and its recent study findings indicate that giving cash has positive effects on recipients' economic and psychological well-being.",
+      "confidence": 0.75,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map",
+        "https://www.npr.org/2024/01/10/1197956397/give-directly-universal-basic-income-poverty-kenya"
+      ]
+    },
+    {
+      "claim_ref": "claim_0005",
+      "text": "Canada's Mincome experiment in Dauphin, Manitoba recorded an 8.5% reduction in hospitalizations and improved high school graduation rates.",
+      "confidence": 0.6,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0006",
+      "text": "Stockton's Stockton Economic Empowerment Demonstration (SEED) provided $500 per month for 18 months to 125 residents, and initial data shows the payments were spent on food, clothing, and utility bills.",
+      "confidence": 0.65,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0007",
+      "text": "Critics contend UBI would create work disincentives and be fiscally unaffordable; Ontario's 2017 pilot was cancelled in 2018 by Premier Doug Ford's Progressive Conservative government citing work disincentive claims, and participants filed a class action lawsuit.",
+      "confidence": 0.62,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0008",
+      "text": "Finland's 2017–2018 basic income experiment provided 2,000 unemployed recipients with €560 per month; it did not increase employment but improved happiness, reduced stress, and increased trust in institutions.",
+      "confidence": 0.65,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    },
+    {
+      "claim_ref": "claim_0009",
+      "text": "The COVID-19 pandemic gave UBI renewed momentum, and proponents argue basic income is the most direct way to end poverty by simply giving everyone money.",
+      "confidence": 0.55,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.vox.com/future-perfect/2020/2/19/21112570/universal-basic-income-ubi-map"
+      ]
+    }
+  ],
+  "execution_seconds": 135.756,
+  "automatic_metrics": {
+    "total_sources": 103,
+    "fetched_sources": 2,
+    "fetch_success_rate": 0.0194,
+    "unique_domains": 57,
+    "domain_concentration": 0.0777,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 1.0,
+    "citation_marker_count": 49,
+    "resolved_citations": 49,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 9,
+    "total_claims": 9,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 0,
+    "search_query_count": 14
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

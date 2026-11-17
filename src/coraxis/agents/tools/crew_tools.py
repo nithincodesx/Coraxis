@@ -20,6 +20,7 @@ from crewai.tools import BaseTool
 from pydantic import BaseModel, ConfigDict, Field
 
 from coraxis.agents.context import ToolContext
+from coraxis.agents.tools.source_utils import classify_source
 
 _SYNC_BRIDGE_HINT = (
     "This tool must be awaited. Drive the crew with `kickoff_async()` rather "
@@ -97,6 +98,17 @@ class RegisterClaimInput(BaseModel):
         default=None, description="Relevance per source, 0-1, in the same order as source_urls."
     )
     agent: str = Field(default="analyst", description="Name of the agent registering the claim.")
+    evidence_strength: str = Field(
+        default="insufficient",
+        description="Evidence strength category: high / moderate / low / insufficient / conflicted.",
+    )
+    limitations: str = Field(
+        default="", description="Limitations or caveats about the supporting evidence."
+    )
+    contradicts: list[str] = Field(
+        default_factory=list,
+        description="Identifiers of claims this claim materially disagrees with.",
+    )
 
 
 class SendMessageInput(BaseModel):
@@ -143,10 +155,17 @@ class SearchTool(ContextTool):
                 title=result.title,
                 relevance=0.5,  # provisional; the analyst re-scores
                 snippet=result.snippet,
+                source_category=classify_source(result.url),
+                discovery_query=query,
             )
 
         self.context.publish(
-            "tool.completed", tool=self.name, detail=f"{len(results)} results", count=len(results)
+            "tool.completed",
+            tool=self.name,
+            detail=f"{len(results)} results",
+            count=len(results),
+            query=query[:160],
+            category=classify_source(results[0].url) if results else "general",
         )
         return self._dumps({"query": query, "results": [r.to_dict() for r in results]})
 
@@ -173,6 +192,8 @@ class FetchTool(ContextTool):
                 relevance=0.6,
                 word_count=page.word_count,
                 fetch_success=True,
+                source_category=classify_source(page.url),
+                retrieval_date=page.retrieved_at,
             )
             self.context.publish(
                 "tool.completed", tool=self.name, detail=f"{page.word_count} words"
@@ -238,6 +259,9 @@ class RegisterClaimTool(ContextTool):
         confidence: float = 0.7,
         relevance_scores: list[float] | None = None,
         agent: str = "analyst",
+        evidence_strength: str = "insufficient",
+        limitations: str = "",
+        contradicts: list[str] | None = None,
     ) -> str:
         claim_ref = self.context.tracker.add_claim(
             claim_text,
@@ -245,6 +269,9 @@ class RegisterClaimTool(ContextTool):
             confidence=confidence,
             agent=agent,
             relevance_scores=relevance_scores,
+            evidence_strength=evidence_strength,
+            limitations=limitations,
+            contradicts=contradicts,
         )
         if not claim_ref:
             return self._dumps({"error": "Claim text was empty; nothing registered."})

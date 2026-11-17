@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import asyncio
 import contextlib
+import re
 import time
 from dataclasses import dataclass
 from typing import Any
@@ -601,6 +602,17 @@ class ResearchOrchestrator:
         if plan.options.get("include_memory", True) and self.settings.memory_enabled:
             await self._write_memory(plan.user_id, run_id, plan.query, tracker)
 
+        # ── Citation-reliability validation (non-fatal) ──────────────
+        validation_issues = validate_report(report, tracker)
+        if validation_issues:
+            logger.warning(
+                "run %s report validation issues: %s",
+                run_id,
+                "; ".join(validation_issues),
+            )
+        else:
+            logger.debug("run %s report passed citation validation", run_id)
+
         logger.info(
             "run %s succeeded: %d sources, %d claims",
             run_id,
@@ -731,6 +743,86 @@ def _parse_report(result: Any) -> FinalReport:
         citations_markdown="",
         stats=ReportStats(),
     )
+
+
+# ─────────────────────────────────────────────────────────────────────
+#  Report validation (citation reliability + structure)
+# ─────────────────────────────────────────────────────────────────────
+
+_CITATION_MARKER = re.compile(r"\[\^(\d+)\](?!\s*:)")
+
+
+def extract_citation_numbers(markdown: str) -> list[int]:
+    """Return the citation numbers referenced in markdown body text.
+
+    Inline ``[^n]`` markers are recognised; reference definitions such as
+    ``[^1]: ...`` are not counted as body references.
+    """
+    return [int(match) for match in _CITATION_MARKER.findall(markdown or "")]
+
+
+def validate_report_citations(
+    markdown: str,
+    tracker: CitationTracker,
+) -> list[str]:
+    """Return human-readable citation-reliability issues in a report body.
+
+    Non-fatal by design: the caller decides whether to log, repair, or escalate.
+    A citation number is valid when it refers to a source registered in the
+    tracker, which is the single source of truth for ``cite_N`` numbering.
+    """
+    issues: list[str] = []
+    markdown = markdown or ""
+    valid_numbers = {citation.number for citation in tracker.citations}
+    referenced = extract_citation_numbers(markdown)
+
+    unknown = sorted({n for n in referenced if n not in valid_numbers})
+    if unknown:
+        issues.append(
+            "Report references citations that were never registered: "
+            + ", ".join(f"[^{n}]" for n in unknown)
+        )
+
+    return issues
+
+
+def validate_report_structure(report: FinalReport) -> list[str]:
+    """Return structural issues with a parsed :class:`FinalReport`."""
+    issues: list[str] = []
+
+    if not report.markdown or not report.markdown.strip():
+        issues.append("Report markdown is empty.")
+    if not report.executive_summary or not report.executive_summary.strip():
+        issues.append("Report is missing an executive summary.")
+    if not report.key_findings:
+        issues.append("Report has no key findings.")
+
+    headings = re.findall(r"^#{1,6}\s+.+$", report.markdown or "", flags=re.MULTILINE)
+    if headings:
+        # Reused heading text usually signals a duplicated section.
+        seen: dict[str, int] = {}
+        for heading in headings:
+            seen[heading] = seen.get(heading, 0) + 1
+        duplicates = [h for h, count in seen.items() if count > 1]
+        if duplicates:
+            issues.append("Report contains repeated section headings: " + ", ".join(duplicates))
+
+    return issues
+
+
+def validate_report(
+    report: FinalReport,
+    tracker: CitationTracker,
+) -> list[str]:
+    """Run all report-validity checks and return a combined list of issues.
+
+    Returns an empty list when the report passes every check. Issues are
+    descriptive strings intended for logging; they never fail a run.
+    """
+    issues: list[str] = []
+    issues.extend(validate_report_structure(report))
+    issues.extend(validate_report_citations(report.markdown, tracker))
+    return issues
 
 
 def _describe(exc: BaseException) -> str:

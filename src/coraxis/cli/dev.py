@@ -23,7 +23,7 @@ from pathlib import Path
 from coraxis.core.config import get_settings
 
 #: How long to wait for the API to answer before giving up.
-READY_TIMEOUT_SECONDS = 45.0
+READY_TIMEOUT_SECONDS = 90.0
 _POLL_INTERVAL = 0.5
 
 

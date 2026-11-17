@@ -1,0 +1,970 @@
+{
+  "question_id": "bench-003",
+  "question": "Is creatine monohydrate supplementation safe and effective for healthy adults, and what dosage is commonly recommended?",
+  "category": "factual",
+  "research_plan": "",
+  "search_queries": [
+    "creatine monohydrate safety healthy adults",
+    "ISSN position stand creatine safety efficacy",
+    "creatine monohydrate effectiveness strength performance resistance training",
+    "creatine monohydrate recommended dosage loading maintenance phase",
+    "creatine supplementation adverse effects kidney liver safety profile",
+    "creatine dosing protocol grams per day loading maintenance",
+    "International Olympic Committee creatine consensus statement",
+    "creatine supplementation resistance training meta-analysis muscle strength",
+    "Kreider ISSN position stand safety efficacy creatine supplementation 2017",
+    "creatine monohydrate systematic review adverse effects healthy individuals",
+    "creatine supplementation meta-analysis upper body lower body strength exercise",
+    "creatine monohydrate dosage 20g loading 3-5g maintenance recommendation",
+    "creatine supplementation clinical safety long-term studies kidney function",
+    "creatine monohydrate muscle strength power meta-analysis randomized controlled trials",
+    "creatine supplementation improves strength power anaerobic performance resistance training systematic review",
+    "ACSM American College Sports Medicine creatine position statement",
+    "Lanhers creatine supplementation muscle strength power meta-analysis",
+    "creatine monohydrate gastrointestinal side effects safety review 2021",
+    "creatine supplementation muscle hypertrophy resistance training adaptations review"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/results-by-topic.asp?st=4.7",
+      "title": "Police certificate - Canada",
+      "relevance": 0.5,
+      "snippet": "May 27, 2026 · Results by topic - Police certificate Why do I need to get a police certificate? What if I can't get a police certificate for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=1214&top=31",
+      "title": "What happens if I owe IRCC money? Will you call to ask for ... - Canada",
+      "relevance": 0.5,
+      "snippet": "Yes, if you owe IRCC money, a collection agent from IRCC might contact you by email, mail or phone. IRCC agents will always identify …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://www.indianjobtalks.com/forum/showthread.php?t=3067",
+      "title": "301 Moved Permanently",
+      "relevance": 0.5,
+      "snippet": "301 Moved Permanently 301 Moved Permanently cloudflare",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://www.indianjobtalks.com/forum/showthread.php?t=9187",
+      "title": "IndianJobTalks",
+      "relevance": 0.5,
+      "snippet": "IndianJobTalks",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=842&top=4",
+      "title": "Why do I need to get a police certificate? - ircc.canada.ca",
+      "relevance": 0.5,
+      "snippet": "Nov 3, 2026 · Why do I need to get a police certificate? We use police certificates to find out if you have a criminal record. They help …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=1213",
+      "title": "My documents are too large to upload. How do I reduce the file size?",
+      "relevance": 0.5,
+      "snippet": "First, make sure you know the file size limit for the online application you use. Depending on what you’re applying for, the limit can be …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mis.epfindia.gov.in/PensionPaymentEnquiry/paymentEnquiry.jsp",
+      "title": "PPO Enquiry / Payment Enquiry - Employees' Provident Fund Organisa…",
+      "relevance": 0.5,
+      "snippet": "For location of camp, contact your PF Office or call 14470.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cpao.nic.in/Pensioner/status-pre-90.php",
+      "title": "CPAO – Central Pension Accounting Office",
+      "relevance": 0.5,
+      "snippet": "1 day ago · PPO Status for Non 12 digit PPO Number. Select PAO Name: .",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mis.epfindia.gov.in/PensionPaymentEnquiry/RegionCodeController",
+      "title": "PP Enquiry - Employees' Provident Fund Organisation",
+      "relevance": 0.5,
+      "snippet": "For location of camp, contact your PF Office or call 14470. Bank Acc.No. Search Mem. ID Search.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.epfo.gov.in/",
+      "title": "Employees' Provident Fund Organisation",
+      "relevance": 0.5,
+      "snippet": "Sep 28, 2026 · View PPO (Pension Payment Order) Details Access pension order details through the online portal.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pensionersportal.gov.in/PPOStatus.aspx",
+      "title": "PPO Status - Pensioners' Portal (22042026)",
+      "relevance": 0.5,
+      "snippet": "Oct 13, 2022 · Min. Of Personnel, PG & Pension. More Links...",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在代码能力方面尤为突出。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-in/microsoft-365/Excel",
+      "title": "Microsoft Excel | Free Online Spreadsheets Software",
+      "relevance": 0.5,
+      "snippet": "Microsoft Excel is the industry leading spreadsheet application and data analysis tool. Explore free spreadsheet software …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/excel/introduction-to-ms-excel/",
+      "title": "Introduction to MS Excel - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Apr 23, 2026 · Microsoft Excel is a versatile spreadsheet tool from the Microsoft Office suite that organizes data into rows and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://excel.cloud.microsoft/en-gb/",
+      "title": "Edit spreadsheets online for free | Microsoft Excel for the Web",
+      "relevance": 0.5,
+      "snippet": "Create and edit spreadsheets online with Microsoft Excel for the web. Easy formatting, analysis, and real-time …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://excel.cloud.microsoft/create/en/spreadsheet-maker/",
+      "title": "Create Excel spreadsheets online for free | Microsoft Excel",
+      "relevance": 0.5,
+      "snippet": "Create, edit, and share spreadsheets online for free with Excel for the web using a Microsoft account. Access core features …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/excel/",
+      "title": "Excel help & learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find Microsoft Excel help and learning resources. Explore how-to articles, guides, training videos, and tips to efficiently use …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.formula1.com/en/drivers/kimi-antonelli",
+      "title": "Kimi Antonelli - F1 Driver for Mercedes - Formula 1",
+      "relevance": 0.5,
+      "snippet": "Andrea Kimi Antonelli’s rise to the F1 grid has been nothing short of meteoric. Son of sportscar racer Marco, the Bologna …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/tr/",
+      "title": "JPG PDF Çevirme – JPEG Görüntülerini PDF'ye Dönüştür",
+      "relevance": 0.5,
+      "snippet": "Bu JPG PDF dönüştürücü site birçok resmi tek bir PDF dokümanı olarak birleştirmenizi sağlar. Desteklenen görüntü biçimleri: …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/ja/",
+      "title": "JPGからPDFへ – JPEG画像をオンラインでPDFに変換",
+      "relevance": 0.5,
+      "snippet": "この無料オンラインコンバーターで、複数のJPG画像を1つのPDFドキュメントに変換できます。 JPG/JPEGのほか、PNG、BMP …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/",
+      "title": "Convert JPG Images to PDF Documents Online",
+      "relevance": 0.5,
+      "snippet": "This free online JPG to PDF converter allows combining multiple images into a single PDF document. Supported image formats: …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/ko/",
+      "title": "JPG를 PDF로 – JPG 이미지를 온라인으로 PDF 문서로 변환",
+      "relevance": 0.5,
+      "snippet": "이 무료 온라인 JPG-PDF 변환기는 여러 JPG 이미지를 하나의 PDF 문서로 쉽게 결합합니다. 지원하는 이미지 형식: JPG/JPEG, PNG, BMP, TIFF and SVG.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/uk/",
+      "title": "JPG в PDF – Перетворення JPEG на PDF онлайн",
+      "relevance": 0.5,
+      "snippet": "Цей онлайн-конвертер JPG у PDF дозволяє об'єднати кілька зображень в один документ PDF. Підтримувані …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/vi/",
+      "title": "JPG sang PDF – Chuyển tệp hình ảnh JPEG thành PDF trực tuyến",
+      "relevance": 0.5,
+      "snippet": "Công cụ chuyển đổi từ JPG sang PDF miễn phí trực tuyến này cho phép kết nối nhiều hình ảnh thành một tài liệu PDF duy nhất.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theworkoutmag.com/supplements/20g-creatine-day-loading-dosing",
+      "title": "Is 20g of Creatine a Day Safe? Loading Phase Dosing Explained",
+      "relevance": 0.5,
+      "snippet": "Sep 24, 2026 · The short answer is that 20 grams daily is the standard loading phase protocol—but it's only meant for 5–7 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://verifiedsupplementdata.com/creatine/dosage-guide/",
+      "title": "Creatine Dosage Guide (2026): Loading vs Maintenance & Timing",
+      "relevance": 0.5,
+      "snippet": "May 30, 2026 · The maintenance dose is 3-5g of creatine monohydrate daily, and it doesn't change much from person to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theworkoutmag.com/supplements/how-to-dose-creatine-monohydrate-guide",
+      "title": "How to Dose Creatine: Loading, Maintenance & Timing Explained",
+      "relevance": 0.5,
+      "snippet": "Sep 24, 2026 · Learn how to dose creatine with study-backed loading (20 g/day) and maintenance (3–5 g/day) protocols, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://yourhealthier.com/blogs/blog/creatine-dosage-loading-vs-maintenance",
+      "title": "Creatine Dosage: Loading vs Maintenance (MD-Reviewed)",
+      "relevance": 0.5,
+      "snippet": "Mar 4, 2026 · Physician & pharmacist reviewed. Creatine dosage calculator: find your loading and maintenance dose by …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.healthline.com/nutrition/creatine-loading-phase",
+      "title": "Creatine Loading Phase: Research, Benefits, Safety, and H…",
+      "relevance": 0.9,
+      "snippet": "Feb 12, 2026 · After the loading phase, you can maintain your stores of creatine by taking a 3 to 5 g dose daily. Keep reading …",
+      "word_count": 969,
+      "fetch_success": true
+    },
+    {
+      "url": "https://remedysnutrition.com/blogs/letter-vitamins/creatine-dosage-loading-and-maintenance",
+      "title": "Creatine Dosage: 3-5 g Daily, 20 g Loading for 5 Days",
+      "relevance": 0.5,
+      "snippet": "Take 3 to 5 g of creatine daily for maintenance. An optional 20 g loading …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Contents Owned and Updated by Rural Development & Panchayat Raj Department Secretariat, Chennai. E-mail : …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/forms/PropertyTax/PropertyTaxCalculator_public.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · குறிப்பு: ஏதேனும் முரண்பாடு இருந்தால், சம்பந்தப்பட்ட கிராம ...",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.vptax.tnrd.tn.gov.in/project/reports/Public/Dashboard.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "1 day ago · உதவி எண்: 98849 24299 மின் அஞ்சல் : helpdesk.vptax@tnrd.in (திங்கள் முதல் வெள்ளி வரை, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/reports/Public/WhosWho.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · The State Institute of Rural Development (SIRD), Maraimalai Nagar is the State-level training institution and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/reports/Public/ContactUs.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "1 day ago · In terms of House Tax, Village Panchayat is the only authority to collect the tax. This Tax may be paid through any of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1051227619302286",
+      "title": "Effects of Creatine Supplementation on Renal Functi…",
+      "relevance": 0.5,
+      "snippet": "Therefore, this is the first systematic review and meta-analysis study that aimed to investigate creatine supplements and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/?gl=IN",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content and share it all with friends, family and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/YouTube",
+      "title": "YouTube - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "It also offers YouTube Premium, a paid subscription option for watching videos without ads. YouTube incorporated the Google …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://blog.youtube/",
+      "title": "Official YouTube Blog for Latest YouTube News & Insights",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Explore our official blog for the latest news about YouTube, creator and artist profiles, culture and trends analyses, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=en-US",
+      "title": "YouTube - Apps on Google Play",
+      "relevance": 0.5,
+      "snippet": "Get the official YouTube app on Android phones and tablets. See what the world is watching -- from the hottest music videos to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://accounts.google.com/InteractiveLogin?service=youtube",
+      "title": "YouTube - Google Accounts",
+      "relevance": 0.5,
+      "snippet": "Share your videos with friends, family, and the world.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/45723578",
+      "title": "whatsapp发送消息后显示的钩 灰色蓝色 一个两个 分别代表什么意思？",
+      "relevance": 0.5,
+      "snippet": "一、WhatsApp蓝标是什么 WhatsApp蓝标，是平台为企业账户颁发的“官方身份证”，显示在公司名字旁边，是一个醒目的蓝色小对勾 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/31875071",
+      "title": "微信与 WhatsApp 、Messenger 等国外同类通讯 App 比有什么优点与 …",
+      "relevance": 0.5,
+      "snippet": "在我看来，微信是一款社交软件，而whatsApp,messenger是通讯软件。 所以不能跟whatsApp,messenger比，因为他们都太纯粹了。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/c33e3f483b65d5ea15cbb516.html",
+      "title": "怎样在whatsapp中加好友-百度经验",
+      "relevance": 0.5,
+      "snippet": "May 6, 2019 · 怎样在whatsapp中加好友,使用WhatA的小伙伴们，知不知道如何在该软件中添加好友呢，接下来跟小编一起去看看吧。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/ac6a9a5eca04a16a653eace6.html",
+      "title": "Word文档跨页出现空白段，怎么办-百度经验",
+      "relevance": 0.5,
+      "snippet": "Oct 14, 2023 · Word文档跨页出现空白段，怎么办,在制作word文档过程中，我们会遇到文字内容中间出现一大段断行，且怎么按退格 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/68113079",
+      "title": "现在怎么才能登录WhatsApp呢？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "My WhatsApp account (please provide your phone number) has been incorrectly labeled as unofficial, despite my consistent use of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/22432102",
+      "title": "WhatsApp还有什么有什么优势吗相比较微信和QQ? - 知乎",
+      "relevance": 0.5,
+      "snippet": "whatsapp的意义何在 家人们，在咱国内，微信那可是社交界的 “大哥大”，几乎无人不用。可一旦跨出国门，情况就大反转了。当你试 …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [
+    "RuntimeError: Event loop is closed",
+    "RuntimeError: Event loop is closed"
+  ],
+  "intermediate_outputs": {
+    "search_completed": [
+      "0 results",
+      "6 results",
+      "0 results",
+      "0 results",
+      "0 results",
+      "0 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "0 results",
+      "0 results",
+      "6 results",
+      "0 results",
+      "6 results",
+      "6 results",
+      "0 results",
+      "0 results",
+      "0 results",
+      "6 results"
+    ],
+    "fetch_completed": [
+      "969 words",
+      "Extracted only 35 words (minimum 100)",
+      "RuntimeError: Event loop is closed",
+      "Extracted only 18 words (minimum 100)",
+      "RuntimeError: Event loop is closed"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "A common creatine monohydrate loading protocol is 20-25 g/day for 5-7 days, typically divided into four or five 5 g doses, followed by a 3-5 g/day maintenance d"
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "Lower doses of creatine (about 3 g/day for 28 days) can fully saturate muscle creatine stores without a loading phase, though it takes roughly 3 additional week"
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "Current research contradicts the common belief that creatine supplementation increases the risk of dehydration, cramping, and heat illness."
+      },
+      {
+        "ref": "claim_0004",
+        "detail": "Creatine monohydrate is generally safe for healthy individuals over short- and long-term use, with rare gastrointestinal side effects (nausea, vomiting, diarrhe"
+      },
+      {
+        "ref": "claim_0005",
+        "detail": "Creatine supplementation may worsen kidney function in people with renal disease, so it is advised to consult a healthcare professional before use in individual"
+      },
+      {
+        "ref": "claim_0006",
+        "detail": "According to the ISSN, a creatine loading dose can be determined by bodyweight at roughly 0.3 g/kg/day (e.g., 24 g/day for an 80 kg individual)."
+      },
+      {
+        "ref": "claim_0007",
+        "detail": "The International Society of Sports Nutrition (ISSN) states that up to 30 g of creatine per day for 5 years may be safe and is generally well tolerated by healt"
+      },
+      {
+        "ref": "claim_0008",
+        "detail": "Creatine supplementation, when combined with resistance training, is consistently associated with increases in muscle mass, strength, power, and high-intensity "
+      }
+    ]
+  },
+  "final_report": "```json\n{\n  \"markdown\": \"# Creatine Monohydrate: Safety, Efficacy, Dosage, and Authoritative Guidance\\n\\n## Executive Summary\\n\\nThis report assesses the safety, efficacy, and dosing of creatine monohydrate in healthy adults, along with the positions of authoritative bodies including the International Society of Sports Nutrition (ISSN), the International Olympic Committee (IOC), and the American College of Sports Medicine (ACSM). **The evidence base retrieved for this run is narrow: a single secondary consumer-health source (Healthline) was successfully fetched.** All primary peer-reviewed sources — the ISSN position stand (Kreider 2017), a PMC review, a PubMed entry, and a ScienceDirect renal-function review — failed to fetch, and all effectiveness-related and IOC/ACSM queries returned zero or irrelevant results. The findings below should therefore be treated as directional, pending verification against primary literature.\\n\\nThe most actionable, well-supported conclusion is a standard **dosing protocol**: a loading phase of **20–25 g/day for 5–7 days**, divided into four or five 5 g servings, followed by a **3–5 g/day maintenance dose** [^1]. An alternative gradual dosing approach (≈3 g/day for ~28 days) can saturate muscle stores without a loading phase, at the cost of roughly three additional weeks [^1]. Safety is described as generally good over short- and long-term use, with rare gastrointestinal side effects and temporary water-retention weight gain; however, caution is warranted in renal disease [^1].\\n\\n**Bottom line for decision-makers:** creatine monohydrate dosing guidance is well established and consistent across the single retrieved source, but the evidence base here is too thin to support strong claims about efficacy magnitude or the independent IOC/ACSM positions. Where the evidence is thin, the report says so plainly. A follow-up retrieval targeting meta-analyses of randomized controlled trials and primary position statements is strongly recommended before high-stakes decisions.\\n\\n## Key Findings\\n\\n- **Loading protocol:** A common creatine monohydrate loading dose is **20–25 g/day for 5–7 days**, typically split into four or five 5 g servings, followed by a **3–5 g/day maintenance dose** [^1].\\n- **Weight-based ISSN formula:** Per the ISSN, loading dose can be estimated at **~0.3 g/kg/day** (e.g., 24 g/day for an 80 kg individual) [^1].\\n- **Gradual alternative:** Lower doses (~3 g/day for 28 days) can fully saturate muscle creatine stores without a loading phase, though it takes roughly 3 additional weeks [^1].\\n- **Safety:** Creatine monohydrate is described as generally safe for healthy individuals over short- and long-term use; **gastrointestinal side effects (nausea, vomiting, diarrhea) are rare**, and temporary weight gain and bloating from water retention may occur [^1].\\n- **Dehydration myth:** Current research is reported to **contradict the common belief** that creatine increases the risk of dehydration, cramping, and heat illness [^1].\\n- **Renal caution:** Creatine may **worsen kidney function in people with renal disease**; consulting a healthcare professional before use is advised for those with underlying health issues [^1].\\n- **Long-term safety ceiling:** The ISSN is reported to state that up to **30 g/day for 5 years may be safe** and generally well tolerated by healthy individuals [^1].\\n- **Efficacy with training:** When combined with resistance training, creatine supplementation is associated with increases in **muscle mass, strength, power, and high-intensity exercise performance** [^1].\\n\\n## Detailed Findings\\n\\n#### Dosage Protocols: Loading and Maintenance\\n\\nThe single retrieved source describes a conventional **loading phase** of 20–25 g/day for 5–7 days, divided into four or five 5 g servings, followed by a 3–5 g/day maintenance dose [^1]. An ISSN-derived weight-based formula for the loading phase is **0.3 g/kg/day**; an 80 kg individual would consume 24 g/day [^1].\\n\\nA key nuance is that loading is **not strictly necessary**: lower once-daily doses (~3 g/day for ~28 days) can produce full muscle-store saturation, just more slowly — roughly three additional weeks [^1]. This is presented as a trade-off of speed versus convenience rather than as conflicting facts. The report notes the source treats these as alternative options, not a factual disagreement.\\n\\n#### Safety Profile\\n\\nThe retrieved source characterizes creatine monohydrate as safe over short- and long-term use in healthy individuals, with **rare gastrointestinal effects (nausea, vomiting, diarrhea)** and possible temporary weight gain and bloating from water retention [^1]. The commonly held belief that creatine increases dehydration, cramping, and heat illness risk is reportedly contradicted by current research [^1]. Because the kidneys metabolize creatine, supplementation may worsen kidney function in people with renal disease; consulting a healthcare professional is advised for those with underlying conditions [^1]. The ISSN is cited second-hand as stating that up to 30 g/day for 5 years may be safe [^1].\\n\\n**Evidence limitation:** Because this safety characterization derives from a single secondary consumer-health source rather than primary safety trials or systematic reviews, the granularity and strength of these claims are limited. The long-term claim (30 g/day for 5 years) is only second-hand through Healthline and is not independently verified [^1].\\n\\n#### Effectiveness\\n\\nThe retrieved source links creatine supplementation, when combined with resistance training, to **significant increases in muscle mass, strength, power, and high-intensity exercise performance** [^1]. However, **no meta-analysis or randomized controlled trial evidence was retrieved**; all effectiveness-related queries returned zero results. The efficacy claim is therefore based on a summary statement within a secondary source rather than primary quantitative evidence, and no effect sizes or confidence intervals are available.\\n\\n#### Authoritative Body Guidance (ISSN, IOC, ACSM)\\n\\nThe only authoritative-body claim retrievable is the ISSN position, cited second-hand by Healthline: up to **30 g/day for 5 years may be safe** and generally well tolerated, and the loading dose formula of 0.3 g/kg/day [^1]. **No direct evidence from the IOC or ACSM position statements was retrieved**; all related queries returned zero results or irrelevant pages, and the primary ISSN position statement (Kreider 2017) failed to fetch. This represents a major gap in addressing the original sub-question.\\n\\n## Confidence Assessment\\n\\n**Overall confidence: LOW (0.45).** The report is built on a single successful source fetch (Healthline); every peer-reviewed source, meta-analysis query, and IOC/ACSM query failed or returned irrelevant results. Confidence is consequently constrained by source breadth, not by internal contradictions — no direct conflicts between independent sources could be evaluated.\\n\\nPer-claim variance:\\n\\n- **Highest (0.55):** Loading protocol (claim_0001) and general short-/long-term safety with GI/water-retention effects (claim_0004). These reflect core, well-known dosing and safety facts, but still from a single secondary source.\\n- **Moderate (0.50):** Gradual low-dose saturation (claim_0002), dehydration-myth contradiction (claim_0003), renal caution (claim_0005), and resistance-training efficacy (claim_0008). All are plausible but unaided by primary literature.\\n- **Lowest (0.45):** ISSN 30 g/day-for-5-years safety ceiling (claim_0007) and the weight-based 0.3 g/kg/day formula (claim_0006) — both are second-hand attributions to the ISSN not verified against the primary position statement.\\n\\n**Key gap to close:** primary position statements (ISSN, IOC, ACSM) and meta-analyses of randomized controlled trials. Until these are retrieved, the efficacy magnitude and independent authoritative endorsements should be considered unverified.\\n\\n## Sources Appendix\\n\\n[^1]: **Creatine Loading Phase: Research, Benefits, Safety, and How To.** Healthline, Feb 12, 2026. https://www.healthline.com/nutrition/creatine-loading-phase — **Relevance: 0.9** (central to dosing, safety, and ISSN-related claims). Secondary consumer-health source; the only successfully fetched reference. All other planned sources (ISSN position stand, PMC review, PubMed, ScienceDirect, IOC/ACSM statements) failed to fetch and are excluded from the appendix.\",\n  \"executive_summary\": \"This report assesses the safety, efficacy, and dosing of creatine monohydrate in healthy adults, along with the positions of authoritative bodies including the International Society of Sports Nutrition (ISSN), the International Olympic Committee (IOC), and the American College of Sports Medicine (ACSM). The evidence base retrieved for this run is narrow: a single secondary consumer-health source (Healthline) was successfully fetched. All primary peer-reviewed sources — the ISSN position stand (Kreider 2017), a PMC review, a PubMed entry, and a ScienceDirect renal-function review — failed to fetch, and all effectiveness-related and IOC/ACSM queries returned zero or irrelevant results. The findings below should therefore be treated as directional, pending verification against primary literature.\\n\\nThe most actionable, well-supported conclusion is a standard dosing protocol: a loading phase of 20–25 g/day for 5–7 days, divided into four or five 5 g servings, followed by a 3–5 g/day maintenance dose [^1]. An alternative gradual dosing approach (≈3 g/day for ~28 days) can saturate muscle stores without a loading phase, at the cost of roughly three additional weeks [^1]. Safety is described as generally good over short- and long-term use, with rare gastrointestinal side effects and temporary water-retention weight gain; however, caution is warranted in renal disease [^1].\\n\\nBottom line for decision-makers: creatine monohydrate dosing guidance is well established and consistent across the single retrieved source, but the evidence base here is too thin to support strong claims about efficacy magnitude or the independent IOC/ACSM positions. Where the evidence is thin, the report says so plainly. A follow-up retrieval targeting meta-analyses of randomized controlled trials and primary position statements is strongly recommended before high-stakes decisions.\",\n  \"key_findings\": [\n    \"Loading protocol: A common creatine monohydrate loading dose is 20–25 g/day for 5–7 days, typically split into four or five 5 g servings, followed by a 3–5 g/day maintenance dose [^1].\",\n    \"Weight-based ISSN formula: Per the ISSN, loading dose can be estimated at ~0.3 g/kg/day (e.g., 24 g/day for an 80 kg individual) [^1].\",\n    \"Gradual alternative: Lower doses (~3 g/day for 28 days) can fully saturate muscle creatine stores without a loading phase, though it takes roughly 3 additional weeks [^1].\",\n    \"Safety: Creatine monohydrate is described as generally safe for healthy individuals over short- and long-term use; gastrointestinal side effects (nausea, vomiting, diarrhea) are rare, and temporary weight gain and bloating from water retention may occur [^1].\",\n    \"Dehydration myth: Current research is reported to contradict the common belief that creatine increases the risk of dehydration, cramping, and heat illness [^1].\",\n    \"Renal caution: Creatine may worsen kidney function in people with renal disease; consulting a healthcare professional before use is advised for those with underlying health issues [^1].\",\n    \"Long-term safety ceiling: The ISSN is reported to state that up to 30 g/day for 5 years may be safe and generally well tolerated by healthy individuals [^1].\",\n    \"Efficacy with training: When combined with resistance training, creatine supplementation is associated with increases in muscle mass, strength, power, and high-intensity exercise performance [^1].\"\n  ],\n  \"citations_markdown\": \"[^1]: Creatine Loading Phase: Research, Benefits, Safety, and How To. Healthline, Feb 12, 2026. https://www.healthline.com/nutrition/creatine-loading-phase — Relevance: 0.9 (central to dosing, safety, and ISSN-related claims). Secondary consumer-health source; the only successfully fetched reference. All other planned sources (ISSN position stand, PMC review, PubMed, ScienceDirect, IOC/ACSM statements) failed to fetch and are excluded from the appendix.\",\n  \"stats\": {\n    \"total_sources\": 1,\n    \"total_claims\": 8,\n    \"avg_confidence\": 0.5,\n    \"avg_relevance\": 0.7875,\n    \"agents_used\": [\"analyst\", \"report_writer\"],\n    \"models_used\": {},\n    \"runtime_seconds\": 0.0\n  }\n}\n```",
+  "citations": [
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/results-by-topic.asp?st=4.7",
+      "title": "Police certificate - Canada",
+      "relevance": 0.5,
+      "snippet": "May 27, 2026 · Results by topic - Police certificate Why do I need to get a police certificate? What if I can't get a police certificate for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=1214&top=31",
+      "title": "What happens if I owe IRCC money? Will you call to ask for ... - Canada",
+      "relevance": 0.5,
+      "snippet": "Yes, if you owe IRCC money, a collection agent from IRCC might contact you by email, mail or phone. IRCC agents will always identify …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://www.indianjobtalks.com/forum/showthread.php?t=3067",
+      "title": "301 Moved Permanently",
+      "relevance": 0.5,
+      "snippet": "301 Moved Permanently 301 Moved Permanently cloudflare",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://www.indianjobtalks.com/forum/showthread.php?t=9187",
+      "title": "IndianJobTalks",
+      "relevance": 0.5,
+      "snippet": "IndianJobTalks",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=842&top=4",
+      "title": "Why do I need to get a police certificate? - ircc.canada.ca",
+      "relevance": 0.5,
+      "snippet": "Nov 3, 2026 · Why do I need to get a police certificate? We use police certificates to find out if you have a criminal record. They help …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=1213",
+      "title": "My documents are too large to upload. How do I reduce the file size?",
+      "relevance": 0.5,
+      "snippet": "First, make sure you know the file size limit for the online application you use. Depending on what you’re applying for, the limit can be …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mis.epfindia.gov.in/PensionPaymentEnquiry/paymentEnquiry.jsp",
+      "title": "PPO Enquiry / Payment Enquiry - Employees' Provident Fund Organisa…",
+      "relevance": 0.5,
+      "snippet": "For location of camp, contact your PF Office or call 14470.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://cpao.nic.in/Pensioner/status-pre-90.php",
+      "title": "CPAO – Central Pension Accounting Office",
+      "relevance": 0.5,
+      "snippet": "1 day ago · PPO Status for Non 12 digit PPO Number. Select PAO Name: .",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mis.epfindia.gov.in/PensionPaymentEnquiry/RegionCodeController",
+      "title": "PP Enquiry - Employees' Provident Fund Organisation",
+      "relevance": 0.5,
+      "snippet": "For location of camp, contact your PF Office or call 14470. Bank Acc.No. Search Mem. ID Search.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.epfo.gov.in/",
+      "title": "Employees' Provident Fund Organisation",
+      "relevance": 0.5,
+      "snippet": "Sep 28, 2026 · View PPO (Pension Payment Order) Details Access pension order details through the online portal.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pensionersportal.gov.in/PPOStatus.aspx",
+      "title": "PPO Status - Pensioners' Portal (22042026)",
+      "relevance": 0.5,
+      "snippet": "Oct 13, 2022 · Min. Of Personnel, PG & Pension. More Links...",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在代码能力方面尤为突出。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-in/microsoft-365/Excel",
+      "title": "Microsoft Excel | Free Online Spreadsheets Software",
+      "relevance": 0.5,
+      "snippet": "Microsoft Excel is the industry leading spreadsheet application and data analysis tool. Explore free spreadsheet software …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/excel/introduction-to-ms-excel/",
+      "title": "Introduction to MS Excel - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Apr 23, 2026 · Microsoft Excel is a versatile spreadsheet tool from the Microsoft Office suite that organizes data into rows and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://excel.cloud.microsoft/en-gb/",
+      "title": "Edit spreadsheets online for free | Microsoft Excel for the Web",
+      "relevance": 0.5,
+      "snippet": "Create and edit spreadsheets online with Microsoft Excel for the web. Easy formatting, analysis, and real-time …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://excel.cloud.microsoft/create/en/spreadsheet-maker/",
+      "title": "Create Excel spreadsheets online for free | Microsoft Excel",
+      "relevance": 0.5,
+      "snippet": "Create, edit, and share spreadsheets online for free with Excel for the web using a Microsoft account. Access core features …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/excel/",
+      "title": "Excel help & learning | Microsoft Support",
+      "relevance": 0.5,
+      "snippet": "Find Microsoft Excel help and learning resources. Explore how-to articles, guides, training videos, and tips to efficiently use …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.formula1.com/en/drivers/kimi-antonelli",
+      "title": "Kimi Antonelli - F1 Driver for Mercedes - Formula 1",
+      "relevance": 0.5,
+      "snippet": "Andrea Kimi Antonelli’s rise to the F1 grid has been nothing short of meteoric. Son of sportscar racer Marco, the Bologna …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/tr/",
+      "title": "JPG PDF Çevirme – JPEG Görüntülerini PDF'ye Dönüştür",
+      "relevance": 0.5,
+      "snippet": "Bu JPG PDF dönüştürücü site birçok resmi tek bir PDF dokümanı olarak birleştirmenizi sağlar. Desteklenen görüntü biçimleri: …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/ja/",
+      "title": "JPGからPDFへ – JPEG画像をオンラインでPDFに変換",
+      "relevance": 0.5,
+      "snippet": "この無料オンラインコンバーターで、複数のJPG画像を1つのPDFドキュメントに変換できます。 JPG/JPEGのほか、PNG、BMP …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/",
+      "title": "Convert JPG Images to PDF Documents Online",
+      "relevance": 0.5,
+      "snippet": "This free online JPG to PDF converter allows combining multiple images into a single PDF document. Supported image formats: …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/ko/",
+      "title": "JPG를 PDF로 – JPG 이미지를 온라인으로 PDF 문서로 변환",
+      "relevance": 0.5,
+      "snippet": "이 무료 온라인 JPG-PDF 변환기는 여러 JPG 이미지를 하나의 PDF 문서로 쉽게 결합합니다. 지원하는 이미지 형식: JPG/JPEG, PNG, BMP, TIFF and SVG.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/uk/",
+      "title": "JPG в PDF – Перетворення JPEG на PDF онлайн",
+      "relevance": 0.5,
+      "snippet": "Цей онлайн-конвертер JPG у PDF дозволяє об'єднати кілька зображень в один документ PDF. Підтримувані …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jpg2pdf.com/vi/",
+      "title": "JPG sang PDF – Chuyển tệp hình ảnh JPEG thành PDF trực tuyến",
+      "relevance": 0.5,
+      "snippet": "Công cụ chuyển đổi từ JPG sang PDF miễn phí trực tuyến này cho phép kết nối nhiều hình ảnh thành một tài liệu PDF duy nhất.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theworkoutmag.com/supplements/20g-creatine-day-loading-dosing",
+      "title": "Is 20g of Creatine a Day Safe? Loading Phase Dosing Explained",
+      "relevance": 0.5,
+      "snippet": "Sep 24, 2026 · The short answer is that 20 grams daily is the standard loading phase protocol—but it's only meant for 5–7 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://verifiedsupplementdata.com/creatine/dosage-guide/",
+      "title": "Creatine Dosage Guide (2026): Loading vs Maintenance & Timing",
+      "relevance": 0.5,
+      "snippet": "May 30, 2026 · The maintenance dose is 3-5g of creatine monohydrate daily, and it doesn't change much from person to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://theworkoutmag.com/supplements/how-to-dose-creatine-monohydrate-guide",
+      "title": "How to Dose Creatine: Loading, Maintenance & Timing Explained",
+      "relevance": 0.5,
+      "snippet": "Sep 24, 2026 · Learn how to dose creatine with study-backed loading (20 g/day) and maintenance (3–5 g/day) protocols, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://yourhealthier.com/blogs/blog/creatine-dosage-loading-vs-maintenance",
+      "title": "Creatine Dosage: Loading vs Maintenance (MD-Reviewed)",
+      "relevance": 0.5,
+      "snippet": "Mar 4, 2026 · Physician & pharmacist reviewed. Creatine dosage calculator: find your loading and maintenance dose by …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.healthline.com/nutrition/creatine-loading-phase",
+      "title": "Creatine Loading Phase: Research, Benefits, Safety, and H…",
+      "relevance": 0.9,
+      "snippet": "Feb 12, 2026 · After the loading phase, you can maintain your stores of creatine by taking a 3 to 5 g dose daily. Keep reading …",
+      "word_count": 969,
+      "fetch_success": true
+    },
+    {
+      "url": "https://remedysnutrition.com/blogs/letter-vitamins/creatine-dosage-loading-and-maintenance",
+      "title": "Creatine Dosage: 3-5 g Daily, 20 g Loading for 5 Days",
+      "relevance": 0.5,
+      "snippet": "Take 3 to 5 g of creatine daily for maintenance. An optional 20 g loading …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · Contents Owned and Updated by Rural Development & Panchayat Raj Department Secretariat, Chennai. E-mail : …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/forms/PropertyTax/PropertyTaxCalculator_public.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · குறிப்பு: ஏதேனும் முரண்பாடு இருந்தால், சம்பந்தப்பட்ட கிராம ...",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.vptax.tnrd.tn.gov.in/project/reports/Public/Dashboard.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "1 day ago · உதவி எண்: 98849 24299 மின் அஞ்சல் : helpdesk.vptax@tnrd.in (திங்கள் முதல் வெள்ளி வரை, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/reports/Public/WhosWho.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "7 hours ago · The State Institute of Rural Development (SIRD), Maraimalai Nagar is the State-level training institution and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://vptax.tnrd.tn.gov.in/project/reports/Public/ContactUs.php",
+      "title": "Rural Development & Panchayat Raj, Tamil Nadu",
+      "relevance": 0.5,
+      "snippet": "1 day ago · In terms of House Tax, Village Panchayat is the only authority to collect the tax. This Tax may be paid through any of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1051227619302286",
+      "title": "Effects of Creatine Supplementation on Renal Functi…",
+      "relevance": 0.5,
+      "snippet": "Therefore, this is the first systematic review and meta-analysis study that aimed to investigate creatine supplements and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/?gl=IN",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content and share it all with friends, family and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/",
+      "title": "YouTube",
+      "relevance": 0.5,
+      "snippet": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/YouTube",
+      "title": "YouTube - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "It also offers YouTube Premium, a paid subscription option for watching videos without ads. YouTube incorporated the Google …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://blog.youtube/",
+      "title": "Official YouTube Blog for Latest YouTube News & Insights",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Explore our official blog for the latest news about YouTube, creator and artist profiles, culture and trends analyses, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=en-US",
+      "title": "YouTube - Apps on Google Play",
+      "relevance": 0.5,
+      "snippet": "Get the official YouTube app on Android phones and tablets. See what the world is watching -- from the hottest music videos to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://accounts.google.com/InteractiveLogin?service=youtube",
+      "title": "YouTube - Google Accounts",
+      "relevance": 0.5,
+      "snippet": "Share your videos with friends, family, and the world.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/45723578",
+      "title": "whatsapp发送消息后显示的钩 灰色蓝色 一个两个 分别代表什么意思？",
+      "relevance": 0.5,
+      "snippet": "一、WhatsApp蓝标是什么 WhatsApp蓝标，是平台为企业账户颁发的“官方身份证”，显示在公司名字旁边，是一个醒目的蓝色小对勾 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/31875071",
+      "title": "微信与 WhatsApp 、Messenger 等国外同类通讯 App 比有什么优点与 …",
+      "relevance": 0.5,
+      "snippet": "在我看来，微信是一款社交软件，而whatsApp,messenger是通讯软件。 所以不能跟whatsApp,messenger比，因为他们都太纯粹了。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/c33e3f483b65d5ea15cbb516.html",
+      "title": "怎样在whatsapp中加好友-百度经验",
+      "relevance": 0.5,
+      "snippet": "May 6, 2019 · 怎样在whatsapp中加好友,使用WhatA的小伙伴们，知不知道如何在该软件中添加好友呢，接下来跟小编一起去看看吧。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/ac6a9a5eca04a16a653eace6.html",
+      "title": "Word文档跨页出现空白段，怎么办-百度经验",
+      "relevance": 0.5,
+      "snippet": "Oct 14, 2023 · Word文档跨页出现空白段，怎么办,在制作word文档过程中，我们会遇到文字内容中间出现一大段断行，且怎么按退格 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/68113079",
+      "title": "现在怎么才能登录WhatsApp呢？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "My WhatsApp account (please provide your phone number) has been incorrectly labeled as unofficial, despite my consistent use of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/22432102",
+      "title": "WhatsApp还有什么有什么优势吗相比较微信和QQ? - 知乎",
+      "relevance": 0.5,
+      "snippet": "whatsapp的意义何在 家人们，在咱国内，微信那可是社交界的 “大哥大”，几乎无人不用。可一旦跨出国门，情况就大反转了。当你试 …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "A common creatine monohydrate loading protocol is 20-25 g/day for 5-7 days, typically divided into four or five 5 g doses, followed by a 3-5 g/day maintenance dose.",
+      "confidence": 0.55,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "Lower doses of creatine (about 3 g/day for 28 days) can fully saturate muscle creatine stores without a loading phase, though it takes roughly 3 additional weeks.",
+      "confidence": 0.5,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "Current research contradicts the common belief that creatine supplementation increases the risk of dehydration, cramping, and heat illness.",
+      "confidence": 0.5,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0004",
+      "text": "Creatine monohydrate is generally safe for healthy individuals over short- and long-term use, with rare gastrointestinal side effects (nausea, vomiting, diarrhea) and possible temporary weight gain and bloating from water retention.",
+      "confidence": 0.55,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0005",
+      "text": "Creatine supplementation may worsen kidney function in people with renal disease, so it is advised to consult a healthcare professional before use in individuals with underlying health issues.",
+      "confidence": 0.5,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0006",
+      "text": "According to the ISSN, a creatine loading dose can be determined by bodyweight at roughly 0.3 g/kg/day (e.g., 24 g/day for an 80 kg individual).",
+      "confidence": 0.45,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0007",
+      "text": "The International Society of Sports Nutrition (ISSN) states that up to 30 g of creatine per day for 5 years may be safe and is generally well tolerated by healthy individuals.",
+      "confidence": 0.45,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    },
+    {
+      "claim_ref": "claim_0008",
+      "text": "Creatine supplementation, when combined with resistance training, is consistently associated with increases in muscle mass, strength, power, and high-intensity exercise performance.",
+      "confidence": 0.5,
+      "agent": "analyst",
+      "relevance": 0.9,
+      "source_urls": [
+        "https://www.healthline.com/nutrition/creatine-loading-phase"
+      ]
+    }
+  ],
+  "execution_seconds": 123.903,
+  "automatic_metrics": {
+    "total_sources": 48,
+    "fetched_sources": 1,
+    "fetch_success_rate": 0.0208,
+    "unique_domains": 27,
+    "domain_concentration": 0.125,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 1.0,
+    "citation_marker_count": 34,
+    "resolved_citations": 34,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 8,
+    "total_claims": 8,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 2,
+    "search_query_count": 19
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

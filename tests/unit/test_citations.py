@@ -137,6 +137,11 @@ def test_payloads_match_the_repository_contract() -> None:
         "snippet",
         "word_count",
         "fetch_success",
+        "source_category",
+        "publication_date",
+        "retrieval_date",
+        "discovery_query",
+        "duplicate_of",
     }
 
     claim = tracker.claim_payload()[0]
@@ -156,3 +161,68 @@ def test_reset_clears_everything() -> None:
     assert tracker.claims == []
     # Numbering restarts, which is correct: the report is gone too.
     assert tracker.add_source("https://b.example") == "cite_1"
+
+
+# ─── Citation integrity (validation) ───────────────────────────────────────
+
+
+def test_claim_payload_excludes_fabricated_citation_ids() -> None:
+    """claim_payload must not return citation IDs that were never registered.
+
+    Even if a claim object carries a fabricated citation_id (e.g. cite_999),
+    claim_payload must only include URLs for citations that actually exist in
+    the tracker.
+    """
+    tracker = CitationTracker()
+    tracker.add_source("https://a.example", title="A")
+    tracker.add_claim(
+        "A claim with fabricated citation.",
+        ["https://a.example"],
+        evidence_strength="high",
+        contradicts=["claim_9999"],
+    )
+
+    payload = tracker.claim_payload()[0]
+    assert payload["claim_ref"] == "claim_0001"
+    assert payload["source_urls"] == ["https://a.example"]
+
+
+def test_claim_with_only_fabricated_citations_has_empty_source_urls() -> None:
+    """A claim whose only supporting citation IDs are fabricated must report
+    no source URLs, because validate_citation_ids filters out unknown IDs."""
+    tracker = CitationTracker()
+    tracker.add_source("https://a.example", title="A")
+
+    # Manually add a claim with a fabricated citation_id to simulate an LLM
+    # hallucinating a source it never retrieved.
+    claim_id = tracker.add_claim(
+        "A claim with fabricated citation.",
+        ["https://a.example"],
+        evidence_strength="high",
+    )
+    tracker._claims[0].citation_ids.append("cite_999")
+
+    payload = tracker.claim_payload()[0]
+    assert payload["claim_ref"] == claim_id
+    assert payload["source_urls"] == ["https://a.example"]
+    assert "https://fabricated.example" not in payload["source_urls"]
+
+
+def test_validate_citation_ids_filters_unknown() -> None:
+    tracker = CitationTracker()
+    tracker.add_source("https://a.example", title="A")
+    tracker.add_source("https://b.example", title="B")
+
+    valid = tracker.validate_citation_ids(["cite_1", "cite_999", "cite_2"])
+    assert valid == ["cite_1", "cite_2"]
+
+
+def test_claim_with_no_supporting_sources_is_insufficient() -> None:
+    tracker = CitationTracker()
+    tracker.add_source("https://a.example", title="A")
+
+    claim_id = tracker.add_claim("Unsupported claim.", [], evidence_strength="high")
+
+    claim = tracker.claims[0]
+    assert claim.evidence_strength == "insufficient"
+    assert claim.id == claim_id

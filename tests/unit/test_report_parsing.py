@@ -7,6 +7,7 @@ from functools import lru_cache
 
 from crewai import Agent
 
+from coraxis.agents.citations import CitationTracker
 from coraxis.agents.tasks import (
     AnalyzedFindings,
     FinalReport,
@@ -14,7 +15,13 @@ from coraxis.agents.tasks import (
     SubQuestions,
     build_pipeline_tasks,
 )
-from coraxis.services.research import _parse_report
+from coraxis.services.research import (
+    _parse_report,
+    extract_citation_numbers,
+    validate_report,
+    validate_report_citations,
+    validate_report_structure,
+)
 
 
 class _FakeCrewOutput:
@@ -167,3 +174,155 @@ def test_source_limits_are_reflected_in_the_search_prompt() -> None:
 
     assert "up to 11 results" in tasks[1].description
     assert "best 3 results" in tasks[1].description
+
+
+# ─── Report Writer task wiring ─────────────────────────────────────────
+
+
+def test_report_task_carries_citation_reliability_rules() -> None:
+    """The Report Writer task must instruct citation reliability, not just format."""
+    tasks = build_pipeline_tasks(_agents())
+    report = tasks[3]
+
+    description = report.description
+    assert report.agent.role == "summarizer"
+    assert report.output_json is FinalReport
+    # Citation reliability rules are present in the prompt.
+    for phrase in (
+        "Every factual claim requiring external support must carry an inline",
+        "Citation identifiers refer only to sources actually retrieved",
+        "Never invent a citation id, URL, title, author, or publication date",
+        "Preserve the citation numbering",
+        "If a claim has insufficient evidence, state that plainly",
+        "Preserve the analyst's evidence-strength categories",
+        "Directly answer the research question where evidence permits",
+        "List every cited source once",
+        "Do not fabricate missing metadata",
+    ):
+        assert phrase in description, f"missing report-prompt phrase: {phrase!r}"
+
+    # Consistent report structure is advertised.
+    for section in (
+        "Executive Summary",
+        "Key Findings",
+        "Detailed Analysis",
+        "Conflicting Findings",
+        "Limitations and Uncertainties",
+        "Research Gaps",
+        "References",
+    ):
+        assert section in description
+
+
+# ─── Citation extraction ───────────────────────────────────────────────
+
+
+def test_extract_citation_numbers_finds_body_markers() -> None:
+    assert extract_citation_numbers("See [^1] and [^2][^3] here.") == [1, 2, 3]
+    assert extract_citation_numbers("No citations at all.") == []
+    assert extract_citation_numbers("") == []
+    assert extract_citation_numbers(None) == []  # type: ignore[arg-type]
+
+
+def test_extract_citation_numbers_ignores_reference_definitions() -> None:
+    """Reference definitions ([^1]: ...) are not counted as body citations."""
+    markdown = "Claim.\n\n[^1]: **Title** — <https://a.example>"
+    assert extract_citation_numbers(markdown) == []
+
+
+# ─── Citation validation ───────────────────────────────────────────────
+
+
+def _tracker_with_sources(count: int = 3) -> CitationTracker:
+    tracker = CitationTracker()
+    for index in range(1, count + 1):
+        tracker.add_source(f"https://example.com/{index}", title=f"Source {index}")
+    return tracker
+
+
+def test_validate_report_citations_accepts_registered_references() -> None:
+    tracker = _tracker_with_sources(3)
+    assert validate_report_citations("See [^1], [^2], and [^3].", tracker) == []
+
+
+def test_validate_report_citations_rejects_unregistered_references() -> None:
+    tracker = _tracker_with_sources(2)
+    issues = validate_report_citations("See [^1] and [^5], but [^999] is missing.", tracker)
+    assert any("[^5]" in issue for issue in issues)
+    assert any("[^999]" in issue for issue in issues)
+    # [^1] and [^2] are registered; they should not be flagged.
+    assert not any("[^1]" in issue or "[^2]" in issue for issue in issues)
+
+
+def test_validate_report_citations_empty_tracker() -> None:
+    tracker = CitationTracker()
+    issues = validate_report_citations("See [^1].", tracker)
+    assert issues == ["Report references citations that were never registered: [^1]"]
+
+
+def test_validate_report_citations_no_references() -> None:
+    tracker = _tracker_with_sources(2)
+    assert validate_report_citations("A claim with no citations.", tracker) == []
+
+
+# ─── Structural validation ─────────────────────────────────────────────
+
+
+def test_validate_report_structure_passes_for_complete_report() -> None:
+    report = FinalReport(
+        markdown="# Report\n\n## Executive Summary\n\nSummary text.\n\n## Key Findings\n\n- One.\n",
+        executive_summary="Summary text.",
+        key_findings=["One."],
+    )
+    assert validate_report_structure(report) == []
+
+
+def test_validate_report_structure_flags_empty_markdown() -> None:
+    report = FinalReport(markdown="", executive_summary="S", key_findings=["K"])
+    assert any("empty" in issue.lower() for issue in validate_report_structure(report))
+
+
+def test_validate_report_structure_flags_missing_executive_summary() -> None:
+    report = FinalReport(markdown="# Report\n\nBody.", executive_summary="", key_findings=["K"])
+    assert any("executive summary" in issue.lower() for issue in validate_report_structure(report))
+
+
+def test_validate_report_structure_flags_missing_key_findings() -> None:
+    report = FinalReport(markdown="# Report", executive_summary="S", key_findings=[])
+    assert any("key findings" in issue.lower() for issue in validate_report_structure(report))
+
+
+def test_validate_report_structure_flags_duplicate_headings() -> None:
+    report = FinalReport(
+        markdown="## Key Findings\n\nA.\n\n## Key Findings\n\nB.",
+        executive_summary="S",
+        key_findings=["A", "B"],
+    )
+    assert any("Key Findings" in issue for issue in validate_report_structure(report))
+
+
+# ─── Combined validation ───────────────────────────────────────────────
+
+
+def test_validate_report_returns_empty_for_clean_report() -> None:
+    tracker = _tracker_with_sources(2)
+    report = FinalReport(
+        markdown="Claim [^1].\n\n## Executive Summary\n\nSummary.",
+        executive_summary="Summary.",
+        key_findings=["Claim [^1]."],
+    )
+    assert validate_report(report, tracker) == []
+
+
+def test_validate_report_combines_structure_and_citation_issues() -> None:
+    tracker = _tracker_with_sources(1)
+    report = FinalReport(
+        markdown="Claim [^7].",
+        executive_summary="",
+        key_findings=[],
+    )
+    issues = validate_report(report, tracker)
+    joined = " ".join(issues)
+    assert "[^7]" in joined
+    assert "executive summary" in joined.lower()
+    assert "key findings" in joined.lower()

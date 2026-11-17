@@ -1,0 +1,802 @@
+{
+  "question_id": "bench-001",
+  "question": "What are the main differences between SQLite and PostgreSQL, and when should a new application choose one over the other?",
+  "category": "comparative",
+  "research_plan": "",
+  "search_queries": [
+    "SQLite license public domain vs PostgreSQL license",
+    "SQLite write locking concurrency vs PostgreSQL MVCC",
+    "SQLite vs PostgreSQL features JSON full-text search extensions",
+    "when to use SQLite vs PostgreSQL for a new application",
+    "SQLite vs PostgreSQL architecture embedded serverless client-server",
+    "SQLite appropriate uses serverless embedded database official documentation",
+    "SQLite locking concurrency write access official documentation",
+    "SQLite vs PostgreSQL comparison features data types",
+    "SQLite copyright license public domain boundary",
+    "SQLite < PostgreSQL choosing a database guide",
+    "SQLite vs PostgreSQL concurrency MVCC write performance",
+    "SQLite vs PostgreSQL which to choose use cases",
+    "SQLite vs PostgreSQL"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://epos.telangana.gov.in/ePoS/",
+      "title": "EPoS Home Page - Telangana",
+      "relevance": 0.5,
+      "snippet": "Activate Activex Controls in your Internet Explorer Browser to successfull login Welcome to ePoS, Telangana Reports: OWS UC …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epds.telangana.gov.in/FoodSecurityAct/",
+      "title": "FOOD SECURITY ACT - Telangana",
+      "relevance": 0.5,
+      "snippet": "Jun 20, 2026 · Application Designed, Developed and Hosted by NIC, Telangana State Centre. Disclaimer : Content on this Website …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epos.telangana.gov.in/ePoS/ro_Status2.html",
+      "title": "RO Status - Telangana",
+      "relevance": 0.5,
+      "snippet": "This report only for ePoS districts. You can refer the ePDS website for other districts.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/45723578",
+      "title": "whatsapp发送消息后显示的钩 灰色蓝色 一个两个 分别代表什么意思？",
+      "relevance": 0.5,
+      "snippet": "一、WhatsApp蓝标是什么 WhatsApp蓝标，是平台为企业账户颁发的“官方身份证”，显示在公司名字旁边，是一个醒目的蓝色小对勾 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/31875071",
+      "title": "微信与 WhatsApp 、Messenger 等国外同类通讯 App 比有什么优点与 …",
+      "relevance": 0.5,
+      "snippet": "在我看来，微信是一款社交软件，而whatsApp,messenger是通讯软件。 所以不能跟whatsApp,messenger比，因为他们都太纯粹了。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/c33e3f483b65d5ea15cbb516.html",
+      "title": "怎样在whatsapp中加好友-百度经验",
+      "relevance": 0.5,
+      "snippet": "May 6, 2019 · 怎样在whatsapp中加好友,使用WhatA的小伙伴们，知不知道如何在该软件中添加好友呢，接下来跟小编一起去看看吧。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://aomaal.com/",
+      "title": "AoMaal » 18+ Adult Web Series Free",
+      "relevance": 0.5,
+      "snippet": "Welcome to AoMaal - your ultimate destination for the hottest Desi XXX Adult web series, adult web series, Ullu web …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://aagmaal.direct/",
+      "title": "Indian Uncut Web Series » Aagmaal » tdxflix",
+      "relevance": 0.5,
+      "snippet": "Hot Hindi Web Series, Uncut videos, Desi Adult Web Series, 18+ Hindi Short Film Watch online and download free",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://hotmaal.adult/tag/aagmaal/",
+      "title": "Aagmaal 18+ Adult Web Series » HOTMaal",
+      "relevance": 0.5,
+      "snippet": "Watch and download Aagmaal Videos for free. Enjoy the latest Aagmaal Videos with new updates regularly. All videos are free …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "relevance": 0.5,
+      "snippet": "We couldn’t load your remembered accounts. You can still log in below",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://openai.com/index/chatgpt/",
+      "title": "Introducing ChatGPT - OpenAI",
+      "relevance": 0.5,
+      "snippet": "Nov 30, 2022 · We’ve trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://chatgpt.com/overview/",
+      "title": "Overview | ChatGPT",
+      "relevance": 0.5,
+      "snippet": "ChatGPT helps you learn, create, and get things done. Ask questions, explore ideas, write content, analyze information, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/27848050",
+      "title": "为什么PCI-e比SATA快这么多? - 知乎",
+      "relevance": 0.5,
+      "snippet": "简单的说，我们可以把两种接口两种通道理解成两辆相同的车，PCI-E通道的汽车就像是在高速上行驶，而 SATA通道 的汽车就像是在崎岖山路上行驶，你说哪 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://zhidao.baidu.com/question/381324658.html",
+      "title": "硬件 ID: PCI\\VEN_15AD&DEV_0740&SUBSYS…",
+      "relevance": 0.5,
+      "snippet": "硬件 ID: PCI\\VEN_15AD&DEV_0740&SUBSYS_074015AD&REV_10 这个硬件的驱动没用 到底是什么硬件这个 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/24994317",
+      "title": "Qualcomm Atheros AR8161/8165 PCI-E Gigabit Ethernet Controller (N…",
+      "relevance": 0.5,
+      "snippet": "Qualcomm Atheros AR8161/8165 PCI-E Gigabit Ethernet Controller (NDIS 6.20)? 谁能说说这个到底是百兆网卡还是千兆的，官方给的数据说是千兆，为 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.qorno.com/",
+      "title": "QORNO.COM - Sex Videos",
+      "relevance": 0.5,
+      "snippet": "QORNO.COM Is The Nr. 1 Source for Free Sex Videos. More Than 1 Million Sex & Porn Tube Movies and an Excellent Categories …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://hi.xhamster.desi/",
+      "title": "मुफ्त सेक्स वीडियो और XXX फिल्में - सेक्सी वीडियो",
+      "relevance": 0.5,
+      "snippet": "xHamster पर मुफ़्त पोर्न वीडियो और विशिष्ट XXX फ़िल्में उपलब्ध है। उच्च गुणवत्ता वाली पोर्न ट्यूब पर …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sexvid.xxx/p/date/",
+      "title": "Newest Sex Videos - SexVid.xxx",
+      "relevance": 0.5,
+      "snippet": "Daily updates at SexVid.xxx present always fresh XXX content for free. Just watch the latest added XXX videos and tons of new sex …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://newgensoft.com/solutions/industries/financial-institutions/retail-banking/",
+      "title": "AI-first Consumer Banking Automation Solution | Newgen",
+      "relevance": 0.5,
+      "snippet": "Initiate and disburse consumer loans in 30 minutes with Newgen’s banking solutions. Enhance experience, efficiency, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://newgensoft.com/resources/report-critical-banking-trends-shaping-2026/",
+      "title": "Banking Identity 2026: AI-Driven, Invisible, Always-On - Newgen ...",
+      "relevance": 0.5,
+      "snippet": "Download the 2026 banking trends report to explore AI-driven, invisible, always-on banking and the future of agentic systems.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://landing.newgensoft.com/hubfs/Investor+Presentation+-+FY+2026-27+Q2.pdf",
+      "title": "Investor Presentation – Q2 FY’27",
+      "relevance": 0.5,
+      "snippet": "The Newgen AI Advantage Newgen gives Enterprises in Banking, Insurance & Healthcare and Government verticals the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.commscope.com/",
+      "title": "CommScope | now meets next",
+      "relevance": 0.5,
+      "snippet": "CommScope Broadband for Everyone solutions are designed to make high-speed, reliable broadband accessible to every …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jobs.commscope.com/",
+      "title": "Jobs at CommScope",
+      "relevance": 0.5,
+      "snippet": "Learn more about CommScope and explore available job openings in our global teams",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jobs.commscope.com/content/Our-Locations/",
+      "title": "Our Locations | CommScope",
+      "relevance": 0.5,
+      "snippet": "Our facilities in Goa, Bangalore, and Hyderabad are on the cutting edge of innovation and research. Learn more …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/21710878",
+      "title": "微信是原创还是抄袭别人？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "据我使用LINE，Whatsapp，Google Hangout等软件的效果来看。目前几乎所有的聊天工具对富媒体通信以及取代系统通讯录的短信 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://xhaccess.com/search/xxx",
+      "title": "XXX Porn Videos - xHamster",
+      "relevance": 0.5,
+      "snippet": "Watch XXX porn videos. Explore tons of XXX movies with sex scenes in 2026 on xHamster!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mobile-xvideos.com/c/Indian-89",
+      "title": "Indian videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Indian videos, free Indian XXX Best fuck Ever Jija Saali Aur Biwi With Clear Hindi Voice XXX 18 min IndianXXXReality - 59.6M …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unitconverters.net/currency/usd-to-inr.htm",
+      "title": "Convert USD to INR - Unit Converter",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Instant free online tool for USD to INR conversion or vice versa. The USD [United States Dollar] to INR [Indian …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.live-rates.com/rates/usd-inr",
+      "title": "USD/INR Converter — US Dollar to Indian Rupee Live Exchange Rate",
+      "relevance": 0.5,
+      "snippet": "Convert US Dollar to Indian Rupee at the live USD/INR rate. Real-time USD/INR currency converter with bid, ask, high and low — …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.investing.com/currencies/usd-inr",
+      "title": "USD/INR - US Dollar Indian Rupee - Investing.com IN",
+      "relevance": 0.5,
+      "snippet": "Track the USD to INR rate today, live USD INR chart, news, and forecast for the US Dollar to Indian Rupee pair.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.fois.indianrail.gov.in/foisEfnote/resources/PDFs/EDRMCoalProgram.pdf",
+      "title": "USER GUIDELINES A. COAL PROGRAMME REGISTRATION",
+      "relevance": 0.5,
+      "snippet": "ITY-C OF RAILWAY'S PREFERENTIAL TRAFFIC ORDER. Following programme for coal loading may please be approved for preferential …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://rct.indianrail.gov.in/rlyclaims_tribunal.htm",
+      "title": "Railway Claims Tribunal - Indian Rail",
+      "relevance": 0.5,
+      "snippet": "Railway Claims Tribunal Organisation & objective of Railway Claims Tribunal (RCT): In case the claimant is not satisfied with the relief …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.core.indianrail.gov.in/railwayboard/uploads/directorate/ele_engg/electricalg.jsp",
+      "title": "Electrical Engineering:Directorate",
+      "relevance": 0.5,
+      "snippet": "ELECTRICAL ( G ) Home > Circulars>Electrical (G) Top",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sqlite.org/copyright.html",
+      "title": "SQLite Copyright",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 581,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.sqlite.org/whentouse.html",
+      "title": "Appropriate Uses For SQLite",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 2312,
+      "fetch_success": true
+    },
+    {
+      "url": "https://sourceforge.net/projects/orwelldevcpp/",
+      "title": "Dev-C++ download | SourceForge.net",
+      "relevance": 0.5,
+      "snippet": "Nov 29, 2016 · Download Dev-C++ for free. A free, portable, fast and simple C/C++ IDE. A new and improved fork of Bloodshed Dev-C++",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bloodshed-dev-c.en.softonic.com/",
+      "title": "Dev-C++ - Download",
+      "relevance": 0.5,
+      "snippet": "Oct 22, 2026 · Dev-C++ is a free, open-source development and IT program that simplifies the programming process for C and C++. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.dev-cpp.com/",
+      "title": "Home | Dev-C++ Official Website",
+      "relevance": 0.5,
+      "snippet": "Nov 11, 2025 · Dev-C++ is a full-featured C and C++ Integrated Development Environment (IDE) for Windows. Free, open source, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://sourceforge.net/projects/dev-cpp/",
+      "title": "Dev-C++ download | SourceForge.net",
+      "relevance": 0.5,
+      "snippet": "May 11, 2022 · Download Dev-C++ for free. Open Source C & C++ IDE for Windows. Dev-C++ is a full-featured Integrated Development …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.dev-cpp.com/Dev-Cpp-5/",
+      "title": "Dev-C++ 5 | Dev-C++ Official Website",
+      "relevance": 0.5,
+      "snippet": "Dev-C++ is a full-featured C and C++ Integrated Development Environment (IDE) for Windows. Free, open source, and used by millions …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.postgresql.org/about/licence/",
+      "title": "PostgreSQL: License",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 257,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.sqlite.org/lockingv3.html",
+      "title": "File Locking And Concurrency In SQLite Version 3",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 2817,
+      "fetch_success": true
+    }
+  ],
+  "extraction_failures": [],
+  "intermediate_outputs": {
+    "search_completed": [
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "3 results",
+      "5 results"
+    ],
+    "fetch_completed": [
+      "581 words",
+      "2312 words",
+      "257 words",
+      "2817 words"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "SQLite is an embedded, serverless database engine that reads and writes directly to ordinary disk files, whereas client/server SQL engines such as PostgreSQL ru"
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "SQLite is well suited for embedded devices and IoT, application file formats, local/client storage, low-to-medium traffic websites, data analysis, and enterpris"
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "SQLite Version 3 uses a locking and journaling mechanism handled by the pager module to provide ACID semantics and to improve concurrency over SQLite version 2,"
+      },
+      {
+        "ref": "claim_0004",
+        "detail": "SQLite supports unlimited simultaneous readers but only one writer at any instant in time; writes are serialized and queued, so SQLite is not the right choice i"
+      }
+    ]
+  },
+  "final_report": "```json\n{\n  \"markdown\": \"# SQLite vs. PostgreSQL: Comparative Technical Report\\n\\n**Prepared for:** technical decision-makers selecting a database for a new application\\n**Scope:** architecture, concurrency control, use-case selection, deployment and operational posture\\n**Evidence base:** SQLite official documentation (2 sources); PostgreSQL-side primary source not fetched\\n\\n---\\n\\n## Executive Summary\\n\\nThe evidence unambiguously establishes **SQLite's architecture and concurrency model**. SQLite is an **embedded, serverless** database engine that reads and writes directly to ordinary disk files and competes with `fopen()` rather than with client/server engines such as PostgreSQL [^1]. Its concurrency behavior is well documented: it supports **unlimited simultaneous readers but only one writer at any instant**, with writes serialized and queued [^1]; its version-3 pager module provides ACID semantics via a locking/journaling mechanism designed to reduce writer starvation [^2].\\n\\nHowever, the **comparative dimension is only partially evidenced**. Both fetched sources are SQLite official documentation. The PostgreSQL side of the comparison — its client/server process model, MVCC implementation, feature surface, licensing, and operational overhead — exists in this report only as SQLite's own characterization of client/server engines, not as independently verified data. The overall confidence is correspondingly low (0.45), and the report should be read as a reliable account of SQLite's capabilities and constraints, with the PostgreSQL contrast treated as provisional until corroborated.\\n\\n**Bottom line for a decision-maker:** SQLite is a defensible default for embedded, local, single-writer, and low-to-medium-traffic workloads; PostgreSQL (or an equivalent client/server engine) should be selected where concurrent write scalability, very large datasets, or multi-server deployment are requirements — but confirm that decision against primary PostgreSQL documentation.\\n\\n---\\n\\n## Key Findings\\n\\n- **SQLite is an embedded, serverless engine** that reads/writes directly to ordinary disk files, whereas client/server SQL engines such as PostgreSQL run as a separate server process accessed by client programs over a network [^1].\\n- **SQLite is 'not directly comparable' to client/server engines**, competing with `fopen()` rather than with PostgreSQL, MySQL, or Oracle — a framing that matters when choosing the right abstraction for a problem [^1].\\n- **SQLite supports unlimited simultaneous readers but only one writer at any instant**; writers queue, and the writer lock is typically held for only a few dozen milliseconds, but many concurrent writers are not supported [^1].\\n- **SQLite version 3 provides ACID semantics** via a pager-module locking and journaling mechanism that improves concurrency over version 2 and reduces the writer-starvation problem [^2].\\n- **SQLite is appropriate for** embedded devices/IoT, application file formats, local/client storage, low-to-medium-traffic websites, ad hoc data analysis, and enterprise-data caches; it is **not recommended** for high-volume websites needing many simultaneous writes, very large datasets, or many concurrent writers [^1].\\n- **The PostgreSQL-side evidence is unverified.** No PostgreSQL documentation or third-party technical article was fetched; feature-level (types, JSON, FTS, extensions, replication), licensing, operational-overhead, and MVCC contrasts remain open gaps. This is a stated limitation, not a finding of equivalence [^1][^2].\\n\\n---\\n\\n## Detailed Findings\\n\\n### 1. Architecture: Embedded/Serverless vs. Client-Server\\n\\nSQLite is an **embedded SQL database engine**: it has no separate server process and reads and writes directly to ordinary disk files, with a complete database (multiple tables, indices, triggers, views) contained in a single disk file. The source is explicit that SQLite is **not directly comparable** to client/server engines such as MySQL, Oracle, PostgreSQL, or SQL Server, and that it competes with `fopen()` [^1].\\n\\nClient/server engines such as PostgreSQL instead run as a **server process** accessed by client programs over a network, designed to optimize sharing data across many computers and emphasizing scalability, concurrency, centralization, and control. SQLite, by contrast, is designed as a local storage engine emphasizing economy, efficiency, reliability, independence, and simplicity [^1].\\n\\n> \\\"SQLite is not directly comparable to client/server SQL database engines such as MySQL, Oracle, PostgreSQL, or SQL Server. SQLite competes with fopen().\\\" — [^1]\\n\\n### 2. Concurrency Control and Write Scalability\\n\\nSQLite supports **unlimited simultaneous readers but only one writer at any instant**. Writers queue, and in most cases the writer lock is held for only a few dozen milliseconds. The source explicitly states that if many writers need to write to the same database concurrently, **SQLite is not the right choice** [^1].\\n\\nAt the mechanism level, SQLite version 3 uses a **locking and journaling mechanism handled by the pager module**, which is responsible for ACID (Atomic, Consistent, Isolated, Durable) semantics. Version 3.0.0 introduced this mechanism specifically to improve concurrency over version 2 and to **reduce the writer-starvation problem** [^2]. Note that the fetched document describes the older rollback-mode transaction mechanism; WAL (write-ahead log) locking is described separately and is not covered by the evidence at hand [^2].\\n\\n### 3. Use-Case and Selection Guidance\\n\\nThe SQLite source provides a concrete, decision-ready delineation. **SQLite is appropriate for:**\\n\\n- Embedded devices and IoT (cellphones, set-top boxes, televisions, game consoles, cameras, watches, medical devices, thermostats, automobiles, drones, robots) [^1]\\n- Application file format / on-disk file format for desktop applications [^1]\\n- Low-to-medium-traffic websites (the sqlite.org site itself handles ~400K–500K HTTP requests/day on a single shared VM) [^1]\\n- Ad hoc data analysis (e.g., importing and querying large CSV files) [^1]\\n- Cache for enterprise data from an RDBMS [^1]\\n- Application-specific server-side storage where data volume is manageable [^1]\\n- Data transfer / archival format, and stand-in for an enterprise database during demos/tests [^1]\\n\\n**SQLite is NOT appropriate for:**\\n\\n- Client/server applications where many clients send SQL to the same database over a network (network latency, and buggy file-locking on network filesystems) [^1]\\n- High-volume websites requiring **many simultaneous writes** or scaling across multiple servers [^1]\\n- Very large datasets beyond what the filesystem can support (SQLite databases can be up to 281 TB, but the filesystem is the limiting factor) [^1]\\n- Workloads needing **many concurrent writers** [^1]\\n\\n### 4. Evidence Gaps (PostgreSQL Counter-Evidence)\\n\\nThe comparative claim rests solely on SQLite's own characterization of client/server engines; no PostgreSQL-side documentation or third-party engineering source was fetched. Consequently, the following planned sub-questions remain **unverified** and should not be treated as established findings: PostgreSQL's MVCC implementation details, feature-level differences (data types, JSON support, full-text search, extensions, replication), licensing terms, and operational-overhead comparison [^1][^2].\\n\\n---\\n\\n## Confidence Assessment\\n\\n**Overall confidence: 0.45 / 1.0** (low).\\n\\nThe score is dragged down by the single-perspective evidence base: both sources are from the SQLite vendor, so there is a risk of systematic, single-perspective bias rather than independent corroboration, and no PostgreSQL-side evidence was fetched.\\n\\n| Claim | Confidence | Relevance | Rationale |\\n|---|---|---|---|\\n| Embedded/serverless vs. client-server architecture | 0.70 | 0.95 | Solidly sourced but SQLite-only; PostgreSQL side unverified |\\n| SQLite use-case fit and non-fit | 0.70 | 0.90 | Direct documentation, but single vendor |\\n| Unlimited readers / one writer, serialized writes | 0.75 | 0.95 | Explicit and specific in source |\\n| SQLite v3 pager locking/journaling ACID | 0.75 | 0.95 | Authoritative within scope; WAL not covered |\\n\\nThe concurrency claim (0.75) and the v3 mechanism claim (0.75) are the most reliable, as they are explicit and detailed within the source. The architectural and use-case claims (0.70) are directionally sound but lack independent corroboration. No direct contradiction exists between the two sources; the unresolved tension is the \\\"not directly comparable\\\" framing versus community comparisons that treat SQLite and PostgreSQL as alternatives for the same workload.\\n\\n---\\n\\n## Sources Appendix\\n\\n1. **Appropriate Uses For SQLite** — SQLite Project (sqlite.org). <https://www.sqlite.org/whentouse.html>. Relevance: **0.95** (architecture, concurrency), **0.90** (use cases). Primary vendor documentation; author of the embedded/serverless characterization, single-writer rule, and use-case guidance.\\n2. **File Locking And Concurrency In SQLite Version 3** — SQLite Project (sqlite.org). <https://www.sqlite.org/lockingv3.html>. Relevance: **0.95**. Authoritative on the version-3 pager locking/journaling mechanism and ACID semantics.\\n\\n---\\n**Caveat:** Both sources are SQLite official documentation. Independent corroboration from PostgreSQL documentation or a neutral third-party technical source is required before treating the PostgreSQL side of the comparison as established.\",\n  \"executive_summary\": \"The evidence unambiguously establishes SQLite's architecture and concurrency model. SQLite is an embedded, serverless database engine that reads and writes directly to ordinary disk files and competes with fopen() rather than with client/server engines such as PostgreSQL [^1]. Its concurrency behavior is well documented: it supports unlimited simultaneous readers but only one writer at any instant, with writes serialized and queued [^1]; its version-3 pager module provides ACID semantics via a locking/journaling mechanism designed to reduce writer starvation [^2].\\n\\nHowever, the comparative dimension is only partially evidenced. Both fetched sources are SQLite official documentation. The PostgreSQL side of the comparison — its client/server process model, MVCC implementation, feature surface, licensing, and operational overhead — exists in this report only as SQLite's own characterization of client/server engines, not as independently verified data. The overall confidence is correspondingly low (0.45), and the report should be read as a reliable account of SQLite's capabilities and constraints, with the PostgreSQL contrast treated as provisional until corroborated.\\n\\nBottom line for a decision-maker: SQLite is a defensible default for embedded, local, single-writer, and low-to-medium-traffic workloads; PostgreSQL (or an equivalent client/server engine) should be selected where concurrent write scalability, very large datasets, or multi-server deployment are requirements — but confirm that decision against primary PostgreSQL documentation.\",\n  \"key_findings\": [\n    \"SQLite is an embedded, serverless engine that reads/writes directly to ordinary disk files, whereas client/server SQL engines such as PostgreSQL run as a separate server process accessed by client programs over a network [^1].\",\n    \"SQLite is 'not directly comparable' to client/server engines, competing with fopen() rather than with PostgreSQL, MySQL, or Oracle — a framing that matters when choosing the right abstraction for a problem [^1].\",\n    \"SQLite supports unlimited simultaneous readers but only one writer at any instant; writers queue, and the writer lock is typically held for only a few dozen milliseconds, but many concurrent writers are not supported [^1].\",\n    \"SQLite version 3 provides ACID semantics via a pager-module locking and journaling mechanism that improves concurrency over version 2 and reduces the writer-starvation problem [^2].\",\n    \"SQLite is appropriate for embedded devices/IoT, application file formats, local/client storage, low-to-medium-traffic websites, ad hoc data analysis, and enterprise-data caches; it is not recommended for high-volume websites needing many simultaneous writes, very large datasets, or many concurrent writers [^1].\",\n    \"The PostgreSQL-side evidence is unverified. No PostgreSQL documentation or third-party technical article was fetched; feature-level (types, JSON, FTS, extensions, replication), licensing, operational-overhead, and MVCC contrasts remain open gaps. This is a stated limitation, not a finding of equivalence [^1][^2].\"\n  ],\n  \"citations_markdown\": \"## Sources Appendix\\n\\n1. **Appropriate Uses For SQLite** — SQLite Project (sqlite.org). <https://www.sqlite.org/whentouse.html>. Relevance: **0.95** (architecture, concurrency), **0.90** (use cases). Primary vendor documentation; author of the embedded/serverless characterization, single-writer rule, and use-case guidance.\\n2. **File Locking And Concurrency In SQLite Version 3** — SQLite Project (sqlite.org). <https://www.sqlite.org/lockingv3.html>. Relevance: **0.95**. Authoritative on the version-3 pager locking/journaling mechanism and ACID semantics.\\n\\n**Caveat:** Both sources are SQLite official documentation. Independent corroboration from PostgreSQL documentation or a neutral third-party technical source is required before treating the PostgreSQL side of the comparison as established.\",\n  \"stats\": {\n    \"total_sources\": 2,\n    \"total_claims\": 4,\n    \"avg_confidence\": 0.725,\n    \"avg_relevance\": 0.9375,\n    \"agents_used\": [\"analyst\", \"report_writer\"],\n    \"models_used\": {},\n    \"runtime_seconds\": 0.0\n  }\n}\n```",
+  "citations": [
+    {
+      "url": "https://epos.telangana.gov.in/ePoS/",
+      "title": "EPoS Home Page - Telangana",
+      "relevance": 0.5,
+      "snippet": "Activate Activex Controls in your Internet Explorer Browser to successfull login Welcome to ePoS, Telangana Reports: OWS UC …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epds.telangana.gov.in/FoodSecurityAct/",
+      "title": "FOOD SECURITY ACT - Telangana",
+      "relevance": 0.5,
+      "snippet": "Jun 20, 2026 · Application Designed, Developed and Hosted by NIC, Telangana State Centre. Disclaimer : Content on this Website …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://epos.telangana.gov.in/ePoS/ro_Status2.html",
+      "title": "RO Status - Telangana",
+      "relevance": 0.5,
+      "snippet": "This report only for ePoS districts. You can refer the ePDS website for other districts.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/45723578",
+      "title": "whatsapp发送消息后显示的钩 灰色蓝色 一个两个 分别代表什么意思？",
+      "relevance": 0.5,
+      "snippet": "一、WhatsApp蓝标是什么 WhatsApp蓝标，是平台为企业账户颁发的“官方身份证”，显示在公司名字旁边，是一个醒目的蓝色小对勾 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/31875071",
+      "title": "微信与 WhatsApp 、Messenger 等国外同类通讯 App 比有什么优点与 …",
+      "relevance": 0.5,
+      "snippet": "在我看来，微信是一款社交软件，而whatsApp,messenger是通讯软件。 所以不能跟whatsApp,messenger比，因为他们都太纯粹了。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/c33e3f483b65d5ea15cbb516.html",
+      "title": "怎样在whatsapp中加好友-百度经验",
+      "relevance": 0.5,
+      "snippet": "May 6, 2019 · 怎样在whatsapp中加好友,使用WhatA的小伙伴们，知不知道如何在该软件中添加好友呢，接下来跟小编一起去看看吧。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://aomaal.com/",
+      "title": "AoMaal » 18+ Adult Web Series Free",
+      "relevance": 0.5,
+      "snippet": "Welcome to AoMaal - your ultimate destination for the hottest Desi XXX Adult web series, adult web series, Ullu web …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://aagmaal.direct/",
+      "title": "Indian Uncut Web Series » Aagmaal » tdxflix",
+      "relevance": 0.5,
+      "snippet": "Hot Hindi Web Series, Uncut videos, Desi Adult Web Series, 18+ Hindi Short Film Watch online and download free",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://hotmaal.adult/tag/aagmaal/",
+      "title": "Aagmaal 18+ Adult Web Series » HOTMaal",
+      "relevance": 0.5,
+      "snippet": "Watch and download Aagmaal Videos for free. Enjoy the latest Aagmaal Videos with new updates regularly. All videos are free …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "relevance": 0.5,
+      "snippet": "We couldn’t load your remembered accounts. You can still log in below",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://openai.com/index/chatgpt/",
+      "title": "Introducing ChatGPT - OpenAI",
+      "relevance": 0.5,
+      "snippet": "Nov 30, 2022 · We’ve trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://chatgpt.com/overview/",
+      "title": "Overview | ChatGPT",
+      "relevance": 0.5,
+      "snippet": "ChatGPT helps you learn, create, and get things done. Ask questions, explore ideas, write content, analyze information, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/27848050",
+      "title": "为什么PCI-e比SATA快这么多? - 知乎",
+      "relevance": 0.5,
+      "snippet": "简单的说，我们可以把两种接口两种通道理解成两辆相同的车，PCI-E通道的汽车就像是在高速上行驶，而 SATA通道 的汽车就像是在崎岖山路上行驶，你说哪 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://zhidao.baidu.com/question/381324658.html",
+      "title": "硬件 ID: PCI\\VEN_15AD&DEV_0740&SUBSYS…",
+      "relevance": 0.5,
+      "snippet": "硬件 ID: PCI\\VEN_15AD&DEV_0740&SUBSYS_074015AD&REV_10 这个硬件的驱动没用 到底是什么硬件这个 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/24994317",
+      "title": "Qualcomm Atheros AR8161/8165 PCI-E Gigabit Ethernet Controller (N…",
+      "relevance": 0.5,
+      "snippet": "Qualcomm Atheros AR8161/8165 PCI-E Gigabit Ethernet Controller (NDIS 6.20)? 谁能说说这个到底是百兆网卡还是千兆的，官方给的数据说是千兆，为 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.qorno.com/",
+      "title": "QORNO.COM - Sex Videos",
+      "relevance": 0.5,
+      "snippet": "QORNO.COM Is The Nr. 1 Source for Free Sex Videos. More Than 1 Million Sex & Porn Tube Movies and an Excellent Categories …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://hi.xhamster.desi/",
+      "title": "मुफ्त सेक्स वीडियो और XXX फिल्में - सेक्सी वीडियो",
+      "relevance": 0.5,
+      "snippet": "xHamster पर मुफ़्त पोर्न वीडियो और विशिष्ट XXX फ़िल्में उपलब्ध है। उच्च गुणवत्ता वाली पोर्न ट्यूब पर …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sexvid.xxx/p/date/",
+      "title": "Newest Sex Videos - SexVid.xxx",
+      "relevance": 0.5,
+      "snippet": "Daily updates at SexVid.xxx present always fresh XXX content for free. Just watch the latest added XXX videos and tons of new sex …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://newgensoft.com/solutions/industries/financial-institutions/retail-banking/",
+      "title": "AI-first Consumer Banking Automation Solution | Newgen",
+      "relevance": 0.5,
+      "snippet": "Initiate and disburse consumer loans in 30 minutes with Newgen’s banking solutions. Enhance experience, efficiency, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://newgensoft.com/resources/report-critical-banking-trends-shaping-2026/",
+      "title": "Banking Identity 2026: AI-Driven, Invisible, Always-On - Newgen ...",
+      "relevance": 0.5,
+      "snippet": "Download the 2026 banking trends report to explore AI-driven, invisible, always-on banking and the future of agentic systems.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://landing.newgensoft.com/hubfs/Investor+Presentation+-+FY+2026-27+Q2.pdf",
+      "title": "Investor Presentation – Q2 FY’27",
+      "relevance": 0.5,
+      "snippet": "The Newgen AI Advantage Newgen gives Enterprises in Banking, Insurance & Healthcare and Government verticals the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.commscope.com/",
+      "title": "CommScope | now meets next",
+      "relevance": 0.5,
+      "snippet": "CommScope Broadband for Everyone solutions are designed to make high-speed, reliable broadband accessible to every …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jobs.commscope.com/",
+      "title": "Jobs at CommScope",
+      "relevance": 0.5,
+      "snippet": "Learn more about CommScope and explore available job openings in our global teams",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jobs.commscope.com/content/Our-Locations/",
+      "title": "Our Locations | CommScope",
+      "relevance": 0.5,
+      "snippet": "Our facilities in Goa, Bangalore, and Hyderabad are on the cutting edge of innovation and research. Learn more …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/21710878",
+      "title": "微信是原创还是抄袭别人？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "据我使用LINE，Whatsapp，Google Hangout等软件的效果来看。目前几乎所有的聊天工具对富媒体通信以及取代系统通讯录的短信 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://xhaccess.com/search/xxx",
+      "title": "XXX Porn Videos - xHamster",
+      "relevance": 0.5,
+      "snippet": "Watch XXX porn videos. Explore tons of XXX movies with sex scenes in 2026 on xHamster!",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://mobile-xvideos.com/c/Indian-89",
+      "title": "Indian videos - XVIDEOS.COM",
+      "relevance": 0.5,
+      "snippet": "XVIDEOS Indian videos, free Indian XXX Best fuck Ever Jija Saali Aur Biwi With Clear Hindi Voice XXX 18 min IndianXXXReality - 59.6M …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.unitconverters.net/currency/usd-to-inr.htm",
+      "title": "Convert USD to INR - Unit Converter",
+      "relevance": 0.5,
+      "snippet": "1 day ago · Instant free online tool for USD to INR conversion or vice versa. The USD [United States Dollar] to INR [Indian …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.live-rates.com/rates/usd-inr",
+      "title": "USD/INR Converter — US Dollar to Indian Rupee Live Exchange Rate",
+      "relevance": 0.5,
+      "snippet": "Convert US Dollar to Indian Rupee at the live USD/INR rate. Real-time USD/INR currency converter with bid, ask, high and low — …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://in.investing.com/currencies/usd-inr",
+      "title": "USD/INR - US Dollar Indian Rupee - Investing.com IN",
+      "relevance": 0.5,
+      "snippet": "Track the USD to INR rate today, live USD INR chart, news, and forecast for the US Dollar to Indian Rupee pair.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.fois.indianrail.gov.in/foisEfnote/resources/PDFs/EDRMCoalProgram.pdf",
+      "title": "USER GUIDELINES A. COAL PROGRAMME REGISTRATION",
+      "relevance": 0.5,
+      "snippet": "ITY-C OF RAILWAY'S PREFERENTIAL TRAFFIC ORDER. Following programme for coal loading may please be approved for preferential …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "http://rct.indianrail.gov.in/rlyclaims_tribunal.htm",
+      "title": "Railway Claims Tribunal - Indian Rail",
+      "relevance": 0.5,
+      "snippet": "Railway Claims Tribunal Organisation & objective of Railway Claims Tribunal (RCT): In case the claimant is not satisfied with the relief …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.core.indianrail.gov.in/railwayboard/uploads/directorate/ele_engg/electricalg.jsp",
+      "title": "Electrical Engineering:Directorate",
+      "relevance": 0.5,
+      "snippet": "ELECTRICAL ( G ) Home > Circulars>Electrical (G) Top",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sqlite.org/copyright.html",
+      "title": "SQLite Copyright",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 581,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.sqlite.org/whentouse.html",
+      "title": "Appropriate Uses For SQLite",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 2312,
+      "fetch_success": true
+    },
+    {
+      "url": "https://sourceforge.net/projects/orwelldevcpp/",
+      "title": "Dev-C++ download | SourceForge.net",
+      "relevance": 0.5,
+      "snippet": "Nov 29, 2016 · Download Dev-C++ for free. A free, portable, fast and simple C/C++ IDE. A new and improved fork of Bloodshed Dev-C++",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://bloodshed-dev-c.en.softonic.com/",
+      "title": "Dev-C++ - Download",
+      "relevance": 0.5,
+      "snippet": "Oct 22, 2026 · Dev-C++ is a free, open-source development and IT program that simplifies the programming process for C and C++. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.dev-cpp.com/",
+      "title": "Home | Dev-C++ Official Website",
+      "relevance": 0.5,
+      "snippet": "Nov 11, 2025 · Dev-C++ is a full-featured C and C++ Integrated Development Environment (IDE) for Windows. Free, open source, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://sourceforge.net/projects/dev-cpp/",
+      "title": "Dev-C++ download | SourceForge.net",
+      "relevance": 0.5,
+      "snippet": "May 11, 2022 · Download Dev-C++ for free. Open Source C & C++ IDE for Windows. Dev-C++ is a full-featured Integrated Development …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.dev-cpp.com/Dev-Cpp-5/",
+      "title": "Dev-C++ 5 | Dev-C++ Official Website",
+      "relevance": 0.5,
+      "snippet": "Dev-C++ is a full-featured C and C++ Integrated Development Environment (IDE) for Windows. Free, open source, and used by millions …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.postgresql.org/about/licence/",
+      "title": "PostgreSQL: License",
+      "relevance": 0.6,
+      "snippet": "",
+      "word_count": 257,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.sqlite.org/lockingv3.html",
+      "title": "File Locking And Concurrency In SQLite Version 3",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 2817,
+      "fetch_success": true
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "SQLite is an embedded, serverless database engine that reads and writes directly to ordinary disk files, whereas client/server SQL engines such as PostgreSQL run as a separate server process that is accessed by client programs over a network.",
+      "confidence": 0.7,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://www.sqlite.org/whentouse.html"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "SQLite is well suited for embedded devices and IoT, application file formats, local/client storage, low-to-medium traffic websites, data analysis, and enterprise-data caches, but it is not appropriate for high-volume websites requiring many simultaneous writes, very large datasets, or applications needing many concurrent writers.",
+      "confidence": 0.7,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://www.sqlite.org/whentouse.html"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "SQLite Version 3 uses a locking and journaling mechanism handled by the pager module to provide ACID semantics and to improve concurrency over SQLite version 2, while reducing the writer starvation problem.",
+      "confidence": 0.75,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://www.sqlite.org/lockingv3.html"
+      ]
+    },
+    {
+      "claim_ref": "claim_0004",
+      "text": "SQLite supports unlimited simultaneous readers but only one writer at any instant in time; writes are serialized and queued, so SQLite is not the right choice if many writers must write to the same database concurrently.",
+      "confidence": 0.75,
+      "agent": "analyst",
+      "relevance": 0.95,
+      "source_urls": [
+        "https://www.sqlite.org/whentouse.html"
+      ]
+    }
+  ],
+  "execution_seconds": 134.005,
+  "automatic_metrics": {
+    "total_sources": 42,
+    "fetched_sources": 4,
+    "fetch_success_rate": 0.0952,
+    "unique_domains": 30,
+    "domain_concentration": 0.119,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 0.9048,
+    "citation_marker_count": 39,
+    "resolved_citations": 39,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 4,
+    "total_claims": 4,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 0,
+    "search_query_count": 13
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

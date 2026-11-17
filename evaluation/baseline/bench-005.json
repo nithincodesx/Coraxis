@@ -1,0 +1,571 @@
+{
+  "question_id": "bench-005",
+  "question": "What were the key announcements at Apple's WWDC 2024, and which were available at launch versus later in the year?",
+  "category": "time-sensitive",
+  "research_plan": "",
+  "search_queries": [
+    "Apple WWDC 2024 keynote announcements iOS 18 Apple Intelligence",
+    "WWDC 2024 keynote recap biggest announcements iOS 18 Apple Intelligence",
+    "Apple Intelligence features rollout timeline 2024 2025 beta",
+    "iOS 18 features not available at launch delayed to 18.1",
+    "WWDC 2024 delayed features Siri Apple Intelligence 2026",
+    "WWDC 2024 keynote recap June 2024 announcements iPhone Mirroring M4 iPad Pro",
+    "Apple Intelligence release timeline: 18.1 18.2 18.3 18.4 Siri features delayed",
+    "WWDC 2024 feature availability iOS 18 launch versus coming later 18.1 ChatGPT integration",
+    "Apple Intelligence what's included rollout staged iPhone 15 Pro developer beta public beta October 2024",
+    "Apple WWDC 2024 keynote summary all announcements iOS 18 iPadOS 18 macOS Sequoia watchOS 11 visionOS 2",
+    "macrumors WWDC 2024 keynote recap everything announced",
+    "\"WWDC 2024\" \"iOS 18\" \"Apple Intelligence\" announcement roundup site:theverge.com OR site:9to5mac.com OR site:macrumors.com",
+    "Apple Intelligence Siri personal context delayed when they 2026 statement NYT",
+    "every feature coming to iOS 18 not at launch early release schedule 9to5mac"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://www.apple.com/",
+      "title": "Apple",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/in/",
+      "title": "Apple (India)",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://account.apple.com/sign-in",
+      "title": "account.apple.com",
+      "relevance": 0.5,
+      "snippet": "account.apple.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://asw.apple.com/home",
+      "title": "Sign In - Apple",
+      "relevance": 0.5,
+      "snippet": "Sign in to your Apple account to access and manage your Apple services securely on this platform.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://account.apple.com/",
+      "title": "Manage your Apple Account",
+      "relevance": 0.5,
+      "snippet": "Your Apple Account is the account you use for all Apple services.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.winzheng.com/article/apple-wwdc-2026-ai-advancements",
+      "title": "苹果公布2026 WWDC日期，预告Siri AI重大升级 | 赢政天下",
+      "relevance": 0.5,
+      "snippet": "苹果公司宣布2026年全球开发者大会（WWDC）将于6月8日当周举行，并暗示将带来‘AI进展’。业内预计，苹果将推出Siri的重大更新，融入先进AI能力，进一步 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.instagram.com/reel/DZVY5_tgMxm/",
+      "title": "The Verge | Two years after first revealing its plans for Apple ...",
+      "relevance": 0.5,
+      "snippet": "5,015 likes, 526 comments - verge on June 8, 2026: \"Two years after first revealing its plans for Apple Intelligence and a smarter Siri that …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.aitoollab.cn/articles/wwdc-2026-ios27-siri-ai-revolution/",
+      "title": "WWDC 2026前瞻：苹果AI全面反攻——Siri 15年来最大变革、iOS 27七大AI功能，万 …",
+      "relevance": 0.5,
+      "snippet": "2026年6月9日，苹果WWDC 2026即将上演15年来最大规模的AI变革——Siri以独立App形态回归、iOS 27搭载七大AI功能、第三方AI模型平台化开放。本文深度解 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/os/ios/",
+      "title": "OS - iOS 27 - Apple",
+      "relevance": 0.5,
+      "snippet": "iOS 27 with all-new Siri AI powered by Apple Intelligence and new features for a more responsive, delightful experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/IOS",
+      "title": "iOS - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "iOS (formerly iPhone OS) is a mobile operating system created and developed by Apple for its iPhone line of smartphones. It was …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/in/os/ios/",
+      "title": "OS - iOS 27 - Apple (IN)",
+      "relevance": 0.5,
+      "snippet": "iOS 27 with all-new Siri AI powered by Apple Intelligence and new features for a more responsive, delightful experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ipsw.me/",
+      "title": "Download iOS Firmware for iPhone, iPad, iPod Touch, Apple Watch, …",
+      "relevance": 0.5,
+      "snippet": "Download current and previous versions of Apple's iOS, iPadOS, macOS, watchOS, tvOS, audioOS and visionOS firmware and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/IOS_version_history",
+      "title": "iOS version history - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "New iOS versions are released yearly, alongside new iPhone models. From the launch of the iPhone in 2007 until the launch of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.apple.com/wwdc26/",
+      "title": "WWDC26 - Apple Developer",
+      "relevance": 0.5,
+      "snippet": "Apple’s Worldwide Developers Conference introduced powerful new capabilities, design updates, and innovative tools across every …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hF8swzNR1-o",
+      "title": "Apple WWDC 2026 June 8: Introducing Siri AI and more",
+      "relevance": 0.5,
+      "snippet": "Jun 8, 2026 · Watch the WWDC26 keynote introducing Siri AI powered by Apple Intelligence — our most personal Siri update ever. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Worldwide_Developers_Conference",
+      "title": "Worldwide Developers Conference - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The Worldwide Developers Conference (WWDC) is an information technology conference held annually by Apple. Since 2020, the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.apple.com/videos/play/wwdc2025/101/",
+      "title": "Keynote - WWDC25 - Videos - Apple Developer",
+      "relevance": 0.5,
+      "snippet": "Don't miss the exciting reveal of the latest Apple software and technologies.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/apple-events/",
+      "title": "Apple Events - Apple",
+      "relevance": 0.5,
+      "snippet": "Sep 9, 2025 · Introducing iPhone Duo, iPhone 18 Pro, Apple Watch Series 12, Apple Watch Ultra 4, and AirPods 5. Here’s what we …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.apple.com/",
+      "title": "Official Apple Support",
+      "relevance": 0.5,
+      "snippet": "Handled with AppleCare Every AppleCare plan provides one-stop service for your Apple products, with quick and easy repairs for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.macrumors.com/",
+      "title": "MacRumors: Apple News and Rumors",
+      "relevance": 0.5,
+      "snippet": "8 hours ago · Note: MacRumors is an affiliate partner with some of these vendors. When you click a link and make a purchase, we may …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://buyersguide.macrumors.com/",
+      "title": "MacRumors Buyer's Guide: Know When to Buy iPhone, Mac, iPad",
+      "relevance": 0.5,
+      "snippet": "MacRumors attracts a broad audience of both consumers and professionals interested in the latest technologies and products. We also …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.macrumors.com/",
+      "title": "Apple, Mac, iPhone Discussion | MacRumors Forums",
+      "relevance": 0.5,
+      "snippet": "Oct 31, 2026 · MacRumors attracts a broad audience of both consumers and professionals interested in the latest technologies and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.macrumors.com/2/",
+      "title": "MacRumors: Apple News and Rumors - Page 2",
+      "relevance": 0.5,
+      "snippet": "16 hours ago · Apple News and Rumors Instant Digital imagines Apple shortening a non-folding iPhone once its display has only a single …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://9to5mac.com/",
+      "title": "9to5Mac - Apple News & Mac Rumors Breaking All Day",
+      "relevance": 0.5,
+      "snippet": "4 days ago · Apple News & Mac Rumors Breaking All Day The all-new M6 MacBook and the touch display PROLED XDR have now …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/MacRumors",
+      "title": "MacRumors - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "MacRumors is an American website that reports and aggregates news, rumors, and information about Apple Inc. and its products …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/@Apple/streams",
+      "title": "Apple - YouTube",
+      "relevance": 0.5,
+      "snippet": "Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.weareevery.com/",
+      "title": "Every Compliance and HR software for Schools",
+      "relevance": 0.5,
+      "snippet": "Every ® is dedicated to making your day job more manageable through easy to use, practical software and professional support. We’re …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://auth.every.education/",
+      "title": "Every - Welcome to Every!",
+      "relevance": 0.5,
+      "snippet": "Welcome to Every! Please use the following link to access your system: www.every.education.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/every",
+      "title": "EVERY | English meaning - Cambridge Dictionary",
+      "relevance": 0.5,
+      "snippet": "EVERY definition: 1. used when referring to all the members of a group of three or more: 2. equally as: 3. used to…. Learn more.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://external-auth.every.education/Account/Login",
+      "title": "Login to Every",
+      "relevance": 0.5,
+      "snippet": "The returnUrl field is required. Forgotten password?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://every.to/",
+      "title": "Every",
+      "relevance": 0.5,
+      "snippet": "4 days ago · Dan Shipper is the CEO and cofounder of Every. Every week he explores the frontiers of AI in his column, Chain of Thought, …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [
+    "RuntimeError: <asyncio.locks.Event object at 0x000001A3E4C37A50 [unset]> is bound to a different event loop"
+  ],
+  "intermediate_outputs": {
+    "search_completed": [
+      "8 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "6 results",
+      "5 results"
+    ],
+    "fetch_completed": [
+      "RuntimeError: <asyncio.locks.Event object at 0x000001A3E4C37A50 [unset]> is bound to a different event loop",
+      "HTTP 403",
+      "HTTP 404",
+      "HTTP 404"
+    ]
+  },
+  "final_report": "{\n  \"markdown\": \"# Report: WWDC 2024 Announcements and Apple Intelligence Rollout — Verification Status\\n\\n**Prepared for:** Technical decision-maker\\n**Report type:** Evidence-verification status\\n**Prepared by:** Report Writer\\n\\n---\\n\\n## 1. Executive Summary\\n\\nThis assignment asked for a synthesized briefing on (a) the major software and hardware announcements made at the Apple WWDC 2024 keynote; (b) the composition of Apple Intelligence at launch and its staged rollout timeline; (c) which announced features were available at launch of the respective betas/releases versus rolled out later in 2024 or beyond; and (d) specific delayed, phased, or held-back features with the dates and OS versions attached to their later releases.\\n\\n**The report cannot be produced from evidence.** The evidence-gathering step returned *zero* findings, *zero* claims, and *zero* verifiable sources. All 13 web-search variants failed, returning only WWDC26 (2026), WWDC25 (2025), generic Apple index/support pages, or irrelevant content rather than 2024-relevant material. All four direct page-fetch attempts also failed — Wikipedia blocked automated requests (HTTP 403 / runtime errors), and guessed Apple Newsroom and MacRumors URLs returned HTTP 404. The analyst's message to the team confirms this empty state: the evidence base contains no retrievable source that could support a single WWDC 2024 claim. **Overall confidence: 0.0.**\\n\\nPer report policy, nothing is asserted here that the evidence does not support. Because there is no evidentiary base, **no findings are presented as factual claims**. The findings below instead document the verification outcome — what was attempted, what failed, and what is therefore unanswerable on the available evidence. This report should be treated as a **blocker notification**, not as an intelligence product. The correct next step is a re-run of the retrieval step with corrected infrastructure (e.g., authenticated web access, non-blocked archives, or explicit known sources) before any WWDC 2024 content is drafted. [^1] [^13]\\n\\n---\\n\\n## 2. Key Findings\\n\\n- **No sourcing was retrieved for the keynote-announcements theme.** Every search variant for the WWDC 2024 recap returned only WWDC26 (2026), WWDC25 (2025), or generic Apple-event pages. No 2024-relevant source was obtained. [^1] [^5]\\n- **No sourcing was retrieved for the Apple Intelligence composition/rollout theme.** Variants targeting the Apple Intelligence feature set, developer/public beta, fall 2024 releases, and phased schedule returned only Apple homepage/account/sign-in pages. [^2] [^6]\\n- **No sourcing was retrieved for the launch-versus-later availability theme.** Variants targeting iOS 18 features not available at launch and phased releases returned modern (current-release) iOS pages, a generic iOS Wikipedia article, and firmware-download sites — no 2024-relevant timeline data. [^3] [^7]\\n- **No sourcing was retrieved for the delayed/phased-features theme.** Variants targeting delayed Siri and Apple Intelligence features returned only WWDC26/2026 future-event content; no dated or OS-versioned details were obtainable. [^4] [^8]\\n- **All direct page-fetch attempts failed.** Wikipedia's iOS 18 and Apple Intelligence articles were bot-blocked (HTTP 403 / runtime error); guessed Apple Newsroom and MacRumors URLs returned HTTP 404. No document was ever opened. [^9] [^10] [^11] [^12]\\n- **Zero claims could be registered.** With `total_sources = 0` and `total_claims = 0`, there is no evidentiary base from which to synthesize or register any WWDC 2024 claim. No conflicts exist because no sources exist to conflict. [^1] [^13]\\n- **Semantic memory, teammate inbox, and shared blackboard were empty.** No prior findings, team findings, or blackboard values were available to supplement the empty retrieval set. [^13]\\n\\n---\\n\\n## 3. Detailed Findings\\n\\n### 3.1 Theme A — WWDC 2024 keynote announcements (software & hardware)\\n\\n**Status: unanswerable — no evidence retrieved.**\\n\\nSearches for the keynote recap (e.g., \\\"WWDC 2024 keynote recap biggest announcements iOS 18 Apple Intelligence\\\", \\\"Apple WWDC 2024 keynote summary all announcements iOS 18 iPadOS 18 macOS Sequoia watchOS 11 visionOS 2\\\") returned only WWDC26 (2026), WWDC25 (2025), and generic Apple-event pages. [^1] [^5] No source covering iOS 18, iPadOS 18, macOS Sequoia, watchOS 11, visionOS 2, Apple Intelligence, or M4-based hardware was retrieved. Consequently, **no announcement specific can be listed or cited**.\\n\\n### 3.2 Theme B — Apple Intelligence composition and staged rollout\\n\\n**Status: unanswerable — no evidence retrieved.**\\n\\nSearches for Apple Intelligence contents and its staged rollout (developer beta, public beta, fall 2024 releases, features moved to 2025/2026) returned only Apple homepage/account/sign-in pages. [^2] [^6] No source documented the launch feature set or the timelines attached to iOS 18 point releases. Any statement about what shipped at launch versus later would be unsupported.\\n\\n### 3.3 Theme C — Launch-availability versus later rollout\\n\\n**Status: unanswerable — no evidence retrieved.**\\n\\nSearches for features available at launch versus those delayed to later 2024 releases (e.g., \\\"iOS 18 features not available at launch delayed to 18.1\\\", \\\"WWDC 2024 feature availability iOS 18 launch versus coming later 18.1 ChatGPT integration\\\") returned current-release (iOS 27-era) pages, a generic iOS Wikipedia article, and firmware-download sites — none relevant to 2024 availability. [^3] [^7] No launch-versus-later comparison can be made.\\n\\n### 3.4 Theme D — Delayed, phased, or held-back features with dates/OS versions\\n\\n**Status: unanswerable — no evidence retrieved.**\\n\\nSearches for delayed features (e.g., \\\"WWDC 2024 delayed features Siri Apple Intelligence 2026\\\", \\\"Apple Intelligence Siri personal context delayed when they 2026\\\") returned WWDC26 (2026) and future-event content only. [^4] [^8] No dated or OS-versioned detail for any delayed feature was obtainable.\\n\\n### 3.5 Page-fetch failures\\n\\nAll four direct page-fetch attempts failed, so **no document was ever opened**:\\n\\n- Wikipedia `iOS 18` — HTTP 403 (automated-request block). [^9]\\n- Wikipedia `Apple Intelligence` — runtime error (event-loop mismatch); Wikipedia also bot-blocking. [^10]\\n- Apple Newsroom guessed URL (`apple.com/newsroom/2024/06/apple-introduces-apple-intelligence/`) — HTTP 404. [^11]\\n- MacRumors guessed URL (`macrumors.com/guide/wwdc-2024/`) — HTTP 404. [^12]\\n\\n---\\n\\n## 4. Confidence Assessment\\n\\n### Overall confidence: **0.0 / 1.0**\\n\\nThe overall confidence is zero because no evidence was retrieved. Per-claim confidence scores are **not applicable**: with `total_claims = 0`, there are no claims to score, and no claim-specific variance exists to report.\\n\\n### What this confidence means\\n- It is **not** a statement that the WWDC 2024 facts are unknown to the world; it is a statement that **this evidence pipeline retrieved nothing** with which to verify them.\\n- Any interim draft claiming specifics (e.g., iOS 18.1 Siri timing, ChatGPT integration dates, M4 hardware details) would be **unsupported and must not be issued**.\\n- High-confidence statements in this document are limited to **process facts**: that the searches and fetches failed as described, and that the team inbox/blackboard were empty. [^1] [^13]\\n\\n---\\n\\n## 5. Sources Appendix\\n\\n**Relevance scale:** 0 = not retrieved / unusable; 1 = partial; 5 = directly on-topic and verified. All entries below are failed retrieval attempts and therefore score **0**.\\n\\n| Ref | Source / Attempt | Result | Relevance |\\n|-----|------------------|--------|-----------|\\n| [^1] | Web search: `WWDC 2024 keynote recap biggest announcements iOS 18 Apple Intelligence` | Returned only WWDC26 (2026), WWDC25 (2025), generic Apple-event pages; no 2024-relevant sources | 0 |\\n| [^2] | Web search: `Apple Intelligence features rollout timeline 2024 2025 beta` | Returned only Apple homepage/account/sign-in pages | 0 |\\n| [^3] | Web search: `iOS 18 features not available at launch delayed to 18.1` | Returned iOS 27 (current) page, generic iOS Wikipedia article, firmware download sites | 0 |\\n| [^4] | Web search: `WWDC 2024 delayed features Siri Apple Intelligence 2026` | Returned WWDC26 (2026) and future-event content only | 0 |\\n| [^5] | Web search: `Apple WWDC 2024 keynote summary all announcements iOS 18 iPadOS 18 macOS Sequoia watchOS 11 visionOS 2` | Returned only Apple index/support pages | 0 |\\n| [^6] | Web search: `Apple Intelligence what's included rollout staged iPhone 15 Pro developer beta public beta October 2024` | Returned only Apple index/support pages | 0 |\\n| [^7] | Web search: `\\\"WWDC 2024\\\" \\\"iOS 18\\\" \\\"Apple Intelligence\\\" announcement roundup site:theverge.com OR site:9to5mac.com OR site:macrumors.com` | No relevant results (generic WWDC26/Apple event pages) | 0 |\\n| [^8] | Web search: `Apple Intelligence Siri personal context delayed when they 2026 statement NYT` | Returned only Apple index/sign-in pages | 0 |\\n| [^9] | Fetch: Wikipedia `IOS_18` | HTTP 403 (Wikipedia blocked automated requests) | 0 |\\n| [^10] | Fetch: Wikipedia `Apple_Intelligence` | RuntimeError (event loop mismatch); Wikipedia bot-blocking | 0 |\\n| [^11] | Fetch: Apple Newsroom `apple.com/newsroom/2024/06/apple-introduces-apple-intelligence/` | HTTP 404 (guessed URL) | 0 |\\n| [^12] | Fetch: MacRumors `macrumors.com/guide/wwdc-2024/` | HTTP 404 (guessed URL) | 0 |\\n| [^13] | Team channel (analyst broadcast) and shared blackboard | Analyst flagged empty evidence base (0 findings, 0 claims); inbox/blackboard empty | 0 |\\n\\n**Appendix note:** Because zero sources were verified, no inline citation in this report points to an evidentiary claim about WWDC 2024 content. All citations reference the *verification process* and its failures, not domain facts.\",\n  \"executive_summary\": \"This assignment asked for a synthesized briefing on (a) the major software and hardware announcements made at the Apple WWDC 2024 keynote; (b) the composition of Apple Intelligence at launch and its staged rollout timeline; (c) which announced features were available at launch of the respective betas/releases versus rolled out later in 2024 or beyond; and (d) specific delayed, phased, or held-back features with the dates and OS versions attached to their later releases.\\n\\nThe report cannot be produced from evidence. The evidence-gathering step returned zero findings, zero claims, and zero verifiable sources. All 13 web-search variants failed, returning only WWDC26 (2026), WWDC25 (2025), generic Apple index/support pages, or irrelevant content rather than 2024-relevant material. All four direct page-fetch attempts also failed — Wikipedia blocked automated requests (HTTP 403 / runtime errors), and guessed Apple Newsroom and MacRumors URLs returned HTTP 404. Semantic memory was disabled, and the teammate inbox and shared blackboard contained no findings. Overall confidence is 0.0.\\n\\nBecause there is no evidentiary base, no findings are presented as factual claims; the report instead documents the verification outcome and flags the empty state as a blocker. No WWDC 2024 specifics are asserted, and none should be drafted or attributed to sources that were not retrieved. The correct next step is a re-run of the retrieval step with corrected infrastructure (e.g., authenticated web access, non-blocked archives, or explicit known sources) before any content is written.\",\n  \"key_findings\": [\n    \"No sourcing was retrieved for the keynote-announcements theme — every search variant returned only WWDC26 (2026), WWDC25 (2025), or generic Apple-event pages, with no 2024-relevant source. [^1] [^5]\",\n    \"No sourcing was retrieved for the Apple Intelligence composition/rollout theme — variants targeting the feature set, developer/public beta, fall 2024 releases, and phased schedule returned only Apple homepage/account/sign-in pages. [^2] [^6]\",\n    \"No sourcing was retrieved for the launch-versus-later availability theme — variants returned current-release iOS pages, a generic iOS Wikipedia article, and firmware-download sites, with no 2024-relevant timeline data. [^3] [^7]\",\n    \"No sourcing was retrieved for the delayed/phased-features theme — variants targeting delayed Siri and Apple Intelligence features returned only WWDC26/2026 future-event content, with no dated or OS-versioned details. [^4] [^8]\",\n    \"All four direct page-fetch attempts failed: Wikipedia's iOS 18 and Apple Intelligence articles were bot-blocked (HTTP 403 / runtime error), and guessed Apple Newsroom and MacRumors URLs returned HTTP 404; no document was opened. [^9] [^10] [^11] [^12]\",\n    \"Zero claims could be registered — with total_sources = 0 and total_claims = 0 there is no evidentiary base from which to synthesize any WWDC 2024 claim, and no conflicts exist because no sources exist to conflict. [^1] [^13]\",\n    \"Semantic memory, teammate inbox, and shared blackboard were empty — no prior findings, team findings, or blackboard values were available to supplement the empty retrieval set. [^13]\"\n  ],\n  \"citations_markdown\": \"## Sources Appendix\\n\\n**Relevance scale:** 0 = not retrieved / unusable; 1 = partial; 5 = directly on-topic and verified. All entries below are failed retrieval attempts and therefore score **0**.\\n\\n| Ref | Source / Attempt | Result | Relevance |\\n|-----|------------------|--------|-----------|\\n| [^1] | Web search: `WWDC 2024 keynote recap biggest announcements iOS 18 Apple Intelligence` | Returned only WWDC26 (2026), WWDC25 (2025), generic Apple-event pages; no 2024-relevant sources | 0 |\\n| [^2] | Web search: `Apple Intelligence features rollout timeline 2024 2025 beta` | Returned only Apple homepage/account/sign-in pages | 0 |\\n| [^3] | Web search: `iOS 18 features not available at launch delayed to 18.1` | Returned iOS 27 (current) page, generic iOS Wikipedia article, firmware download sites | 0 |\\n| [^4] | Web search: `WWDC 2024 delayed features Siri Apple Intelligence 2026` | Returned WWDC26 (2026) and future-event content only | 0 |\\n| [^5] | Web search: `Apple WWDC 2024 keynote summary all announcements iOS 18 iPadOS 18 macOS Sequoia watchOS 11 visionOS 2` | Returned only Apple index/support pages | 0 |\\n| [^6] | Web search: `Apple Intelligence what's included rollout staged iPhone 15 Pro developer beta public beta October 2024` | Returned only Apple index/support pages | 0 |\\n| [^7] | Web search: `\\\"WWDC 2024\\\" \\\"iOS 18\\\" \\\"Apple Intelligence\\\" announcement roundup site:theverge.com OR site:9to5mac.com OR site:macrumors.com` | No relevant results (generic WWDC26/Apple event pages) | 0 |\\n| [^8] | Web search: `Apple Intelligence Siri personal context delayed when they 2026 statement NYT` | Returned only Apple index/sign-in pages | 0 |\\n| [^9] | Fetch: Wikipedia `IOS_18` | HTTP 403 (Wikipedia blocked automated requests) | 0 |\\n| [^10] | Fetch: Wikipedia `Apple_Intelligence` | RuntimeError (event loop mismatch); Wikipedia bot-blocking | 0 |\\n| [^11] | Fetch: Apple Newsroom `apple.com/newsroom/2024/06/apple-introduces-apple-intelligence/` | HTTP 404 (guessed URL) | 0 |\\n| [^12] | Fetch: MacRumors `macrumors.com/guide/wwdc-2024/` | HTTP 404 (guessed URL) | 0 |\\n| [^13] | Team channel (analyst broadcast) and shared blackboard | Analyst flagged empty evidence base (0 findings, ",
+  "citations": [
+    {
+      "url": "https://www.apple.com/",
+      "title": "Apple",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/in/",
+      "title": "Apple (India)",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://account.apple.com/sign-in",
+      "title": "account.apple.com",
+      "relevance": 0.5,
+      "snippet": "account.apple.com",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://asw.apple.com/home",
+      "title": "Sign In - Apple",
+      "relevance": 0.5,
+      "snippet": "Sign in to your Apple account to access and manage your Apple services securely on this platform.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://account.apple.com/",
+      "title": "Manage your Apple Account",
+      "relevance": 0.5,
+      "snippet": "Your Apple Account is the account you use for all Apple services.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.winzheng.com/article/apple-wwdc-2026-ai-advancements",
+      "title": "苹果公布2026 WWDC日期，预告Siri AI重大升级 | 赢政天下",
+      "relevance": 0.5,
+      "snippet": "苹果公司宣布2026年全球开发者大会（WWDC）将于6月8日当周举行，并暗示将带来‘AI进展’。业内预计，苹果将推出Siri的重大更新，融入先进AI能力，进一步 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.instagram.com/reel/DZVY5_tgMxm/",
+      "title": "The Verge | Two years after first revealing its plans for Apple ...",
+      "relevance": 0.5,
+      "snippet": "5,015 likes, 526 comments - verge on June 8, 2026: \"Two years after first revealing its plans for Apple Intelligence and a smarter Siri that …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.aitoollab.cn/articles/wwdc-2026-ios27-siri-ai-revolution/",
+      "title": "WWDC 2026前瞻：苹果AI全面反攻——Siri 15年来最大变革、iOS 27七大AI功能，万 …",
+      "relevance": 0.5,
+      "snippet": "2026年6月9日，苹果WWDC 2026即将上演15年来最大规模的AI变革——Siri以独立App形态回归、iOS 27搭载七大AI功能、第三方AI模型平台化开放。本文深度解 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/os/ios/",
+      "title": "OS - iOS 27 - Apple",
+      "relevance": 0.5,
+      "snippet": "iOS 27 with all-new Siri AI powered by Apple Intelligence and new features for a more responsive, delightful experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/IOS",
+      "title": "iOS - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "iOS (formerly iPhone OS) is a mobile operating system created and developed by Apple for its iPhone line of smartphones. It was …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/in/os/ios/",
+      "title": "OS - iOS 27 - Apple (IN)",
+      "relevance": 0.5,
+      "snippet": "iOS 27 with all-new Siri AI powered by Apple Intelligence and new features for a more responsive, delightful experience.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ipsw.me/",
+      "title": "Download iOS Firmware for iPhone, iPad, iPod Touch, Apple Watch, …",
+      "relevance": 0.5,
+      "snippet": "Download current and previous versions of Apple's iOS, iPadOS, macOS, watchOS, tvOS, audioOS and visionOS firmware and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/IOS_version_history",
+      "title": "iOS version history - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "New iOS versions are released yearly, alongside new iPhone models. From the launch of the iPhone in 2007 until the launch of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.apple.com/wwdc26/",
+      "title": "WWDC26 - Apple Developer",
+      "relevance": 0.5,
+      "snippet": "Apple’s Worldwide Developers Conference introduced powerful new capabilities, design updates, and innovative tools across every …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hF8swzNR1-o",
+      "title": "Apple WWDC 2026 June 8: Introducing Siri AI and more",
+      "relevance": 0.5,
+      "snippet": "Jun 8, 2026 · Watch the WWDC26 keynote introducing Siri AI powered by Apple Intelligence — our most personal Siri update ever. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Worldwide_Developers_Conference",
+      "title": "Worldwide Developers Conference - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The Worldwide Developers Conference (WWDC) is an information technology conference held annually by Apple. Since 2020, the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://developer.apple.com/videos/play/wwdc2025/101/",
+      "title": "Keynote - WWDC25 - Videos - Apple Developer",
+      "relevance": 0.5,
+      "snippet": "Don't miss the exciting reveal of the latest Apple software and technologies.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.apple.com/apple-events/",
+      "title": "Apple Events - Apple",
+      "relevance": 0.5,
+      "snippet": "Sep 9, 2025 · Introducing iPhone Duo, iPhone 18 Pro, Apple Watch Series 12, Apple Watch Ultra 4, and AirPods 5. Here’s what we …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://support.apple.com/",
+      "title": "Official Apple Support",
+      "relevance": 0.5,
+      "snippet": "Handled with AppleCare Every AppleCare plan provides one-stop service for your Apple products, with quick and easy repairs for …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.macrumors.com/",
+      "title": "MacRumors: Apple News and Rumors",
+      "relevance": 0.5,
+      "snippet": "8 hours ago · Note: MacRumors is an affiliate partner with some of these vendors. When you click a link and make a purchase, we may …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://buyersguide.macrumors.com/",
+      "title": "MacRumors Buyer's Guide: Know When to Buy iPhone, Mac, iPad",
+      "relevance": 0.5,
+      "snippet": "MacRumors attracts a broad audience of both consumers and professionals interested in the latest technologies and products. We also …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forums.macrumors.com/",
+      "title": "Apple, Mac, iPhone Discussion | MacRumors Forums",
+      "relevance": 0.5,
+      "snippet": "Oct 31, 2026 · MacRumors attracts a broad audience of both consumers and professionals interested in the latest technologies and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.macrumors.com/2/",
+      "title": "MacRumors: Apple News and Rumors - Page 2",
+      "relevance": 0.5,
+      "snippet": "16 hours ago · Apple News and Rumors Instant Digital imagines Apple shortening a non-folding iPhone once its display has only a single …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://9to5mac.com/",
+      "title": "9to5Mac - Apple News & Mac Rumors Breaking All Day",
+      "relevance": 0.5,
+      "snippet": "4 days ago · Apple News & Mac Rumors Breaking All Day The all-new M6 MacBook and the touch display PROLED XDR have now …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/MacRumors",
+      "title": "MacRumors - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "MacRumors is an American website that reports and aggregates news, rumors, and information about Apple Inc. and its products …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/@Apple/streams",
+      "title": "Apple - YouTube",
+      "relevance": 0.5,
+      "snippet": "Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.weareevery.com/",
+      "title": "Every Compliance and HR software for Schools",
+      "relevance": 0.5,
+      "snippet": "Every ® is dedicated to making your day job more manageable through easy to use, practical software and professional support. We’re …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://auth.every.education/",
+      "title": "Every - Welcome to Every!",
+      "relevance": 0.5,
+      "snippet": "Welcome to Every! Please use the following link to access your system: www.every.education.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/every",
+      "title": "EVERY | English meaning - Cambridge Dictionary",
+      "relevance": 0.5,
+      "snippet": "EVERY definition: 1. used when referring to all the members of a group of three or more: 2. equally as: 3. used to…. Learn more.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://external-auth.every.education/Account/Login",
+      "title": "Login to Every",
+      "relevance": 0.5,
+      "snippet": "The returnUrl field is required. Forgotten password?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://every.to/",
+      "title": "Every",
+      "relevance": 0.5,
+      "snippet": "4 days ago · Dan Shipper is the CEO and cofounder of Every. Every week he explores the frontiers of AI in his column, Chain of Thought, …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [],
+  "execution_seconds": 122.114,
+  "automatic_metrics": {
+    "total_sources": 31,
+    "fetched_sources": 0,
+    "fetch_success_rate": 0.0,
+    "unique_domains": 20,
+    "domain_concentration": 0.1613,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 1.0,
+    "citation_marker_count": 72,
+    "resolved_citations": 72,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 0,
+    "total_claims": 0,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 1,
+    "search_query_count": 14
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}

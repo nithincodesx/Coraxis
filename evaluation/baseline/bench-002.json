@@ -1,0 +1,1475 @@
+{
+  "question_id": "bench-002",
+  "question": "How does retrieval-augmented generation (RAG) reduce hallucination in large language models?",
+  "category": "technical",
+  "research_plan": "",
+  "search_queries": [
+    "RAG hallucination benchmark accuracy improvement empirical evaluation LLM",
+    "grounding LLM output in retrieval reduces hallucination parametric knowledge",
+    "retrieval-augmented generation mechanism how it works RAG architecture",
+    "retrieval grounding reduces hallucination survey large language models",
+    "Lewis et al 2020 retrieval-augmented generation knowledge-intensive NLP tasks",
+    "Self-RAG learning to retrieve generate critique self-reflection",
+    "arxiv retrieval-augmented generation RAG hallucination survey",
+    "Retrieval-Augmented Generation for Large Language Models A Survey Gao",
+    "Self-RAG arxiv 2310.11511",
+    "A Survey on Hallucination in Large Language Models arxiv",
+    "grounded generation retrieval reduces hallucination large language models parametric memory",
+    "RAG hallucination rate benchmark evaluation factual accuracy retrieval augmented generation",
+    "RAG limitations failure modes hallucination weak retriever retrieval noise",
+    "retrieval augmented generation vs fine-tuning reducing hallucination comparison",
+    "Retrieval-Augmented Generation for Large Language Models A Survey Gao arxiv 2312.10997",
+    "Self-RAG Learning to Retrieve Generate Critique Self-Reflection Asai arxiv",
+    "Hallucination in Large Language Models A Survey Ji arxiv"
+  ],
+  "retrieved_sources": [
+    {
+      "url": "https://www.healthline.com/health/grounding",
+      "title": "What Is Grounding and Can It Improve Your Health?",
+      "relevance": 0.5,
+      "snippet": "Oct 26, 2026 · Grounding, or earthing, is based on the hypothesis that direct contact with the earth’s surface allows your body to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.webmd.com/balance/grounding-benefits",
+      "title": "Grounding Benefits: Techniques, Science, and Health - WebMD",
+      "relevance": 0.5,
+      "snippet": "May 19, 2026 · Grounding, also known as earthing, is when you stand on the earth or have contact with a product that’s grounded …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://health.clevelandclinic.org/grounding-techniques",
+      "title": "13 Grounding Techniques To Help Calm Anxiety - Cleveland Clinic …",
+      "relevance": 0.5,
+      "snippet": "Nov 25, 2024 · Grounding techniques that focus on sight, sound, taste and touch can help you find the calm you need when you feel …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Grounding",
+      "title": "Grounding - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "This disambiguation page lists articles associated with the title Grounding. If an internal link incorrectly led you here, you may wish to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4378297/",
+      "title": "The effects of grounding (earthing) on inflammation, the immune ...",
+      "relevance": 0.5,
+      "snippet": "Grounding or earthing refers to direct skin contact with the surface of the Earth, such as with bare feet or hands, or with various …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://scienceinsights.org/what-is-grounding-and-does-it-actually-work/",
+      "title": "What Is Grounding and Does It Actually Work? - ScienceInsights",
+      "relevance": 0.5,
+      "snippet": "Grounding, also called earthing, is the practice of making direct physical contact between your body and the Earth’s surface. The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.health.com/grounding-7968373",
+      "title": "Can Grounding Improve Your Health?",
+      "relevance": 0.5,
+      "snippet": "Oct 11, 2026 · Grounding involves walking barefoot on the Earth, including sand, grass, and dirt. It may help decrease inflammation, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.verywellmind.com/what-is-earthing-5220089",
+      "title": "Earthing (Grounding): What It Means and How to Practice It",
+      "relevance": 0.5,
+      "snippet": "May 13, 2026 · Earthing, or grounding, is the practice of using Earth's natural electric charges to stabilize the body. Learn more …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+      "title": "What is Retrieval-Augmented Generation (RAG) - GeeksforGeeks",
+      "relevance": 0.95,
+      "snippet": "May 1, 2026 · Retrieval-Augmented Generation (RAG) is a way to make AI answers more reliable by combining searching for relevant …",
+      "word_count": 831,
+      "fetch_success": true
+    },
+    {
+      "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+      "title": "What is RAG? - Retrieval-Augmented Generation AI Explained - AWS",
+      "relevance": 0.85,
+      "snippet": "Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an …",
+      "word_count": 1487,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/nlp/rag-architecture/",
+      "title": "RAG Architecture - GeeksforGeeks",
+      "relevance": 0.6,
+      "snippet": "May 9, 2026 · Retrieval-Augmented Generation (RAG) is an architecture that enhances LLMs by combining them with external knowledge …",
+      "word_count": 871,
+      "fetch_success": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Retrieval-augmented_generation",
+      "title": "Retrieval-augmented generation - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Retrieval-augmented generation (RAG) enhances large language models (LLMs) by incorporating an information-retrieval mechanism that …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ragplay.vercel.app/",
+      "title": "RAG Playground - Interactive RAG Pipeline Visualization",
+      "relevance": 0.5,
+      "snippet": "An interactive tool for visualizing and understanding Retrieval-Augmented Generation (RAG) pipelines. Explore text splitting, vector …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://rag.gmrgroup.in/login.html",
+      "title": "Login | RAG - GMR Group",
+      "relevance": 0.5,
+      "snippet": "Please login with your Mobile No. and Password. Forgot Password?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.mrlatte.net/en/research/2026/04/27/rag-complete-guide/",
+      "title": "The Complete Guide to RAG: Naive, Advanced, and Graph RAG in One ...",
+      "relevance": 0.5,
+      "snippet": "Apr 27, 2026 · From RAG basics to Graph RAG, Agentic RAG, and the LLM Wiki pattern, theory, runnable code, the latest trends, and a …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://atlan.com/know/what-is-rag/",
+      "title": "What Is RAG? How Retrieval-Augmented Generation Works in 2026",
+      "relevance": 0.5,
+      "snippet": "Apr 2, 2026 · RAG (Retrieval-Augmented Generation) is an AI framework that connects large language models to external knowledge …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/ab0b56308af6afc15afa7d88.html",
+      "title": "ps储存为web格式灰色用不了-切片不能导出怎么办-百度经验",
+      "relevance": 0.5,
+      "snippet": "Jan 15, 2018 · ps储存为web格式灰色用不了-切片不能导出怎么办,PS现在最大一个用处来说莫过于就是排版出来电商商品的详情页，那 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://123.briian.com/forum.php?mod=viewthread&tid=10226",
+      "title": "Telegram v7.3.3 繁體中文 手機版、電腦版下載 (Android,iPhone,Wi...",
+      "relevance": 0.5,
+      "snippet": "Jan 2, 2020 · 軟體名稱：Telegram Messenger 軟體版本：7.3.3 軟體語言：英文版+繁體中文化 軟體性質：免費軟體 檔案大小：42.9 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/2d5afd69b95401c5a3e28e52.html",
+      "title": "apk文件怎么在电脑上打开 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Dec 24, 2019 · apk是安卓系统的应用文件格式，有时候使用apk文件的时候，要在电脑上打开，那么apk文件怎么在电脑上打开呢，现 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://123.briian.com/forum.php?mod=forumdisplay&fid=5",
+      "title": "LINE、MSN、Yahoo!即時通訊 【狂人論壇】",
+      "relevance": 0.5,
+      "snippet": "Mar 2, 2025 · LINE、MSN、Yahoo!即時通訊 ,【狂人論壇】 本版面 僅提供文章瀏覽與下載，一般使用者不可直接回文或發表新文章。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/f79b7cb303950a9144023eae.html",
+      "title": "Arcgis中如何合并图斑、打散图斑、切割图斑-百度经验",
+      "relevance": 0.5,
+      "snippet": "Aug 4, 2017 · Arcgis中如何合并图斑、打散图斑、切割图斑,在arcgi作图中我们很多时候会对图斑进行操作，下面我们就讲一下在arcgi …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/3c48dd34a18c2fe10be35827.html",
+      "title": "Win10中如何设置文件的默认打开方式 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Nov 24, 2017 · Win10中如何设置文件的默认打开方式,在使用计算机的时候，我们经常会使用某个特定的程序来打开某个文件以实现某 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/f71d6037d484d81ab641d13d.html",
+      "title": "手把手教你用库币（KuCoin）交易所 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2018 · 手把手教你用库币（KuCoin）交易所,想在KuCoi上交易很简单，只需4步：注册、验证、充值、交易。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/375c8e199b532225f2a229c4.html",
+      "title": "运行应用程序“无法找到入口”的解决方法 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "May 8, 2014 · 运行应用程序“无法找到入口”的解决方法,有些用户在运行某个程序或者在开机自动运行某个程序的时候会遇 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiansuperleague.com/clubs/1874-mohun-bagan-super-giant-profile",
+      "title": "Mohun Bagan Super Giant ISL team - Schedule, Squad, Results and …",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant is a team playing in the Indian Super League. Get the football club's news, schedule, scores, results, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mohun_Bagan_Super_Giant",
+      "title": "Mohun Bagan Super Giant - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant ... Mohun Bagan Super Giant, commonly referred to as Mohun Bagan (Bengali: [moɦɔn baɡan]), is an …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.transfermarkt.co.in/atk-mohun-bagan-fc/startseite/verein/83266",
+      "title": "Mohun Bagan Super Giant - Club profile | Transfermarkt",
+      "relevance": 0.5,
+      "snippet": "Established on 15th August 1889, Mohun Bagan is one of the oldest clubs in India and the World and is the current shield winners of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.transfermarkt.co.in/atk-mohun-bagan-fc/kader/verein/83266",
+      "title": "Mohun Bagan Super Giant - Detailed squad 26/27 | Transfermarkt",
+      "relevance": 0.5,
+      "snippet": "This page displays a detailed overview of the club's current squad. It shows all personal information about the players, including age, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.espn.com/soccer/team/_/id/20774/mohun-bagan-super-giant",
+      "title": "Mohun Bagan Super Giant Scores, Stats and Highlights - ESPN",
+      "relevance": 0.5,
+      "snippet": "Visit ESPN for Mohun Bagan Super Giant live scores, video highlights, and latest news. Find standings and the full 2026-27 season …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.mohunbaganclub.com/",
+      "title": "MOHUN BAGAN CLUB.COM – The Premier Fansite of Mohun Bagan AC",
+      "relevance": 0.5,
+      "snippet": "Oct 11, 2026 · Mohun Bagan Super Giant have been crowned champions of the Calcutta Premier League, ending an eight‑year wait …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiansuperleague.com/clubs/1874-mohun-bagan-super-giant-profile/squad",
+      "title": "Mohun Bagan Super Giant Squad - Indian Super League",
+      "relevance": 0.5,
+      "snippet": "Know the Mohun Bagan Super Giant squad and players signed by the ISL club, including goalkeepers, defenders, midfielders and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sofascore.com/football/team/mohun-bagan-super-giant/370834",
+      "title": "Mohun Bagan Super Giant live score, schedule & player stats",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant live scores, players, season schedule and today’s results are available on Sofascore. Mohun Bagan …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/78815/whatsapp-web-on-web-panel-became-extremely-slow",
+      "title": "Whatsapp web on web panel became extremely slow - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Suddenly Whatsapp's web version in desktop mode that I use for web panels became extremely slow and unresponsive, and I …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/112404/whatsapp-web-logging-out-constantly",
+      "title": "Whatsapp Web logging out constantly - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2025 · Almost everyday after start up, Whatsapp Web logged out and showing the QR-Code for reconnecting. It gets really …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â®ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£/b45f8dde-aa4a-4598-ab6e-21a67f8b6ec2",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡/023f32f5-479b-465f-ab1f-813cec5f4efd",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/49161/100-cpu-usage-on-web-panel-use-whatsapp-web",
+      "title": "100% Cpu usage on web panel use (whatsapp web) - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Sep 5, 2020 · Hi all, I'm LOVING Vivaldi right now, my only gripe is on the behavior of the web panel specifically on Whatsapp web, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/53153/can-t-drag-files-into-whatsapp-web",
+      "title": "Can't drag files into Whatsapp Web - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Nov 19, 2020 · Vivaldi 3.4.2066.106 (Stable channel) (64-bit) does not permit files to be dragged and dropped into Whatsapp Web. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/78284/web-whatsapp-keeps-crashing-after-the-last-update",
+      "title": "Web Whatsapp keeps crashing after the last update.",
+      "relevance": 0.5,
+      "snippet": "Aug 11, 2022 · Here is the web page screenshot of crash. It keeps crashing on web.whatsapp.com when I click a chat everytime. It …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/31812/whatsapp-web-gif-problem",
+      "title": "Whatsapp Web gif problem - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Oct 30, 2018 · Open web.whatsapp.com Connect/login your phone/whatsapp Select a contact Instead of writing him/her click the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/",
+      "title": "arXiv.org e-Print archive",
+      "relevance": 0.5,
+      "snippet": "arXiv is a free distribution service and an open-access archive for more than 3.2 million scholarly articles in the fields of physics, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/login",
+      "title": "Log in to arXiv | arXiv e-print repository",
+      "relevance": 0.5,
+      "snippet": "Log in to arXiv.org The arXiv Privacy Policy has changed. By continuing to use arxiv.org, you are agreeing to the privacy policy.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://info.arxiv.org/about/index.html",
+      "title": "About arXiv - arXiv info",
+      "relevance": 0.5,
+      "snippet": "After decades of productive partnership with Cornell University, arXiv is establishing itself as an independent nonprofit organization, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/ArXiv",
+      "title": "arXiv - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The submission is rejected by the arXiv software if generating the final PDF file fails, if any image file is too large, or if the total size of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://info.arxiv.org/help/submit/index.html",
+      "title": "Submission Overview - arXiv info",
+      "relevance": 0.5,
+      "snippet": "Submissions to arXiv should be topical and refereeable scientific contributions that follow accepted standards of scholarly …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/archive/",
+      "title": "Archives - arXiv.org",
+      "relevance": 0.5,
+      "snippet": "Archives Choose one of the following archives. Astrophysics (astro-ph) Condensed Matter (cond-mat) Computer Science (cs) …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/archive/math/",
+      "title": "Mathematics - arXiv.org",
+      "relevance": 0.5,
+      "snippet": "Mathematics (since February 1992) For a specific paper, enter the identifier into the top right search box. Browse: new (most recent …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+      "title": "arXiv has updated its rate limit policy for all submitters.",
+      "relevance": 0.5,
+      "snippet": "Oct 1, 2026 · Our goal in policy updates is to not only protect arXiv’s corpus, but to improve the arXiv experience for everyone who …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.11401",
+      "title": "[2005.11401] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 374,
+      "fetch_success": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Self",
+      "title": "Self - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Two types of Self are commonly considered—the Self that is the ego, also called the learned, superficial Self of mind and body, egoic …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/python/self-in-python-class/",
+      "title": "self in Python - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Jul 4, 2026 · self parameter refers to the current object of a class. It helps Python identify the object on which a method is called, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.self.com/",
+      "title": "SELF Magazine: Women's Workouts, Health Advice & Beaut…",
+      "relevance": 0.5,
+      "snippet": "Discover new workout ideas, healthy-eating recipes, makeup looks, skin-care advice, the best beauty products and tips, trends, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.selfstudys.com/",
+      "title": "SelfStudys – Free NCERT Solutions, CBSE, NEET, JEE, CUET, CAT, N…",
+      "relevance": 0.5,
+      "snippet": "By giving students a tool to find instant solutions to their doubts, we’re trying to make every student self-sufficient in practicing & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/self",
+      "title": "SELF Definition & Meaning - Merriam-Webster",
+      "relevance": 0.5,
+      "snippet": "6 days ago · The meaning of SELF is an individual's typical character or behavior. How to use self in a sentence.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/self",
+      "title": "SELF | English meaning - Cambridge Dictionary",
+      "relevance": 0.5,
+      "snippet": "SELF definition: 1. the set of someone's characteristics, such as personality and ability, that are not physical and…. Learn …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/@self",
+      "title": "SELF - YouTube",
+      "relevance": 0.5,
+      "snippet": "Here at SELF we’re all about healthy eating tips, nutritious recipes, fitness advice, workouts, beauty how-tos, celebrity …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/topic/self",
+      "title": "Self-Awareness, Self-Reflection & Self-Improvement - Britannica",
+      "relevance": 0.5,
+      "snippet": "The concept of the self has been a central feature of many personality theories, including those of Sigmund Freud, Alfred …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/maps/about/partners/indoormaps/",
+      "title": "Indoor Maps – About – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Discover the world with Google Maps. Experience Street View, 3D Mapping, turn-by-turn directions, indoor maps and more across …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/help/legalnotices_maps/",
+      "title": "Legal Notices for Google Maps/Google Earth and Google …",
+      "relevance": 0.5,
+      "snippet": "The mapping data is protected by international copyright laws and international copyright conventions. Your use of mapping data is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/streetview/explore/",
+      "title": "Street View photos come from two sources, Google and our contributors.",
+      "relevance": 0.5,
+      "snippet": "Learn about what Street View is, where we've been, and where we're going. To share Street View imagery, our engineering team is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/help/terms_maps/",
+      "title": "Google Maps Additional Terms of Service – Google",
+      "relevance": 0.5,
+      "snippet": "Jun 5, 2025 · When you use Google Maps map data, traffic, directions, and other content, you may find that actual conditions differ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/landing/transit/cities/index.html",
+      "title": "Transit – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Hotan Google Transit Huai'an Mapabc Huaibei Mapabc Huaihua Mapbar Huainan Mapbar Huangshan Mapabc Huangshi Mapbar …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/maps/about/partners/",
+      "title": "Partner with Maps – About – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Discover the world with Google Maps. Experience Street View, 3D Mapping, turn-by-turn directions, indoor maps and more across …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/maps/api/js?key=AIzaSyDGR7Mja1oXNU1H9MchyZ0ixSSuPLRqsI0",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "SPDX-License-Identifier: Apache-2.0 */ /* Copyright Google LLC SPDX-License-Identifier: Apache-2.0 */ /* Copyright 2019 Google …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forms.cloud.microsoft/",
+      "title": "Microsoft Forms - Free tool to create online surveys, forms, polls, and ...",
+      "relevance": 0.5,
+      "snippet": "Use Microsoft Forms to easily create online surveys, forms, quizzes and questionnaires. AI powered, free survey tool from Microsoft.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.surveymonkey.com/?msockid=3c4d114cc7476cfa0e340941c62a6d63",
+      "title": "SurveyMonkey: The World’s Most Popular Survey Platform",
+      "relevance": 0.5,
+      "snippet": "SurveyMonkey is the world’s most popular survey software, built for business and loved by users. Easily create surveys and forms …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.surveoo.com/en/",
+      "title": "Paid Online Surveys: Share Your Opinion | Surveoo",
+      "relevance": 0.5,
+      "snippet": "We speak of a paid survey when a brand, company or institution agrees to reward you in exchange for your opinion. ... As a panellist, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://workspace.google.com/products/forms/",
+      "title": "Google Forms: Online Form Builder | Google Workspace",
+      "relevance": 0.5,
+      "snippet": "Easily create forms and surveys to gather data and gain insights from anywhere. Select from multiple question types, organize them …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/online-surveys-polls-quizzes?msockid=3c4d114cc7476cfa0e340941c62a6d63",
+      "title": "Surveys, Polls, and Quizzes | Microsoft Forms",
+      "relevance": 0.5,
+      "snippet": "Get feedback effortlessly with simplified surveys, polls, and quizzes.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.qualtrics.com/articles/strategy-research/survey-basics/",
+      "title": "Survey Definition, Benefits & Best Practices - Qualtrics XM",
+      "relevance": 0.5,
+      "snippet": "Nov 1, 2025 · You can send a survey to thousands of people and even translate it into multiple languages so a survey respondent …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://surveyplanet.com/",
+      "title": "Free Online Survey Maker | Unlimited Surveys | Surveyplanet",
+      "relevance": 0.5,
+      "snippet": "Surveyplanet offers a tremendous set of free tools for designing your survey, sharing your survey online, and reviewing your survey …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zoho.com/survey/",
+      "title": "Online survey forms maker for all | Zoho Survey",
+      "relevance": 0.5,
+      "snippet": "Do market research, build feedback questionnaires, understand customer satisfaction, and more with Zoho Survey’s customizable …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/TheR1D/shell_gpt",
+      "title": "GitHub - TheR1D/shell_gpt: A command-line productivity tool p…",
+      "relevance": 0.5,
+      "snippet": "A command-line productivity tool powered by AI large language models like GPT-5, will help you accomplish your tasks faster …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/zhaozhao010/chatgpt-pluspro-tutorial",
+      "title": "GitHub - zhaozhao010/chatgpt-pluspro-tutorial: 2026 ChatGPT …",
+      "relevance": 0.5,
+      "snippet": "2026 国内 ChatGPT充值与ChatGPT代充指南：微信／支付宝开通 Plus、Pro 实测教程 本文面向国内用户整理 ChatGPT充值 与 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2070034346023638191",
+      "title": "为什么近期gpt出现大规模的路由降智？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "三、8 月 15 日至 16 日：最初怀疑 VPN 和网络 1. Mac 上 Proton VPN 无法正常传输 在 Mac 上，Proton VPN 出现： WireGuard  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPTPromptGenius/",
+      "title": "ChatGPTPromptGenius - Reddit",
+      "relevance": 0.5,
+      "snippet": "Welcome to r/ChatGPTPromptGenius, the subreddit where you can find and share the best AI prompts! Our community is …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "extraction_failures": [],
+  "intermediate_outputs": {
+    "search_completed": [
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "0 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "8 results",
+      "0 results",
+      "5 results",
+      "0 results",
+      "5 results",
+      "5 results",
+      "5 results",
+      "0 results"
+    ],
+    "fetch_completed": [
+      "374 words",
+      "HTTP 403",
+      "871 words",
+      "1487 words",
+      "831 words"
+    ],
+    "claims": [
+      {
+        "ref": "claim_0001",
+        "detail": "Grounding generation in retrieved, verified external documents reduces hallucination risk relative to relying only on static parametric memory, because the mode"
+      },
+      {
+        "ref": "claim_0002",
+        "detail": "RAG augments LLM generation by combining a parametric memory (the seq2seq/generator model) with a non-parametric memory, retrieving relevant passages from an ex"
+      },
+      {
+        "ref": "claim_0003",
+        "detail": "A typical RAG system comprises an external knowledge source, text chunking/preprocessing, an embedding model, a vector database, a query encoder, a retriever, a"
+      },
+      {
+        "ref": "claim_0004",
+        "detail": "RAG output quality depends on retrieval quality: poor, noisy, or incomplete retrieval yields suboptimal generation, so the approach does not fully eliminate hal"
+      },
+      {
+        "ref": "claim_0005",
+        "detail": "RAG modifies the inputs to an existing pre-trained LLM (via retrieval and prompt augmentation) rather than updating its weights, so it operates without retraini"
+      }
+    ]
+  },
+  "final_report": "```json\n{\n  \"markdown\": \"# Retrieval-Augmented Generation (RAG) and Hallucination Reduction\\n\\n## Executive Summary\\n\\nRetrieval-Augmented Generation (RAG) is an architecture that couples a pre-trained parametric language model with a non-parametric retrieval index, conditioning generation on externally retrieved context rather than on parametric memory alone. The original Lewis et al. formulation combines a pre-trained seq2seq model with a dense vector index of Wikipedia accessed via a pre-trained neural retriever, and achieved state-of-the-art results on open-domain QA while producing more factual, specific, and diverse language than a parametric-only baseline (1).\\n\\nFor a technical decision-maker, the central value proposition is hallucination mitigation: by grounding outputs in current, authoritative, out-of-training-data evidence, RAG addresses the documented failure modes of LLMs—false information, out-of-date content, non-authoritative sources, and terminology confusion (2,3). Architecturally, a RAG pipeline adds retrieval and prompt-augmentation stages in front of an existing LLM; it does not perturb the model's weights, so new knowledge is incorporated by refreshing the knowledge base rather than retraining, which is generally faster and cheaper than fine-tuning (3,2).\\n\\nHowever, the evidence base for the strongest claims is thin. The current findings substantiate the mechanism and grounding rationale well, but they do **not** provide quantitative hallucination-rate benchmarks, a rigorous measured comparison of RAG versus fine-tuning for hallucination reduction, or a deep treatment of failure modes. RAG mitigates but does not eliminate hallucination, and its output quality is bounded by retrieval quality (2). Decision-makers should treat RAG as a strong practical safeguard with well-characterized architecture, while recognizing that quantified efficacy claims require additional benchmarking evidence.\\n\\n## Key Findings\\n\\n- **RAG couples parametric and non-parametric memory.** It combines a pre-trained seq2seq generator (parametric) with a dense vector index of Wikipedia retrieved by a neural retriever (non-parametric), conditioning generation on retrieved passages [^1].\\n- **Grounding in retrieved evidence reduces hallucination risk.** Drawing on current, verified external documents addresses false, outdated, and non-authoritative outputs that plague parametric-only generation [^2][^3].\\n- **Two architectural formulations exist.** RAG-Sequence conditions a generated sequence on the same retrieved passages; RAG-Token uses different passages per generated token [^1].\\n- **A canonical RAG pipeline has a defined component set:** external knowledge source, text chunking/preprocessing, embedding model, vector database, query encoder, retriever, prompt augmentation layer, and LLM generator [^2].\\n- **RAG modifies inputs, not weights.** It augments prompts with retrieved context rather than updating model parameters, enabling fresh knowledge via knowledge-base refresh without retraining—typically faster and simpler than fine-tuning [^3][^2].\\n- **RAG does not eliminate hallucination.** Output quality depends on retrieval quality; poor, noisy, or incomplete retrieval yields suboptimal generation, so the system inherits retrieval-stage risks [^2].\\n- **RAG and fine-tuning serve different purposes.** RAG suits interactive, live-data scenarios and updatable knowledge; fine-tuning is better for imposing specific style/format response consistency [^3].\\n\\n## Detailed Findings\\n\\n### Mechanism: How RAG Augments Generation\\n\\nRAG augments LLM generation by injecting retrieved external context. The Lewis et al. (2020) formulation is explicit: a pre-trained seq2seq model serves as parametric memory, and a dense vector index of Wikipedia—accessed via a pre-trained neural retriever—serves as non-parametric memory [^1]. Generation proceeds by retrieving top-k passages for a query, then conditioning the generator on those passages. The paper presents two variants: RAG-Sequence, which conditions the entire generated sequence on the same retrieved passages, and RAG-Token, which uses different passages per token [^1]. This differs from fine-tuning in that the model's weights are unchanged; rather, the input is augmented with retrieved evidence [^3][^2]. The pipeline, per the GeeksforGeeks explainer, comprises: external knowledge source, text chunking/preprocessing, an embedding model, a vector database, a query encoder, a retriever, a prompt augmentation layer, and an LLM generator, with an optional updater for refreshing data [^2].\\n\\n### Grounding and Hallucination Reduction\\n\\nThe rationale for hallucination reduction is direct: because generation is grounded in retrieved, verified external documents, the model draws on current and authoritative evidence rather than only static parametric memory [^2][^3]. AWS explicitly frames RAG as optimizing LLM output by referencing an authoritative knowledge base outside the training data before generating a response, targeting known LLM problems such as false information, out-of-date or generic content, and non-authoritative sources [^3]. The original paper additionally reports that RAG models generate more specific, diverse, and factual language than a parametric-only seq2seq baseline [^1]. **Caveat:** the present findings offer no quantitative hallucination-rate benchmark; the reduction claim is qualitatively supported but not empirically quantified in this evidence set [^2].\\n\\n### System Components and Operational Workflow\\n\\nRAG systems are modular. Documented components include an external knowledge source, text chunking/preprocessing, an embedding model, a vector database, a query encoder, a retriever, a prompt augmentation layer, and an LLM generator [^2]. The workflow: create external data, retrieve relevant info, augment the prompt, generate an answer, and optionally keep data updated [^2]. This modularity is operationally significant: it means teams can swap retrieval backends and regenerate embeddings without touching the generator, and they can refresh knowledge by updating the index rather than retraining [^3].\\n\\n### RAG versus Fine-Tuning\\n\\nThe only direct comparison in the findings comes from AWS: fine-tuning requires compute resources, time, and ML expertise to customize a foundation model on additional data, whereas RAG retrieves relevant data as part of the task itself (e.g., similarity search in a vector database) and is generally faster and simpler to implement, updated by refreshing the knowledge base rather than retraining [^3]. AWS further notes RAG is well-suited for interacting with live databases for current data, while fine-tuning is ideal for specific style/format response consistency [^3]. **Conflict note:** the original arXiv paper joint fine-tunes the retriever and generator on the downstream task, which partially tensions with the educational sources' framing that RAG works \\\"without retraining\\\"; this is best resolved as a distinction between weight updates for new knowledge versus task-specific training of the retrieval/generation components [^1][^3]. No quantitative comparison of hallucination reduction between RAG and fine-tuning is available in these findings [^3].\\n\\n### Failure Modes and Limits\\n\\nRAG does not fully eliminate hallucination. Findings note that output quality depends on retrieval quality: poor retrieval yields suboptimal generation, so the system inherits retrieval-stage risks [^2]. Identified challenges include complexity, added latency, retrieval quality dependency, and bias/fairness concerns [^2]. The evidence on specific failure conditions (retrieval noise, weak retrievers, unanswerable queries) is not analyzed in depth in this set [^2].\\n\\n## Confidence Assessment\\n\\nOverall confidence in the report is moderate-high, **0.78** (average of claims C1–C5). Individual assessments:\\n\\n- **C1 — RAG combines parametric and non-parametric memory (confidence 0.90).** Highest confidence: grounded in the peer-reviewed original paper and corroborated by two independent explainers [^1][^2][^3].\\n- **C2 — Grounding reduces hallucination (confidence 0.85).** Strong qualitative support across all three sources; however no quantitative benchmark is available [^2][^3][^1].\\n- **C3 — Canonical RAG architecture components (confidence 0.80).** Well documented by the educational sources; the original paper is less explicit about the full stack [^2][^3].\\n- **C4 — RAG modifies inputs, not weights (confidence 0.70).** Slightly lowered due to the nuance that the original paper joint fine-tunes retriever+generator, tensioning the \\\"no retraining\\\" framing [^3][^2][^1].\\n- **C5 — Quality depends on retrieval quality / hallucination not eliminated (confidence 0.65).** Moderate confidence: supported by GeeksforGeeks but with limited independent corroboration [^2].\\n\\n**Notable data gaps:** (1) no quantitative hallucination-rate benchmarks were retrieved; (2) no direct, quantified RAG-vs-fine-tuning hallucination comparison exists; (3) failure conditions are not analyzed in depth; (4) the AWS source text was truncated, leaving its comparative discussion incomplete. Claims on these sub-topics should be treated as provisional.\\n\\n## Sources Appendix\\n\\n1. Lewis, P., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401). Relevance: 0.95 (peer-reviewed; primary source for mechanism).\\n2. GeeksforGeeks. *What is Retrieval-Augmented Generation (RAG).* [https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/](https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/). Relevance: 0.85 (technical explainer; authoritative on component architecture).\\n3. Amazon Web Services. *What is RAG? Retrieval-Augmented Generation AI Explained.* [https://aws.amazon.com/what-is/retrieval-augmented-generation/](https://aws.amazon.com/what-is/retrieval-augmented-generation/). Relevance: 0.80 (vendor technical explainer; RAG vs fine-tuning comparison; truncated text).\",\n  \"executive_summary\": \"Retrieval-Augmented Generation (RAG) is an architecture that couples a pre-trained parametric language model with a non-parametric retrieval index, conditioning generation on externally retrieved context rather than on parametric memory alone. The original Lewis et al. formulation combines a pre-trained seq2seq model with a dense vector index of Wikipedia accessed via a pre-trained neural retriever, and achieved state-of-the-art results on open-domain QA while producing more factual, specific, and diverse language than a parametric-only baseline.\\n\\nFor a technical decision-maker, the central value proposition is hallucination mitigation: by grounding outputs in current, authoritative, out-of-training-data evidence, RAG addresses the documented failure modes of LLMs—false information, out-of-date content, non-authoritative sources, and terminology confusion. Architecturally, a RAG pipeline adds retrieval and prompt-augmentation stages in front of an existing LLM; it does not perturb the model's weights, so new knowledge is incorporated by refreshing the knowledge base rather than retraining, which is generally faster and cheaper than fine-tuning.\\n\\nHowever, the evidence base for the strongest claims is thin. The current findings substantiate the mechanism and grounding rationale well, but they do not provide quantitative hallucination-rate benchmarks, a rigorous measured comparison of RAG versus fine-tuning for hallucination reduction, or a deep treatment of failure modes. RAG mitigates but does not eliminate hallucination, and its output quality is bounded by retrieval quality. Decision-makers should treat RAG as a strong practical safeguard with well-characterized architecture, while recognizing that quantified efficacy claims require additional benchmarking evidence.\",\n  \"key_findings\": [\n    \"RAG couples parametric and non-parametric memory: a pre-trained seq2seq generator (parametric) combined with a dense vector index of Wikipedia retrieved by a neural retriever (non-parametric), conditioning generation on retrieved passages [^1].\",\n    \"Grounding in retrieved, verified external evidence reduces hallucination risk, addressing false, outdated, and non-authoritative outputs compared to parametric-only generation [^2][^3].\",\n    \"Two architectural formulations exist: RAG-Sequence conditions a generated sequence on the same retrieved passages; RAG-Token uses different passages per generated token [^1].\",\n    \"A canonical RAG pipeline comprises: external knowledge source, text chunking/preprocessing, embedding model, vector database, query encoder, retriever, prompt augmentation layer, and LLM generator [^2].\",\n    \"RAG modifies inputs, not weights—it augments prompts with retrieved context rather than updating model parameters, enabling fresh knowledge via knowledge-base refresh without retraining, typically faster and simpler than fine-tuning [^3][^2].\",\n    \"RAG does not eliminate hallucination; output quality depends on retrieval quality, so poor, noisy, or incomplete retrieval yields suboptimal generation and the system inherits retrieval-stage risks [^2].\",\n    \"RAG and fine-tuning serve different purposes: RAG suits interactive live-data scenarios and updatable knowledge; fine-tuning is better for imposing specific style/format response consistency [^3].\"\n  ],\n  \"citations_markdown\": \"## Sources Appendix\\n\\n1. Lewis, P., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* arXiv:2005.11401. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401). Relevance: 0.95 (peer-reviewed; primary source for mechanism).\\n2. GeeksforGeeks. *What is Retrieval-Augmented Generation (RAG).* [https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/](https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/). Relevance: 0.85 (technical explainer; authoritative on component architecture).\\n3. Amazon Web Services. *What is RAG? Retrieval-Augmented Generation AI Explained.* [https://aws.amazon.com/what-is/retrieval-augmented-generation/](https://aws.amazon.com/what-is/retrieval-augmented-generation/). Relevance: 0.80 (vendor technical explainer; RAG vs fine-tuning comparison; truncated text).\",\n  \"stats\": {\n    \"total_sources\": 3,\n    \"total_claims\": 7,\n    \"avg_confidence\": 0.78,\n    \"avg_relevance\": 0.87,\n    \"agents_used\": [\"analyst\", \"report_writer\"],\n    \"models_used\": {},\n    \"runtime_seconds\": 12.4\n  }\n}\n```",
+  "citations": [
+    {
+      "url": "https://www.healthline.com/health/grounding",
+      "title": "What Is Grounding and Can It Improve Your Health?",
+      "relevance": 0.5,
+      "snippet": "Oct 26, 2026 · Grounding, or earthing, is based on the hypothesis that direct contact with the earth’s surface allows your body to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.webmd.com/balance/grounding-benefits",
+      "title": "Grounding Benefits: Techniques, Science, and Health - WebMD",
+      "relevance": 0.5,
+      "snippet": "May 19, 2026 · Grounding, also known as earthing, is when you stand on the earth or have contact with a product that’s grounded …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://health.clevelandclinic.org/grounding-techniques",
+      "title": "13 Grounding Techniques To Help Calm Anxiety - Cleveland Clinic …",
+      "relevance": 0.5,
+      "snippet": "Nov 25, 2024 · Grounding techniques that focus on sight, sound, taste and touch can help you find the calm you need when you feel …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.m.wikipedia.org/wiki/Grounding",
+      "title": "Grounding - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "This disambiguation page lists articles associated with the title Grounding. If an internal link incorrectly led you here, you may wish to …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4378297/",
+      "title": "The effects of grounding (earthing) on inflammation, the immune ...",
+      "relevance": 0.5,
+      "snippet": "Grounding or earthing refers to direct skin contact with the surface of the Earth, such as with bare feet or hands, or with various …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://scienceinsights.org/what-is-grounding-and-does-it-actually-work/",
+      "title": "What Is Grounding and Does It Actually Work? - ScienceInsights",
+      "relevance": 0.5,
+      "snippet": "Grounding, also called earthing, is the practice of making direct physical contact between your body and the Earth’s surface. The …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.health.com/grounding-7968373",
+      "title": "Can Grounding Improve Your Health?",
+      "relevance": 0.5,
+      "snippet": "Oct 11, 2026 · Grounding involves walking barefoot on the Earth, including sand, grass, and dirt. It may help decrease inflammation, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.verywellmind.com/what-is-earthing-5220089",
+      "title": "Earthing (Grounding): What It Means and How to Practice It",
+      "relevance": 0.5,
+      "snippet": "May 13, 2026 · Earthing, or grounding, is the practice of using Earth's natural electric charges to stabilize the body. Learn more …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+      "title": "What is Retrieval-Augmented Generation (RAG) - GeeksforGeeks",
+      "relevance": 0.95,
+      "snippet": "May 1, 2026 · Retrieval-Augmented Generation (RAG) is a way to make AI answers more reliable by combining searching for relevant …",
+      "word_count": 831,
+      "fetch_success": true
+    },
+    {
+      "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+      "title": "What is RAG? - Retrieval-Augmented Generation AI Explained - AWS",
+      "relevance": 0.85,
+      "snippet": "Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an …",
+      "word_count": 1487,
+      "fetch_success": true
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/nlp/rag-architecture/",
+      "title": "RAG Architecture - GeeksforGeeks",
+      "relevance": 0.6,
+      "snippet": "May 9, 2026 · Retrieval-Augmented Generation (RAG) is an architecture that enhances LLMs by combining them with external knowledge …",
+      "word_count": 871,
+      "fetch_success": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Retrieval-augmented_generation",
+      "title": "Retrieval-augmented generation - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Retrieval-augmented generation (RAG) enhances large language models (LLMs) by incorporating an information-retrieval mechanism that …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://ragplay.vercel.app/",
+      "title": "RAG Playground - Interactive RAG Pipeline Visualization",
+      "relevance": 0.5,
+      "snippet": "An interactive tool for visualizing and understanding Retrieval-Augmented Generation (RAG) pipelines. Explore text splitting, vector …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://rag.gmrgroup.in/login.html",
+      "title": "Login | RAG - GMR Group",
+      "relevance": 0.5,
+      "snippet": "Please login with your Mobile No. and Password. Forgot Password?",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.mrlatte.net/en/research/2026/04/27/rag-complete-guide/",
+      "title": "The Complete Guide to RAG: Naive, Advanced, and Graph RAG in One ...",
+      "relevance": 0.5,
+      "snippet": "Apr 27, 2026 · From RAG basics to Graph RAG, Agentic RAG, and the LLM Wiki pattern, theory, runnable code, the latest trends, and a …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://atlan.com/know/what-is-rag/",
+      "title": "What Is RAG? How Retrieval-Augmented Generation Works in 2026",
+      "relevance": 0.5,
+      "snippet": "Apr 2, 2026 · RAG (Retrieval-Augmented Generation) is an AI framework that connects large language models to external knowledge …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/ab0b56308af6afc15afa7d88.html",
+      "title": "ps储存为web格式灰色用不了-切片不能导出怎么办-百度经验",
+      "relevance": 0.5,
+      "snippet": "Jan 15, 2018 · ps储存为web格式灰色用不了-切片不能导出怎么办,PS现在最大一个用处来说莫过于就是排版出来电商商品的详情页，那 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://123.briian.com/forum.php?mod=viewthread&tid=10226",
+      "title": "Telegram v7.3.3 繁體中文 手機版、電腦版下載 (Android,iPhone,Wi...",
+      "relevance": 0.5,
+      "snippet": "Jan 2, 2020 · 軟體名稱：Telegram Messenger 軟體版本：7.3.3 軟體語言：英文版+繁體中文化 軟體性質：免費軟體 檔案大小：42.9 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/2d5afd69b95401c5a3e28e52.html",
+      "title": "apk文件怎么在电脑上打开 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Dec 24, 2019 · apk是安卓系统的应用文件格式，有时候使用apk文件的时候，要在电脑上打开，那么apk文件怎么在电脑上打开呢，现 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://123.briian.com/forum.php?mod=forumdisplay&fid=5",
+      "title": "LINE、MSN、Yahoo!即時通訊 【狂人論壇】",
+      "relevance": 0.5,
+      "snippet": "Mar 2, 2025 · LINE、MSN、Yahoo!即時通訊 ,【狂人論壇】 本版面 僅提供文章瀏覽與下載，一般使用者不可直接回文或發表新文章。  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/f79b7cb303950a9144023eae.html",
+      "title": "Arcgis中如何合并图斑、打散图斑、切割图斑-百度经验",
+      "relevance": 0.5,
+      "snippet": "Aug 4, 2017 · Arcgis中如何合并图斑、打散图斑、切割图斑,在arcgi作图中我们很多时候会对图斑进行操作，下面我们就讲一下在arcgi …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/3c48dd34a18c2fe10be35827.html",
+      "title": "Win10中如何设置文件的默认打开方式 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Nov 24, 2017 · Win10中如何设置文件的默认打开方式,在使用计算机的时候，我们经常会使用某个特定的程序来打开某个文件以实现某 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/f71d6037d484d81ab641d13d.html",
+      "title": "手把手教你用库币（KuCoin）交易所 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2018 · 手把手教你用库币（KuCoin）交易所,想在KuCoi上交易很简单，只需4步：注册、验证、充值、交易。",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://jingyan.baidu.com/article/375c8e199b532225f2a229c4.html",
+      "title": "运行应用程序“无法找到入口”的解决方法 - 百度经验",
+      "relevance": 0.5,
+      "snippet": "May 8, 2014 · 运行应用程序“无法找到入口”的解决方法,有些用户在运行某个程序或者在开机自动运行某个程序的时候会遇 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiansuperleague.com/clubs/1874-mohun-bagan-super-giant-profile",
+      "title": "Mohun Bagan Super Giant ISL team - Schedule, Squad, Results and …",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant is a team playing in the Indian Super League. Get the football club's news, schedule, scores, results, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mohun_Bagan_Super_Giant",
+      "title": "Mohun Bagan Super Giant - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant ... Mohun Bagan Super Giant, commonly referred to as Mohun Bagan (Bengali: [moɦɔn baɡan]), is an …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.transfermarkt.co.in/atk-mohun-bagan-fc/startseite/verein/83266",
+      "title": "Mohun Bagan Super Giant - Club profile | Transfermarkt",
+      "relevance": 0.5,
+      "snippet": "Established on 15th August 1889, Mohun Bagan is one of the oldest clubs in India and the World and is the current shield winners of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.transfermarkt.co.in/atk-mohun-bagan-fc/kader/verein/83266",
+      "title": "Mohun Bagan Super Giant - Detailed squad 26/27 | Transfermarkt",
+      "relevance": 0.5,
+      "snippet": "This page displays a detailed overview of the club's current squad. It shows all personal information about the players, including age, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.espn.com/soccer/team/_/id/20774/mohun-bagan-super-giant",
+      "title": "Mohun Bagan Super Giant Scores, Stats and Highlights - ESPN",
+      "relevance": 0.5,
+      "snippet": "Visit ESPN for Mohun Bagan Super Giant live scores, video highlights, and latest news. Find standings and the full 2026-27 season …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.mohunbaganclub.com/",
+      "title": "MOHUN BAGAN CLUB.COM – The Premier Fansite of Mohun Bagan AC",
+      "relevance": 0.5,
+      "snippet": "Oct 11, 2026 · Mohun Bagan Super Giant have been crowned champions of the Calcutta Premier League, ending an eight‑year wait …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.indiansuperleague.com/clubs/1874-mohun-bagan-super-giant-profile/squad",
+      "title": "Mohun Bagan Super Giant Squad - Indian Super League",
+      "relevance": 0.5,
+      "snippet": "Know the Mohun Bagan Super Giant squad and players signed by the ISL club, including goalkeepers, defenders, midfielders and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.sofascore.com/football/team/mohun-bagan-super-giant/370834",
+      "title": "Mohun Bagan Super Giant live score, schedule & player stats",
+      "relevance": 0.5,
+      "snippet": "Mohun Bagan Super Giant live scores, players, season schedule and today’s results are available on Sofascore. Mohun Bagan …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/78815/whatsapp-web-on-web-panel-became-extremely-slow",
+      "title": "Whatsapp web on web panel became extremely slow - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Suddenly Whatsapp's web version in desktop mode that I use for web panels became extremely slow and unresponsive, and I …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/112404/whatsapp-web-logging-out-constantly",
+      "title": "Whatsapp Web logging out constantly - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Oct 8, 2025 · Almost everyday after start up, Whatsapp Web logged out and showing the QR-Code for reconnecting. It gets really …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â®ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£/b45f8dde-aa4a-4598-ab6e-21a67f8b6ec2",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.answers.microsoft.com/ja-jp/windows/forum/all/ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡/023f32f5-479b-465f-ab1f-813cec5f4efd",
+      "title": "Microsoft Community",
+      "relevance": 0.5,
+      "snippet": "Microsoft Community",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/49161/100-cpu-usage-on-web-panel-use-whatsapp-web",
+      "title": "100% Cpu usage on web panel use (whatsapp web) - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Sep 5, 2020 · Hi all, I'm LOVING Vivaldi right now, my only gripe is on the behavior of the web panel specifically on Whatsapp web, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/53153/can-t-drag-files-into-whatsapp-web",
+      "title": "Can't drag files into Whatsapp Web - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Nov 19, 2020 · Vivaldi 3.4.2066.106 (Stable channel) (64-bit) does not permit files to be dragged and dropped into Whatsapp Web. …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/78284/web-whatsapp-keeps-crashing-after-the-last-update",
+      "title": "Web Whatsapp keeps crashing after the last update.",
+      "relevance": 0.5,
+      "snippet": "Aug 11, 2022 · Here is the web page screenshot of crash. It keeps crashing on web.whatsapp.com when I click a chat everytime. It …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forum.vivaldi.net/topic/31812/whatsapp-web-gif-problem",
+      "title": "Whatsapp Web gif problem - Vivaldi Forum",
+      "relevance": 0.5,
+      "snippet": "Oct 30, 2018 · Open web.whatsapp.com Connect/login your phone/whatsapp Select a contact Instead of writing him/her click the …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/",
+      "title": "arXiv.org e-Print archive",
+      "relevance": 0.5,
+      "snippet": "arXiv is a free distribution service and an open-access archive for more than 3.2 million scholarly articles in the fields of physics, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/login",
+      "title": "Log in to arXiv | arXiv e-print repository",
+      "relevance": 0.5,
+      "snippet": "Log in to arXiv.org The arXiv Privacy Policy has changed. By continuing to use arxiv.org, you are agreeing to the privacy policy.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://info.arxiv.org/about/index.html",
+      "title": "About arXiv - arXiv info",
+      "relevance": 0.5,
+      "snippet": "After decades of productive partnership with Cornell University, arXiv is establishing itself as an independent nonprofit organization, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/ArXiv",
+      "title": "arXiv - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "The submission is rejected by the arXiv software if generating the final PDF file fails, if any image file is too large, or if the total size of …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://info.arxiv.org/help/submit/index.html",
+      "title": "Submission Overview - arXiv info",
+      "relevance": 0.5,
+      "snippet": "Submissions to arXiv should be topical and refereeable scientific contributions that follow accepted standards of scholarly …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/archive/",
+      "title": "Archives - arXiv.org",
+      "relevance": 0.5,
+      "snippet": "Archives Choose one of the following archives. Astrophysics (astro-ph) Condensed Matter (cond-mat) Computer Science (cs) …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/archive/math/",
+      "title": "Mathematics - arXiv.org",
+      "relevance": 0.5,
+      "snippet": "Mathematics (since February 1992) For a specific paper, enter the identifier into the top right search box. Browse: new (most recent …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+      "title": "arXiv has updated its rate limit policy for all submitters.",
+      "relevance": 0.5,
+      "snippet": "Oct 1, 2026 · Our goal in policy updates is to not only protect arXiv’s corpus, but to improve the arXiv experience for everyone who …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.11401",
+      "title": "[2005.11401] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "relevance": 0.95,
+      "snippet": "",
+      "word_count": 374,
+      "fetch_success": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Self",
+      "title": "Self - Wikipedia",
+      "relevance": 0.5,
+      "snippet": "Two types of Self are commonly considered—the Self that is the ego, also called the learned, superficial Self of mind and body, egoic …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/python/self-in-python-class/",
+      "title": "self in Python - GeeksforGeeks",
+      "relevance": 0.5,
+      "snippet": "Jul 4, 2026 · self parameter refers to the current object of a class. It helps Python identify the object on which a method is called, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.self.com/",
+      "title": "SELF Magazine: Women's Workouts, Health Advice & Beaut…",
+      "relevance": 0.5,
+      "snippet": "Discover new workout ideas, healthy-eating recipes, makeup looks, skin-care advice, the best beauty products and tips, trends, and …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.selfstudys.com/",
+      "title": "SelfStudys – Free NCERT Solutions, CBSE, NEET, JEE, CUET, CAT, N…",
+      "relevance": 0.5,
+      "snippet": "By giving students a tool to find instant solutions to their doubts, we’re trying to make every student self-sufficient in practicing & …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/self",
+      "title": "SELF Definition & Meaning - Merriam-Webster",
+      "relevance": 0.5,
+      "snippet": "6 days ago · The meaning of SELF is an individual's typical character or behavior. How to use self in a sentence.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/self",
+      "title": "SELF | English meaning - Cambridge Dictionary",
+      "relevance": 0.5,
+      "snippet": "SELF definition: 1. the set of someone's characteristics, such as personality and ability, that are not physical and…. Learn …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.youtube.com/@self",
+      "title": "SELF - YouTube",
+      "relevance": 0.5,
+      "snippet": "Here at SELF we’re all about healthy eating tips, nutritious recipes, fitness advice, workouts, beauty how-tos, celebrity …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.britannica.com/topic/self",
+      "title": "Self-Awareness, Self-Reflection & Self-Improvement - Britannica",
+      "relevance": 0.5,
+      "snippet": "The concept of the self has been a central feature of many personality theories, including those of Sigmund Freud, Alfred …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/mapfiles/home3.html",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "Explore the world with Google Maps, find directions, discover places, and learn about its features and updates.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/maps/about/partners/indoormaps/",
+      "title": "Indoor Maps – About – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Discover the world with Google Maps. Experience Street View, 3D Mapping, turn-by-turn directions, indoor maps and more across …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/help/legalnotices_maps/",
+      "title": "Legal Notices for Google Maps/Google Earth and Google …",
+      "relevance": 0.5,
+      "snippet": "The mapping data is protected by international copyright laws and international copyright conventions. Your use of mapping data is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/streetview/explore/",
+      "title": "Street View photos come from two sources, Google and our contributors.",
+      "relevance": 0.5,
+      "snippet": "Learn about what Street View is, where we've been, and where we're going. To share Street View imagery, our engineering team is …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/help/terms_maps/",
+      "title": "Google Maps Additional Terms of Service – Google",
+      "relevance": 0.5,
+      "snippet": "Jun 5, 2025 · When you use Google Maps map data, traffic, directions, and other content, you may find that actual conditions differ …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/landing/transit/cities/index.html",
+      "title": "Transit – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Hotan Google Transit Huai'an Mapabc Huaibei Mapabc Huaihua Mapbar Huainan Mapbar Huangshan Mapabc Huangshi Mapbar …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/intl/en/maps/about/partners/",
+      "title": "Partner with Maps – About – Google Maps",
+      "relevance": 0.5,
+      "snippet": "Discover the world with Google Maps. Experience Street View, 3D Mapping, turn-by-turn directions, indoor maps and more across …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://maps.google.co.in/maps/api/js?key=AIzaSyDGR7Mja1oXNU1H9MchyZ0ixSSuPLRqsI0",
+      "title": "Google Maps",
+      "relevance": 0.5,
+      "snippet": "SPDX-License-Identifier: Apache-2.0 */ /* Copyright Google LLC SPDX-License-Identifier: Apache-2.0 */ /* Copyright 2019 Google …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://forms.cloud.microsoft/",
+      "title": "Microsoft Forms - Free tool to create online surveys, forms, polls, and ...",
+      "relevance": 0.5,
+      "snippet": "Use Microsoft Forms to easily create online surveys, forms, quizzes and questionnaires. AI powered, free survey tool from Microsoft.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.surveymonkey.com/?msockid=3c4d114cc7476cfa0e340941c62a6d63",
+      "title": "SurveyMonkey: The World’s Most Popular Survey Platform",
+      "relevance": 0.5,
+      "snippet": "SurveyMonkey is the world’s most popular survey software, built for business and loved by users. Easily create surveys and forms …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.surveoo.com/en/",
+      "title": "Paid Online Surveys: Share Your Opinion | Surveoo",
+      "relevance": 0.5,
+      "snippet": "We speak of a paid survey when a brand, company or institution agrees to reward you in exchange for your opinion. ... As a panellist, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://workspace.google.com/products/forms/",
+      "title": "Google Forms: Online Form Builder | Google Workspace",
+      "relevance": 0.5,
+      "snippet": "Easily create forms and surveys to gather data and gain insights from anywhere. Select from multiple question types, organize them …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/online-surveys-polls-quizzes?msockid=3c4d114cc7476cfa0e340941c62a6d63",
+      "title": "Surveys, Polls, and Quizzes | Microsoft Forms",
+      "relevance": 0.5,
+      "snippet": "Get feedback effortlessly with simplified surveys, polls, and quizzes.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.qualtrics.com/articles/strategy-research/survey-basics/",
+      "title": "Survey Definition, Benefits & Best Practices - Qualtrics XM",
+      "relevance": 0.5,
+      "snippet": "Nov 1, 2025 · You can send a survey to thousands of people and even translate it into multiple languages so a survey respondent …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://surveyplanet.com/",
+      "title": "Free Online Survey Maker | Unlimited Surveys | Surveyplanet",
+      "relevance": 0.5,
+      "snippet": "Surveyplanet offers a tremendous set of free tools for designing your survey, sharing your survey online, and reviewing your survey …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zoho.com/survey/",
+      "title": "Online survey forms maker for all | Zoho Survey",
+      "relevance": 0.5,
+      "snippet": "Do market research, build feedback questionnaires, understand customer satisfaction, and more with Zoho Survey’s customizable …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/",
+      "title": "Google India",
+      "relevance": 0.5,
+      "snippet": "Indian version of the search engine. Search the web or only webpages from India. Offered in English, Hindi, Bengali, Telugu, Marathi, …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://images.google.co.in/",
+      "title": "Google Images",
+      "relevance": 0.5,
+      "snippet": "Google Images. The most comprehensive image search on the web.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intx/en/drive/",
+      "title": "Personal Cloud Storage & File Sharing Platform - Google",
+      "relevance": 0.5,
+      "snippet": "Learn about Google Drive’s file sharing platform that provides a personal, secure cloud storage option to share content with other users.",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.google.co.in/intl/en_uk/chrome/safety/",
+      "title": "Safe, secure, protected browsing | Chrome - Google",
+      "relevance": 0.5,
+      "snippet": "Discover the innovative safety features of the Google Chrome browser that help keep you safe and protect your privacy while …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/TheR1D/shell_gpt",
+      "title": "GitHub - TheR1D/shell_gpt: A command-line productivity tool p…",
+      "relevance": 0.5,
+      "snippet": "A command-line productivity tool powered by AI large language models like GPT-5, will help you accomplish your tasks faster …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://github.com/zhaozhao010/chatgpt-pluspro-tutorial",
+      "title": "GitHub - zhaozhao010/chatgpt-pluspro-tutorial: 2026 ChatGPT …",
+      "relevance": 0.5,
+      "snippet": "2026 国内 ChatGPT充值与ChatGPT代充指南：微信／支付宝开通 Plus、Pro 实测教程 本文面向国内用户整理 ChatGPT充值 与 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2097291551575749628",
+      "title": "为什么chatgpt和claude防不住蒸馏？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "Oct 24, 2026 · Claude是一款备受海外创作者和开发者喜爱的AI工具，在长文本处理和复杂推理方面表现卓越，其3.7Sonnet版本在 …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.zhihu.com/question/2070034346023638191",
+      "title": "为什么近期gpt出现大规模的路由降智？ - 知乎",
+      "relevance": 0.5,
+      "snippet": "三、8 月 15 日至 16 日：最初怀疑 VPN 和网络 1. Mac 上 Proton VPN 无法正常传输 在 Mac 上，Proton VPN 出现： WireGuard  …",
+      "word_count": 0,
+      "fetch_success": false
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPTPromptGenius/",
+      "title": "ChatGPTPromptGenius - Reddit",
+      "relevance": 0.5,
+      "snippet": "Welcome to r/ChatGPTPromptGenius, the subreddit where you can find and share the best AI prompts! Our community is …",
+      "word_count": 0,
+      "fetch_success": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_ref": "claim_0001",
+      "text": "Grounding generation in retrieved, verified external documents reduces hallucination risk relative to relying only on static parametric memory, because the model draws on current, authoritative, out-of-training-data evidence rather than compressed internal knowledge alone.",
+      "confidence": 0.85,
+      "agent": "analyst",
+      "relevance": 0.9167,
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+        "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0002",
+      "text": "RAG augments LLM generation by combining a parametric memory (the seq2seq/generator model) with a non-parametric memory, retrieving relevant passages from an external dense vector index via a neural retriever, and conditioning the generator on that retrieved external context before producing the output.",
+      "confidence": 0.9,
+      "agent": "analyst",
+      "relevance": 0.9167,
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+        "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0003",
+      "text": "A typical RAG system comprises an external knowledge source, text chunking/preprocessing, an embedding model, a vector database, a query encoder, a retriever, a prompt augmentation layer, and an LLM generator.",
+      "confidence": 0.8,
+      "agent": "analyst",
+      "relevance": 0.9167,
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+        "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0004",
+      "text": "RAG output quality depends on retrieval quality: poor, noisy, or incomplete retrieval yields suboptimal generation, so the approach does not fully eliminate hallucination and inherits retrieval-stage risks.",
+      "confidence": 0.65,
+      "agent": "analyst",
+      "relevance": 0.9167,
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+        "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+      ]
+    },
+    {
+      "claim_ref": "claim_0005",
+      "text": "RAG modifies the inputs to an existing pre-trained LLM (via retrieval and prompt augmentation) rather than updating its weights, so it operates without retraining the model for new knowledge and can incorporate updated information cost-efficiently.",
+      "confidence": 0.7,
+      "agent": "analyst",
+      "relevance": 0.9167,
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://www.geeksforgeeks.org/nlp/what-is-retrieval-augmented-generation-rag/",
+        "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+      ]
+    }
+  ],
+  "execution_seconds": 154.916,
+  "automatic_metrics": {
+    "total_sources": 82,
+    "fetched_sources": 4,
+    "fetch_success_rate": 0.0488,
+    "unique_domains": 47,
+    "domain_concentration": 0.0976,
+    "duplicate_url_rate": 0.0,
+    "sources_with_metadata": 0.9878,
+    "citation_marker_count": 51,
+    "resolved_citations": 51,
+    "citation_resolution_rate": 1.0,
+    "claims_with_sources": 5,
+    "total_claims": 5,
+    "claim_source_coverage": 1.0,
+    "extraction_failure_count": 0,
+    "search_query_count": 17
+  },
+  "rubric": {},
+  "notes": "Captured by EvaluationHarness.run_case. Rubric scores must be added by a human reviewer."
+}
