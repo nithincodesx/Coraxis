@@ -162,6 +162,19 @@ def build_llm(config: LLMConfig) -> LLM:
         "temperature": config.temperature,
         "max_tokens": config.max_tokens,
     }
+    if config.provider == "gemini":
+        # B10: google-genai defaults to API version ``v1``, and Google's v1
+        # endpoint rejects function calling ("Function calling is not
+        # enabled for api version v1") — so every tool-using Gemini run
+        # failed as shipped. Pin the native Gemini client to ``v1beta``,
+        # where function calling is enabled.
+        try:
+            from google.genai import types as _genai_types
+
+            http_options: object = _genai_types.HttpOptions(api_version="v1beta")
+        except (ImportError, AttributeError, TypeError):  # pragma: no cover
+            http_options = {"api_version": "v1beta"}
+        kwargs["client_params"] = {"http_options": http_options}
     if config.drop_params:
         kwargs["drop_params"] = True
     return GroqCompatibleLLM(**kwargs) if config.provider == "groq" else LLM(**kwargs)  # type: ignore[arg-type]

@@ -137,3 +137,26 @@ def test_custom_provider_llm_config_disables_drop_params() -> None:
 
     builtin = orchestrator._llm_config("researcher", row("groq"), {}, {})
     assert builtin.drop_params is True
+
+
+def test_gemini_llm_pins_v1beta_api_version() -> None:
+    """B10: Gemini runs must use API version v1beta (function calling).
+
+    google-genai defaults to ``v1``, whose endpoint rejects function
+    calling, so every tool-using Gemini run failed as shipped. The
+    factory must pin the native client's ``http_options.api_version``
+    to ``v1beta``.
+    """
+    from coraxis.services.llm.factory import LLMConfig, build_llm
+
+    llm = build_llm(
+        LLMConfig(
+            agent_slug="researcher",
+            provider="gemini",
+            model="gemini-2.5-flash",
+            api_key="fake-key-for-construction",
+        )
+    )
+    http_options = llm.client_params["http_options"]
+    api_version = getattr(http_options, "api_version", None) or http_options["api_version"]
+    assert api_version == "v1beta"
