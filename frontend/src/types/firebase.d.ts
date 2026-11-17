@@ -63,8 +63,15 @@ declare module "firebase/storage" {
   import { FirebaseApp } from "firebase/app";
 
   export class FirebaseStorage {}
+  /** Opaque handle to a storage location; only the SDK interprets it. */
+  export interface StorageReference {
+    readonly fullPath: string;
+  }
   export function getStorage(app?: FirebaseApp): FirebaseStorage;
-  export function ref(storage: FirebaseStorage, path: string): any;
-  export function uploadBytes(ref: any, file: File): Promise<{ ref: any }>;
-  export function getDownloadURL(ref: any): Promise<string>;
+  export function ref(storage: FirebaseStorage, path: string): StorageReference;
+  export function uploadBytes(
+    ref: StorageReference,
+    file: File,
+  ): Promise<{ ref: StorageReference }>;
+  export function getDownloadURL(ref: StorageReference): Promise<string>;
 }

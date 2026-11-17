@@ -317,9 +317,7 @@ async def test_drive_cleanup_runs_when_kickoff_errors() -> None:
         patch("coraxis.services.research.PageFetcher", return_value=mock_fetcher),
         patch("coraxis.services.research.EventRecorder", return_value=mock_recorder),
         patch.object(orchestrator, "_build_crew", return_value=mock_crew),
-        patch(
-            "coraxis.services.research.asyncio.wait_for", new=mock_crew.kickoff_async
-        ),
+        patch("coraxis.services.research.asyncio.wait_for", new=mock_crew.kickoff_async),
         patch("coraxis.services.research.CitationTracker", return_value=MagicMock()),
         pytest.raises(RuntimeError, match="crew died"),
     ):

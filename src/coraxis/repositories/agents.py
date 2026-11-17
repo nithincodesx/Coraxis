@@ -134,6 +134,7 @@ async def upsert_llm_settings(
     settings_row.temperature = payload.temperature
     settings_row.max_tokens = payload.max_tokens
     settings_row.base_url = payload.base_url
+    settings_row.custom_provider_nickname = payload.custom_provider_nickname.strip() or None
 
     await session.flush()
     return settings_row

@@ -18,6 +18,10 @@ class AgentLLMSettingsOut(ResponseModel):
     temperature: float
     max_tokens: int
     base_url: str = ""
+    #: Nickname of a stored custom provider (see ``/custom-providers``) that
+    #: supplies this agent's base URL, model and key when ``provider`` is
+    #: ``custom``. Empty when the agent's own fields apply.
+    custom_provider_nickname: str = ""
 
 
 class AgentLLMSettingsIn(RequestModel):
@@ -26,6 +30,7 @@ class AgentLLMSettingsIn(RequestModel):
     temperature: float = Field(default=0.2, ge=0.0, le=2.0)
     max_tokens: int = Field(default=4096, ge=64, le=200_000)
     base_url: str = Field(default="", max_length=255)
+    custom_provider_nickname: str = Field(default="", max_length=80)
 
 
 class AgentOut(ResponseModel):

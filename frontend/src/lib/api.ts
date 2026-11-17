@@ -28,6 +28,8 @@ import type {
   Claim,
   Credential,
   CredentialTestResult,
+  CustomProvider,
+  CustomProviderTestResult,
   ModelListResult,
   Health,
   MemoryRecord,
@@ -47,7 +49,6 @@ import type {
   Session,
   Team,
   TeamInput,
-  TokenPair,
   User,
 } from "./types";
 
@@ -210,7 +211,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       error.status === 401 &&
       !options.skipAuthRetry
     ) {
-      const refreshed = await refreshAccessToken(API_BASE);
+      const refreshed = await refreshAccessToken();
       if (refreshed) {
         return rawRequest<T>(path, options);
       }
@@ -225,27 +226,10 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 // ─── Auth ────────────────────────────────────────────────────────────
 
 export const authApi = {
-  register: (payload: { email: string; password: string; display_name?: string }) =>
-    request<TokenPair>("/auth/register", {
-      method: "POST",
-      body: payload,
-      skipAuthRetry: true,
-    }),
-
-  login: (payload: { email: string; password: string }) =>
-    request<TokenPair>("/auth/login", {
-      method: "POST",
-      body: payload,
-      skipAuthRetry: true,
-    }),
-
-  logout: (payload: { refresh_token?: string; all_sessions?: boolean } = {}) =>
-    request<{ deleted: boolean; id: string }>("/auth/logout", {
-      method: "POST",
-      body: payload,
-      skipAuthRetry: true,
-    }),
-
+  // Sign-in itself is handled by the Firebase SDK (see hooks/useAuth.ts);
+  // the local /auth/register|login|refresh endpoints exist for API clients
+  // without Firebase and are intentionally not wrapped here, because the
+  // session layer in this app stores Firebase ID tokens, not Coraxis JWTs.
   me: () => request<User>("/auth/me"),
 
   sessions: () => request<Session[]>("/auth/sessions"),
@@ -277,7 +261,7 @@ export const credentialsApi = {
       method: "DELETE",
     }),
 
-  /** Validate a key without storing it. */
+  /** Validate a key without storing it. Requires a signed-in session. */
   test: (payload: {
     provider: ProviderName;
     api_key?: string;
@@ -288,7 +272,6 @@ export const credentialsApi = {
       method: "POST",
       body: payload,
       timeoutMs: LONG_TIMEOUT_MS,
-      skipAuthRetry: true,
     }),
 
   /**
@@ -307,6 +290,45 @@ export const credentialsApi = {
 
   validateStored: (provider: ProviderName) =>
     request<Credential>(`/credentials/${provider}/validate`, {
+      method: "POST",
+      timeoutMs: LONG_TIMEOUT_MS,
+    }),
+};
+
+// ─── Custom providers (named OpenAI-compatible endpoints) ────────────
+
+export const customProvidersApi = {
+  list: () => request<CustomProvider[]>("/custom-providers"),
+
+  /** Store or replace a named provider. Omit `api_key` to keep the stored key. */
+  save: (payload: {
+    nickname: string;
+    base_url?: string;
+    model?: string;
+    api_key?: string;
+  }) => request<CustomProvider>("/custom-providers", { method: "PUT", body: payload }),
+
+  remove: (nickname: string) =>
+    request<{ deleted: boolean; id: string }>(
+      `/custom-providers/${encodeURIComponent(nickname)}`,
+      { method: "DELETE" },
+    ),
+
+  /** Validate a key/endpoint without storing it. Requires a session. */
+  test: (payload: {
+    nickname: string;
+    base_url: string;
+    model?: string;
+    api_key?: string;
+  }) =>
+    request<CustomProviderTestResult>("/custom-providers/test", {
+      method: "POST",
+      body: payload,
+      timeoutMs: LONG_TIMEOUT_MS,
+    }),
+
+  validateStored: (nickname: string) =>
+    request<CustomProvider>(`/custom-providers/${encodeURIComponent(nickname)}/validate`, {
       method: "POST",
       timeoutMs: LONG_TIMEOUT_MS,
     }),
@@ -414,6 +436,7 @@ export const systemApi = {
 export const api = {
   auth: authApi,
   credentials: credentialsApi,
+  customProviders: customProvidersApi,
   agents: agentsApi,
   teams: teamsApi,
   runs: runsApi,
@@ -425,8 +448,13 @@ export const api = {
  * Headers for a raw `fetch` outside the client — currently only the SSE
  * stream, which needs to read the response body incrementally.
  */
-export function authHeaders(extra: Record<string, string> = {}): Record<string, string> {
-  const token = getAccessToken();
+export async function authHeaders(
+  extra: Record<string, string> = {},
+): Promise<Record<string, string>> {
+  // getAccessToken is async (it may refresh the Firebase ID token). This
+  // helper used to be synchronous, so it stringified the Promise itself —
+  // every stream request went out as `Bearer [object Promise]` and 401'd.
+  const token = await getAccessToken();
   return {
     Accept: "text/event-stream",
     ...(token ? { Authorization: `Bearer ${token}` } : {}),

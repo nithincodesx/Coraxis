@@ -76,15 +76,6 @@ export interface User {
   last_login_at?: string | null;
 }
 
-export interface TokenPair {
-  access_token: string;
-  refresh_token: string;
-  token_type: string;
-  expires_at: string;
-  expires_in: number;
-  user: User;
-}
-
 export interface Session {
   id: string;
   created_at: string;
@@ -155,6 +146,32 @@ export interface AgentLLMSettings {
   temperature: number;
   max_tokens: number;
   base_url: string;
+  /** Nickname of a stored custom provider that supplies this agent's
+   *  endpoint, model and key when `provider` is `custom`. Empty = none. */
+  custom_provider_nickname: string;
+}
+
+/** A named OpenAI-compatible endpoint stored via `/custom-providers`. */
+export interface CustomProvider {
+  id: string;
+  nickname: string;
+  base_url: string;
+  model: string;
+  key_hint: string;
+  is_active: boolean;
+  has_key: boolean;
+  last_validated_at?: string | null;
+  last_validation_error: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CustomProviderTestResult {
+  valid: boolean;
+  nickname: string;
+  model: string;
+  error: string;
+  latency_ms: number;
 }
 
 export interface Agent {

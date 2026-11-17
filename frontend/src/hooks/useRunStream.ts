@@ -120,7 +120,7 @@ export function useRunStream(
 
       try {
         const response = await fetch(runsApi.streamPath(runId), {
-          headers: authHeaders(
+          headers: await authHeaders(
             // Resume exactly where the last connection stopped.
             cursorRef.current > 0 ? { "Last-Event-ID": String(cursorRef.current) } : {},
           ),
@@ -131,7 +131,7 @@ export function useRunStream(
         if (response.status === 401) {
           // The stream cannot retry through the client, so refresh here and let
           // the loop reconnect with the new token.
-          const refreshed = await refreshAccessToken("/api/v1");
+          const refreshed = await refreshAccessToken();
           if (!refreshed) {
             clearSession();
             setStatus("error");

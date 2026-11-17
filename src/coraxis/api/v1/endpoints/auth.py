@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Request, Response, status
 
-from coraxis.api.deps import CurrentUser, DbSession, FirebaseUserDep, client_metadata
+from coraxis.api.deps import CurrentUser, DbSession, client_metadata
 from coraxis.core.errors import AuthenticationError
 from coraxis.core.security import TokenType, decode_token
 from coraxis.schemas.auth import (
@@ -87,7 +87,6 @@ async def sessions(
     request: Request,
     user: CurrentUser,
     session: DbSession,
-    firebase_user: FirebaseUserDep,
 ) -> list[SessionOut]:
     """List the caller's active sessions, flagging the one this request uses.
 
@@ -109,6 +108,10 @@ async def sessions(
 
 
 @router.get("/verify", summary="Verify a token", status_code=status.HTTP_204_NO_CONTENT)
-async def verify(_firebase_user: FirebaseUserDep) -> Response:
-    """Cheap validity probe for the frontend's session check."""
+async def verify(_user: CurrentUser) -> Response:
+    """Cheap validity probe for the frontend's session check.
+
+    Accepts either token kind (Firebase ID token or Coraxis access token),
+    like every other protected route.
+    """
     return Response(status_code=status.HTTP_204_NO_CONTENT)

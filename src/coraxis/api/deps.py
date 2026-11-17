@@ -11,12 +11,16 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from coraxis.core.errors import AuthenticationError, AuthorizationError
 from coraxis.core.firebase import FirebaseUser, get_or_create_user, verify_id_token
 from coraxis.core.logging import user_id_var
+from coraxis.core.security import TokenType, decode_token
 from coraxis.db.models import User
 from coraxis.db.session import get_db
+from coraxis.repositories import users as user_repo
 
 #: ``auto_error=False`` so a missing header produces our problem+json envelope
 #: rather than Starlette's bare 403.
-bearer_scheme = HTTPBearer(auto_error=False, description="Firebase ID token")
+bearer_scheme = HTTPBearer(
+    auto_error=False, description="Firebase ID token or Coraxis access token"
+)
 
 DbSession = Annotated[AsyncSession, Depends(get_db)]
 
@@ -36,13 +40,68 @@ async def get_firebase_user(
 FirebaseUserDep = Annotated[FirebaseUser, Depends(get_firebase_user)]
 
 
-async def get_current_user(session: DbSession, firebase_user: FirebaseUserDep) -> User:
-    """Resolve the authenticated Coraxis user from a Firebase ID token.
+async def _user_from_coraxis_token(session: AsyncSession, token: str) -> User | None:
+    """Resolve a user from a Coraxis-issued access token, or ``None``.
+
+    The local auth endpoints (``/auth/register``, ``/auth/login``,
+    ``/auth/refresh``) issue JWT access tokens signed with
+    ``CORAXIS_SECRET_KEY``. Those tokens must be accepted here — before this
+    fallback existed they were issued successfully and then rejected by every
+    protected route, because only Firebase ID tokens were verified.
+    """
+    try:
+        claims = decode_token(token, expected_type=TokenType.ACCESS)
+    except AuthenticationError:
+        return None
+
+    user = await user_repo.get_by_id(session, claims.sub)
+    if user is None or claims.ver != user.token_version:
+        return None
+    return user
+
+
+async def get_current_user(
+    session: DbSession,
+    credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer_scheme)],
+) -> User:
+    """Resolve the authenticated Coraxis user from the bearer token.
+
+    Two token kinds are accepted:
+
+    * a **Firebase ID token** (the frontend's sign-in flow) — verified via
+      Firebase and mapped to a Coraxis account, created on first sign-in
+      (the first account becomes the instance administrator);
+    * a **Coraxis access token** issued by the local ``/auth/*`` endpoints —
+      verified against ``CORAXIS_SECRET_KEY`` and its ``token_version``.
 
     Re-reads the user on every request so that deactivation takes effect
-    immediately. Creates a Coraxis account on first sign-in (the first account
-    becomes the instance administrator).
+    immediately.
     """
+    if credentials is None or not credentials.credentials:
+        raise AuthenticationError(
+            "Provide a bearer token in the Authorization header.",
+            extra={"hint": "Sign in with GitHub or email on the frontend."},
+        )
+
+    token = credentials.credentials
+    firebase_user: FirebaseUser | None = None
+    firebase_error: AuthenticationError | None = None
+    try:
+        firebase_user = verify_id_token(token)
+    except AuthenticationError as exc:
+        firebase_error = exc
+
+    if firebase_user is None:
+        # Not a (valid) Firebase token — try a Coraxis-issued access token
+        # before giving up, and surface the Firebase error if neither works.
+        user = await _user_from_coraxis_token(session, token)
+        if user is None:
+            raise firebase_error  # type: ignore[misc]
+        if not user.is_active:
+            raise AuthorizationError("This account is disabled.")
+        user_id_var.set(user.id)
+        return user
+
     user = await get_or_create_user(session, firebase_user)
     if not user.is_active:
         raise AuthorizationError("This account is disabled.")

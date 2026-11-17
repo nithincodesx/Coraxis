@@ -143,11 +143,15 @@ async def delete_credential(
     response_model=CredentialTestResult,
     summary="Validate a key without storing it",
 )
-async def test_credential(payload: CredentialTestRequest) -> CredentialTestResult:
+async def test_credential(
+    payload: CredentialTestRequest, user: CurrentUser
+) -> CredentialTestResult:
     """Make one minimal call to confirm a key works.
 
     Deliberately does not require the key to be stored first, so the settings
-    screen can validate before saving.
+    screen can validate before saving. Authentication *is* required: the
+    caller supplies a provider base URL, so an unauthenticated version of
+    this endpoint would be an open SSRF/oracle proxy to arbitrary hosts.
     """
     result = await validate_provider_key(
         payload.provider,

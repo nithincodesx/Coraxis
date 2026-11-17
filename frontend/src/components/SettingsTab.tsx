@@ -48,7 +48,13 @@ import { useAnimations } from "../hooks/useAnimations";
 import { useAsyncData } from "../hooks/useAsyncData";
 import { useTheme } from "../hooks/useTheme";
 import { formatTimestamp } from "../lib/derive";
-import type { Credential, ProviderName, ProviderStatus, Session } from "../lib/types";
+import type {
+  Credential,
+  CustomProvider,
+  ProviderName,
+  ProviderStatus,
+  Session,
+} from "../lib/types";
 
 interface Props {
   userEmail: string;
@@ -511,6 +517,9 @@ export default function SettingsTab({
         )}
       </Section>
 
+      {/* ── Named custom providers ──────────────────────────────────── */}
+      <CustomProvidersSection onError={onError} onSuccess={onSuccess} />
+
       {/* ── Account ───────────────────────────────────────────────────── */}
       <Section label="Account" title="Access" className="mt-14">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6">
@@ -556,5 +565,213 @@ export default function SettingsTab({
         </div>
       </Section>
     </div>
+  );
+}
+
+/**
+ * Named custom providers: several OpenAI-compatible endpoints, each with its
+ * own nickname, base URL, model and encrypted key. An agent whose provider is
+ * `custom` can reference one by nickname (Agents tab → Model settings), and
+ * the run then uses that endpoint's URL, model and key.
+ */
+function CustomProvidersSection({
+  onError,
+  onSuccess,
+}: {
+  onError: (message: string) => void;
+  onSuccess: (message: string) => void;
+}) {
+  const providers = useAsyncData<CustomProvider[]>(() => api.customProviders.list());
+  const [nickname, setNickname] = useState("");
+  const [baseUrl, setBaseUrl] = useState("");
+  const [model, setModel] = useState("");
+  const [apiKey, setApiKey] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [testResult, setTestResult] = useState<{ valid: boolean; error: string } | null>(null);
+
+  const save = async () => {
+    setBusy(true);
+    try {
+      await api.customProviders.save({
+        nickname: nickname.trim(),
+        base_url: baseUrl.trim(),
+        model: model.trim(),
+        api_key: apiKey || undefined,
+      });
+      onSuccess("Custom provider saved.");
+      setApiKey("");
+      setTestResult(null);
+      await providers.refetch();
+    } catch (caught) {
+      onError(caught instanceof ApiError ? caught.message : "Could not save the provider.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const test = async () => {
+    setBusy(true);
+    try {
+      const result = await api.customProviders.test({
+        nickname: nickname.trim() || "test",
+        base_url: baseUrl.trim(),
+        model: model.trim(),
+        api_key: apiKey || undefined,
+      });
+      setTestResult({ valid: result.valid, error: result.error });
+    } catch (caught) {
+      setTestResult({
+        valid: false,
+        error: caught instanceof ApiError ? caught.message : "Validation failed.",
+      });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const remove = async (name: string) => {
+    setBusy(true);
+    try {
+      await api.customProviders.remove(name);
+      onSuccess("Custom provider removed.");
+      await providers.refetch();
+    } catch (caught) {
+      onError(caught instanceof ApiError ? caught.message : "Could not remove the provider.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const edit = (provider: CustomProvider) => {
+    setNickname(provider.nickname);
+    setBaseUrl(provider.base_url);
+    setModel(provider.model);
+    setApiKey("");
+    setTestResult(null);
+  };
+
+  return (
+    <Section label="Providers" title="Custom Providers" className="mt-14">
+      <p
+        className="t-body mb-6 max-w-2xl"
+        style={{ fontSize: "0.8125rem", color: "var(--text-muted)" }}
+      >
+        Keep several OpenAI-compatible endpoints side by side — OpenRouter, Together, a local
+        vLLM — each under a nickname. Reference the nickname from an agent&apos;s model settings
+        (provider <code className="t-meta">custom</code>) to run that agent on this endpoint.
+        Keys are encrypted at rest and never returned.
+      </p>
+
+      {(providers.data ?? []).map((provider) => (
+        <div
+          key={provider.id}
+          className="flex flex-wrap items-center justify-between gap-3 py-3"
+          style={{ borderBottom: "1px solid var(--border-subtle)" }}
+        >
+          <div className="min-w-0">
+            <p className="t-h3">{provider.nickname}</p>
+            <p className="t-meta mt-0.5 truncate" style={{ color: "var(--text-faint)" }}>
+              {provider.base_url}
+              {provider.model ? ` · ${provider.model}` : ""}
+              {provider.key_hint ? ` · ····${provider.key_hint}` : ""}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="ghost" disabled={busy} onClick={() => edit(provider)}>
+              Edit
+            </Button>
+            <IconButton
+              label={`Remove ${provider.nickname}`}
+              icon={<Trash2 size={12} />}
+              disabled={busy}
+              onClick={() => void remove(provider.nickname)}
+              style={{ color: "var(--danger)" }}
+            />
+          </div>
+        </div>
+      ))}
+
+      <div
+        className="mt-5 flex flex-col gap-4 rounded-xl p-4"
+        style={{ background: "var(--surface-hover)" }}
+      >
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Nickname" htmlFor="cp-nickname">
+            <Input
+              id="cp-nickname"
+              mono
+              value={nickname}
+              onChange={(event) => setNickname(event.target.value)}
+              placeholder="openrouter"
+            />
+          </Field>
+          <Field label="Model" htmlFor="cp-model">
+            <Input
+              id="cp-model"
+              mono
+              value={model}
+              onChange={(event) => setModel(event.target.value)}
+              placeholder="model id"
+            />
+          </Field>
+        </div>
+        <Field label="Base URL" htmlFor="cp-base-url">
+          <Input
+            id="cp-base-url"
+            mono
+            value={baseUrl}
+            onChange={(event) => setBaseUrl(event.target.value)}
+            placeholder="https://openrouter.ai/api/v1"
+          />
+        </Field>
+        <Field label="API key" htmlFor="cp-key">
+          <Input
+            id="cp-key"
+            mono
+            type="password"
+            value={apiKey}
+            onChange={(event) => setApiKey(event.target.value)}
+            placeholder="Leave empty to keep the stored key when editing"
+          />
+        </Field>
+
+        {testResult && (
+          <div
+            className="flex items-start gap-2 rounded-lg px-3 py-2.5 text-[11.5px]"
+            style={{
+              background: testResult.valid
+                ? "color-mix(in srgb, var(--success) 8%, transparent)"
+                : "color-mix(in srgb, var(--danger) 8%, transparent)",
+              color: testResult.valid ? "var(--success)" : "var(--danger)",
+            }}
+          >
+            {testResult.valid ? <CheckCircle size={12} /> : <AlertCircle size={12} />}
+            <span>
+              {testResult.valid ? "Endpoint accepted the key." : testResult.error || "Rejected."}
+            </span>
+          </div>
+        )}
+
+        <div className="flex items-center gap-2">
+          <Button
+            variant="primary"
+            size="sm"
+            disabled={busy || !nickname.trim()}
+            onClick={() => void save()}
+            icon={busy ? <Loader2 size={11} className="animate-spin" /> : undefined}
+          >
+            Save provider
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={busy || !baseUrl.trim()}
+            onClick={() => void test()}
+          >
+            Test before saving
+          </Button>
+        </div>
+      </div>
+    </Section>
   );
 }

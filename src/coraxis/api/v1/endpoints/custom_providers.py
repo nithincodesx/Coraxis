@@ -106,10 +106,13 @@ async def delete_custom_provider(
 )
 async def test_custom_provider(
     payload: CustomProviderTestRequest,
+    user: CurrentUser,
 ) -> CustomProviderTestResult:
     """Make one minimal call to confirm a custom provider works.
 
     Deliberately does not require the provider to be stored first.
+    Authentication *is* required: the caller supplies the base URL, so an
+    unauthenticated version would be an open SSRF/oracle proxy.
     """
     if not payload.base_url.strip():
         return CustomProviderTestResult(

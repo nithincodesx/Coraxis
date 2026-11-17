@@ -79,7 +79,7 @@ export function clearSession(): void {
  * Returns `null` when there is no signed-in user. The caller treats `null` as
  * "sign in again".
  */
-export function refreshAccessToken(_basePath: string): Promise<string | null> {
+export function refreshAccessToken(): Promise<string | null> {
   return getIdToken(true);
 }
 

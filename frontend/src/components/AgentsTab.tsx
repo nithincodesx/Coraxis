@@ -291,6 +291,7 @@ function LLMEditor({
   const [model, setModel] = useState(agent.llm.model);
   const [temperature, setTemperature] = useState(agent.llm.temperature);
   const [maxTokens, setMaxTokens] = useState(agent.llm.max_tokens);
+  const [nickname, setNickname] = useState(agent.llm.custom_provider_nickname ?? "");
 
   return (
     <div
@@ -340,6 +341,22 @@ function LLMEditor({
             />
           </Field>
 
+          {provider === "custom" && (
+            <Field
+              label="Custom provider nickname"
+              htmlFor="custom_provider_nickname"
+              hint="Optional. Names a provider saved under Settings → Custom Providers; its base URL, model and key then supply this agent."
+            >
+              <Input
+                id="custom_provider_nickname"
+                mono
+                value={nickname}
+                onChange={(event) => setNickname(event.target.value)}
+                placeholder="e.g. openrouter"
+              />
+            </Field>
+          )}
+
           <div className="grid grid-cols-2 gap-4">
             <Field label="Temperature" htmlFor="temperature">
               <Input
@@ -374,7 +391,15 @@ function LLMEditor({
           <Button
             variant="primary"
             disabled={busy}
-            onClick={() => onSave({ provider, model, temperature, max_tokens: maxTokens })}
+            onClick={() =>
+              onSave({
+                provider,
+                model,
+                temperature,
+                max_tokens: maxTokens,
+                custom_provider_nickname: provider === "custom" ? nickname.trim() : "",
+              })
+            }
             icon={busy ? <Loader2 size={13} className="animate-spin" /> : <Bot size={13} />}
           >
             Save

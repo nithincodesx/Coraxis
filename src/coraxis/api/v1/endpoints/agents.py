@@ -40,6 +40,7 @@ def _llm_out(settings_row: Any | None) -> AgentLLMSettingsOut:
             temperature=0.2,
             max_tokens=4096,
             base_url="",
+            custom_provider_nickname="",
         )
     return AgentLLMSettingsOut(
         provider=settings_row.provider,
@@ -47,6 +48,7 @@ def _llm_out(settings_row: Any | None) -> AgentLLMSettingsOut:
         temperature=settings_row.temperature,
         max_tokens=settings_row.max_tokens,
         base_url=settings_row.base_url,
+        custom_provider_nickname=settings_row.custom_provider_nickname or "",
     )
 
 
@@ -196,7 +198,9 @@ async def delete_agent(slug: str, user: CurrentUser, session: DbSession) -> Dele
     response_model=AgentLLMSettingsOut,
     summary="Suggested model for an agent",
 )
-async def agent_defaults(slug: str, provider: str = "groq") -> AgentLLMSettingsOut:
+async def agent_defaults(
+    slug: str, user: CurrentUser, provider: str = "groq"
+) -> AgentLLMSettingsOut:
     """The default model for a provider, so the UI can pre-fill the form."""
     return AgentLLMSettingsOut(
         provider=provider,  # type: ignore[arg-type]

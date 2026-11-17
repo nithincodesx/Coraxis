@@ -90,7 +90,14 @@ def test_host_is_allowed_blocks_multicast_and_reserved() -> None:
     assert _host_is_allowed("0.0.0.0") is False
 
 
-def test_host_is_allowed_allows_public_hosts() -> None:
+def test_host_is_allowed_allows_public_hosts(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Stub DNS: this test must not depend on how the host running it resolves
+    # example.com (some sandboxes/proxies resolve it to a benchmarking-range
+    # address that the SSRF guard correctly treats as private).
+    monkeypatch.setattr(
+        "coraxis.agents.tools.fetch.socket.getaddrinfo",
+        lambda *a, **k: [(2, 1, 6, "", ("93.184.216.34", 443))],
+    )
     assert _host_is_allowed("example.com") is True
     assert _host_is_allowed("example.org") is True
 
@@ -107,7 +114,11 @@ def test_url_is_fetchable_blocks_bad_hosts() -> None:
     assert _url_is_fetchable("http://169.254.169.254/") is not None
 
 
-def test_url_is_fetchable_allows_https() -> None:
+def test_url_is_fetchable_allows_https(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        "coraxis.agents.tools.fetch.socket.getaddrinfo",
+        lambda *a, **k: [(2, 1, 6, "", ("93.184.216.34", 443))],
+    )
     assert _url_is_fetchable("https://example.com/page") is None
 
 
@@ -417,6 +428,10 @@ def test_max_redirects_enforced(monkeypatch: pytest.MonkeyPatch) -> None:
     Uses a redirect loop (A → B → A → ...) so the chain never terminates
     naturally, forcing the redirect count limit to kick in.
     """
+    monkeypatch.setattr(
+        "coraxis.agents.tools.fetch.socket.getaddrinfo",
+        lambda *a, **k: [(2, 1, 6, "", ("93.184.216.34", 443))],
+    )
     fetcher = PageFetcher(timeout=5.0)
 
     responses = {
