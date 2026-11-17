@@ -467,6 +467,11 @@ class ResearchOrchestrator:
             temperature=temperature,
             max_tokens=max_tokens,
             key_source=source,
+            # Custom OpenAI-compatible providers (e.g. Inception/Mercury,
+            # OpenRouter) reject the LiteLLM-only ``drop_params`` kwarg when
+            # CrewAI's native provider forwards it to the OpenAI SDK, so
+            # production runs must disable it for the custom branch (B9).
+            drop_params=(provider != "custom"),
         )
 
     # ── Execution ────────────────────────────────────────────────────

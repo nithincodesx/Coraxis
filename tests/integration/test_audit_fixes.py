@@ -106,3 +106,34 @@ async def test_agent_custom_provider_nickname_round_trip(
     fetched = await auth_client.get("/api/v1/agents/researcher")
     assert fetched.status_code == 200, fetched.text
     assert fetched.json()["llm"]["custom_provider_nickname"] == "my-endpoint"
+
+
+def test_custom_provider_llm_config_disables_drop_params() -> None:
+    """B9: production custom-provider runs must not forward ``drop_params``.
+
+    CrewAI's native OpenAI provider passes ``drop_params`` straight into
+    the OpenAI SDK, which rejects it — every custom-provider run died at
+    the first LLM call. The resolver must set it False for ``custom``
+    while keeping the default for built-in providers.
+    """
+    from types import SimpleNamespace
+
+    from coraxis.services.research import ResearchOrchestrator
+
+    orchestrator = object.__new__(ResearchOrchestrator)
+
+    def row(provider: str) -> SimpleNamespace:
+        return SimpleNamespace(
+            provider=provider,
+            model="some-model",
+            base_url="https://example.com/v1",
+            temperature=0.2,
+            max_tokens=128,
+            custom_provider_nickname="",
+        )
+
+    custom = orchestrator._llm_config("researcher", row("custom"), {}, {})
+    assert custom.drop_params is False
+
+    builtin = orchestrator._llm_config("researcher", row("groq"), {}, {})
+    assert builtin.drop_params is True
