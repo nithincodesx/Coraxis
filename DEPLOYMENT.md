@@ -12,11 +12,23 @@ Vercel-only state) leaves sign-in and every API call broken:
   `/auth/login`). GitHub sign-in is the only feature that requires
   Firebase.
 
-## 1. Backend API (Render, Fly.io, a VPS — anywhere Docker runs)
+## 1. Backend API
 
-This repo ships a `Dockerfile` and a `render.yaml` blueprint.
+**Current choice: Hugging Face Spaces (Docker)** — free, no card, 16 GB RAM.
+Render's free tier (512 MB RAM) cannot run this stack (PyTorch +
+sentence-transformers need ~2 GB+), and Cloud Run requires a billing
+account. The repo `Dockerfile` is Spaces-compatible (uid 1000, port 7860,
+editable install). Create a Docker Space, upload `Dockerfile`,
+`pyproject.toml`, `requirements.txt`, `alembic.ini`, `src/` and the Space
+card at `deploy/huggingface/README.md` (as the Space's `README.md`), then
+set the variables below as Space **secrets**. The backend URL is then
+`https://<hf-username>-coraxis-api.hf.space`. Note: free Spaces sleep
+after ~48 h idle and their disk is ephemeral — use a Postgres
+`CORAXIS_DATABASE_URL` (e.g. Neon free tier) for durable accounts.
 
-On Render: **New → Blueprint → connect this repo**. Then set:
+Also supported: Render / Fly.io / a VPS — anywhere Docker runs. This repo
+ships a `render.yaml` blueprint for Render (use a paid instance with
+≥2 GB RAM). On Render: **New → Blueprint → connect this repo**. Then set:
 
 | Variable | Value |
 |---|---|
