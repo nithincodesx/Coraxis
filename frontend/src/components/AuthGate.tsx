@@ -25,7 +25,7 @@ interface Props {
 }
 
 export default function AuthGate({ onAuthenticated }: Props) {
-  const { login, loginWithGitHub, register } = useAuth();
+  const { login, loginWithGitHub, register, firebaseConfigured } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,6 +78,8 @@ export default function AuthGate({ onAuthenticated }: Props) {
           }
           setFieldErrors(mapped);
         }
+      } else if (caught instanceof Error && caught.message) {
+        setError(caught.message);
       } else {
         setError("Something went wrong. Try again.");
       }
@@ -112,7 +114,9 @@ export default function AuthGate({ onAuthenticated }: Props) {
           <p className="t-body mt-2" style={{ color: "var(--text-muted)", fontSize: "0.8125rem" }}>
             {isRegister
               ? "The first account created on an instance becomes its administrator."
-              : "Sign in with GitHub, or with your email and password."}
+              : firebaseConfigured
+                ? "Sign in with GitHub, or with your email and password."
+                : "Sign in with your email and password."}
           </p>
 
           {error && (
@@ -130,16 +134,31 @@ export default function AuthGate({ onAuthenticated }: Props) {
             </div>
           )}
 
-          {/* ── Social sign-in ── */}
-          <div className="mt-6">
-            <Button
-              onClick={handleProviderSignIn}
-              disabled={busy}
-              className="w-full"
+          {/* ── Social sign-in (only when Firebase is configured) ── */}
+          {firebaseConfigured ? (
+            <div className="mt-6">
+              <Button
+                onClick={handleProviderSignIn}
+                disabled={busy}
+                className="w-full"
+              >
+                {busy ? "Working…" : "Sign in with GitHub"}
+              </Button>
+            </div>
+          ) : (
+            <div
+              className="mt-6 rounded-xl px-3.5 py-3 text-[12px]"
+              style={{
+                border: "1px solid var(--border, rgba(0,0,0,0.12))",
+                color: "var(--text-muted)",
+                lineHeight: 1.6,
+              }}
             >
-              {busy ? "Working…" : "Sign in with GitHub"}
-            </Button>
-          </div>
+              GitHub sign-in is off on this deployment (Firebase is not
+              configured). Email + password works — accounts are created on
+              this Coraxis server itself.
+            </div>
+          )}
 
           <div className="mt-5 relative">
             <Rule className="absolute inset-0 flex-1" />

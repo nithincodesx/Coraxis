@@ -1,0 +1,22 @@
+# Render blueprint for the Coraxis backend API.
+# The frontend deploys separately on Vercel (root directory: frontend) and
+# must set CORAXIS_BACKEND_URL to this service's public URL at build time.
+# Set the secret values in the Render dashboard — never commit them.
+services:
+  - type: web
+    name: coraxis-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: CORAXIS_ENV
+        value: production
+      - key: CORAXIS_SECRET_KEY
+        generateValue: true
+      - key: CORAXIS_ALLOW_REGISTRATION
+        value: "true" # set to "false" after creating your account
+      - key: CORAXIS_CORS_ORIGINS
+        sync: false # e.g. https://your-app.vercel.app
+      - key: CORAXIS_FIREBASE_PROJECT_ID
+        sync: false # optional; only needed for Firebase/GitHub sign-in

@@ -48,6 +48,7 @@ import type {
   RunStatus,
   Session,
   Team,
+  TokenPair,
   TeamInput,
   User,
 } from "./types";
@@ -226,10 +227,22 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 // ─── Auth ────────────────────────────────────────────────────────────
 
 export const authApi = {
-  // Sign-in itself is handled by the Firebase SDK (see hooks/useAuth.ts);
-  // the local /auth/register|login|refresh endpoints exist for API clients
-  // without Firebase and are intentionally not wrapped here, because the
-  // session layer in this app stores Firebase ID tokens, not Coraxis JWTs.
+  // Firebase sign-in (when configured) is handled by the Firebase SDK (see
+  // hooks/useAuth.ts). These local endpoints are the fallback used when
+  // Firebase is not configured on a deployment: they return a Coraxis
+  // access/refresh token pair, which lib/session.ts stores and rotates.
+  register: (payload: { email: string; password: string; display_name?: string }) =>
+    request<TokenPair>("/auth/register", { method: "POST", body: payload, skipAuthRetry: true }),
+
+  login: (payload: { email: string; password: string }) =>
+    request<TokenPair>("/auth/login", { method: "POST", body: payload, skipAuthRetry: true }),
+
+  logoutLocal: (refreshToken: string) =>
+    request<{ deleted: boolean; id: string }>("/auth/logout", {
+      method: "POST",
+      body: { refresh_token: refreshToken },
+    }),
+
   me: () => request<User>("/auth/me"),
 
   sessions: () => request<Session[]>("/auth/sessions"),

@@ -63,6 +63,9 @@ Imports point one way only: `api → services → repositories → db`. The `age
 
 ## Quick start
 
+> Deploying to production (Vercel + a backend host)? Follow [DEPLOYMENT.md](DEPLOYMENT.md) — Coraxis is two services, and a frontend-only deploy leaves sign-in and the API broken.
+
+
 Requires **Python 3.11+** and **Node 18+**.
 
 ### 1. Backend
